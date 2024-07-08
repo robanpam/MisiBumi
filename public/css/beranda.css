@@ -24,7 +24,7 @@
 }
 
 .section2{
-    height: calc(20vh + 30vw)
+    height: calc(25vh + 30vw)
 }
 
 .section3{
@@ -39,4 +39,22 @@
 
 .carousel-item {
     transition: opacity 0.5s ease-in-out;
+}
+
+#map {
+    /* position: relative; */
+    /* width: 100%; */
+    height: calc(10vh + 25vw);
+    aspect-ratio: 4/2;
+    /* background: url('/asset/beranda/indonesia_map.png') no-repeat center center;
+    background-size: cover; */
+}
+.marker {
+    position: absolute;
+    top: 0;
+    width: 24px;
+    height: 24px;
+    background-color: red;
+    border-radius: 50%;
+    cursor: move;
 }

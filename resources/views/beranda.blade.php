@@ -2,6 +2,15 @@
 
 @section('title', 'Beranda')
 
+@section('more_files')
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+@endsection
+
 @section('css', asset('css/beranda.css'))
 
 @section('content')
@@ -51,7 +60,7 @@
     <div class="row section2">
         <div class="col-12 d-flex flex-column align-items-center justify-content-center">
             <h1>Titik Penghijauan di Indonesia</h1>
-            <div class="wall"></div>
+            <div id="map"></div>
         </div>
     </div>
     <div class="row section2">
@@ -93,4 +102,24 @@
         @endfor
     </div>
 </div>
+@endsection
+
+@section('js')
+    var map = L.map('map', {
+        center: [-2.5489, 118.0149], // Center of Indonesia
+        zoom: 5,
+        maxBounds: [
+            [-11, 94],  // Southwest coordinates
+            [6, 141]    // Northeast coordinates
+        ]
+    });
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', 
+    {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'})
+    .addTo(map);
+
+    L.marker([-7.652, 110.411],{
+        title: "Tes 1",
+
+    }).addTo(map);
 @endsection
