@@ -1,0 +1,21 @@
+.profile{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50px;
+    background-color: gray;
+}
+
+.section{
+    height: 60vh;
+}
+
+.tabs{
+    border-radius: 10px;
+    /* padding-top: 6px; */
+    /* padding-bottom: 0.1rem; */
+}
+
+.active-tab{
+    background-color: #114232;
+    color: white;
+}
