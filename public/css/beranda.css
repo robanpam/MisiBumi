@@ -9,3 +9,17 @@
     height: 5px;
     background-color: green;
 }
+
+.section{
+    height: 70vh;
+}
+
+.section2{
+    height: 90vh;
+}
+
+.brand{
+    width: 40rem;
+    height: 10rem;
+    background-color: gray;
+}
