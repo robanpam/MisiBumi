@@ -38,27 +38,35 @@
         </div>
         <div class="row">
             <div class="col-3">
-                <ul class="list-unstyled">
-                    <li class="nav-item tabs py-2 ps-2 active-tab">Histori Misi</li>
-                    <li class="nav-item tabs py-2 ps-2">Riwayat Kampanye</li>
-                    <li class="nav-item tabs py-2 ps-2">Pengaturan</li>
-                    <li class="nav-item tabs py-2 ps-2">Keluar</li>
+                <ul class="list-unstyled ">
+                    <a href="" class="text-decoration-none text-dark">
+                        <li class="nav-item tabs py-2 ps-2 @yield('active_history')">
+                            <i class="fa-solid fa-clock"></i>
+                            Histori Misi
+                        </li>
+                    </a>
+                    <a href="" class="text-decoration-none text-dark">
+                        <li class="nav-item tabs py-2 ps-2 @yield('active_kampanye')">
+                            <i class="fa-solid fa-users"></i>
+                            Riwayat Kampanye
+                        </li>
+                    </a>
+                    <a href="" class="text-decoration-none text-dark">
+                        <li class="nav-item tabs py-2 ps-2 @yield('active_pengaturan')">
+                            <i class="fa-solid fa-gear"></i>
+                            Pengaturan
+                        </li>
+                    </a>
+                    <a href="" class="text-decoration-none text-dark">
+                        <li class="nav-item tabs py-2 ps-2 @yield('active_keluar')">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            Keluar
+                        </li>
+                    </a>
                 </ul>
-                <!-- <div class="tabs active-tab d-flex align-items-center">
-                    <p>Histori Misi</p>
-                </div>
-                <div class="tabs">
-                    <p>Riwayat Kampanye</p>
-                </div>
-                <div class="tabs">
-                    <p>Donasi</p>
-                </div>
-                <div class="tabs">
-                    <p>Pengaturan</p>
-                </div>
-                <div class="tabs">
-                    <p>Keluar</p>
-                </div> -->
+            </div>
+            <div class="col-9">
+                @yield('ins')
             </div>
         </div>
     </div>

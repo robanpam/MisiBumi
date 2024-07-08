@@ -1,6 +1,6 @@
-.carousel{
+.wall{
     width: 100%;
-    aspect-ratio: 3/1;
+    aspect-ratio: 2.5/1;
     background-color: beige;
 }
 
@@ -8,18 +8,35 @@
     width: 70px;
     height: 5px;
     background-color: green;
+    transition: width 0.3s ease
+}
+
+.stats:hover{
+    transition: width 0.3s ease
+}
+
+.stats:hover .green-line{
+    width: 70%;
 }
 
 .section{
-    height: 70vh;
+    height: calc(20vh + 25vw);
 }
 
 .section2{
-    height: 90vh;
+    height: calc(20vh + 30vw)
+}
+
+.section3{
+    height: calc(20vh + 40vw)
 }
 
 .brand{
     width: 40rem;
     height: 10rem;
     background-color: gray;
+}
+
+.carousel-item {
+    transition: opacity 0.5s ease-in-out;
 }

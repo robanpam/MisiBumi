@@ -1,6 +1,7 @@
 html, body{
     height: 100vh;
     margin: 0;
+    /* box-sizing: border-box; */
 }
 
 .wrapper {
@@ -9,9 +10,9 @@ html, body{
     min-height: 100vh;
 }
 
-.main{
+/* .main{
     flex: 1;
-}
+} */
 
 .color{
     color: #114232;

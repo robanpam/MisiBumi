@@ -11,9 +11,7 @@
 <body>
     <div class="wrapper">
         @include('layout.navbar')
-        <div class="main mt-5">
             @yield('content')
-        </div>
         @include('layout.footer')
     </div>
     <script>
