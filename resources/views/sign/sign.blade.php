@@ -107,9 +107,7 @@
         </div>
     </div>
     <!-- Card -->
-@endsection()
 
-@section('js')
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const loginTab = document.getElementById('tab-login');
@@ -130,4 +128,4 @@
             });
         });
     </script>
-@endsection
+@endsection()
