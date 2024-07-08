@@ -1,0 +1,11 @@
+.carousel{
+    width: 100%;
+    aspect-ratio: 3/1;
+    background-color: beige;
+}
+
+.green-line{
+    width: 70px;
+    height: 5px;
+    background-color: green;
+}

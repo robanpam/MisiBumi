@@ -1,0 +1,40 @@
+html, body{
+    height: 100vh;
+    margin: 0;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main{
+    flex: 1;
+}
+
+.color{
+    color: #114232;
+}
+
+.outline-button {
+    color: #114232;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 20px;    
+    outline: 2px solid green;
+}
+
+.footer_bg{
+    background-image: url('../footer_img.jpg');
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+}
+
+.navbar-prop{
+    z-index: 1000;
+    position: fixed;
+    width: 100%;
+}

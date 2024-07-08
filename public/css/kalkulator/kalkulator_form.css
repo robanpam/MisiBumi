@@ -1,0 +1,27 @@
+.calc-form{
+    width: 15rem;
+    height: 3.5rem;
+    border: 1px solid gray;
+    border-radius: 5px; 
+}
+
+.span_attribute{
+  position:absolute;
+  right:1px;
+  top: 12px;
+}
+
+.btn-kembali{
+    padding: 0.5rem 1.75rem;
+    color: #114232;
+    outline: 2px solid #114232;
+    border-radius: 20px;
+}
+
+.btn-lanjut{
+    padding: 0.5rem 2.2rem;
+    color: #FFFFFF;
+    background-color:#114232;
+    outline: 2px solid #114232;
+    border-radius:20px;
+}
