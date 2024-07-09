@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('artikels', function (Blueprint $table) {
             $table->id();
             $table->string('judul_artikel');
-            $table->string('isi_artikel');
+            $table->text('isi_artikel');
             $table->foreignId('admin_id')->constrained('users', 'id');
             $table->string('gambar_artikel');
             $table->timestamps();

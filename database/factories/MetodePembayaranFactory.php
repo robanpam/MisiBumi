@@ -17,7 +17,7 @@ class MetodePembayaranFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nama_metode' => fake()->word(),
         ];
     }
 }

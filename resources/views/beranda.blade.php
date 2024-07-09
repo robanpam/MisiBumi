@@ -27,7 +27,7 @@
     </div>
   </div>
 </div>
-<div class="container-md">
+<div class="container">
     <div class="section d-flex flex-column justify-content-evenly">
         <div class="row my-5">
             <div class="col-12 d-flex justify-content-center">
@@ -72,7 +72,7 @@
     <div class="row section3">
         <div class="col-12 d-flex flex-column align-items-center justify-content-center">
             <h1>Roadmap #MisiBumi</h1>
-                <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel" data-interval="1000">
+                <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel" data-interval="500">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="asset/beranda/roadmap1.png" class="d-block w-100" alt="Image 1">

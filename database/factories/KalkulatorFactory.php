@@ -17,7 +17,8 @@ class KalkulatorFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nama_produk' => fake()->word(),
+            'emisi_id' => rand(1, 2),
         ];
     }
 }

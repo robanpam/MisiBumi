@@ -17,7 +17,10 @@ class ArtikelFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'judul_artikel' => fake()->sentence(3, true),
+            'isi_artikel' => fake()->paragraph(7, true),
+            'admin_id' => rand(11, 12),
+            'gambar_artikel' => 'tes.png'
         ];
     }
 }

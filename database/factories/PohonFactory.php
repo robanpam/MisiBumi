@@ -17,7 +17,12 @@ class PohonFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nama' => fake()->word(),
+            'nama_latin' => fake()->sentence(2, true),
+            'deskripsi' => fake()->paragraph(7, true),
+            'gambar_pohon' => 'tes.png',
+            'syarat_tumbuh' => fake()->paragraph(1, true),
+            'serapan_karbon' => fake()->sentence(3, true),
         ];
     }
 }
