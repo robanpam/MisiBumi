@@ -28,7 +28,7 @@ Route::get('/kelolakampanye', function () {
 });
 
 Route::get('/kelolaartikel', function () {
-    return view('admin.kelolaartikel');
+    return view('artikel.kelolaartikel');
 });
 
 Route::get('/uploadartikel', function () {

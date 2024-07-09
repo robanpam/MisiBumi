@@ -51,7 +51,7 @@
         <td>1</td>
         <td>Mark</td>
         <td>Otto</td>
-        <td>Otto</td> 
+        <td>Otto</td>
         <td><a href="#" class="btn  p-0 me-2">Edit</a>
           <i class="bi bi-pencil me-3" style="font-size: 1.5rem;"></i></td>
         <td><a href="#" class="btn  p-0 ">Hapus</a>
