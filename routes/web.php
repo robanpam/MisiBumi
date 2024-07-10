@@ -8,10 +8,26 @@ Route::get('/', function () {
     return view('kalkulator.kalkulator');
 });
 
-
+//profile admin
 Route::get('/profiladmin/{id}', [AdminController::class, 'admin'])->name('profileadmin');
 
+
+//ganti nama
 Route::get('/profiladmin/gantinama/{id}', [AdminController::class, 'gantinama'])->name('gantinama');
+Route::post('/profiladmin/gantinama/{id}', [AdminController::class, 'updateNama'])->name('updateNama');
+
+//ganti password
+Route::get('/profiladmin/ubahkatasandi/{id}', [AdminController::class, 'showChangePasswordForm'])->name('ubahkatasandi');
+Route::post('/profiladmin/ubahkatasandi/{id}', [AdminController::class, 'updatePassword'])->name('updatePassword');
+
+//ganti email
+Route::get('/profiladmin/ubahemail/{id}', [AdminController::class, 'showChangeEmailForm'])->name('ubahemail');
+Route::post('/profiladmin/ubahemail/{id}', [AdminController::class, 'updateEmail'])->name('updateEmail');
+
+//ganti telp
+Route::get('/profiladmin/ubahnomortelpon/{id}', [AdminController::class, 'showChangeTelponForm'])->name('ubahnomortelpon');
+Route::post('/profiladmin/ubahnomortelpon/{id}', [AdminController::class, 'updateTelpon'])->name('updateTelpon');
+
 
 
 Route::get('/accrequestKampanye', function () {

@@ -3,9 +3,9 @@
 @section('title', 'Ubah Nomor telpon')
 
 @section('content')
-<div class="container mt-5 d-flex justify-content-center align-items-center full-height prot ">
-    <div class="card boldborder" style="width: 100%; max-width: 80rem; ">
-        <div class="card-header ">
+<div class="container mt-5 d-flex justify-content-center align-items-center full-height prot">
+    <div class="card boldborder" style="width: 100%; max-width: 80rem;">
+        <div class="card-header">
             <h5>Ubah Nomor Telpon</h5>
         </div>
         <div class="card-body">
@@ -19,13 +19,13 @@
                     {{ session('success') }}
                 </div>
             @endif
-            <form action="">
+            <form action="{{ route('updateTelpon', ['id' => $user->id]) }}" method="POST">
                 @csrf
                 <div class="mb-4">
-                    <input type="tel" class="form-control boldborder2" custom-input" id="telpnum" name="telpnum" placeholder="Masukkan Nomor Telepon baru (08123456789)" pattern="[0-9]{10,15}" required>
+                    <input type="tel" class="form-control boldborder2" id="telpnum" name="telpnum" placeholder="Masukkan Nomor Telepon baru (08123456789)" pattern="[0-9]{10,15}" required value="{{ $user->nomor_telepon }}">
                 </div>
                 <div class="mb-4">
-                    <input type="password" class="form-control boldborder2" id="password_confirmation" name="password_confirmation"  placeholder="Masukkan Kata sandi saat ini">
+                    <input type="password" class="form-control boldborder2" id="password_confirmation" name="password_confirmation" placeholder="Masukkan Kata sandi saat ini" required>
                 </div>
                 <div class="d-flex justify-content-end">
                     <button type="submit" class="btn btn-success">Simpan</button>

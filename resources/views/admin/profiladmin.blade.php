@@ -48,7 +48,7 @@
                             <p>...........</p>
                         </div>
                         <div class="col-2 text-end">
-                            <a href="profiladmin/gantisandi/{id}"><img src="{{asset('material-symbols_pencil.png')}}" alt="" width="25"></a>
+                            <a href="{{ Route('ubahkatasandi', ['id' => $item[0]]) }}"><img src="{{asset('material-symbols_pencil.png')}}" alt="" width="25"></a>
                         </div>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                             <p>{{ $item[0]->email }}</p>
                         </div>
                         <div class="col-2 text-end">
-                            <a href="profiladmin/gantiemail/{id}"><img src="{{asset('material-symbols_pencil.png')}}" alt="" width="25"></a>
+                            <a href="{{ Route('ubahemail', ['id' => $item[0]]) }}"><img src="{{asset('material-symbols_pencil.png')}}" alt="" width="25"></a>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -82,7 +82,7 @@
                             <p>{{ $item[0]->nomor_telepon }}</p>
                         </div>
                         <div class="col-2 text-end">
-                            <a href="profiladmin/gantitelp/{id}"><img src="{{asset('material-symbols_pencil.png')}}" alt="" width="25"></a>
+                            <a href="{{ Route('ubahnomortelpon', ['id' => $item[0]]) }}"><img src="{{asset('material-symbols_pencil.png')}}" alt="" width="25"></a>
                         </div>
                     </div>
                 </div>

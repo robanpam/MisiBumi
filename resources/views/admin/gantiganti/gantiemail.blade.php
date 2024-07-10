@@ -3,9 +3,9 @@
 @section('title', 'Ubah Nama')
 
 @section('content')
-<div class="container mt-5 d-flex justify-content-center align-items-center full-height prot ">
-    <div class="card boldborder" style="width: 100%; max-width: 80rem; ">
-        <div class="card-header ">
+<div class="container mt-5 d-flex justify-content-center align-items-center full-height prot">
+    <div class="card boldborder" style="width: 100%; max-width: 80rem;">
+        <div class="card-header">
             <h5>Ubah Email</h5>
         </div>
         <div class="card-body">
@@ -19,13 +19,13 @@
                     {{ session('success') }}
                 </div>
             @endif
-            <form action="">
+            <form action="{{ route('updateEmail', ['id' => $user->id]) }}" method="POST">
                 @csrf
                 <div class="mb-4">
-                    <input type="email" class="form-control boldborder2" id="gantiEmail" name="Email" placeholder="Masukkan Email baru" required>
+                    <input type="email" class="form-control boldborder2" id="gantiEmail" name="Email" placeholder="Masukkan Email baru" required value="{{ $user->email }}">
                 </div>
                 <div class="mb-4">
-                    <input type="password" class="form-control boldborder2" id="password_confirmation" name="password_confirmation"  placeholder="Masukkan Kata sandi saat ini">
+                    <input type="password" class="form-control boldborder2" id="password_confirmation" name="password_confirmation" placeholder="Masukkan Kata sandi saat ini" required>
                 </div>
                 <div class="d-flex justify-content-end">
                     <button type="submit" class="btn btn-success">Simpan</button>
