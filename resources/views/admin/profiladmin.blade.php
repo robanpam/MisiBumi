@@ -28,7 +28,7 @@
                             <strong>Nama</strong>
                         </div>
                         <div class="col-6">
-                            <h3>{{ $item->name }}</h3>
+                            <h3>{{ $item[0]->name }}</h3>
                         </div>
                         <div class="col-2 text-end">
                             <a href="profiladmin/gantinama/1"><img src="material-symbols_pencil.png" alt="" width="25"></a>

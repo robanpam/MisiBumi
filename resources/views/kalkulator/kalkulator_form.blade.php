@@ -14,9 +14,9 @@
                     <label for="title" class="mb-2">Jenis {{$jenis == 'kendaraan' ? 'Kendaraan Bermotor' : 'Peralatan Listrik'}}</label>
                     <select class="form-select calc-form" aria-label="Default select example">
                         <option selected>Pilih {{$jenis == 'kendaraan' ? 'Kendaraan Bermotor' : 'Peralatan Listrik'}}</option>
-                        <option value="1">{{$jenis == 'kendaraan' ? 'Motor' : 'AC'}}</option>
-                        <option value="2">{{$jenis == 'kendaraan' ? 'Mobil' : 'Freezer'}}</option>
-                        <option value="3">{{$jenis == 'kendaraan' ? 'Truk' : 'Kulkas'}}</option>
+                        @foreach ($items as $item)
+                            <option value={{ $item->id }}>{{ $item->nama_produk }}</option>
+                        @endforeach
                         </select>
                     <div>
                         <label for="jarak" class="my-2">{{$jenis == 'kendaraan' ? 'Jarak Tempuh' : 'Jumlah Satuan'}}</label>

@@ -14,7 +14,7 @@ class AdminController extends Controller
             ->where('id', '=', $id)
             ->get();
 
-        dd($item);
+        // dd($item);
 
         return view('admin.profiladmin', compact('item'));
     }

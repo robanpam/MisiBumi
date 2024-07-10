@@ -1,10 +1,11 @@
 <?php
 
+use App\Http\Controllers\KalkulatorController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('profile.profile_pengaturan');
+    return view('kalkulator.kalkulator');
 });
 
 Route::get('/profiladmin', function () {
@@ -79,3 +80,6 @@ Route::prefix('/profiladmin')->group(function () {
         return view('admin.gantiganti.gantisandi');
     });
 });
+
+//Kalkulator
+Route::get('/kalkulator/{jenis}/', [KalkulatorController::class, 'items'])->name('kalkulator.index');

@@ -13,12 +13,12 @@
                 <h1>Kalkulator Emisi</h1>
                 <h5>Kategori Kalkulator Emisi</h5>
                 <div class="d-flex">
-                    <a class="text-black link-underline link-underline-opacity-0" href="">
+                    <a class="text-black link-underline link-underline-opacity-0" href={{ route('kalkulator.index', ['jenis' => 'kendaraan']) }}>
                         <div class="btn-calc me-2">
                             <p>Kendaraan</p>
                         </div>
                     </a>
-                    <a class="text-black link-underline link-underline-opacity-0" href="">
+                    <a class="text-black link-underline link-underline-opacity-0" href={{ route('kalkulator.index', ['jenis' => 'listrik']) }}>
                         <div class="btn-calc me-2">
                             <p>Peralatan Listrik</p>
                         </div>
