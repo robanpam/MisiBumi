@@ -84,3 +84,5 @@ Route::get('/uploadartikel', function () {
 Route::get('/kalkulator/{jenis}/', [KalkulatorController::class, 'items'])->name('kalkulator.index');
 
 Route::get('/kalkulator', [KalkulatorController::class, 'index'])->name('kalkulator.list');
+
+Route::post('/kalkulator/result/', [KalkulatorController::class, 'result'])->name('kalkulator.result');

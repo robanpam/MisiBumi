@@ -8,7 +8,7 @@
 <div>
     <div class="container mt-3">
         <div class="row">
-            <div class="col-6">
+            <div class="col-12 d-flex justify-content-center flex-column align-items-center">
                 <h1>Kalkulator Emisi</h1>
                 <h5>Kategori Kalkulator Emisi</h5>
                 <!-- <div class="d-flex">
@@ -25,7 +25,7 @@
                 </div> -->
             </div>
         </div>
-        <div class="row">
+        <div class="row d-flex justify-content-center mt-3">
             @foreach ($jenis as $j)
                 <div class="col-md-2 col-6">
                     <a class="text-black link-underline link-underline-opacity-0" href={{ route('kalkulator.index', ['jenis' => $j->nama]) }}>

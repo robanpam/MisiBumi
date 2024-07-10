@@ -11,7 +11,7 @@ class KalkulatorRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,16 @@ class KalkulatorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'jarak' => 'required|integer',
+            'frekuensi' => 'required|integer',
+            'option' => 'required'
+        ];
+    }
+
+    public function messages(){
+        return[
+            'required' => 'field wajib diisi',
+            'integer' => 'field harus numeric',
         ];
     }
 }

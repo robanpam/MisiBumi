@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\KalkulatorRequest;
 use App\Models\Kalkulator;
 use App\Models\Emisi;
 
@@ -21,5 +22,11 @@ class KalkulatorController extends Controller
 
         // dd($items);
         return view('kalkulator.kalkulator_form', compact('jenis', 'items'));
+    }
+
+    public function result (KalkulatorRequest $request){
+        $request->validated();
+
+        return view('kalkulator.kalkulator_hasil');
     }
 }
