@@ -8,15 +8,18 @@ use Illuminate\Http\Request;
 
 class KalkulatorController extends Controller
 {
+    public function index (){
+        $jenis = Emisi::all();
+        return view('kalkulator.kalkulator', compact('jenis'));
+    }
+
     public function items ($jenis){
         // dd($jenis);
-        if($jenis == 'kendaraan'){
-            $items = Kalkulator::join('emisis', 'emisis.id', '=', 'kalkulators.emisi_id')
-                            ->where('emisis.id', '=', '1')
-                            ->get();
-        }
+        $items = Kalkulator::join('emisis', 'emisis.id', '=', 'kalkulators.emisi_id')
+                        ->where('emisis.nama', '=', $jenis)
+                        ->get();
 
-        // dd($item);
+        // dd($items);
         return view('kalkulator.kalkulator_form', compact('jenis', 'items'));
     }
 }

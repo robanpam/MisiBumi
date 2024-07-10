@@ -37,7 +37,7 @@
 </div>
 @endsection
 
-@section('css')
+@section('more_files')
 <style>
     .card-header {
         background-color: #f8f9fa;

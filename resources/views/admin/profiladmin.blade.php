@@ -31,11 +31,7 @@
                             <h3>{{ $item[0]->name }}</h3>
                         </div>
                         <div class="col-2 text-end">
-                            @if(isset($item[0]))
-                                <a href="{{ route('gantinama', ['id' => $item[0]->id]) }}"><img src="{{ asset('material-symbols_pencil.png') }}" alt="" width="25"></a>
-                            @else
-                                <p>No item found.</p>
-                            @endif
+                            <a href={{ Route('gantinama', ['id' => $item[0]]) }}><img src="{{ asset('material-symbols_pencil.png') }}" alt="" width="25"></a>
                         </div>
                     </div>
                 </div>

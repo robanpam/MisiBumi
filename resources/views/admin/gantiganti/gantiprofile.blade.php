@@ -40,7 +40,7 @@
 </div>
 @endsection
 
-@section('css')
+@section('more_files')
 <style>
   .prot div{
       box-shadow:  50rem rgba(0, 0, 0, 0.1);
