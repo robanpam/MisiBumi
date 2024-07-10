@@ -18,4 +18,18 @@ class AdminController extends Controller
 
         return view('admin.profiladmin', compact('item'));
     }
+
+    public function gantinama($id)
+    {
+        $item = User::select('*')
+            ->where('jenis_user_id', '=', '2')
+            ->where('id', '=', $id)
+            ->first();
+
+        if (!$item) {
+            return redirect()->back()->with('error', 'User not found.');
+        }
+
+        return view('admin.gantiganti.gantinama', compact('item'));
+    }
 }

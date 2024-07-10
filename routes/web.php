@@ -8,11 +8,10 @@ Route::get('/', function () {
     return view('kalkulator.kalkulator');
 });
 
-Route::get('/profiladmin', function () {
-    return view('admin.profiladmin');
-});
 
 Route::get('/profiladmin/{id}', [AdminController::class, 'admin'])->name('profileadmin');
+
+Route::get('/profiladmin/gantinama/{id}', [AdminController::class, 'gantinama'])->name('gantinama');
 
 
 Route::get('/accrequestKampanye', function () {

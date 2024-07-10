@@ -17,10 +17,10 @@
                             <strong>Foto Profil</strong>
                         </div>
                         <div class="col-2 ">
-                            {{-- <img src="{{ $item->profile_photo }}" class="img-fluid rounded-circle" alt="Profile Image"> --}}
+                            <img src="{{ $item[0]->profile_photo }}" class="img-fluid rounded-circle" alt="Profile Image">
                         </div>
                         <div class="col-6 text-end">
-                            <a href="profiladmin/gantiprofile/1"><img src="material-symbols_pencil.png" alt="" width="25"></a>
+                            <a href="profiladmin/gantiprofile/{id}"><img src="{{asset('material-symbols_pencil.png')}}" alt="" width="25"></a>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -31,29 +31,11 @@
                             <h3>{{ $item[0]->name }}</h3>
                         </div>
                         <div class="col-2 text-end">
-                            <a href="profiladmin/gantinama/1"><img src="material-symbols_pencil.png" alt="" width="25"></a>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-4">
-                            <strong>Tanggal Lahir</strong>
-                        </div>
-                        <div class="col-6">
-                            17 Agustus 1945
-                        </div>
-                        <div class="col-2 text-end">
-                            <a href="profiladmin/gantiTL/1"><img src="material-symbols_pencil.png" alt="" width="25"></a>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-4">
-                            <strong>Gender</strong>
-                        </div>
-                        <div class="col-6">
-                            Pria
-                        </div>
-                        <div class="col-2 text-end">
-                            <a href="profiladmin/gantigender/1"><img src="material-symbols_pencil.png" alt="" width="25"></a>
+                            @if(isset($item[0]))
+                                <a href="{{ route('gantinama', ['id' => $item[0]->id]) }}"><img src="{{ asset('material-symbols_pencil.png') }}" alt="" width="25"></a>
+                            @else
+                                <p>No item found.</p>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -70,19 +52,7 @@
                             <p>...........</p>
                         </div>
                         <div class="col-2 text-end">
-                            <a href="profiladmin/gantisandi/1"><img src="material-symbols_pencil.png" alt="" width="25"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card mb-3">
-                <div class="card-header">
-                    <h5>Riwayat Artikel</h5>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-10">
-                            <p>32 artikel ditulis</p>
+                            <a href="profiladmin/gantisandi/{id}"><img src="{{asset('material-symbols_pencil.png')}}" alt="" width="25"></a>
                         </div>
                     </div>
                 </div>
@@ -102,10 +72,10 @@
                             <strong>Email</strong>
                         </div>
                         <div class="col-6">
-                            pandi@protprot.com
+                            <p>{{ $item[0]->email }}</p>
                         </div>
                         <div class="col-2 text-end">
-                            <a href="profiladmin/gantiemail/1"><img src="material-symbols_pencil.png" alt="" width="25"></a>
+                            <a href="profiladmin/gantiemail/{id}"><img src="{{asset('material-symbols_pencil.png')}}" alt="" width="25"></a>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -113,10 +83,10 @@
                             <strong>Telepon</strong>
                         </div>
                         <div class="col-6">
-                            0812345
+                            <p>{{ $item[0]->nomor_telepon }}</p>
                         </div>
                         <div class="col-2 text-end">
-                            <a href="profiladmin/gantitelp/1"><img src="material-symbols_pencil.png" alt="" width="25"></a>
+                            <a href="profiladmin/gantitelp/{id}"><img src="{{asset('material-symbols_pencil.png')}}" alt="" width="25"></a>
                         </div>
                     </div>
                 </div>
@@ -124,39 +94,6 @@
         </div>
     </div>
     <!-- Other Info Section -->
-    <div class="row mb-4">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5>Info Lainnya</h5>
-                </div>
-                <div class="card-body">
-                    <div class="row mb-3">
-                        <div class="col-4">
-                            <strong>Alamat</strong>
-                        </div>
-                        <div class="col-6">
-                            RTB BCA
-                        </div>
-                        <div class="col-2 text-end">
-                            <a href="profiladmin/gantialamat/1"><img src="material-symbols_pencil.png" alt="" width="30"></a>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-4">
-                            <strong>Kode pos</strong>
-                        </div>
-                        <div class="col-6">
-                            696969
-                        </div>
-                        <div class="col-2 text-end">
-                            <a href="profiladmin/gantikodepos/1"><img src="material-symbols_pencil.png" alt="" width="25"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 @endsection
 
