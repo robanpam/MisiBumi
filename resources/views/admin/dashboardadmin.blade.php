@@ -151,7 +151,7 @@
 </script>
 @endsection
 
-@section('css')
+@section('more_files')
 <style>
     .smaller-text {
         font-size: 1.5rem; /* Adjust the size as needed */

@@ -17,7 +17,7 @@
                             <strong>Foto Profil</strong>
                         </div>
                         <div class="col-2 ">
-                            <img src="a-l-l-e-f-v-i-n-i-c-i-u-s-343875-unsplash.png" class="img-fluid rounded-circle" alt="Profile Image">
+                            {{-- <img src="{{ $item->profile_photo }}" class="img-fluid rounded-circle" alt="Profile Image"> --}}
                         </div>
                         <div class="col-6 text-end">
                             <a href="profiladmin/gantiprofile/1"><img src="material-symbols_pencil.png" alt="" width="25"></a>
@@ -28,7 +28,7 @@
                             <strong>Nama</strong>
                         </div>
                         <div class="col-6">
-                            PANDI
+                            <h3>{{ $item->name }}</h3>
                         </div>
                         <div class="col-2 text-end">
                             <a href="profiladmin/gantinama/1"><img src="material-symbols_pencil.png" alt="" width="25"></a>
@@ -160,7 +160,7 @@
 </div>
 @endsection
 
-@section('css')
+@section('more_files')
 <style>
     .card-header {
         background-color: #f8f9fa;

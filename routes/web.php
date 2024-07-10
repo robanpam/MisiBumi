@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -9,6 +10,8 @@ Route::get('/', function () {
 Route::get('/profiladmin', function () {
     return view('admin.profiladmin');
 });
+
+Route::get('/profiladmin/{id}', [AdminController::class, 'admin'])->name('profileadmin');
 
 
 Route::get('/accrequestKampanye', function () {
