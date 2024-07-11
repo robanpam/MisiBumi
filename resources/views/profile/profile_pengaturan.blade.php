@@ -11,7 +11,7 @@
             </div>
         </div>
     </div>
-    <form  action="">
+    <form  method="POST" action="">
         <div class="row mb-3">
             @csrf
             @method('PUT')
