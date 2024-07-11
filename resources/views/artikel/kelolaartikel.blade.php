@@ -17,10 +17,12 @@
             <!-- View Request Button -->
             <div class="col-10"></div>
             <div>
+              <a href="{{ route('artikel.store') }}">
                 <button class="btn btn-light d-flex align-items-center" style="box-shadow: 3px 3px black">
                     <i class="bi bi-pencil" style="font-size: 1.5rem; margin-right: 10px;"></i>
-                    View Request
+                    Buat artikel
                 </button>
+              </a>
             </div>
         </div>
     </div>
@@ -37,36 +39,19 @@
         </tr>
       </thead>
     <tbody>
+      @foreach ($item as $item)
       <tr>
-        <td>1</td>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>Otto</td>
+        <td>{{ $item->id }}</td>
+        <td>{{ $item->judul_artikel}}</td>
+        <td>{{ $item->name}}</td>
+        <td>{{ $item->created_at}}</td>
         <td><a href="#" class="btn  p-0 me-2">Edit</a>
           <i class="bi bi-pencil me-3" style="font-size: 1.5rem;"></i></td>
         <td><a href="#" class="btn  p-0 ">Hapus</a>
           <i class="bi bi-trash " style="font-size: 1.5rem;"></i></td>
       </tr>
-      <tr>
-        <td>1</td>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>Otto</td>
-        <td><a href="#" class="btn  p-0 me-2">Edit</a>
-          <i class="bi bi-pencil me-3" style="font-size: 1.5rem;"></i></td>
-        <td><a href="#" class="btn  p-0 ">Hapus</a>
-          <i class="bi bi-trash " style="font-size: 1.5rem;"></i></td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>Otto</td>
-        <td><a href="#" class="btn  p-0 me-2">Edit</a>
-          <i class="bi bi-pencil me-3" style="font-size: 1.5rem;"></i></td>
-        <td><a href="#" class="btn  p-0 ">Hapus</a>
-          <i class="bi bi-trash " style="font-size: 1.5rem;"></i></td>
-      </tr>
+          
+      @endforeach
     </tbody>
   </table>
 </div>
@@ -74,7 +59,7 @@
 </div>
 @endsection
 
-@section('css')
+@section('more_files')
 <style>
     .card-body {
         padding: 10px;

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\KalkulatorController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ArtikelController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -29,10 +30,18 @@ Route::get('/profiladmin/ubahnomortelpon/{id}', [AdminController::class, 'showCh
 Route::post('/profiladmin/ubahnomortelpon/{id}', [AdminController::class, 'updateTelpon'])->name('updateTelpon');
 
 
+//kelola artikel
+Route::get('/kelolaartikel', [ArtikelController::class, 'kelolaartikel'])->name('kelolaartikel');
 
-Route::get('/accrequestKampanye', function () {
+//upload artikel
+Route::post('/artikel/upload', [ArtikelController::class, 'store'])->name('artikel.store');
+
+
+Route::get('/accrequestkampanye', function () {
     return view('kampanye.AccrequestKampanye');
 });
+
+
 
 Route::get('/detailkampanye', function () {
     return view('kampanye.detailkampanye');
@@ -46,13 +55,6 @@ Route::get('/kelolakampanye', function () {
     return view('kampanye.kelolakampanye');
 });
 
-Route::get('/kelolaartikel', function () {
-    return view('artikel.kelolaartikel');
-});
-
-Route::get('/uploadartikel', function () {
-    return view('artikel.uploadartikel');
-});
 
 
 
