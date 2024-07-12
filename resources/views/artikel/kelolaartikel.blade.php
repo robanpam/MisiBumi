@@ -17,7 +17,7 @@
             <!-- View Request Button -->
             <div class="col-10"></div>
             <div>
-              <a href="{{ route('artikel.store') }}">
+              <a href="{{ route('uploadartikel') }}">
                 <button class="btn btn-light d-flex align-items-center" style="box-shadow: 3px 3px black">
                     <i class="bi bi-pencil" style="font-size: 1.5rem; margin-right: 10px;"></i>
                     Buat artikel
@@ -42,15 +42,22 @@
       @foreach ($item as $item)
       <tr>
         <td>{{ $item->id }}</td>
-        <td>{{ $item->judul_artikel}}</td>
-        <td>{{ $item->name}}</td>
-        <td>{{ $item->created_at}}</td>
-        <td><a href="#" class="btn  p-0 me-2">Edit</a>
-          <i class="bi bi-pencil me-3" style="font-size: 1.5rem;"></i></td>
-        <td><a href="#" class="btn  p-0 ">Hapus</a>
-          <i class="bi bi-trash " style="font-size: 1.5rem;"></i></td>
+        <td>{{ $item->judul_artikel }}</td>
+        <td>{{ $item->name }}</td>
+        <td>{{ $item->created_at }}</td>
+        <td>
+          <a href="{{ route('editartikel', ['id' => $item->id]) }}" class="btn p-0 me-2">Edit</a>
+          <i class="bi bi-pencil me-3" style="font-size: 1.5rem;"></i>
+        </td>
+        <td>
+          <form action="{{ route('deleteartikel', ['id' => $item->id]) }}" method="POST" style="display: inline;">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn p-0" onclick="return confirm('Are you sure you want to delete this article?');">Hapus</button>
+            <i class="bi bi-trash" style="font-size: 1.5rem;"></i>
+          </form>
+        </td>
       </tr>
-          
       @endforeach
     </tbody>
   </table>

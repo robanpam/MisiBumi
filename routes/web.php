@@ -34,7 +34,15 @@ Route::post('/profiladmin/ubahnomortelpon/{id}', [AdminController::class, 'updat
 Route::get('/kelolaartikel', [ArtikelController::class, 'kelolaartikel'])->name('kelolaartikel');
 
 //upload artikel
-Route::post('/artikel/upload', [ArtikelController::class, 'store'])->name('artikel.store');
+Route::get('/uploadartikel', [ArtikelController::class, 'showUploadForm'])->name('uploadartikel');
+Route::post('/uploadartikel', [ArtikelController::class, 'store'])->name('storeartikel');
+
+//edit artikel
+Route::get('/editartikel/{id}', [ArtikelController::class, 'edit'])->name('editartikel');
+Route::post('/updateartikel/{id}', [ArtikelController::class, 'update'])->name('updateartikel');
+
+//delete artikel
+Route::delete('/deleteartikel/{id}', [ArtikelController::class, 'destroy'])->name('deleteartikel');
 
 
 Route::get('/accrequestkampanye', function () {
