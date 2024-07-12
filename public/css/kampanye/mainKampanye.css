@@ -1,0 +1,144 @@
+/* div {
+    border: 1px solid black;
+} */
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* BANNER */
+.bg {
+    position: relative;
+    background-image: url('https://mommiesdaily.com/wp-content/uploads/2016/12/ajak-anak-menanam-pohon.jpg');
+    background-size: cover;
+    background-position: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 40vh;
+    opacity: 0.8;
+}
+
+.bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.70);
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+.banner {
+    text-align: center;
+    margin-top: 5rem;
+}
+
+
+/* SUB JUDUL */
+.subJudul {
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 0.5rem;
+}
+
+
+/* CARD */
+.card-img-top {
+    height: 200px;
+    width: 100%;
+    display: block;
+}
+
+.card-title {
+    /* background-color: #D9D9D9; */
+    margin-top: 0.5rem;
+    font-weight: 550;
+    /* color: #114232; */
+    height: 4rem;
+    text-align: center;
+}
+
+.card-body {
+    margin-top: -1rem;
+}
+
+.card-dsk {
+    /* background-color: bisque; */
+    margin-top: -0.5rem;
+    /* color: #114232; */
+    font-weight: 500;
+}
+
+.card-dsk1 {
+    /* background-color: bisque; */
+    /* color: #114232; */
+    padding-top: 0.5rem;
+    font-weight: 500;
+}
+
+.progress {
+    height: 6px;
+    background-color: #ADD9A8;
+}
+
+.progress-bar {
+    background-color: #114232;
+}
+
+.bwh1 {
+    font-weight: 550;
+    /* color: #114232; */
+    margin-right: 0.3rem;
+    text-align: right;
+}
+
+.bwh2 {
+    /* color: #114232; */
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.btnLihatLainnya {
+    padding-top: 1rem;
+
+}
+
+.card-dsk3 {
+    margin-top: 1rem;
+    /* color: #114232; */
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+}
+
+.card-dsk4 {
+    /* color: #114232; */
+    font-weight: 550;
+    font-size: 19px;
+    height: 3rem;
+    text-align: center;
+}
+
+.btn-primary {
+    width: auto;
+    border-radius: 20px;
+    font-size: 15px;
+    background-color: #114232;
+    border-color: #114232;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background-color: #ADD9A8;
+    border-color: #114232;
+    color: #114232;
+
+}

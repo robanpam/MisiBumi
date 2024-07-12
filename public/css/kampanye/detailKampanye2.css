@@ -1,0 +1,297 @@
+/* div {
+    border: 1px solid black
+} */
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Detail KIRI */
+.gbrdetail {
+    height: 300px;
+    width: 500px;
+    display: block;
+}
+
+.dsk-detail {
+    height: 1rem;
+}
+
+.progress {
+    height: 9px;
+    background-color: #ADD9A8;
+}
+
+.progress-bar {
+    background-color: #114232;
+}
+
+.bwh1 {
+    font-weight: 550;
+    color: #114232;
+    margin-right: 0.3rem;
+    text-align: right;
+}
+
+.bwh2 {
+    color: #114232;
+}
+
+.btnDonasi {
+    background-color: #114232;
+    border-color: #114232;
+    font-size: 15px;
+    width: 100px;
+}
+
+.btnShare {
+    border-color: #114232;
+    width: 100px;
+}
+
+.btn:hover {
+    background-color: #ADD9A8;
+    border-color: #114232;
+    color: #114232;
+}
+
+
+/* Detail KANAN*/
+.dsk1 {
+    margin-left: -2rem;
+}
+
+
+/* Detail TENGAH */
+.navTengah .nav-link.active {
+    background-color: #114232;
+    border-color: #114232;
+    color: #fff;
+    /* Warna teks */
+}
+
+.navTengah .nav-link.active:focus {
+    background-color: #114232;
+    border-color: #114232;
+    color: #fff;
+    /* Warna teks */
+}
+
+.navTengah .nav-link:hover {
+    color: #ADD9A8;
+    /* Warna teks saat dihover */
+}
+
+.navTengah .nav-link {
+    background-color: white;
+    /* Warna latar belakang default */
+    color: #114232;
+    /* Warna teks default */
+    margin-left: -0.7rem;
+}
+
+.lebihDetail {
+    margin-top: 3rem;
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
+}
+
+
+
+
+
+/* TENGAH */
+.bordered-section {
+    border: 1px solid #cbced1;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.text-muted {
+    text-align: right;
+    margin-top: 0.5rem;
+    margin-right: 1rem;
+}
+
+.nav-pills .nav-link {
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.nav-link.active {
+    width: 165px;
+    background-color: #114232;
+    border-color: #114232;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    font-weight: 600;
+}
+
+.nav-link {
+    width: 165px;
+    background-color: #D9D9D9;
+    border-color: #D9D9D9;
+    color: black;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-weight: 600;
+}
+
+
+/* TENGAH PERKEMBANGAN */
+.tab-content {
+    display: flex;
+    align-items: center;
+}
+
+
+
+/* TENGAH DONASI */
+
+.donasi {
+    width: 100%;
+    /* padding-left: 3rem */
+}
+
+.donatur-card {
+    border: 1px solid #dee2e6;
+    border-left: 5px solid #dee2e6;
+    margin-bottom: 1rem;
+    margin-left: 2rem
+}
+
+.donatur-card .donatur-avatar {
+    width: 50px;
+    height: 50px;
+    background-color: #dee2e6;
+    border-radius: 50%;
+}
+
+.donatur-card .donatur-info {
+    flex-grow: 1;
+    padding-left: 1rem;
+}
+
+.donatur-card .donatur-time {
+    text-align: right;
+    color: #6c757d;
+}
+
+
+
+
+/* CONTENT */
+.subJudul {
+    text-align: center;
+    padding-top: 2rem;
+}
+
+.card-img-top {
+    height: 200px;
+    width: 100%;
+    display: block;
+}
+
+.card-title {
+    /* background-color: #D9D9D9; */
+    font-weight: 550;
+    color: #114232;
+    height: 4rem;
+    text-align: center;
+}
+
+.card-body {
+    margin-top: -1rem;
+}
+
+.card-dsk {
+    /* background-color: bisque; */
+    margin-top: -0.5rem;
+    color: #114232;
+    font-weight: 500;
+}
+
+.card-dsk1 {
+    /* background-color: bisque; */
+    color: #114232;
+    padding-top: 0.5rem;
+    font-weight: 500;
+}
+
+.progress {
+    height: 6px;
+    background-color: #ADD9A8;
+}
+
+.progress-bar {
+    background-color: #114232;
+}
+
+.bwh1 {
+    font-weight: 550;
+    color: #114232;
+    margin-right: 0.3rem;
+    text-align: right;
+}
+
+.bwh2 {
+    color: #114232;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.btnLihatLainnya {
+    padding-top: 1rem;
+
+}
+
+.card-dsk3 {
+    margin-top: 1rem;
+    color: #114232;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+}
+
+.card-dsk4 {
+    color: #114232;
+    font-weight: 550;
+    font-size: 19px;
+    height: 3rem;
+    text-align: center;
+}
+
+.btn-primary {
+    width: auto;
+    border-radius: 20px;
+    font-size: 15px;
+    background-color: #114232;
+    border-color: #114232;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background-color: #ADD9A8;
+    border-color: #114232;
+    color: #114232;
+
+}
+
+
+
+
+/* AKHIR */
+.subJudul2 {
+    padding-top: 1.5rem;
+    font-size: 20px;
+}
+
+.btn-outline-danger:hover {
+    background-color: rgb(233, 47, 47);
+    color: white;
+}

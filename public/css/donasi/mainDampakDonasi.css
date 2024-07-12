@@ -1,0 +1,215 @@
+/* div {
+    border: 1px solid black
+} */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+
+/* BANNER */
+.bg {
+    position: relative;
+    background-image: url('https://mommiesdaily.com/wp-content/uploads/2016/12/ajak-anak-menanam-pohon.jpg');
+    background-size: cover;
+    background-position: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60vh;
+    opacity: 0.8;
+}
+
+.bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.70);
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+.banner {
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.infoBanner {
+    margin-top: 3rem;
+    background-color: white;
+    height: 6rem;
+}
+
+.infoBanner1 {
+    text-align: center;
+}
+
+.infoBanner2 {
+    text-align: center;
+    font-weight: 550;
+}
+
+
+/* BTN DONASI BANNER*/
+.btnDonasi {
+    background-color: #114232;
+    border-color: #114232;
+    font-size: 15px;
+    width: 300px;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    background-color: #ADD9A8;
+    border-color: #114232;
+    color: #114232;
+}
+
+.subJudul0 {
+    text-align: center;
+    padding-top: 5rem;
+    padding-bottom: 0.5rem;
+    font-size: 36px;
+}
+
+.subJudul {
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 0.5rem;
+    font-size: 36px;
+}
+
+.cardArtikel {
+    height: 20rem;
+    width: 16.4rem;
+    /* background-color: green; */
+}
+
+.card-img-top {
+    height: 150px;
+    width: 97%;
+    display: block;
+    padding: 10px;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.card-title {
+    /* background-color: #D9D9D9; */
+    color: black;
+    text-align: center;
+    margin-top: -1.2rem;
+    font-size: 20px;
+}
+
+.card-text {
+    font-size: 16px;
+    text-align: justify;
+    /* background-color: yellow; */
+}
+
+.detailArtikel {
+    border-right: 1px solid grey;
+}
+
+.artikelAtas {
+    /* background-color: red; */
+    font-size: 12px;
+    text-align: center;
+    margin-right: -10px;
+    opacity: 0.8;
+}
+
+.artikelBawah {
+    /* background-color: aliceblue; */
+    font-size: 14px;
+    margin-top: -0.7rem;
+    margin-right: -10px;
+    text-align: center;
+    height: 3rem;
+}
+
+.artikelAtas2 {
+    /* background-color: red; */
+    font-size: 12px;
+    text-align: center;
+    margin-left: -10px;
+    opacity: 0.8;
+}
+
+.artikelBawah2 {
+    /* background-color: aliceblue; */
+    font-size: 14px;
+    margin-top: -0.7rem;
+    margin-left: -10px;
+    text-align: center;
+    height: 3rem;
+}
+
+
+/* TESTIMONI */
+.customBtn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: black;
+    padding: 0;
+}
+
+.customBtn:focus {
+    outline: none;
+}
+
+
+.testimony-card {
+    /* background-color: red; */
+    width: 37rem;
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+}
+
+.donatur-avatar {
+
+    width: 80px;
+    height: 80px;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    background-color: #dee2e6;
+    border-radius: 50%;
+}
+
+.donatur-avatar img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.namaTestimoni {
+    /* background-color: burlywood; */
+    font-size: 14px;
+    text-align: center;
+    padding-top: 1rem;
+    margin-left: 0.5rem;
+    height: 4rem;
+    width: 6rem;
+    align-items: center;
+}
+
+.testimoni {
+    /* background-color: aqua; */
+    height: 8rem;
+    margin-top: 2rem;
+    margin-left: 4rem;
+    margin-right: 1rem;
+    text-align: justify;
+    align-items: center;
+}

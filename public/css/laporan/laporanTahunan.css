@@ -1,0 +1,234 @@
+/* div {
+    border: 1px solid black;
+} */
+
+
+/* BANNER */
+.bg {
+    position: relative;
+    background-image: url('https://mommiesdaily.com/wp-content/uploads/2016/12/ajak-anak-menanam-pohon.jpg');
+    background-size: cover;
+    background-position: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 50vh;
+    opacity: 0.8;
+}
+
+.bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.40);
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+.banner {
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.Judul {
+    margin-bottom: 1rem;
+}
+
+
+
+
+.divider {
+    border-left: 3px solid #ACACAC;
+    /* Warna dan ketebalan garis */
+    height: 150px;
+    /* Tinggi sesuai kebutuhan */
+    position: absolute;
+    /* Agar posisi tetap */
+    left: 50%;
+    /* Di tengah kolom */
+    top: 4rem;
+    margin-left: -1px;
+    /* Setengah dari ketebalan garis untuk tepat di tengah */
+}
+
+
+
+
+
+
+/* INFO LAPORAN */
+.angka1 {
+    /* background-color: #CDE6C9; */
+    font-size: 36px;
+    text-align: right;
+    margin-right: 2rem;
+}
+
+.penjelasan1 {
+    font-size: 20px;
+    text-align: right;
+    margin-top: 1.2rem;
+    margin-right: 0.5rem;
+    font-weight: 550;
+}
+
+.angka2 {
+    /* background-color: #CDE6C9; */
+    font-size: 36px;
+    text-align: left;
+    margin-left: 2rem;
+}
+
+.penjelasan2 {
+    font-size: 20px;
+    text-align: left;
+    margin-top: 1.2rem;
+    margin-left: 0.5rem;
+    font-weight: 550;
+}
+
+.subJudul {
+    text-align: center;
+    padding-top: 3rem;
+    padding-bottom: 0.5rem;
+    font-size: 36px;
+}
+
+.subJudulLaporan {
+    text-align: center;
+    padding-top: 4rem;
+    padding-bottom: 0.5rem;
+    font-size: 36px;
+}
+
+/* BTN */
+.btnDonasi {
+    background-color: #114232;
+    border-color: #114232;
+    font-size: 15px;
+    width: 300px;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.btn:hover {
+    background-color: #ADD9A8;
+    border-color: #114232;
+    color: #114232;
+}
+
+/* LAPORAN TAHUNAN */
+.laporanTahunan {
+    height: 10rem;
+}
+
+.infoTahunan1 {
+    text-align: left;
+    font-size: 30px;
+    margin-top: 0.5rem;
+}
+
+.infoTahunan2 {
+    text-align: center;
+    font-size: 18px;
+}
+
+
+/* PEMASUKAN PENGELUARAN */
+.pemasukanPengeluaran {
+    height: 8rem;
+    background-color: #CDE6C9;
+}
+
+.pengeluaran2 {
+    text-align: center;
+    font-size: 48px;
+    margin-top: 0.5rem;
+}
+
+.pengeluaran1 {
+    text-align: center;
+    font-size: 25px;
+}
+
+
+/* DAMPAK DONASI  */
+.dampakDonasi {
+    position: relative;
+    background-color: #CDE6C9;
+    background-size: cover;
+    background-position: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60vh;
+    opacity: 0.8;
+}
+
+.banner {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.Judul {
+    margin-bottom: 1rem;
+
+}
+
+.dampak {
+    /* background-color: red; */
+    margin-top: 1rem;
+}
+
+.deskDampak {
+    margin-top: 8rem;
+}
+
+.gbrDampak {
+    width: 400px;
+    height: 400px;
+}
+
+.chart-container {
+    position: relative;
+    margin: auto;
+    height: 40vh;
+    width: 80vw;
+    font: bold;
+}
+
+.diagramBatang {
+    margin-top: 4rem;
+}
+
+
+/* DAMPAK 2 */
+.dampak2 {
+    /* background-color: aqua; */
+    margin-top: 3rem;
+}
+
+.judulDampak1 {
+    text-align: right;
+}
+
+.judulDampak2 {
+    text-align: right;
+}
+
+.judulDampak3 {
+    text-align: left;
+}
+
+.judulDampak4 {
+    text-align: left;
+}

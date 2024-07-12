@@ -6,7 +6,7 @@ use App\Http\Controllers\ArtikelController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('kalkulator.kalkulator');
+    return view('kampanye.detailKampanye');
 });
 
 //profile admin
@@ -64,8 +64,21 @@ Route::get('/kelolakampanye', function () {
 });
 
 
+Route::get('/kampanye', function () {
+    return view('kampanye.mainKampanye');
+});
 
+Route::get('/detail', function () {
+    return view('kampanye.detailKampanye2');
+});
 
+Route::get('/donasi', function () {
+    return view('donasi.mainDampakDonasi');
+});
+
+Route::get('/laporan', function () {
+    return view('laporan.laporanTahunan');
+});
 
 // Route::prefix('/profiladmin')->group(function () {
 //     Route::get('/gantiemail/{id}', function ($id) {
