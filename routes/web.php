@@ -3,6 +3,7 @@
 use App\Http\Controllers\KalkulatorController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\KampanyeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -45,23 +46,24 @@ Route::post('/updateartikel/{id}', [ArtikelController::class, 'update'])->name('
 Route::delete('/deleteartikel/{id}', [ArtikelController::class, 'destroy'])->name('deleteartikel');
 
 
-Route::get('/accrequestkampanye', function () {
-    return view('kampanye.AccrequestKampanye');
-});
+
+// kelola kampanye
+Route::get('/kelolakampanye', [KampanyeController::class, 'index'])->name('kelolakampanye');
+
+//request kampanye
+Route::get('/accrequestkampanye', [KampanyeController::class, 'fetchPendingKampanyes'])->name('fetchPendingKampanyes');
 
 
 
-Route::get('/detailkampanye', function () {
-    return view('kampanye.detailkampanye');
-});
+// Route::get('/detailkampanye', function () {
+//     return view('kampanye.detailkampanye');
+// });
 
-Route::get('/dashboardadmin', function () {
-    return view('admin.dashboardadmin');
-});
+// Route::get('/dashboardadmin', function () {
+//     return view('admin.dashboardadmin');
+// });
 
-Route::get('/kelolakampanye', function () {
-    return view('kampanye.kelolakampanye');
-});
+
 
 
 Route::get('/kampanye', function () {
@@ -80,44 +82,6 @@ Route::get('/laporan', function () {
     return view('laporan.laporanTahunan');
 });
 
-// Route::prefix('/profiladmin')->group(function () {
-//     Route::get('/gantiemail/{id}', function ($id) {
-//         return view('admin.gantiganti.gantiemail');
-//     });
-
-//     Route::get('/gantinama/{id}', function ($id) {
-//         return view('admin.gantiganti.gantinama');
-//     });
-
-//     Route::get('/gantitelp/{id}', function ($id) {
-//         return view('admin.gantiganti.gantitelp');
-//     });
-
-//     Route::get('/gantialamat/{id}', function ($id) {
-//         return view('admin.gantiganti.gantialamat');
-//     });
-
-
-//     Route::get('/gantiTL/{id}', function ($id) {
-//         return view('admin.gantiganti.gantiTL');
-//     });
-
-//     Route::get('/gantiprofile/{id}', function ($id) {
-//         return view('admin.gantiganti.gantiprofile');
-//     });
-
-//     Route::get('/gantikodepos/{id}', function ($id) {
-//         return view('admin.gantiganti.gantikodepos');
-//     });
-
-//     Route::get('/gantigender/{id}', function ($id) {
-//         return view('admin.gantiganti.gantigender');
-//     });
-
-//     Route::get('/gantisandi/{id}', function ($id) {
-//         return view('admin.gantiganti.gantisandi');
-//     });
-// });
 
 //Kalkulator
 Route::get('/kalkulator/{jenis}/', [KalkulatorController::class, 'items'])->name('kalkulator.index');

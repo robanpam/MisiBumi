@@ -22,33 +22,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Dummy Data -->
+                    @foreach ($pendingKampanyes as $kampanye)
                     <tr>
-                        <td>00001</td>
-                        <td>Howan Anderson</td>
-                        <td>Penanaman 200 Pohon Trembesi</td>
-                        <td>Riau</td>
-                        <td>Trembesi</td>
-                        <td><span class="badge bg-success">OKE</span></td>
-                        <td><button class="btn btn-sm"><h4>i</h4></button></td>
-                    </tr>
-                    <tr>
-                        <td>00002</td>
-                        <td>Supandi S.</td>
-                        <td>Hijaunkan Bekasi dengan Beringin</td>
-                        <td>Bekasi</td>
-                        <td>Beringin</td>
+                        <td>{{ $kampanye->id }}</td>
+                        <td>{{ $kampanye.user_name }}</td>
+                        <td>{{ $kampanye.nama_kampanye }}</td>
+                        <td>{{ $kampanye.lokasi_kampanye }}</td>
+                        <td>{{ $kampanye.pohon_nama }}</td>
                         <td><span class="badge bg-warning">Pending</span></td>
                         <td><button class="btn btn-sm"><h4>i</h4></button></td>
-                    </tr><tr>
-                        <td>00002</td>
-                        <td>Supandi S.</td>
-                        <td>Hijaunkan Bekasi dengan Beringin</td>                                                                                                          
-                        <td>Bekasi</td>
-                        <td>Beringin</td>
-                        <td><span class="badge bg-danger">reject</span></td>
-                        <td><button class="btn btn-sm"><h4>i</h4></button></td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
             <div class="d-flex justify-content-end mt-4">
@@ -60,7 +44,7 @@
 </div>
 @endsection
 
-@section('css')
+@section('more_files')
 <style>
     .card-header {
         background-color: #f8f9fa;
