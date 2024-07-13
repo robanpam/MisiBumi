@@ -25,18 +25,18 @@
                     @foreach ($pendingKampanyes as $kampanye)
                     <tr>
                         <td>{{ $kampanye->id }}</td>
-                        <td>{{ $kampanye.user_name }}</td>
-                        <td>{{ $kampanye.nama_kampanye }}</td>
-                        <td>{{ $kampanye.lokasi_kampanye }}</td>
-                        <td>{{ $kampanye.pohon_nama }}</td>
+                        <td>{{ $kampanye->user_name }}</td>
+                        <td>{{ $kampanye->nama_kampanye }}</td>
+                        <td>{{ $kampanye->lokasi_kampanye }}</td>
+                        <td>{{ $kampanye->pohon_nama }}</td>
                         <td><span class="badge bg-warning">Pending</span></td>
-                        <td><button class="btn btn-sm"><h4>i</h4></button></td>
+                        <td><a href="{{ route('detailkampanye', ['id' => $kampanye->id]) }}" class="btn btn-sm"><h4>i</h4></a></td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
             <div class="d-flex justify-content-end mt-4">
-                <button class="btn btn-success me-5 ">Terima Semua</button>
+                <button class="btn btn-success me-5">Terima Semua</button>
                 <button class="btn btn-danger me-4">Tolak</button>
             </div>
         </div>
@@ -75,7 +75,7 @@
     .table th, .table td {
         vertical-align: middle;
     }
-    .rounded-card{
+    .rounded-card {
         border-radius: 5rem;
     }
 </style>

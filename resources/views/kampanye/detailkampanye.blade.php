@@ -14,58 +14,64 @@
                 <tbody>
                     <tr>
                         <th scope="row">ID Kampanye</th>
-                        <td>00001</td>
+                        <td>{{ $kampanye->id }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Nama</th>
-                        <td>Howan Anderson</td>
+                        <td>{{ $kampanye->user_name }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Judul Kampanye</th>
-                        <td>Penanaman 200 Pohon Trembesi</td>
+                        <td>{{ $kampanye->nama_kampanye }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Lokasi</th>
-                        <td>Riau</td>
+                        <td>{{ $kampanye->lokasi_kampanye }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Tanggal Request</th>
-                        <td>4 September 2019</td>
+                        <td>{{ \Carbon\Carbon::parse($kampanye->created_at)->format('d-m-Y') }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Jenis Pohon (Jumlah)</th>
-                        <td>Trembesi (200)</td>
+                        <td>{{ $kampanye->pohon_nama }} ({{ $kampanye->total_pohon }})</td>
                     </tr>
                     <tr>
                         <th scope="row">Dibutuhkan</th>
-                        <td>Rp8.000.000</td>
+                        <td>Rp{{ number_format($kampanye->nilai_donasi, 0, ',', '.') }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Batas Donasi</th>
-                        <td>1 Januari 2020</td>
+                        <td>{{ \Carbon\Carbon::parse($kampanye->batas_donasi)->format('d-m-Y') }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Deskripsi</th>
-                        <td>Kampanye ini...</td>
+                        <td>{{ $kampanye->deskripsi }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Gambar</th>
                         <td>
-                            <img src="path/to/image.jpg" class="img-fluid rounded" alt="Campaign Image">
+                            <img src="{{ asset('path/to/image/' . $kampanye->gambar_kampanye) }}" class="img-fluid rounded" alt="Campaign Image">
                         </td>
                     </tr>
                 </tbody>
             </table>
             <div class="d-flex justify-content-end mt-btn">
-                <button class="btn btn-success btn-lg me-4">Terima</button>
-                <button class="btn btn-danger btn-lg ">Tolak</button>
+                <form action="{{ route('terima', ['id' => $kampanye->id]) }}" method="POST" class="me-2">
+                    @csrf
+                    <button type="submit" class="btn btn-success btn-lg me-4">Terima</button>
+                </form>
+                <form action="{{ route('tolak', ['id' => $kampanye->id]) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-danger btn-lg">Tolak</button>
+                </form>
             </div>
         </div>
     </div>
 </div>
 @endsection
 
-@section('css')
+@section('more_files')
 <style>
     .mt-btn{
         margin-top: 5rem;
@@ -73,7 +79,6 @@
     .card-header {
         background-color: #f8f9fa;
         font-weight: bold;
-
     }
     .card-body {
         background-color: #fff;

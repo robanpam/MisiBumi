@@ -72,9 +72,7 @@
       <div class="modal-body">
         <div id="requestKampanyeContent"></div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
+
     </div>
   </div>
 </div>
@@ -131,7 +129,7 @@ document.getElementById('viewRequestButton').addEventListener('click', function(
                     <td>${kampanye.lokasi_kampanye}</td>
                     <td>${kampanye.pohon_nama}</td>
                     <td><span class="badge bg-warning">Pending</span></td>
-                    <td><button class="btn btn-sm"><h4>i</h4></button></td>
+                    <td><a href="/detailkampanye/${kampanye.id}" class="btn btn-sm"><h4>i</h4></a></td>
                 </tr>`;
             });
             content += '</tbody></table><div class="d-flex justify-content-end mt-4"><button class="btn btn-success me-5 ">Terima Semua</button><button class="btn btn-danger me-4">Tolak</button></div>';
