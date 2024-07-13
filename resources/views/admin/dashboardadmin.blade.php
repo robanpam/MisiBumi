@@ -89,7 +89,7 @@
 </div>
 @endsection
 
-@section('js')
+@section('chart')
 <script>
     const dummyData = {
         'January': [30, 45, 32, 70, 65, 80, 75, 90, 85, 95, 100, 110],
