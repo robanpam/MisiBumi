@@ -34,7 +34,7 @@ class KampanyeController extends Controller
         return response()->json($pendingKampanyes);
     }
 
-    //detail kampanye
+    //detail  request kampanye
     public function show($id)
     {
         $kampanye = Kampanye::join('pohons', 'kampanyes.pohon_id', '=', 'pohons.id')
