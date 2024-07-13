@@ -132,8 +132,49 @@ document.getElementById('viewRequestButton').addEventListener('click', function(
                     <td><a href="/detailkampanye/${kampanye.id}" class="btn btn-sm"><h4>i</h4></a></td>
                 </tr>`;
             });
-            content += '</tbody></table><div class="d-flex justify-content-end mt-4"><button class="btn btn-success me-5 ">Terima Semua</button><button class="btn btn-danger me-4">Tolak</button></div>';
+            content += `
+            </tbody></table>
+            <div class="d-flex justify-content-end mt-4">
+                <form id="terimaSemuaForm" action="{{ route('terimaSemua') }}" method="POST" class="me-2">
+                    @csrf
+                    <button type="submit" class="btn btn-success me-5">Terima Semua</button>
+                </form>
+                <form id="tolakSemuaForm" action="{{ route('tolakSemua') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-danger me-4">Tolak Semua</button>
+                </form>
+            </div>`;
             document.getElementById('requestKampanyeContent').innerHTML = content;
+            
+            document.getElementById('terimaSemuaForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                fetch(this.action, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        window.location.href = '{{ route('kelolakampanye') }}';
+                    }
+                });
+            });
+
+            document.getElementById('tolakSemuaForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                fetch(this.action, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        window.location.href = '{{ route('kelolakampanye') }}';
+                    }
+                });
+            });
         });
 });
 @endsection

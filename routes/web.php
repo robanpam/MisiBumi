@@ -57,6 +57,8 @@ Route::get('/accrequestkampanye', [KampanyeController::class, 'fetchPendingKampa
 Route::get('/detailkampanye/{id}', [KampanyeController::class, 'show'])->name('detailkampanye');
 Route::post('/terima/{id}', [KampanyeController::class, 'terima'])->name('terima');
 Route::post('/tolak/{id}', [KampanyeController::class, 'tolak'])->name('tolak');
+Route::post('/terima-semua', [KampanyeController::class, 'terimaSemua'])->name('terimaSemua');
+Route::post('/tolak-semua', [KampanyeController::class, 'tolakSemua'])->name('tolakSemua');
 
 
 // Route::get('/dashboardadmin', function () {

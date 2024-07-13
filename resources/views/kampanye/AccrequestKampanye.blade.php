@@ -36,8 +36,14 @@
                 </tbody>
             </table>
             <div class="d-flex justify-content-end mt-4">
-                <button class="btn btn-success me-5">Terima Semua</button>
-                <button class="btn btn-danger me-4">Tolak</button>
+                <form action="{{ route('terimaSemua') }}" method="POST" class="me-2">
+                    @csrf
+                    <button type="submit" class="btn btn-success me-5">Terima Semua</button>
+                </form>
+                <form action="{{ route('tolakSemua') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-danger me-4">Tolak semua</button>
+                </form>
             </div>
         </div>
     </div>

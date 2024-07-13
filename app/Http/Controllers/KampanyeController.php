@@ -72,4 +72,16 @@ class KampanyeController extends Controller
         }
         return redirect()->route('kelolakampanye')->with('success', 'Kampanye ditolak.');
     }
+
+    public function terimaSemua()
+    {
+        Kampanye::where('status', 3)->update(['status' => 1]); // Change status to 'process'
+        return redirect()->route('kelolakampanye')->with('success', 'Semua kampanye diterima.');
+    }
+
+    public function tolakSemua()
+    {
+        Kampanye::where('status', 3)->update(['status' => 2]); // Change status to 'reject'
+        return redirect()->route('kelolakampanye')->with('success', 'Semua kampanye ditolak.');
+    }
 }
