@@ -13,13 +13,13 @@
             <div class="col-5">
                 <div class="row">
                     <div class="col-1"></div>
-                    <div class="col-11"><img src="https://fwi.or.id/wp-content/uploads/2023/09/5-1024x576.png "
+                    <div class="col-11"><img src="{{ asset('path/to/image/' . $kampanye->gambar_kampanye) }} "
                             class="img-fluid gbrdetail" alt="..."></div>
                 </div>
                 <div class="row">
                     <div class="col-1"></div>
                     <div class="col-11 dsk-detail">
-                        <p>Progressif foundation</p>
+                        <p>{{ $kampanye->user_name }}</p>
                     </div>
                 </div>
 
@@ -71,7 +71,7 @@
             <div class="col-1"></div>
             <div class="col-6">
                 <div class="row text-center">
-                    <h1><strong>Penanaman 500 Pohon Mangrove</strong></h1>
+                    <h1><strong>{{ $kampanye->nama_kampanye }}</strong></h1>
                 </div>
                 <div class="row">
                     <div class="container mt-3">
@@ -79,17 +79,17 @@
                             <div class="row biodata-row mb-2">
                                 <div class="col-3"><strong>Jenis Tanaman</strong></div>
                                 <div class="col-1 dsk1">:</div>
-                                <div class="col-8 dsk1">Mangrove</div>
+                                <div class="col-8 dsk1">{{ $kampanye->pohon_nama }}</div>
                             </div>
                             <div class="row biodata-row mb-2">
                                 <div class="col-3"><strong>Lokasi</strong></div>
                                 <div class="col-1 dsk1">:</div>
-                                <div class="col-8 dsk1">Kawasan Pesisir Cagar Alam Panua Kabupaten Pohuwato</div>
+                                <div class="col-8 dsk1">{{ $kampanye->lokasi_kampanye }}</div>
                             </div>
                             <div class="row biodata-row mb-2">
                                 <div class="col-3"><strong>Batas Donasi</strong></div>
                                 <div class="col-1 dsk1">:</div>
-                                <div class="col-8 dsk1">20 Mei 2024</div>
+                                <div class="col-8 dsk1">{{ \Carbon\Carbon::parse($kampanye->batas_donasi)->format('d-m-Y') }}</div>
                             </div>
                             <div class="row biodata-row mb-2">
                                 <div class="col-3"><strong>Harga Pohon</strong></div>
@@ -142,39 +142,7 @@
                     <div class="tab-pane fade show active" id="pills-tentang" role="tabpanel"
                         aria-labelledby="tab-tentang">
                         <h4>Halo Sahabat,</h4>
-                        <p>
-                            Kami dari Progresif Foundation mengajak kawan-kawan semuanya untuk ikut serta berdonasi
-                            bibit
-                            mangrove
-                            yang nantinya akan kita tanam di Desa Bedono, Sayung, Demak.
-                        </p>
-                        <p>
-                            Desa bedono merupakan wilayah di Kabupaten Demak, Jawa Tengah yang berada di Kawasan pesisir
-                            pantai.
-                            Wilayah ini memiliki potensi yang sangat prospektif di bidang perikanan, budi daya hasil
-                            laut, dan
-                            wisata bahari. Meskipun begitu, laut Demak memiliki risiko daya rusak yang besar. Dengan
-                            potensi
-                            kenaikan air laut mencapai 3 cm/tahun dan penurunan muka tanah mencapai 25 cm/tahun, daratan
-                            Demak
-                            terancam tenggelam dalam 10-20 tahun dan sudah menenggelamkan kurang lebih 200 rumah
-                            penduduk, jika
-                            tidak ada tindakan konservasi dan restorasi, serta peraturan yang mencegah berlanjutnya
-                            tindakan
-                            perusakan lingkungan.
-                        </p>
-                        <p>
-                            Untuk itu, Progresif Foundation melalui Bakti Progresif akan melakukan penanaman pohon
-                            Mangrove
-                            Rhizophora yang dapat mengendapkan lumpur di akar-akar pohon bakau sehingga mencegah
-                            terjadinya
-                            intrusi
-                            air laut ke daratan. Selain itu, Mangrove Rhizophora memiliki akar yang dapat mempercepat
-                            penguraian
-                            limbah organik dan limbah kimia yang dapat mencemari laut. Besaran Donasi yang diperlukan
-                            untuk
-                            melakukan penanaman dan perawatan pohon adalah Rp 20,000/pohon.
-                        </p>
+                        <p>{{ $kampanye->deskripsi }}</p>
                     </div>
 
                     <!-- PERKEMBANGAN -->

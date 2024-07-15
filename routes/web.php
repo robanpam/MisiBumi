@@ -76,7 +76,7 @@ Route::get('/kampanye', function () {
 });
 
 // user
-Route::get('/detailkampanye2/{id}', [KampanyeController::class, 'show'])->name('detailKampanye2');
+Route::get('/detailKampanye2/{id}', [KampanyeController::class, 'show'])->name('detailKampanye2');
 
 Route::get('/donasi', function () {
     return view('donasi.mainDampakDonasi');
