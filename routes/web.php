@@ -4,10 +4,13 @@ use App\Http\Controllers\KalkulatorController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\KampanyeController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SessionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('kampanye.detailKampanye');
+    return view('sign.sign');
 });
 
 //profile admin
@@ -87,7 +90,19 @@ Route::get('/laporan', function () {
 
 //Kalkulator
 Route::get('/kalkulator/{jenis}/', [KalkulatorController::class, 'items'])->name('kalkulator.index');
-
 Route::get('/kalkulator', [KalkulatorController::class, 'index'])->name('kalkulator.list');
-
 Route::post('/kalkulator/result/', [KalkulatorController::class, 'result'])->name('kalkulator.result');
+
+//Login&Register
+Route::get('/sign-register', [SessionController::class, 'init'])->name('session.init');
+Route::post('/login', [SessionController::class, 'login'])->name('session.login');
+Route::post('/regis', [SessionController::class, 'register'])->name('session.register');
+
+//Profile
+Route::get('/profile/history', [ProfileController::class, 'history'])->name('profile.history');
+Route::get('/profile/kampanye', [ProfileController::class, 'kampanye'])->name('profile.kampanye');
+Route::get('/profile/pengaturan', [ProfileController::class, 'pengaturan'])->name('profile.pengaturan');
+Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+
+//User
+// Route::get('users/{id}', [UserController::class, 'index'])->name('user.index');

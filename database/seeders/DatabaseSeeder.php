@@ -11,6 +11,7 @@ use App\Models\Emisi;
 use App\Models\Pohon;
 use App\Models\MetodePembayaran;
 use App\Models\Kampanye;
+use Illuminate\Support\Facades\DB;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -21,7 +22,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(2)->create();
+        // JenisUser::factory()->create([
+        //     'nama_jenis' => 'user',
+        // ]);
+        // JenisUser::factory()->create([
+        //     'nama_jenis' => 'admin',
+        // ]);
+        // User::factory(10)->create();
+
+        // User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test2@example.com',
+        //     'tanggal_lahir' => now(),
+        //     'gender' => 'laki-laki',
+        //     'profile_photo' => 'tes',
+        //     'nomor_telepon' => '09212',
+        //     'jenis_user_id' => 2
+        // ]);
 
         // User::factory()->create([
         //     'name' => 'Test User',
@@ -30,19 +47,27 @@ class DatabaseSeeder extends Seeder
         //     'gender' => 'laki-laki',
         //     'profile_photo' => 'tes',
         //     'nomor_telepon' => '09212',
-        //     'jenis_user_id' => 1
+        //     'jenis_user_id' => 2
         // ]);
         
-        // JenisUser::factory()->create([
-        //     'nama_jenis' => 'admin',
-        // ]);
 
-        Emisi::factory(2)->create();
-        Pohon::factory(5)->create();
-        MetodePembayaran::factory(3)->create();
-        Kampanye::factory(20)->create();
-        Kalkulator::factory(10)->create();
-        Donasi::factory(100)->create();
-        Artikel::factory(20)->create();
+        // Emisi::factory(2)->create();
+        // Pohon::factory(5)->create();
+        // MetodePembayaran::factory(3)->create();
+        // Kampanye::factory(20)->create();
+        // Kalkulator::factory(10)->create();
+        // Donasi::factory(100)->create();
+        // Artikel::factory(20)->create();
+
+        User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test3@example.com',
+            // 'tanggal_lahir' => now(),
+            // 'gender' => 'laki-laki',
+            'profile_photo' => 'tes',
+            'password' => '123456',
+            'nomor_telepon' => '09212',
+            'jenis_user_id' => 2
+        ]);
     }
 }

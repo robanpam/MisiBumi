@@ -37,25 +37,25 @@
         <div class="row">
             <div class="col-3">
                 <ul class="list-unstyled ">
-                    <a href="" class="text-decoration-none text-dark">
+                    <a href="{{ route('profile.history') }}" class="text-decoration-none text-dark">
                         <li class="nav-item tabs py-2 ps-2 @yield('active_history')">
                             <i class="fa-solid fa-clock"></i>
                             Histori Misi
                         </li>
                     </a>
-                    <a href="" class="text-decoration-none text-dark">
+                    <a href="{{ route('profile.kampanye') }}" class="text-decoration-none text-dark">
                         <li class="nav-item tabs py-2 ps-2 @yield('active_kampanye')">
                             <i class="fa-solid fa-users"></i>
                             Riwayat Kampanye
                         </li>
                     </a>
-                    <a href="" class="text-decoration-none text-dark">
+                    <a href="{{ route('profile.pengaturan') }}" class="text-decoration-none text-dark">
                         <li class="nav-item tabs py-2 ps-2 @yield('active_pengaturan')">
                             <i class="fa-solid fa-gear"></i>
                             Pengaturan
                         </li>
                     </a>
-                    <a href="" class="text-decoration-none text-dark">
+                    <a href="#" class="text-decoration-none text-dark">
                         <li class="nav-item tabs py-2 ps-2 @yield('active_keluar')">
                             <i class="fa-solid fa-arrow-right-from-bracket"></i>
                             Keluar

@@ -31,7 +31,7 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'profile_photo' => 'tes.png',
             'nomor_telepon' => fake()->phoneNumber(),
-            'jenis_user_id' => 2,
+            'jenis_user_id' => 1,
         ];
     }
 
