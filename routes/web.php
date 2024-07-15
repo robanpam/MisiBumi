@@ -75,8 +75,12 @@ Route::get('/kampanye', function () {
     return view('kampanye.mainKampanye');
 });
 
-Route::get('/detail', function () {
+Route::get('/detailkampanye', function () {
     return view('kampanye.detailKampanye2');
+});
+
+Route::get('/detailkampanyeadmin', function () {
+    return view('kampanye.detailKampanye');
 });
 
 Route::get('/donasi', function () {
