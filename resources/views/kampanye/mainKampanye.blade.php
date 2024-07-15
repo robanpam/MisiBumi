@@ -11,8 +11,7 @@
                 <div class="col cont banner text-light">
                     <h1><strong>Kampanye Misi Bumi</strong></h1>
                     <p>Dengan hati yang penuh dengan kepedulian dan tekad yang bulat, kami hadir
-                        untuk mengajak Anda
-                        semua bergabung dalam kampanye Misi Bumi ini. Mari bersama kita jaga kelestarian tumbuhan,
+                        untuk mengajak Anda semua bergabung dalam kampanye Misi Bumi ini. Mari bersama kita jaga kelestarian tumbuhan,
                         sebagai sumber kehidupan yang tak ternilai, melalui aksi nyata & donasi yang berdampak
                         positif bagi lingkungan kita semua
                     </p>
@@ -31,7 +30,7 @@
                     <!-- KONTEN-1 -->
                     <div class="col">
                         <div class="card h-50">
-                            <img src="https://www.marketeers.com/_next/image/?url=https%3A%2F%2Fimagedelivery.net%2F2MtOYVTKaiU0CCt-BLmtWw%2Fe33fd511-2121-44fc-20e9-3fb547a5f600%2Fw%3D2560&w=1920&q=75"
+                            <img src=""
                                 class="card-img-top" alt="...">
                             <!-- Deskripsi -->
                             <div class="card-body">
@@ -66,7 +65,7 @@
 
                                 </div>
                                 <div class="d-grid gap-2 mt-3">
-                                    <a href="{{ route('detailKampanye2', ['id' => $i]) }}" class="btn btn-primary rounded-5">
+                                    <a href="{{ route('detailkampanye2', ['id' => $i]) }}" class="btn btn-primary rounded-5">
                                         <div class="text-btn">Lihat Kampanye</div>
                                     </a>
                                 </div>

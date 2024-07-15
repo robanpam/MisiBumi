@@ -34,8 +34,8 @@ class KampanyeController extends Controller
         return response()->json($pendingKampanyes);
     }
 
-    //detail  request kampanye
-    public function show($id)
+    // detail request kampanye (admin)
+    public function showDetailRequestKampanye($id)
     {
         $kampanye = Kampanye::join('pohons', 'kampanyes.pohon_id', '=', 'pohons.id')
             ->join('users', 'kampanyes.user_id', '=', 'users.id')
@@ -51,6 +51,25 @@ class KampanyeController extends Controller
             ->firstOrFail();
 
         return view('kampanye.detailkampanye', compact('kampanye'));
+    }
+
+    // detail kampanye (user)
+    public function showDetailKampanye($id)
+    {
+        $kampanye = Kampanye::join('pohons', 'kampanyes.pohon_id', '=', 'pohons.id')
+            ->join('users', 'kampanyes.user_id', '=', 'users.id')
+            ->leftJoin('donasis', 'kampanyes.id', '=', 'donasis.kampanye_id')
+            ->select(
+                'kampanyes.*',
+                'pohons.nama as pohon_nama',
+                'users.name as user_name',
+                'donasis.nilai_donasi',
+                'donasis.metode_pembayaran_id'
+            )
+            ->where('kampanyes.id', $id)
+            ->firstOrFail();
+
+        return view('kampanye.detailkampanye2', compact('kampanye'));
     }
 
     public function terima($id)

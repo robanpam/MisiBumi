@@ -56,27 +56,25 @@ Route::get('/kelolakampanye', [KampanyeController::class, 'index'])->name('kelol
 //request kampanye
 Route::get('/accrequestkampanye', [KampanyeController::class, 'fetchPendingKampanyes'])->name('fetchPendingKampanyes');
 
-//detail request kampanye
-Route::get('/detailkampanye/{id}', [KampanyeController::class, 'show'])->name('detailkampanye');
+//detail request kampanye (admin)
+Route::get('/detailkampanye/{id}', [KampanyeController::class, 'showDetailRequestKampanye'])->name('detailkampanye');
 Route::post('/terima/{id}', [KampanyeController::class, 'terima'])->name('terima');
 Route::post('/tolak/{id}', [KampanyeController::class, 'tolak'])->name('tolak');
 Route::post('/terima-semua', [KampanyeController::class, 'terimaSemua'])->name('terimaSemua');
 Route::post('/tolak-semua', [KampanyeController::class, 'tolakSemua'])->name('tolakSemua');
 
+// user
+Route::get('/detailkampanye2/{id}', [KampanyeController::class, 'showDetailKampanye'])->name('detailkampanye2');
 
-Route::get('/dashboardadmin', function () {
-    return view('admin.dashboardadmin');
-});
-
-
-
-
+// kampanye
 Route::get('/kampanye', function () {
     return view('kampanye.mainKampanye');
 });
 
-// user
-Route::get('/detailKampanye2/{id}', [KampanyeController::class, 'show'])->name('detailKampanye2');
+
+Route::get('/dashboardadmin', function () {
+    return view('admin.dashboardadmin');
+});
 
 Route::get('/donasi', function () {
     return view('donasi.mainDampakDonasi');
