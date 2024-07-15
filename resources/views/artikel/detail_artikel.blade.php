@@ -8,7 +8,7 @@
         <p class="text-center"><strong>Oleh: Misi Bumi</strong></p>
         
         <div class="text-center">
-            <img src="/" alt="Planting Trees" class="article-image img-fluid mb-4" style="max-width: 100%; height: auto;">
+            <img src="{{ asset('asset/artikel/1720746208.jpg') }}" alt="Planting Trees" class="article-image img-fluid mb-4" style="max-width: 100%; height: auto;">
         </div>
 
         <p class="text-end">10 April 2024</p>
