@@ -66,9 +66,9 @@
 
                                 </div>
                                 <div class="d-grid gap-2 mt-3">
-                                    <button class="btn btn-primary rounded-5" type="button">
+                                    <a href="{{ route('detailkampanye2', ['id' => $i]) }}" class="btn btn-primary rounded-5">
                                         <div class="text-btn">Lihat Kampanye</div>
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
