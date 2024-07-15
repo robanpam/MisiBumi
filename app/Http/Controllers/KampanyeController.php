@@ -64,7 +64,8 @@ class KampanyeController extends Controller
                 'pohons.nama as pohon_nama',
                 'users.name as user_name',
                 'donasis.nilai_donasi',
-                'donasis.metode_pembayaran_id'
+                'donasis.metode_pembayaran_id',
+                'pohons.harga_pohon as pohon_harga'
             )
             ->where('kampanyes.id', $id)
             ->firstOrFail();

@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('gambar_kampanye');
             $table->integer('total_pohon');
             $table->integer('total_donatur');
+            $table->integer('harga_pohon');
             $table->timestamps();
         });
     }

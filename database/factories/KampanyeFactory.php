@@ -28,6 +28,7 @@ class KampanyeFactory extends Factory
             'gambar_kampanye' => 'tes.png',
             'total_pohon' => 250,
             'total_donatur' => 0,
+            'harga_pohon' => rand(20000, 30000)
         ];
     }
 }

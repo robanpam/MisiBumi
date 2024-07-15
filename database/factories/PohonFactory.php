@@ -23,6 +23,7 @@ class PohonFactory extends Factory
             'gambar_pohon' => 'tes.png',
             'syarat_tumbuh' => fake()->paragraph(1, true),
             'serapan_karbon' => fake()->sentence(3, true),
+            'harga_pohon' => rand(10000, 30000)
         ];
     }
 }

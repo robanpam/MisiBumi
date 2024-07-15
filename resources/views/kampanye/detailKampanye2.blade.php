@@ -94,7 +94,7 @@
                             <div class="row biodata-row mb-2">
                                 <div class="col-3"><strong>Harga Pohon</strong></div>
                                 <div class="col-1 dsk1">:</div>
-                                <div class="col-8 dsk1">Rp25.000</div>
+                                <div class="col-8 dsk1">{{ $kampanye->harga_pohon }}</div>
                             </div>
                             <div class="row biodata-row mb-2">
                                 <div class="col-3"><strong>Minimal Pohon</strong></div>
