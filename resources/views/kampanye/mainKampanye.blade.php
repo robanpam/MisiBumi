@@ -21,29 +21,26 @@
         </div>
     </div>
 
-    <!-- CARD BELUM SELESAI-->
+    <!-- CARD BELUM SELESAI () -->
     <div class="container">
         <h3 class="subJudul"><strong>Belum Selesai</strong></h3>
         <div class="row">
             @for ($i = 1; $i < 4; $i++)
                 <div class="col-4">
-                    <!-- KONTEN-1 -->
+
                     <div class="col">
                         <div class="card h-50">
                             <img src=""
                                 class="card-img-top" alt="...">
-                            <!-- Deskripsi -->
                             <div class="card-body">
-                                <h5 class="card-title d-flex justify-content-center">Kegiatan Pemantauan & Pengawasan
-                                    Lingkungan Alam</h5>
+                                <h5 class="card-title d-flex justify-content-center">{{ $kampanye->nama_kampanye }}</h5>
                                 <div class="row">
                                     <div class="col-md-5 card-dsk">Campaigner :</div>
-                                    <div class="col-md-7 ms-auto d-flex justify-content-end card-dsk">PT. Berkat Cipta
-                                        Abadi</div>
+                                    <div class="col-md-7 ms-auto d-flex justify-content-end card-dsk">{{ $kampanye->user_name }}</div>
                                 </div>
                                 <div class="row card-dsk1">
                                     <div class="col-md-5 ">Batas Donasi :</div>
-                                    <div class="col-md-7 ms-auto d-flex justify-content-end">9 Juni 2024</div>
+                                    <div class="col-md-7 ms-auto d-flex justify-content-end">{{ \Carbon\Carbon::parse($kampanye->batas_donasi)->format('d-m-Y') }}</div>
                                 </div>
                                 <div class="progress mt-3 rounded-0">
                                     <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25"
@@ -75,7 +72,6 @@
                 </div>
             @endfor
 
-            {{-- BUNTTON --}}
             <div class="container">
                 <div class="row">
                     <div class="col btnLihatLainnya">
@@ -86,23 +82,19 @@
                 </div>
             </div>
 
-
-
-            <!-- CARD TELAH SELESAI-->
+            <!-- CARD TELAH SELESAI -->
             <div class="container">
                 <h3 class="subJudul"><strong>Telah Selesai</strong></h3>
                 <div class="row">
                     @for ($i = 1; $i < 4; $i++)
                         <div class="col-4">
-                            <!-- KONTEN-1 -->
                             <div class="col">
                                 <div class="card h-50">
                                     <img src="https://www.marketeers.com/_next/image/?url=https%3A%2F%2Fimagedelivery.net%2F2MtOYVTKaiU0CCt-BLmtWw%2Fe33fd511-2121-44fc-20e9-3fb547a5f600%2Fw%3D2560&w=1920&q=75"
                                         class="card-img-top" alt="...">
-                                    <!-- Deskripsi -->
+
                                     <div class="card-body">
-                                        <h5 class="card-title d-flex justify-content-center">Kegiatan Pemantauan &
-                                            Pengawasan Lingkungan Alam</h5>
+                                        <h5 class="card-title d-flex justify-content-center">{{ $kampanye->nama_kampanye }}</h5>
 
                                         <div class="row">
                                             <div class="col-7 card-dsk3">Campaigner</div>
@@ -110,7 +102,7 @@
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-7 card-dsk4">Restoration Alliance</div>
+                                            <div class="col-7 card-dsk4">{{ $kampanye->user_name }}</div>
                                             <div class="col-5 card-dsk4">150</div>
                                         </div>
 
