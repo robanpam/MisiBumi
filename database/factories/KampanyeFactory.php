@@ -27,7 +27,7 @@ class KampanyeFactory extends Factory
         $randomFileName = $fileNames[array_rand($fileNames)];
 
         return [
-            'user_id' => 13,
+            'user_id' => 14,
             'nama_kampanye' => fake()->sentence(3, true),
             'lokasi_kampanye' => fake()->country(),
             'pohon_id' => rand(1, 5),

@@ -1,6 +1,7 @@
 @extends('layout.master')
 
 @section('css', asset('css/kampanye/mainKampanye.css'))
+@section('kampanye_aktif', 'nav-active')
 
 @section('content')
     <div class="bg">

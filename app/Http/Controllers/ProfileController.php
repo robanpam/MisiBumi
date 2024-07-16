@@ -47,8 +47,14 @@ class ProfileController extends Controller
                                 $pcount = $pohon_count[0]->jumlah_pohon;
                             }
         // dd($pohon_count);
-
-        return view('profile.profile_history', compact('kcount', 'dcount', 'pcount'));
+        $donasis = Kampanye::join('donasis', 'kampanyes.id', '=', 'donasis.kampanye_id')
+                            ->join('users', 'donasis.user_id', '=', 'users.id')
+                            ->join('metode_pembayarans', 'donasis.metode_pembayaran_id', '=', 'metode_pembayarans.id')
+                            ->where('users.id', '=', auth()->user()->id)
+                            ->select(['nama_kampanye', 'donasis.created_at', 'nilai_donasi', 'nama_metode'])
+                            ->get();
+        // dd($donasis);
+        return view('profile.profile_history', compact('kcount', 'dcount', 'pcount', 'donasis'));
     }
 
     public function kampanye(){
@@ -90,27 +96,29 @@ class ProfileController extends Controller
         }
         // dd($pohon_count);
 
-        $kampanye_pending = Kampanye::select('*')
-                                ->where('kampanyes.status', '=', 3)
-                                ->where('kampanyes.user_id', '=', auth()->user()->id)
-                                ->get();
+        // $kampanye_pending = Kampanye::select('*')
+        //                         ->where('kampanyes.status', '=', 3)
+        //                         ->where('kampanyes.user_id', '=', auth()->user()->id)
+        //                         ->get();
         
-        $kampanye_rejected = Kampanye::select('*')
-                                ->where('kampanyes.status', '=', 2)
-                                ->where('kampanyes.user_id', '=', auth()->user()->id)
-                                ->get();
+        // $kampanye_rejected = Kampanye::select('*')
+        //                         ->where('kampanyes.status', '=', 2)
+        //                         ->where('kampanyes.user_id', '=', auth()->user()->id)
+        //                         ->get();
 
-        $kampanye_progres = Kampanye::select('*')
-                                ->where('kampanyes.status', '=', 1)
-                                ->where('kampanyes.user_id', '=', auth()->user()->id)
-                                ->get();
+        // $kampanye_progres = Kampanye::select('*')
+        //                         ->where('kampanyes.status', '=', 1)
+        //                         ->where('kampanyes.user_id', '=', auth()->user()->id)
+        //                         ->get();
 
-        $kampanye_complete = Kampanye::select('*')
-                                ->where('kampanyes.status', '=', 0)
-                                ->where('kampanyes.user_id', '=', auth()->user()->id)
-                                ->get();
+        // $kampanye_complete = Kampanye::select('*')
+        //                         ->where('kampanyes.status', '=', 0)
+        //                         ->where('kampanyes.user_id', '=', auth()->user()->id)
+        //                         ->get();
 
-        return view('profile.profile_kampanye', compact('kcount', 'dcount', 'pcount', 'kampanye_pending', 'kampanye_rejected', 'kampanye_progres', 'kampanye_complete'));
+        $kampanyes = Kampanye::select('*')->where('kampanyes.user_id', '=', auth()->user()->id)->get();
+
+        return view('profile.profile_kampanye', compact('kcount', 'dcount', 'pcount', 'kampanyes'));
     }
 
     public function pengaturan(){

@@ -17,7 +17,7 @@ class DonasiFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => rand(1, 10),
+            'user_id' => 14,
             'kampanye_id' => rand(1, 20),
             'nilai_donasi' => fake()->randomElement([25000, 50000, 75000, 100000]),
             'metode_pembayaran_id' => rand(1, 3),

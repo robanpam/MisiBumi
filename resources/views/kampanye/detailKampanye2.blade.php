@@ -2,7 +2,7 @@
 
 @section('css', asset('css/kampanye/detailKampanye2.css'))
 
-
+@section('kampanye_aktif', 'nav-active')
 
 @section('content')
     <div class="container">
