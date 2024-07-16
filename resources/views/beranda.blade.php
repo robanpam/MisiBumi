@@ -36,12 +36,12 @@
         </div>
         <div class="row">
             <div class="col-md-3 col-6 d-flex flex-column justify-content-center align-items-center stats">
-                <h1>5,89M</h1>
+                <h1>{{$donasi}}</h1>
                 <p>Donasi Terkumpul</p>
                 <div class="green-line"></div>
             </div>
             <div class="col-md-3 col-6 d-flex flex-column justify-content-center align-items-center stats">
-                <h1>321,3k</h1>
+                <h1>{{$pohon}}</h1>
                 <p>Pohon Terkumpul</p>
                 <div class="green-line"></div>
             </div>
@@ -51,7 +51,7 @@
                 <div class="green-line"></div>
             </div>
             <div class="col-md-3 col-6 d-flex flex-column justify-content-center align-items-center stats">
-                <h1>1,3k</h1>
+                <h1>{{ $kampanye }}</h1>
                 <p>Kampanye</p>
                 <div class="green-line"></div>
             </div>

@@ -34,7 +34,7 @@ class SessionController extends Controller
             $user = auth()->user();
             
             if($user->jenis_user_id == 1){
-                return view('beranda');
+                return redirect()->route('beranda.show');
             }
         }
 
@@ -83,9 +83,8 @@ class SessionController extends Controller
         auth()->login($user);
             
         if($user->jenis_user_id == 1){
-            return view('beranda');
+            return redirect()->route('beranda.show');
         }
-        
 
         return redirect()->back()->withErrors([
             'credentials' => 'Please input the correct email or password',

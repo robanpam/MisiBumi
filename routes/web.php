@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\KalkulatorController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArtikelController;
@@ -14,7 +15,7 @@ Route::get('/', function () {
 });
 
 //profile admin
-Route::get('/profiladmin/{id}', [AdminController::class, 'admin'])->name('profileadmin');
+Route::get('/profiladmin/{id}', [AdminController::class, 'admin'])->name('profileadmin')->middleware('admin');
 
 
 //ganti nama
@@ -67,6 +68,10 @@ Route::post('/tolak-semua', [KampanyeController::class, 'tolakSemua'])->name('to
 Route::get('/detailkampanye2/{id}', [KampanyeController::class, 'showDetailKampanye'])->name('detailkampanye2');
 
 // kampanye
+Route::get('/dashboardadmin', function () {
+    return view('admin.dashboardadmin');
+});
+
 Route::get('/kampanye', function () {
     return view('kampanye.mainKampanye');
 });
@@ -84,10 +89,9 @@ Route::get('/laporan', function () {
     return view('laporan.laporanTahunan');
 });
 
-
 //Kalkulator
-Route::get('/kalkulator/{jenis}/', [KalkulatorController::class, 'items'])->name('kalkulator.index');
 Route::get('/kalkulator', [KalkulatorController::class, 'index'])->name('kalkulator.list');
+Route::get('/kalkulator/{jenis}/', [KalkulatorController::class, 'items'])->name('kalkulator.index');
 Route::post('/kalkulator/result/', [KalkulatorController::class, 'result'])->name('kalkulator.result');
 
 //Login&Register
@@ -99,7 +103,10 @@ Route::post('/regis', [SessionController::class, 'register'])->name('session.reg
 Route::get('/profile/history', [ProfileController::class, 'history'])->name('profile.history');
 Route::get('/profile/kampanye', [ProfileController::class, 'kampanye'])->name('profile.kampanye');
 Route::get('/profile/pengaturan', [ProfileController::class, 'pengaturan'])->name('profile.pengaturan');
-Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+Route::get('/profile/logout', [ProfileController::class, 'logout'])->name('profile.logout');
 
+//Beranda
+Route::get('/beranda', [BerandaController::class, 'show'])->name('beranda.show');
 //User
 // Route::get('users/{id}', [UserController::class, 'index'])->name('user.index');

@@ -68,26 +68,21 @@ body {
     background-color: #114232;
     border-color: #114232;
     color: #fff;
-    /* Warna teks */
 }
 
 .navTengah .nav-link.active:focus {
     background-color: #114232;
     border-color: #114232;
     color: #fff;
-    /* Warna teks */
 }
 
 .navTengah .nav-link:hover {
     color: #ADD9A8;
-    /* Warna teks saat dihover */
 }
 
 .navTengah .nav-link {
     background-color: white;
-    /* Warna latar belakang default */
     color: #114232;
-    /* Warna teks default */
     margin-left: -0.7rem;
 }
 

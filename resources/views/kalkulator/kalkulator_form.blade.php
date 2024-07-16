@@ -4,6 +4,8 @@
 
 @section('css', asset('../css/kalkulator/kalkulator_form.css'))
 
+@section('kalku_aktif', 'nav-active')
+
 @section('content')
     <div class="container">
         <div class="row my-3">

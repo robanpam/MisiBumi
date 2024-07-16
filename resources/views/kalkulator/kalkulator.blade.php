@@ -4,6 +4,8 @@
 
 @section('title', 'Kalkulator')
 
+@section('kalku_aktif', 'nav-active')
+
 @section('content')
 <div>
     <div class="container mt-3">

@@ -7,16 +7,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link active color" aria-current="page" href="#">Kampanye</a>
+          <a class="nav-link color @yield('kampanye_aktif')" aria-current="page" href="#">Kampanye</a>
         </li>
         <li class="nav-item ps-lg-3">
-          <a class="nav-link color" aria-current="page" href="#">Kalkulator</a>
+          <a class="nav-link color @yield('kalku_aktif')" aria-current="page" href="{{ route('kalkulator.list') }}">Kalkulator</a>
         </li>
         <li class="nav-item px-lg-3">
-          <a class="nav-link color" aria-current="page" href="#">Dampak</a>
+          <a class="nav-link color @yield('dampak_aktif')" aria-current="page" href="#">Dampak</a>
         </li>
         @if (auth()->user())
-          <a class="nav-link color" aria-current="page" href="{{ route('profile.history') }}">
+          <a class="nav-link color @yield('history_aktif')" aria-current="page" href="{{ route('profile.history') }}">
             <div class="d-flex align-items-center">
               <div class="nav-profile"></div>
               <div class="ms-2">

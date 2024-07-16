@@ -17,11 +17,11 @@ class KampanyeFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => rand(1, 10),
+            'user_id' => 13,
             'nama_kampanye' => fake()->sentence(3, true),
             'lokasi_kampanye' => fake()->country(),
             'pohon_id' => rand(1, 5),
-            'status' => 0,
+            'status' => rand(0, 3),
             'jumlah_pohon' => 0,
             'batas_donasi' => now(),
             'deskripsi' => fake()->paragraph(7, true),

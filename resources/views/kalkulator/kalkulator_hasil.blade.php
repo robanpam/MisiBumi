@@ -2,6 +2,8 @@
 
 @section('title', 'Hasil Kalkulasi')
 
+@section('kalku_aktif', 'nav-active')
+
 @section('css')
     .hasil_calc{
         border: 1px solid gray;

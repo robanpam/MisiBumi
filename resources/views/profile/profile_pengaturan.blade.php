@@ -34,25 +34,23 @@
                     <p class="error-message">{{ $message }}</p>
                 @enderror
             </div>
-        </div>
-            <!-- <div class="col-12 d-flex flex-column">
-                <label for="password" class="form-label">Password</label>
-                <input name="password" type="password" class="form-control" id="password">
-                @error('password')
+            <div class="col-12 d-flex flex-column">
+                <label for="phone"class="form-label">No. Telepon</label>
+                <input name="nomor_telepon" value="{{ Session::has('nomor_telepon') ? Session::get('nomor_telepon') : auth()->user()->nomor_telepon }}" type="tel" class="form-control" id="phone">
+                @error('nomor_telepon')
                     <p class="error-message">{{ $message }}</p>
                 @enderror
-            </div> -->
-        <div class="col-12 d-flex flex-column">
-            <label for="phone"class="form-label">No. Telepon</label>
-            <input name="nomor_telepon" value="{{ Session::has('nomor_telepon') ? Session::get('nomor_telepon') : auth()->user()->nomor_telepon }}" type="tel" class="form-control" id="phone">
-            @error('nomor_telepon')
-                <p class="error-message">{{ $message }}</p>
-            @enderror
+            </div>
+            <div class="col-3 mt-3 ms-auto d-flex justify-content-end">
+                <button class="btn btn-success">Simpan Perubahan</button>
+            </div>
         </div>
     </form>
-    <div class="row">
-        <div class="col-3 mt-3 ms-auto d-flex justify-content-end">
-            <button class="btn btn-success">Simpan Perubahan</button>
-        </div>
-    </div>
 @endsection('ins')
+    <!-- <div class="col-12 d-flex flex-column">
+        <label for="password" class="form-label">Password</label>
+        <input name="password" type="password" class="form-control" id="password">
+        @error('password')
+            <p class="error-message">{{ $message }}</p>
+        @enderror
+    </div> -->
