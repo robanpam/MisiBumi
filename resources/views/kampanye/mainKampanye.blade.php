@@ -30,7 +30,7 @@
 
                     <div class="col">
                         <div class="card h-50">
-                            <img src=""
+                            <img src="{{ asset('asset/artikel/1720746208.jpg') }}"
                                 class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title d-flex justify-content-center">{{ $kampanye->nama_kampanye }}</h5>
@@ -90,7 +90,7 @@
                         <div class="col-4">
                             <div class="col">
                                 <div class="card h-50">
-                                    <img src="https://www.marketeers.com/_next/image/?url=https%3A%2F%2Fimagedelivery.net%2F2MtOYVTKaiU0CCt-BLmtWw%2Fe33fd511-2121-44fc-20e9-3fb547a5f600%2Fw%3D2560&w=1920&q=75"
+                                    <img src=""
                                         class="card-img-top" alt="...">
 
                                     <div class="card-body">
