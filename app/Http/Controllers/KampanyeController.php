@@ -19,6 +19,18 @@ class KampanyeController extends Controller
             ->select('kampanyes.*', 'pohons.nama as pohon_nama', 'users.name as user_name')
             ->get();
 
+        return view('kampanye.mainKampanye', compact('kampanyes'));
+    }
+
+    // kelola kampanye
+    public function kelola()
+    {
+        $kampanyes = Kampanye::whereIn('status', [0, 1, 2])
+            ->join('pohons', 'kampanyes.pohon_id', '=', 'pohons.id')
+            ->join('users', 'kampanyes.user_id', '=', 'users.id')
+            ->select('kampanyes.*', 'pohons.nama as pohon_nama', 'users.name as user_name')
+            ->get();
+
         return view('kampanye.kelolakampanye', compact('kampanyes'));
     }
 

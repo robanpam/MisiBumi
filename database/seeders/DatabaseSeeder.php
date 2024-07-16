@@ -62,12 +62,12 @@ class DatabaseSeeder extends Seeder
         //     'jenis_user_id' => 2
         // ]);
 
-        // Emisi::factory(2)->create();
-        // Pohon::factory(5)->create();
-        // MetodePembayaran::factory(3)->create();
-        // Kampanye::factory(20)->create();
-        // Kalkulator::factory(10)->create();
+        Emisi::factory(2)->create();
+        Pohon::factory(5)->create();
+        MetodePembayaran::factory(3)->create();
+        Kampanye::factory(20)->create();
+        Kalkulator::factory(10)->create();
         Donasi::factory(20)->create();
-        // Artikel::factory(20)->create();
+        Artikel::factory(20)->create();
     }
 }

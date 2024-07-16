@@ -27,7 +27,7 @@
         <h3 class="subJudul"><strong>Belum Selesai</strong></h3>
         <div class="row">
             @foreach ($kampanyes as $kampanye)
-                @if ($kampanye->status == 3)
+                @if ($kampanye->status == 2)
                     <div class="col-4">
                         <div class="col">
                             <div class="card h-50">
@@ -89,7 +89,7 @@
         <h3 class="subJudul"><strong>Telah Selesai</strong></h3>
         <div class="row">
             @foreach ($kampanyes as $kampanye)
-                @if ($kampanye->status == 1)
+                @if ($kampanye->status == 0)
                     <div class="col-4">
                         <div class="col">
                             <div class="card h-50">

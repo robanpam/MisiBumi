@@ -50,9 +50,11 @@ Route::post('/updateartikel/{id}', [ArtikelController::class, 'update'])->name('
 Route::delete('/deleteartikel/{id}', [ArtikelController::class, 'destroy'])->name('deleteartikel');
 
 
+// kampanye
+Route::get('/kampanye', [KampanyeController::class, 'index'])->name('mainKampanye');
 
 // kelola kampanye
-Route::get('/kelolakampanye', [KampanyeController::class, 'index'])->name('kelolakampanye');
+Route::get('/kelolakampanye', [KampanyeController::class, 'kelola'])->name('kelolakampanye');
 
 //request kampanye
 Route::get('/accrequestkampanye', [KampanyeController::class, 'fetchPendingKampanyes'])->name('fetchPendingKampanyes');
@@ -67,14 +69,13 @@ Route::post('/tolak-semua', [KampanyeController::class, 'tolakSemua'])->name('to
 // user
 Route::get('/detailkampanye2/{id}', [KampanyeController::class, 'showDetailKampanye'])->name('detailkampanye2');
 
-// kampanye
 Route::get('/dashboardadmin', function () {
     return view('admin.dashboardadmin');
 });
 
-Route::get('/kampanye', function () {
-    return view('kampanye.mainKampanye');
-});
+// Route::get('/kampanye', function () {
+//     return view('kampanye.mainKampanye');
+// });
 
 
 Route::get('/dashboardadmin', function () {

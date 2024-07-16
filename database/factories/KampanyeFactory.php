@@ -26,8 +26,11 @@ class KampanyeFactory extends Factory
 
         $randomFileName = $fileNames[array_rand($fileNames)];
 
+        $userCount = User::count();
+        $randomUserId = $userCount > 0 ? rand(1, $userCount) : 1;
+
         return [
-            'user_id' => 14,
+            'user_id' => $randomUserId,
             'nama_kampanye' => fake()->sentence(3, true),
             'lokasi_kampanye' => fake()->country(),
             'pohon_id' => rand(1, 5),

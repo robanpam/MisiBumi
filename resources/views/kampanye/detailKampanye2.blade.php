@@ -13,7 +13,7 @@
             <div class="col-5">
                 <div class="row">
                     <div class="col-1"></div>
-                    <div class="col-11"><img src="{{ asset('path/to/image/' . $kampanye->gambar_kampanye) }} "
+                    <div class="col-11"><img src="{{ asset('asset/kampanye/' . $kampanye->gambar_kampanye) }} "
                             class="img-fluid gbrdetail" alt="..."></div>
                 </div>
                 <div class="row">
