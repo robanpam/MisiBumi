@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\File;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Kampanye>
@@ -16,6 +17,15 @@ class KampanyeFactory extends Factory
      */
     public function definition(): array
     {
+        $files = File::files(public_path('asset/kampanye'));
+
+        $fileName = [];
+        foreach($files as $file) {
+            $fileNames[] = $file->getFilename();
+        }
+
+        $randomFileName = $fileNames[array_rand($fileNames)];
+
         return [
             'user_id' => 13,
             'nama_kampanye' => fake()->sentence(3, true),
@@ -25,7 +35,7 @@ class KampanyeFactory extends Factory
             'jumlah_pohon' => 0,
             'batas_donasi' => now(),
             'deskripsi' => fake()->paragraph(7, true),
-            'gambar_kampanye' => 'tes.png',
+            'gambar_kampanye' => $randomFileName,
             'total_pohon' => 250,
             'total_donatur' => 0,
             'harga_pohon' => rand(20000, 30000)
