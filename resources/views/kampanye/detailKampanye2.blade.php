@@ -39,13 +39,13 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="d-flex justify-content-start">
-                                    <p class="bwh1">45</p>
+                                    <p class="bwh1">{{ $kampanye->total_pohon }}</p>
                                     <p class="bwh2">Pohon terkumpul</p>
                                 </div>
                             </div>
                             <div class="col-6 ">
                                 <div class="d-flex justify-content-end">
-                                    <p class="bwh1">100</p>
+                                    <p class="bwh1">{{ $kampanye->total_donatur }}</p>
                                     <p class="bwh2">Donatur</p>
                                 </div>
                             </div>
@@ -99,7 +99,7 @@
                             <div class="row biodata-row mb-2">
                                 <div class="col-3"><strong>Minimal Pohon</strong></div>
                                 <div class="col-1 dsk1">:</div>
-                                <div class="col-8 dsk1">500 pohon</div>
+                                <div class="col-8 dsk1">{{ $kampanye->total_pohon }}</div>
                             </div>
                         </div>
                     </div>
@@ -207,12 +207,10 @@
                                 class="card-img-top" alt="...">
                             <!-- Deskripsi -->
                             <div class="card-body">
-                                <h5 class="card-title d-flex justify-content-center">Kegiatan Pemantauan & Pengawasan
-                                    Lingkungan Alam</h5>
+                                <h5 class="card-title d-flex justify-content-center">{{ $kampanye->nama_kampanye }}</h5>
                                 <div class="row">
                                     <div class="col-md-5 card-dsk">Campaigner :</div>
-                                    <div class="col-md-7 ms-auto d-flex justify-content-end card-dsk">PT. Berkat Cipta
-                                        Abadi</div>
+                                    <div class="col-md-7 ms-auto d-flex justify-content-end card-dsk">{{ $kampanye->user_name }}</div>
                                 </div>
                                 <div class="row card-dsk1">
                                     <div class="col-md-5 ">Batas Donasi :</div>
@@ -225,22 +223,22 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="d-flex justify-content-start">
-                                            <div class="bwh1">45</div>
+                                            <div class="bwh1">{{ $kampanye->total_pohon }}</div>
                                             <div class="bwh2">Pohon terkumpul</div>
                                         </div>
                                     </div>
                                     <div class="col-6 ">
                                         <div class="d-flex justify-content-end">
-                                            <div class="bwh1">100</div>
+                                            <div class="bwh1">{{ $kampanye->total_donatur }}</div>
                                             <div class="bwh2">Donatur</div>
                                         </div>
                                     </div>
 
                                 </div>
                                 <div class="d-grid gap-2 mt-3">
-                                    <button class="btn btn-primary rounded-5" type="button">
+                                    <a href="{{ route('detailkampanye2', ['id' => $kampanye->id]) }}" class="btn btn-primary rounded-5">
                                         <div class="text-btn">Lihat Kampanye</div>
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
