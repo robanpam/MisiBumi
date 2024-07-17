@@ -32,33 +32,29 @@ class DatabaseSeeder extends Seeder
         User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test2@example.com',
-            // 'tanggal_lahir' => now(),
-            // 'gender' => 'laki-laki',
-            'profile_photo' => 'tes.png',
+            'name' => 'User 1',
+            'email' => 'test1@example.com',
+            'password' => '123456',
             'nomor_telepon' => '09212',
-            'jenis_user_id' => 2
-        ]);
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-            // 'tanggal_lahir' => now(),
-            // 'gender' => 'laki-laki',
             'profile_photo' => 'tes.png',
-            'nomor_telepon' => '09212',
             'jenis_user_id' => 1
         ]);
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test3@example.com',
-            // 'tanggal_lahir' => now(),
-            // 'gender' => 'laki-laki',
-            'profile_photo' => 'tes.png',
-            'password' => Hash::make('12345678'),
+            'name' => 'User 2',
+            'email' => 'test2@example.com',
+            'password' => '654321',
             'nomor_telepon' => '09212',
+            'profile_photo' => 'tes.png',
+            'jenis_user_id' => 1
+        ]);
+
+        User::factory()->create([
+            'name' => 'Admin 1',
+            'email' => 'test3@example.com',
+            'password' => 'abce1235',
+            'nomor_telepon' => '09212',
+            'profile_photo' => 'tes.png',
             'jenis_user_id' => 2
         ]);
 
