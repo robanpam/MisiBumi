@@ -19,12 +19,12 @@ return new class extends Migration
             $table->foreignId('pohon_id')->constrained('pohons', 'id');
             $table->tinyInteger('status');
             $table->integer('jumlah_pohon');
-            $table->dateTime('batas_donasi');
+            $table->date('batas_donasi');
             $table->text('deskripsi');
             $table->string('gambar_kampanye');
-            $table->integer('total_pohon');
+            // $table->integer('total_pohon');
             $table->integer('total_donatur');
-            $table->integer('harga_pohon');
+            // $table->integer('harga_pohon');
             $table->timestamps();
         });
     }

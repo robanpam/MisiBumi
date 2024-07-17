@@ -34,7 +34,6 @@ Route::post('/profiladmin/ubahemail/{id}', [AdminController::class, 'updateEmail
 Route::get('/profiladmin/ubahnomortelpon/{id}', [AdminController::class, 'showChangeTelponForm'])->name('ubahnomortelpon');
 Route::post('/profiladmin/ubahnomortelpon/{id}', [AdminController::class, 'updateTelpon'])->name('updateTelpon');
 
-
 //kelola artikel
 Route::get('/kelolaartikel', [ArtikelController::class, 'kelolaartikel'])->name('kelolaartikel');
 
@@ -48,7 +47,6 @@ Route::post('/updateartikel/{id}', [ArtikelController::class, 'update'])->name('
 
 //delete artikel
 Route::delete('/deleteartikel/{id}', [ArtikelController::class, 'destroy'])->name('deleteartikel');
-
 
 // kampanye
 Route::get('/kampanye', [KampanyeController::class, 'index'])->name('mainKampanye');
@@ -111,3 +109,12 @@ Route::get('/profile/logout', [ProfileController::class, 'logout'])->name('profi
 Route::get('/beranda', [BerandaController::class, 'show'])->name('beranda.show');
 //User
 // Route::get('users/{id}', [UserController::class, 'index'])->name('user.index');
+
+//Kampanye-Sukma
+// Route::group(['middleware' => ['auth']], function () {
+//     Route::get('/request/kampanye', [KampanyeController::class, 'sendRequest'])->name('request.kampanye');
+//     Route::post('/add/kampanye', [KampanyeController::class, 'addRequest'])->name('add.kampanye');
+// });
+
+Route::get('/request/kampanye', [KampanyeController::class, 'sendRequest'])->name('request.kampanye');
+Route::post('/add/kampanye', [KampanyeController::class, 'addRequest'])->name('add.kampanye');
