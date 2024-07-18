@@ -90,4 +90,26 @@ class SessionController extends Controller
             'credentials' => 'Please input the correct email or password',
         ]);
     }
+
+    public function showPasswordResetForm () {
+        return view('sign.passwordreset');
+    }
+
+    public function passwordReset (Request $request) {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:8|confirmed'
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user) {
+            return back()->withErrors(['email' => 'Email tidak ditemukan di dalam database kami.']);
+        }
+
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return redirect()->route('session.init')->with('status', 'Password berhasil diubah.');
+    }
 }
