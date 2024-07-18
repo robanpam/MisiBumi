@@ -116,5 +116,5 @@ Route::get('/beranda', [BerandaController::class, 'show'])->name('beranda.show')
 //     Route::post('/add/kampanye', [KampanyeController::class, 'addRequest'])->name('add.kampanye');
 // });
 
-Route::get('/request/kampanye', [KampanyeController::class, 'sendRequest'])->name('request.kampanye');
-Route::post('/add/kampanye', [KampanyeController::class, 'addRequest'])->name('add.kampanye');
+Route::get('/request/kampanye', [KampanyeController::class, 'sendRequest'])->name('kampanye.request');
+Route::post('/add/kampanye', [KampanyeController::class, 'addRequest'])->name('kampanye.add');

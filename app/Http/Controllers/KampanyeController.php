@@ -143,11 +143,11 @@ class KampanyeController extends Controller
             'gambar' => 'required|mimes:jpg,png,jpeg|max:2048',
         ]);
 
-        $lokasi = $request->input('jalan') .', Kel. '. $request->input('kel').', Kec. '. $request->input('kec').', '. $request->input('kab_kota').', '. $request->input('provinsi');
+        $lokasi = $request->input('jalan') . ', Kel. ' . $request->input('kel') . ', Kec. ' . $request->input('kec') . ', ' . $request->input('kab_kota') . ', ' . $request->input('provinsi');
 
         $gambar = $request->file('gambar');
-            $namaGambar = time().".".$gambar->getClientOriginalExtension();
-            $pathGambarKampanye = Storage::disk('public')->putFileAs('asset/kampanye', $gambar, $namaGambar);
+        $namaGambar = time() . "." . $gambar->getClientOriginalExtension();
+        $pathGambarKampanye = Storage::disk('public')->putFileAs('kampanye', $gambar, $namaGambar);
 
 
         $newKampanye = Kampanye::create([
@@ -164,6 +164,7 @@ class KampanyeController extends Controller
             'total_donatur' => 0
         ]);
 
-        return redirect()->route('kampanye.send_request')->with('success', 'Kampanye kamu berhasil diajukan!');
+        return redirect()->route('kampanye.request')->with('success', 'Kampanye kamu berhasil diajukan!');
     }
+
 }
