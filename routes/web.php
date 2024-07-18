@@ -11,7 +11,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('sign.sign');
+    return view('landing_page');
 });
 
 //profile admin
@@ -63,16 +63,8 @@ Route::post('/tolak/{id}', [KampanyeController::class, 'tolak'])->name('tolak');
 Route::post('/terima-semua', [KampanyeController::class, 'terimaSemua'])->name('terimaSemua');
 Route::post('/tolak-semua', [KampanyeController::class, 'tolakSemua'])->name('tolakSemua');
 
-//user
+//for user
 Route::get('/detailkampanye2/{id}', [KampanyeController::class, 'showDetailKampanye'])->name('detailkampanye2');
-
-Route::get('/dashboardadmin', function () {
-    return view('admin.dashboardadmin');
-});
-
-// Route::get('/kampanye', function () {
-//     return view('kampanye.mainKampanye');
-// });
 
 Route::get('/dashboardadmin', function () {
     return view('admin.dashboardadmin');
