@@ -64,7 +64,7 @@
                             <div class="d-flex justify-content-center">
                                 <div class="w-100" style="max-width: 330px;">
                                     <div class="d-flex justify-content-end" style="font-size: 12px;">
-                                        <a href="/password-reset">Lupa password?</a>
+                                        <a href="{{ route('password.request') }}">Lupa password?</a>
                                     </div>
                                 </div>
                             </div>
