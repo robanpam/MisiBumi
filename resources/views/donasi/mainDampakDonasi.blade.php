@@ -26,17 +26,17 @@
             <div class="row">
                 <div class="col-3"></div>
                 <div class="border col-6 border-4 rounded-1 shadow infoBanner">
-                    <div class="row mt-3">
+                    <div class="row mt-2">
                         <div class="col-4">
-                            <h3 class="infoBanner1"><strong>1,3K</strong></h3>
+                            <h2 class="infoBanner1"><strong>1,3K</strong></h2>
                             <p class="infoBanner2">Kampanye</p>
                         </div>
                         <div class="col-4">
-                            <h3 class="infoBanner1"><strong>321.3K</strong></h3>
+                            <h2 class="infoBanner1"><strong>321.3K</strong></h2>
                             <p class="infoBanner2">Pohon tertanam </p>
                         </div>
                         <div class="col-4">
-                            <h3 class="infoBanner1"><strong>5.89M</strong></h3>
+                            <h2 class="infoBanner1"><strong>5.89M</strong></h2>
                             <p class="infoBanner2">Donasi terkumpul</p>
                         </div>
 
@@ -45,10 +45,12 @@
                 <div class="col-3"></div>
             </div>
         </div>
-
     </div>
 
+    
     <div class="container">
+
+        <!-- JEJAK HIJAU -->
         <h2 class="subJudul0"><strong>Jejak Hijau</strong></h2>
         <div class="row">
             <div class="d-flex justify-content-between">
@@ -114,7 +116,6 @@
 
         {{-- ARTIKEL TERBARU --}}
         <h2 class="subJudul"><strong>Artikel Terbaru</strong></h2>
-
         <div class="row">
             @for ($i = 1; $i <= 5; $i++)
                 <div class="col-2 cardArtikel d-flex justify-content-between">
@@ -138,6 +139,17 @@
                     </div>
                 </div>
             @endfor
+        </div>
+
+        <!-- BTN -->
+        <div class="container">
+            <div class="row">
+                <div class="col btnLihatLainnya">
+                    <div class="col-auto d-md-flex justify-content-md-end">
+                        <button type="button" class="btn btn-outline-success">Lihat lainnya</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
