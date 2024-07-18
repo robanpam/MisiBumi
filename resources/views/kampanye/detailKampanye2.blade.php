@@ -6,7 +6,6 @@
 
 @section('content')
     <div class="container">
-
         <!-- DETAIL ATAS -->
         <div class="row mt-3">
             {{-- KIRI --}}
@@ -19,7 +18,7 @@
                 <div class="row">
                     <div class="col-1"></div>
                     <div class="col-11 dsk-detail">
-                        <p>{{ $kampanye->user_name }}</p>
+                        <p>{{ $kampanye->user->name }}</p>
                     </div>
                 </div>
 
@@ -49,11 +48,9 @@
                                     <p class="bwh2">Donatur</p>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
 
                 <div class="row">
                     <div class="col-1"></div>
@@ -64,7 +61,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
 
             {{-- KANAN --}}
@@ -110,8 +106,6 @@
         {{-- TENGAH --}}
         <div class="tab-content">
             <div class="container pilih">
-                {{-- <div class="card card-custom"> --}}
-                <!-- Pills navs -->
                 <div class="row lebihDetail border">
                     <div class="col-8">
                         <ul class="nav nav-pills navTengah" id="ex1" role="tablist">
@@ -136,7 +130,6 @@
                         <div class="text-muted">Kampanye dibuat pada 1 Januari 2024</div>
                     </div>
                 </div>
-                <!-- Pills content -->
                 <div class="bordered-section tab-content rounded-0">
                     <!-- TENTANG -->
                     <div class="tab-pane fade show active" id="pills-tentang" role="tabpanel"
@@ -152,48 +145,27 @@
                             class="card-img-top" alt="...">
                     </div>
 
-
                     <!-- DONASI -->
                     <div class="donasi tab-pane fade" id="pills-donasi" role="tabpanel" aria-labelledby="tab-donasi">
                         <div class="container">
-                            <h4 class="mb-3">Para Donatur (350)</h4>
-                            <div class="donatur-card d-flex align-items-center p-3">
-                                <div class="donatur-avatar"></div>
-                                <div class="donatur-info">
-                                    <strong>Anonymous</strong><br>
-                                    Donasi <strong>4 Pohon</strong>
+                            <h4 class="mb-3">Para Donatur ({{ $kampanye->donasis->count() }})</h4>
+                            @foreach($kampanye->donasis as $donasi)
+                                <div class="donatur-card d-flex align-items-center p-3">
+                                    <div class="donatur-avatar"></div>
+                                    <div class="donatur-info">
+                                        <strong>{{ $donasi->user->name }}</strong><br>
+                                        Donasi <strong>{{ $donasi->nilai_donasi }}</strong>
+                                    </div>
+                                    <div class="donatur-time">
+                                        {{ $donasi->created_at->diffForHumans() }}
+                                    </div>
                                 </div>
-                                <div class="donatur-time">
-                                    3 Hari yang lalu
-                                </div>
-                            </div>
-                            <div class="donatur-card d-flex align-items-center p-3">
-                                <div class="donatur-avatar"></div>
-                                <div class="donatur-info">
-                                    <strong>Anonymous</strong><br>
-                                    Donasi <strong>1 Pohon</strong>
-                                </div>
-                                <div class="donatur-time">
-                                    5 Hari yang lalu
-                                </div>
-                            </div>
-                            <div class="donatur-card d-flex align-items-center p-3">
-                                <div class="donatur-avatar"></div>
-                                <div class="donatur-info">
-                                    <strong>M. Aldi</strong><br>
-                                    Donasi <strong>10 Pohon</strong><br>
-                                    <small>Semoga pohonnya bisa tumbuh dan berkembang dengan baik.</small>
-                                </div>
-                                <div class="donatur-time">
-                                    1 Minggu yang lalu
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
 
         {{-- KAMPANYE TERKAIT --}}
         <h3 class="subJudul"><strong>Kampanye Terkait</strong></h3>
@@ -203,7 +175,7 @@
                     <!-- KONTEN -->
                     <div class="col">
                         <div class="card h-50">
-                            <img src="https://www.marketeers.com/_next/image/?url=https%3A%2F%2Fimagedelivery.net%2F2MtOYVTKaiU0CCt-BLmtWw%2Fe33fd511-2121-44fc-20e9-3fb547a5f600%2Fw%3D2560&w=1920&q=75"
+                            <img src="{{ asset('asset/kampanye/' . $kampanye->gambar_kampanye) }}"
                                 class="card-img-top" alt="...">
                             <!-- Deskripsi -->
                             <div class="card-body">
@@ -214,7 +186,7 @@
                                 </div>
                                 <div class="row card-dsk1">
                                     <div class="col-md-5 ">Batas Donasi :</div>
-                                    <div class="col-md-7 ms-auto d-flex justify-content-end">9 Juni 2024</div>
+                                    <div class="col-md-7 ms-auto d-flex justify-content-end">{{ \Carbon\Carbon::parse($kampanye->batas_donasi)->format('d-m-Y') }}</div>
                                 </div>
                                 <div class="progress mt-3 rounded-0">
                                     <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25"
@@ -246,7 +218,6 @@
                 </div>
             @endfor
 
-            {{-- BUNTTON --}}
             <div class="container">
                 <div class="row">
                     <div class="col btnLihatLainnya">
@@ -264,7 +235,5 @@
         <div class="d-grid gap-2 ">
             <button type="button" class="btn btn-outline-danger rounded-5">Laporkan Kampanye Ini</button>
         </div>
-
     </div>
-
 @endsection
