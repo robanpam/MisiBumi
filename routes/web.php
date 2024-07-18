@@ -15,8 +15,7 @@ Route::get('/', function () {
 });
 
 //profile admin
-Route::get('/profiladmin/{id}', [AdminController::class, 'admin'])->name('profileadmin')->middleware('admin');
-
+Route::get('/profiladmin/{id}', [AdminController::class, 'admin'])->name('profileadmin');
 
 //ganti nama
 Route::get('/profiladmin/gantinama/{id}', [AdminController::class, 'gantinama'])->name('gantinama');
@@ -48,10 +47,10 @@ Route::post('/updateartikel/{id}', [ArtikelController::class, 'update'])->name('
 //delete artikel
 Route::delete('/deleteartikel/{id}', [ArtikelController::class, 'destroy'])->name('deleteartikel');
 
-// kampanye
+//kampanye
 Route::get('/kampanye', [KampanyeController::class, 'index'])->name('mainKampanye');
 
-// kelola kampanye
+//kelola kampanye
 Route::get('/kelolakampanye', [KampanyeController::class, 'kelola'])->name('kelolakampanye');
 
 //request kampanye
@@ -64,7 +63,7 @@ Route::post('/tolak/{id}', [KampanyeController::class, 'tolak'])->name('tolak');
 Route::post('/terima-semua', [KampanyeController::class, 'terimaSemua'])->name('terimaSemua');
 Route::post('/tolak-semua', [KampanyeController::class, 'tolakSemua'])->name('tolakSemua');
 
-// user
+//user
 Route::get('/detailkampanye2/{id}', [KampanyeController::class, 'showDetailKampanye'])->name('detailkampanye2');
 
 Route::get('/dashboardadmin', function () {
@@ -74,7 +73,6 @@ Route::get('/dashboardadmin', function () {
 // Route::get('/kampanye', function () {
 //     return view('kampanye.mainKampanye');
 // });
-
 
 Route::get('/dashboardadmin', function () {
     return view('admin.dashboardadmin');
@@ -98,7 +96,7 @@ Route::get('/sign-register', [SessionController::class, 'init'])->name('session.
 Route::post('/login', [SessionController::class, 'login'])->name('session.login');
 Route::post('/regis', [SessionController::class, 'register'])->name('session.register');
 
-// password reset
+//Password Reset - Pandi
 Route::get('/passwordreset', [SessionController::class, 'showPasswordResetForm'])->name('password.request');
 Route::post('/passwordreset', [SessionController::class, 'passwordReset'])->name('password.reset');
 
@@ -109,8 +107,10 @@ Route::get('/profile/pengaturan', [ProfileController::class, 'pengaturan'])->nam
 Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 Route::get('/profile/logout', [ProfileController::class, 'logout'])->name('profile.logout');
 
-//Beranda
+//Beranda, Landing Page
 Route::get('/beranda', [BerandaController::class, 'show'])->name('beranda.show');
+Route::get('/landing', [BerandaController::class, 'landingPage'])->name('beranda.landingPage');
+
 //User
 // Route::get('users/{id}', [UserController::class, 'index'])->name('user.index');
 

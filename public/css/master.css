@@ -1,7 +1,6 @@
 html, body{
     height: 100vh;
     margin: 0;
-    /* box-sizing: border-box; */
     font-family: 'Poppins', sans-serif;
 }
 
@@ -21,12 +20,8 @@ p {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    padding-top: 100px;
+    /* padding-top: 100px; */
 }
-
-/* .main{
-    flex: 1;
-} */
 
 .color{
     color: #114232;
