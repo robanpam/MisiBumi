@@ -70,9 +70,7 @@ Route::get('/dashboardadmin', function () {
     return view('admin.dashboardadmin');
 });
 
-// Route::get('/kampanye', function () {
-//     return view('kampanye.mainKampanye');
-// });
+
 Route::get('/blmSelesai', function () {
     return view('kampanye.blmSelesaiKampanye');
 });
@@ -80,7 +78,6 @@ Route::get('/blmSelesai', function () {
 Route::get('/telahSelesai', function () {
     return view('kampanye.telahSelesaiKampanye');
 });
-
 
 Route::get('/dashboardadmin', function () {
     return view('admin.dashboardadmin');
