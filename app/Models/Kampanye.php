@@ -20,4 +20,19 @@ class Kampanye extends Model
         'gambar_kampanye',
         'total_donatur',
     ];
+
+    public function pohon()
+    {
+        return $this->belongsTo(Pohon::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function donasis()
+    {
+        return $this->hasMany(Donasi::class);
+    }
 }
