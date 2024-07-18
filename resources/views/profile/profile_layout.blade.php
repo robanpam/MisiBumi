@@ -35,7 +35,7 @@
                 </div>
             </div>
         <div class="row">
-            <div class="col-3">
+            <div class="col-md-3 col-12">
                 <ul class="list-unstyled ">
                     <a href="{{ route('profile.history') }}" class="text-decoration-none text-dark">
                         <li class="nav-item tabs py-2 ps-2 @yield('active_history')">

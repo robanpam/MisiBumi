@@ -69,3 +69,7 @@ p {
 .nav-active{
     font-weight: 600;
 }
+
+.footer-font{
+    font-size: 0.8rem;
+}
