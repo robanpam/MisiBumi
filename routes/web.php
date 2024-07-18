@@ -98,6 +98,10 @@ Route::get('/sign-register', [SessionController::class, 'init'])->name('session.
 Route::post('/login', [SessionController::class, 'login'])->name('session.login');
 Route::post('/regis', [SessionController::class, 'register'])->name('session.register');
 
+// password reset
+Route::get('/passwordreset', [SessionController::class, 'showPasswordResetForm'])->name('password.request');
+Route::post('/passwordreset', [SessionController::class, 'passwordReset'])->name('password.reset');
+
 //Profile
 Route::get('/profile/history', [ProfileController::class, 'history'])->name('profile.history');
 Route::get('/profile/kampanye', [ProfileController::class, 'kampanye'])->name('profile.kampanye');
