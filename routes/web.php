@@ -47,6 +47,7 @@ Route::post('/updateartikel/{id}', [ArtikelController::class, 'update'])->name('
 //delete artikel
 Route::delete('/deleteartikel/{id}', [ArtikelController::class, 'destroy'])->name('deleteartikel');
 
+
 //kampanye
 Route::get('/kampanye', [KampanyeController::class, 'index'])->name('mainKampanye');
 

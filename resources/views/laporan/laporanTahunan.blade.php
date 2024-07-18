@@ -7,10 +7,10 @@
 @section('content')
 
     <!-- BANNER -->
-    <div class="bg">
+    <div class="bg mt-5">
         <div class="container">
-            <div class="row">
-                <div class="col-2"></div>
+            <div class="row mt-5">
+                <div class="col-1"></div>
                 <div class="col cont banner text-light">
                     <h1 class='Judul'><strong>Laporan Tahunan dan Keuangan Misi Bumi</strong></h1>
                     <p>Dengan hati yang penuh dengan kepedulian dan tekad yang bulat, kami hadir untuk
@@ -19,7 +19,7 @@
                         & donasi yang berdampak positif bagi lingkungan kita semua
                     </p>
                 </div>
-                <div class="col-2"></div>
+                <div class="col-1"></div>
             </div>
         </div>
     </div>
