@@ -70,7 +70,24 @@ Route::get('/dashboardadmin', function () {
     return view('admin.dashboardadmin');
 });
 
-Route::get('/donasi', function () {
+// Route::get('/kampanye', function () {
+//     return view('kampanye.mainKampanye');
+// });
+Route::get('/blmSelesai', function () {
+    return view('kampanye.blmSelesaiKampanye');
+});
+
+Route::get('/telahSelesai', function () {
+    return view('kampanye.telahSelesaiKampanye');
+});
+
+
+Route::get('/dashboardadmin', function () {
+    return view('admin.dashboardadmin');
+});
+
+// Dampak donasi
+Route::get('/dampak', function () {
     return view('donasi.mainDampakDonasi');
 });
 
