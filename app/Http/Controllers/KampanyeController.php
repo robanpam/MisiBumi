@@ -11,7 +11,7 @@ class KampanyeController extends Controller
 {
     public function index()
     {
-        $kampanyes = Kampanye::whereIn('status', [0, 1, 2])
+        $kampanyes = Kampanye::whereIn('kampanyes.status', [0, 1, 2]) // Specify table name
             ->join('pohons', 'kampanyes.pohon_id', '=', 'pohons.id')
             ->join('users', 'kampanyes.user_id', '=', 'users.id')
             ->select('kampanyes.*', 'pohons.nama as pohon_nama', 'users.name as user_name')
@@ -20,18 +20,46 @@ class KampanyeController extends Controller
         return view('kampanye.mainKampanye', compact('kampanyes'));
     }
 
-    public function blmSelesai() {
-        return view('kampanye.blmSelesaiKampanye', compact('kampanye'));
+    public function blmSelesai()
+    {
+        $kampanyes = Kampanye::where('kampanyes.status', 2) // Specify table name
+            ->join('pohons', 'kampanyes.pohon_id', '=', 'pohons.id')
+            ->join('users', 'kampanyes.user_id', '=', 'users.id')
+            ->leftJoin('donasis', 'kampanyes.id', '=', 'donasis.kampanye_id')
+            ->select(
+                'kampanyes.*',
+                'pohons.nama as pohon_nama',
+                'users.name as user_name',
+                'donasis.nilai_donasi',
+                'donasis.metode_pembayaran_id'
+            )
+            ->get();
+
+        return view('kampanye.blmSelesaiKampanye', compact('kampanyes'));
     }
 
-    public function udhSelesai() {
-        return view('kampanye.telahSelesaiKampanye', compact('kampanye'));
+    public function udhSelesai()
+    {
+        $kampanyes = Kampanye::where('kampanyes.status', 0) // Specify table name
+            ->join('pohons', 'kampanyes.pohon_id', '=', 'pohons.id')
+            ->join('users', 'kampanyes.user_id', '=', 'users.id')
+            ->leftJoin('donasis', 'kampanyes.id', '=', 'donasis.kampanye_id')
+            ->select(
+                'kampanyes.*',
+                'pohons.nama as pohon_nama',
+                'users.name as user_name',
+                'donasis.nilai_donasi',
+                'donasis.metode_pembayaran_id'
+            )
+            ->get();
+
+        return view('kampanye.telahSelesaiKampanye', compact('kampanyes'));
     }
 
     // kelola kampanye
     public function kelola()
     {
-        $kampanyes = Kampanye::whereIn('status', [0, 1, 2])
+        $kampanyes = Kampanye::whereIn('kampanyes.status', [0, 1, 2]) // Specify table name
             ->join('pohons', 'kampanyes.pohon_id', '=', 'pohons.id')
             ->join('users', 'kampanyes.user_id', '=', 'users.id')
             ->select('kampanyes.*', 'pohons.nama as pohon_nama', 'users.name as user_name')
@@ -43,7 +71,7 @@ class KampanyeController extends Controller
     //request kampanye
     public function fetchPendingKampanyes()
     {
-        $pendingKampanyes = Kampanye::where('status', 3)
+        $pendingKampanyes = Kampanye::where('kampanyes.status', 3) // Specify table name
             ->join('pohons', 'kampanyes.pohon_id', '=', 'pohons.id')
             ->join('users', 'kampanyes.user_id', '=', 'users.id')
             ->select('kampanyes.*', 'pohons.nama as pohon_nama', 'users.name as user_name')
@@ -114,13 +142,15 @@ class KampanyeController extends Controller
 
     public function terimaSemua()
     {
-        Kampanye::where('status', 3)->update(['status' => 1]); // Change status to 'process'
+        Kampanye::where('kampanyes.status', 3) // Specify table name
+            ->update(['status' => 1]); // Change status to 'process'
         return redirect()->route('kelolakampanye')->with('success', 'Semua kampanye diterima.');
     }
 
     public function tolakSemua()
     {
-        Kampanye::where('status', 3)->update(['status' => 2]); // Change status to 'reject'
+        Kampanye::where('kampanyes.status', 3) // Specify table name
+            ->update(['status' => 2]); // Change status to 'reject'
         return redirect()->route('kelolakampanye')->with('success', 'Semua kampanye ditolak.');
     }
 
@@ -137,8 +167,6 @@ class KampanyeController extends Controller
         }
 
         $request->validate([
-            // 'first_name' => 'required|string|max:255',
-            // 'last_name' => 'required|string|max:255',
             'judul' => 'required|string|max:255',
             'jalan' => 'required|string|max:255',
             'kel' => 'required',
@@ -158,15 +186,13 @@ class KampanyeController extends Controller
         $namaGambar = time() . "." . $gambar->getClientOriginalExtension();
         $pathGambarKampanye = Storage::disk('public')->putFileAs('kampanye', $gambar, $namaGambar);
 
-
-        $newKampanye = Kampanye::create([
+        Kampanye::create([
             'user_id' => auth()->user()->id,
             'nama_kampanye' => $request->judul,
             'lokasi_kampanye' => $lokasi,
             'pohon_id' => $request->jenisPohon,
             'status' => 0,
             'jumlah_pohon' => $request->jumlah,
-            // 'nominal' => $request->nominal,
             'batas_donasi' => $request->batasDonasi,
             'deskripsi' => $request->deskripsi,
             'gambar_kampanye' => $namaGambar,
@@ -175,5 +201,4 @@ class KampanyeController extends Controller
 
         return redirect()->route('kampanye.request')->with('success', 'Kampanye kamu berhasil diajukan!');
     }
-
 }

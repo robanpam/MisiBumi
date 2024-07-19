@@ -74,7 +74,7 @@
             <div class="row">
                 <div class="col btnLihatLainnya">
                     <div class="col-auto d-md-flex justify-content-md-end">
-                        <button type="button" class="btn btn-outline-success">Lihat lainnya</button>
+                        <a href="{{ route('kampanye.belum') }}" class="btn btn-outline-success">Lihat lainnya</a>
                     </div>
                 </div>
             </div>
@@ -90,8 +90,7 @@
                     <div class="col-4">
                         <div class="col">
                             <div class="card h-50">
-                                <img src="{{ asset('asset/kampanye/' . $kampanye->gambar_kampanye) }}"
-                                     class="card-img-top" alt="...">
+                                <img src="{{ asset('asset/kampanye/' . $kampanye->gambar_kampanye) }}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title d-flex justify-content-center">{{ $kampanye->nama_kampanye }}</h5>
                                     <div class="row">
@@ -119,7 +118,7 @@
             <div class="row">
                 <div class="col btnLihatLainnya">
                     <div class="col-auto d-md-flex justify-content-md-end">
-                        <button type="button" class="btn btn-outline-success">Lihat lainnya</button>
+                        <a href="{{ route('kampanye.sudah') }}" class="btn btn-outline-success">Lihat lainnya</a>
                     </div>
                 </div>
             </div>

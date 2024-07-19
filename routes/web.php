@@ -50,7 +50,7 @@ Route::delete('/deleteartikel/{id}', [ArtikelController::class, 'destroy'])->nam
 //kampanye
 Route::get('/kampanye', [KampanyeController::class, 'index'])->name('mainKampanye');
 Route::get('/blmSelesai', [KampanyeController::class, 'blmSelesai'])->name('kampanye.belum');
-Route::get('/udhSelesai', [KampanyeController::class, 'udhSelesai'])->name('kampanue.sudah');
+Route::get('/udhSelesai', [KampanyeController::class, 'udhSelesai'])->name('kampanye.sudah');
 
 //kelola kampanye
 Route::get('/kelolakampanye', [KampanyeController::class, 'kelola'])->name('kelolakampanye');
