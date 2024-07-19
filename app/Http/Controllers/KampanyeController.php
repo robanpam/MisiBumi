@@ -20,6 +20,14 @@ class KampanyeController extends Controller
         return view('kampanye.mainKampanye', compact('kampanyes'));
     }
 
+    public function blmSelesai() {
+        return view('kampanye.blmSelesaiKampanye', compact('kampanye'));
+    }
+
+    public function udhSelesai() {
+        return view('kampanye.telahSelesaiKampanye', compact('kampanye'));
+    }
+
     // kelola kampanye
     public function kelola()
     {
