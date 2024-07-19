@@ -38,7 +38,7 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="d-flex justify-content-start">
-                                    <p class="bwh1">{{ $kampanye->total_pohon }}</p>
+                                    <p class="bwh1">{{ $kampanye->jumlah_pohon }}</p>
                                     <p class="bwh2">Pohon terkumpul</p>
                                 </div>
                             </div>
@@ -95,7 +95,7 @@
                             <div class="row biodata-row mb-2">
                                 <div class="col-3"><strong>Minimal Pohon</strong></div>
                                 <div class="col-1 dsk1">:</div>
-                                <div class="col-8 dsk1">{{ $kampanye->total_pohon }}</div>
+                                <div class="col-8 dsk1">{{ $kampanye->jumlah_pohon }}</div>
                             </div>
                         </div>
                     </div>
@@ -217,23 +217,6 @@
                     </div>
                 </div>
             @endfor
-
-            <div class="container">
-                <div class="row">
-                    <div class="col btnLihatLainnya">
-                        <div class="col-auto d-md-flex justify-content-md-end">
-                            <button type="button" class="btn btn-outline-success">Lihat lainnya</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-
-        <h6 class="subJudul2"><strong>Ada masalah dengan kampanye ini?</h6>
-        <div class="d-grid gap-2 ">
-            <button type="button" class="btn btn-outline-danger rounded-5">Laporkan Kampanye Ini</button>
         </div>
     </div>
 @endsection
