@@ -5,16 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
-
+use Carbon\Carbon;
 
 class SessionController extends Controller
 {
-    public function init(){
+    public function init() {
         return view('sign.sign');
     }
 
-    public function login(Request $request){
+    public function login(Request $request) {
         $request->session()->flash('email', $request->email);
         $request->session()->flash('form', 'login');
 
@@ -30,10 +31,10 @@ class SessionController extends Controller
 
         $request->validate($rules, $messages);
 
-        if(auth()->attempt($request->only(['email', 'password']))){
+        if (auth()->attempt($request->only(['email', 'password']))) {
             $user = auth()->user();
-            
-            if($user->jenis_user_id == 1){
+
+            if ($user->jenis_user_id == 1) {
                 return redirect()->route('beranda.show');
             }
         }
@@ -43,7 +44,7 @@ class SessionController extends Controller
         ]);
     }
 
-    public function register(Request $request){
+    public function register(Request $request) {
         $request->session()->flash('email', $request->email);
         $request->session()->flash('nama', $request->nama);
         $request->session()->flash('phone', $request->phone);
@@ -79,10 +80,9 @@ class SessionController extends Controller
 
         $user->save();
 
-
         auth()->login($user);
             
-        if($user->jenis_user_id == 1){
+        if ($user->jenis_user_id == 1) {
             return redirect()->route('beranda.show');
         }
 
@@ -91,15 +91,12 @@ class SessionController extends Controller
         ]);
     }
 
-    public function showPasswordResetForm () {
-        return view('sign.passwordreset');
+    public function showPasswordResetRequestForm() {
+        return view('sign.passwordreset_request');
     }
 
-    public function passwordReset (Request $request) {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|min:8|confirmed'
-        ]);
+    public function sendPasswordResetLink(Request $request) {
+        $request->validate(['email' => 'required|email']);
 
         $user = User::where('email', $request->email)->first();
 
@@ -107,7 +104,45 @@ class SessionController extends Controller
             return back()->withErrors(['email' => 'Email tidak ditemukan di dalam database kami.']);
         }
 
+        $token = Str::random(60);
+        $user->remember_token = $token;
+        $user->token_expires_at = Carbon::now()->addMinutes(30);
+        $user->save();
+
+        $link = url('/passwordreset/' . $token . '?email=' . urlencode($user->email));
+
+        Mail::send('sign.passwordreset_email', ['link' => $link], function($message) use ($user) {
+            $message->to($user->email);
+            $message->subject('Password Reset Request');
+        });
+
+        return back()->with('status', 'Link reset password telah dikirim ke email Anda.');
+    }
+
+    public function showPasswordResetFormWithToken($token, Request $request) {
+        $email = $request->query('email');
+
+        return view('sign.passwordreset', ['token' => $token, 'email' => $email]);
+    }
+
+    public function passwordReset(Request $request) {
+        $request->validate([
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:8|confirmed'
+        ]);
+
+        $user = User::where('email', $request->email)
+            ->where('remember_token', $request->token)
+            ->first();
+
+        if (!$user || $user->token_expires_at->isPast()) {
+            return back()->withErrors(['email' => 'Token tidak valid atau telah kedaluwarsa.']);
+        }
+
         $user->password = Hash::make($request->password);
+        $user->remember_token = null;
+        $user->token_expires_at = null;
         $user->save();
 
         return redirect()->route('session.init')->with('status', 'Password berhasil diubah.');

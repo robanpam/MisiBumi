@@ -47,7 +47,6 @@ Route::post('/updateartikel/{id}', [ArtikelController::class, 'update'])->name('
 //delete artikel
 Route::delete('/deleteartikel/{id}', [ArtikelController::class, 'destroy'])->name('deleteartikel');
 
-
 //kampanye
 Route::get('/kampanye', [KampanyeController::class, 'index'])->name('mainKampanye');
 
@@ -103,9 +102,11 @@ Route::get('/sign-register', [SessionController::class, 'init'])->name('session.
 Route::post('/login', [SessionController::class, 'login'])->name('session.login');
 Route::post('/regis', [SessionController::class, 'register'])->name('session.register');
 
-//Password Reset - Pandi
-Route::get('/passwordreset', [SessionController::class, 'showPasswordResetForm'])->name('password.request');
-Route::post('/passwordreset', [SessionController::class, 'passwordReset'])->name('password.reset');
+//Password Reset
+Route::get('/passwordreset', [SessionController::class, 'showPasswordResetRequestForm'])->name('password.request');
+Route::post('/passwordresetlink', [SessionController::class, 'sendPasswordResetLink'])->name('password.email');
+Route::get('/passwordreset/{token}', [SessionController::class, 'showPasswordResetFormWithToken'])->name('password.reset');
+Route::post('/passwordreset', [SessionController::class, 'passwordReset'])->name('password.update');
 
 //Profile
 Route::get('/profile/history', [ProfileController::class, 'history'])->name('profile.history');
