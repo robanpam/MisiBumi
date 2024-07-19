@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="row card-dsk1">
                                     <div class="col-md-5">Batas Donasi :</div>
-                                    <div class="col-md-7 ms-auto d-flex justify-content-end">{{ \Carbon\Carbon::parse($kampanye->batas_donasi)->format('d-m-Y') }}</div>
+                                    <div class="col-md-7 ms-auto d-flex justify-content-end">{{ \Carbon\Carbon::parse($kampanye->batas_donasi)->translatedFormat('d F Y') }}</div>
                                 </div>
                                 <div class="progress mt-3 rounded-0">
                                     <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -53,7 +53,7 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="d-flex justify-content-end">
-                                            <div class="bwh1">{{ $kampanye->total_donatur }}</div>
+                                            <div class="bwh1">{{ $kampanye->donasis->count() }}</div>
                                             <div class="bwh2">Donatur</div>
                                         </div>
                                     </div>

@@ -44,7 +44,7 @@
                             </div>
                             <div class="col-6 ">
                                 <div class="d-flex justify-content-end">
-                                    <p class="bwh1">{{ $kampanye->total_donatur }}</p>
+                                    <p class="bwh1">{{ $kampanye->donasis->count() }}</p>
                                     <p class="bwh2">Donatur</p>
                                 </div>
                             </div>
@@ -56,8 +56,11 @@
                     <div class="col-1"></div>
                     <div class="col-11">
                         <div class="d-flex justify-content-between">
-                            <button type="button" class="btn btn-outline-success btnShare">Share</button>
+                            <button type="button" class="btn btn-outline-success btnShare" id="btnShare" data-link="{{ route('detailkampanye2', ['id' => $kampanye->id]) }}">Share</button>
                             <button type="button" class="btn btn-success btnDonasi"><strong>Donasi</strong></button>
+                        </div>
+                        <div class="alert alert-success mt-3 d-none" id="shareAlert" role="alert">
+                            Link berhasil dicopy!
                         </div>
                     </div>
                 </div>
@@ -85,7 +88,7 @@
                             <div class="row biodata-row mb-2">
                                 <div class="col-3"><strong>Batas Donasi</strong></div>
                                 <div class="col-1 dsk1">:</div>
-                                <div class="col-8 dsk1">{{ \Carbon\Carbon::parse($kampanye->batas_donasi)->format('d-m-Y') }}</div>
+                                <div class="col-8 dsk1">{{ \Carbon\Carbon::parse($kampanye->batas_donasi)->translatedFormat('d F Y') }}</div>
                             </div>
                             <div class="row biodata-row mb-2">
                                 <div class="col-3"><strong>Harga Pohon</strong></div>
@@ -127,7 +130,7 @@
                         </ul>
                     </div>
                     <div class="col-4">
-                        <div class="text-muted">Kampanye dibuat pada 1 Januari 2024</div>
+                        <div class="text-muted">Kampanye dibuat pada {{ \Carbon\Carbon::parse($kampanye->created_at)->translatedFormat('d F Y') }}</div>
                     </div>
                 </div>
                 <div class="bordered-section tab-content rounded-0">
@@ -186,7 +189,7 @@
                                 </div>
                                 <div class="row card-dsk1">
                                     <div class="col-md-5 ">Batas Donasi :</div>
-                                    <div class="col-md-7 ms-auto d-flex justify-content-end">{{ \Carbon\Carbon::parse($kampanye->batas_donasi)->format('d-m-Y') }}</div>
+                                    <div class="col-md-7 ms-auto d-flex justify-content-end">{{ \Carbon\Carbon::parse($kampanye->batas_donasi)->translatedFormat('d F Y') }}</div>
                                 </div>
                                 <div class="progress mt-3 rounded-0">
                                     <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25"
@@ -201,7 +204,7 @@
                                     </div>
                                     <div class="col-6 ">
                                         <div class="d-flex justify-content-end">
-                                            <div class="bwh1">{{ $kampanye->total_donatur }}</div>
+                                            <div class="bwh1">{{ $kampanye->donasis->count() }}</div>
                                             <div class="bwh2">Donatur</div>
                                         </div>
                                     </div>
