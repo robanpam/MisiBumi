@@ -63,7 +63,7 @@ class DatabaseSeeder extends Seeder
         MetodePembayaran::factory(3)->create();
         Kampanye::factory(20)->create();
         Kalkulator::factory(10)->create();
-        // Donasi::factory(20)->create();
+        Donasi::factory(20)->create();
         Artikel::factory(20)->create();
     }
 }

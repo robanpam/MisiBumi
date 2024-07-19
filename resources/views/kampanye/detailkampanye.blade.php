@@ -38,11 +38,11 @@
                     </tr>
                     <tr>
                         <th scope="row">Dibutuhkan</th>
-                        <td>Rp{{ number_format($kampanye->nilai_donasi, 0, ',', '.') }}</td>
+                        <td>{{ 'Rp' . number_format($kampanye->harga_pohon, 0, ',', '.') }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Batas Donasi</th>
-                        <td>{{ \Carbon\Carbon::parse($kampanye->batas_donasi)->format('d-m-Y') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($kampanye->batas_donasi)->translatedFormat('d F Y') }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Deskripsi</th>

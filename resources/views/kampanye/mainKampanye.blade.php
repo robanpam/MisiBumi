@@ -27,6 +27,12 @@
         <h3 class="subJudul"><strong>Belum Selesai</strong></h3>
         <div class="row">
             @foreach ($kampanyes->where('status', 2)->take(6) as $kampanye)
+                {{-- @php
+                    // Hitung total donasi
+                    $total_donasi = $kampanye->donasis->sum('nilai_donasi'); // Jumlah total donasi
+                    // Hitung jumlah pohon terkumpul berdasarkan total donasi dan harga pohon
+                    $jumlah_pohon_terkumpul = floor($total_donasi / $kampanye->pohon_harga); // Jumlah pohon terkumpul
+                @endphp --}}
                 <div class="col-4">
                     <div class="col">
                         <div class="card h-50 mb-4">
@@ -47,7 +53,7 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="d-flex justify-content-start">
-                                            <div class="bwh1">{{ $kampanye->total_pohon }}</div>
+                                            <div class="bwh1">{{ $kampanye->jumlah_pohon }}</div>
                                             <div class="bwh2">Pohon terkumpul</div>
                                         </div>
                                     </div>
@@ -86,6 +92,10 @@
         <h3 class="subJudul"><strong>Telah Selesai</strong></h3>
         <div class="row">
             @foreach ($kampanyes->where('status', 0)->take(6) as $kampanye)
+                {{-- @php
+                    // Jumlah pohon terkumpul di kampanye yang telah selesai tidak perlu perhitungan donasi
+                    $jumlah_pohon_terkumpul = $kampanye->jumlah_pohon;
+                @endphp --}}
                 <div class="col-4">
                     <div class="col">
                         <div class="card h-50 mb-4">
@@ -98,7 +108,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-7 card-dsk4">{{ $kampanye->user_name }}</div>
-                                    <div class="col-5 card-dsk4">{{ $kampanye->total_pohon }}</div>
+                                    <div class="col-5 card-dsk4">{{ $kampanye->jumlah_pohon }}</div>
                                 </div>
                                 <div class="d-grid gap-2 mt-2">
                                     <a href="{{ route('detailkampanye2', ['id' => $kampanye->id]) }}" class="btn btn-primary rounded-5">

@@ -111,7 +111,7 @@ class KampanyeController extends Controller
                 'users.name as user_name',
                 'donasis.nilai_donasi',
                 'donasis.metode_pembayaran_id',
-                'pohons.harga_pohon as pohon_harga'
+                'pohons.harga_pohon as harga_pohon'
             )
             ->with(['user', 'donasis.user'])
             ->where('kampanyes.id', $id)
