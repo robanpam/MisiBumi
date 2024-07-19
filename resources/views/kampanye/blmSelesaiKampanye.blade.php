@@ -1,14 +1,14 @@
 @extends('layout.master')
 
-@section('css', asset('css/kampanye/detailKampanye2.css'))
+@section('css', asset('css/kampanye/blmSelesaiKampanye.css'))
 
 @section('content')
-<div class="container">
-    <h3 class="subJudul"><strong>Belum Selesai</strong></h3>
+<div class="container mt-5">
+    <h3 class="subJudul my-2"><strong>Belum Selesai</strong></h3>
     <div class="row">
         @foreach ($kampanyes as $kampanye)
             @if ($kampanye->status == 2)
-                <div class="col-4">
+                <div class="col-4 my-3">
                     <div class="col">
                         <div class="card h-50">
                             <img src="{{ asset('asset/kampanye/' . $kampanye->gambar_kampanye) }}"

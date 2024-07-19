@@ -10,9 +10,10 @@
                 <div class="col-2"></div>
                 <div class="col cont banner text-light">
                     <h1><strong>Kampanye Misi Bumi</strong></h1>
-                    <p>
+                    <p class='isiBanner'>
                         Dengan hati yang penuh dengan kepedulian dan tekad yang bulat, kami hadir
-                        untuk mengajak Anda semua bergabung dalam kampanye Misi Bumi ini. Mari bersama kita jaga kelestarian tumbuhan,
+                        untuk mengajak Anda semua bergabung dalam kampanye Misi Bumi ini. Mari bersama kita jaga kelestarian
+                        tumbuhan,
                         sebagai sumber kehidupan yang tak ternilai, melalui aksi nyata & donasi yang berdampak
                         positif bagi lingkungan kita semua
                     </p>
@@ -24,7 +25,7 @@
 
     <!-- CARD BELUM SELESAI -->
     <div class="container">
-        <h3 class="subJudul"><strong>Belum Selesai</strong></h3>
+        <h3 class="subJudul my-2"><strong>Belum Selesai</strong></h3>
         <div class="row">
             @foreach ($kampanyes->where('status', 2)->take(6) as $kampanye)
                 {{-- @php
@@ -33,22 +34,27 @@
                     // Hitung jumlah pohon terkumpul berdasarkan total donasi dan harga pohon
                     $jumlah_pohon_terkumpul = floor($total_donasi / $kampanye->pohon_harga); // Jumlah pohon terkumpul
                 @endphp --}}
-                <div class="col-4">
+                <div class="col-4 my-3">
                     <div class="col">
-                        <div class="card h-50 mb-4">
-                            <img src="{{ asset('asset/kampanye/' . $kampanye->gambar_kampanye) }}" class="card-img-top" alt="...">
+                        <div class="card h-50">
+                            <img src="{{ asset('asset/kampanye/' . $kampanye->gambar_kampanye) }}" class="card-img-top"
+                                alt="...">
                             <div class="card-body">
                                 <h5 class="card-title d-flex justify-content-center">{{ $kampanye->nama_kampanye }}</h5>
                                 <div class="row">
                                     <div class="col-md-5 card-dsk">Campaigner :</div>
-                                    <div class="col-md-7 ms-auto d-flex justify-content-end card-dsk">{{ $kampanye->user_name }}</div>
+                                    <div class="col-md-7 ms-auto d-flex justify-content-end card-dsk">
+                                        {{ $kampanye->user_name }}</div>
                                 </div>
                                 <div class="row card-dsk1">
                                     <div class="col-md-5">Batas Donasi :</div>
-                                    <div class="col-md-7 ms-auto d-flex justify-content-end">{{ \Carbon\Carbon::parse($kampanye->batas_donasi)->translatedFormat('d F Y') }}</div>
+                                    <div class="col-md-7 ms-auto d-flex justify-content-end">
+                                        {{ \Carbon\Carbon::parse($kampanye->batas_donasi)->translatedFormat('d F Y') }}
+                                    </div>
                                 </div>
                                 <div class="progress mt-3 rounded-0">
-                                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
@@ -65,7 +71,8 @@
                                     </div>
                                 </div>
                                 <div class="d-grid gap-2 mt-3">
-                                    <a href="{{ route('detailkampanye2', ['id' => $kampanye->id]) }}" class="btn btn-primary rounded-5">
+                                    <a href="{{ route('detailkampanye2', ['id' => $kampanye->id]) }}"
+                                        class="btn btn-primary rounded-5">
                                         <div class="text-btn">Lihat Kampanye</div>
                                     </a>
                                 </div>
@@ -89,36 +96,36 @@
 
     <!-- CARD TELAH SELESAI -->
     <div class="container">
-        <h3 class="subJudul"><strong>Telah Selesai</strong></h3>
+        <h3 class="subJudul my-2"><strong>Telah Selesai</strong></h3>
         <div class="row">
-            @foreach ($kampanyes->where('status', 0)->take(6) as $kampanye)
-                {{-- @php
-                    // Jumlah pohon terkumpul di kampanye yang telah selesai tidak perlu perhitungan donasi
-                    $jumlah_pohon_terkumpul = $kampanye->jumlah_pohon;
-                @endphp --}}
-                <div class="col-4">
-                    <div class="col">
-                        <div class="card h-50 mb-4">
-                            <img src="{{ asset('asset/kampanye/' . $kampanye->gambar_kampanye) }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title d-flex justify-content-center">{{ $kampanye->nama_kampanye }}</h5>
-                                <div class="row">
-                                    <div class="col-7 card-dsk3">Campaigner</div>
-                                    <div class="col-5 card-dsk3">Pohon Ditanam</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-7 card-dsk4">{{ $kampanye->user_name }}</div>
-                                    <div class="col-5 card-dsk4">{{ $kampanye->jumlah_pohon }}</div>
-                                </div>
-                                <div class="d-grid gap-2 mt-2">
-                                    <a href="{{ route('detailkampanye2', ['id' => $kampanye->id]) }}" class="btn btn-primary rounded-5">
-                                        <div class="text-btn">Pantau Kampanye</div>
-                                    </a>
+            @foreach ($kampanyes as $kampanye)
+                @if ($kampanye->status == 0)
+                    <div class="col-4 my-3">
+                        <div class="col">
+                            <div class="card h-50">
+                                <img src="{{ asset('asset/kampanye/' . $kampanye->gambar_kampanye) }}" class="card-img-top"
+                                    alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title d-flex justify-content-center">{{ $kampanye->nama_kampanye }}</h5>
+                                    <div class="row">
+                                        <div class="col-7 card-dsk3">Campaigner</div>
+                                        <div class="col-5 card-dsk3">Pohon Ditanam</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-7 card-dsk4">{{ $kampanye->user_name }}</div>
+                                        <div class="col-5 card-dsk4">{{ $kampanye->total_pohon }}</div>
+                                    </div>
+                                    <div class="d-grid gap-2 mt-2">
+                                        <a href="{{ route('detailkampanye2', ['id' => $kampanye->id]) }}"
+                                            class="btn btn-primary rounded-5">
+                                            <div class="text-btn">Pantau Kampanye</div>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endif
             @endforeach
         </div>
 

@@ -13,7 +13,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    height: 51vh;
+    height: 50vh;
     opacity: 0.8;
 }
 
@@ -41,22 +41,20 @@
 .Judul {
     margin-bottom: 1rem;
 }
-
+.isiBanner{
+    margin-top: 2rem;
+    font-size: 16px;
+}
 
 
 
 .divider {
     border-left: 3px solid #ACACAC;
-    /* Warna dan ketebalan garis */
     height: 150px;
-    /* Tinggi sesuai kebutuhan */
     position: absolute;
-    /* Agar posisi tetap */
     left: 50%;
-    /* Di tengah kolom */
-    top: 4rem;
+    top: 5rem;
     margin-left: -1px;
-    /* Setengah dari ketebalan garis untuk tepat di tengah */
 }
 
 
@@ -95,19 +93,34 @@
     font-weight: 550;
 }
 
-.subJudul {
-    text-align: center;
-    padding-top: 3rem;
-    padding-bottom: 0.5rem;
-    font-size: 36px;
+
+
+.angka{
+    font-size: 16px;
+    text-align: right;
+    font-weight: 450;
+    margin-bottom: -0.1rem;
+}
+.penjelasan3 {
+    font-size: 15.1px;
+    text-align: left;
+    font-weight: 300;
+    margin-bottom: -0.001rem;
+    margin-left: -1rem;
 }
 
-.subJudulLaporan {
+
+
+.subJudul {
+    text-align: center;
+}
+
+/* .subJudulLaporan {
     text-align: center;
     padding-top: 4rem;
     padding-bottom: 0.5rem;
     font-size: 36px;
-}
+} */
 
 /* BTN */
 .btnDonasi {
@@ -127,13 +140,13 @@
 
 /* LAPORAN TAHUNAN */
 .laporanTahunan {
-    height: 10rem;
+    height: 13rem;
 }
 
 .infoTahunan1 {
-    text-align: left;
+    text-align: center;
     font-size: 30px;
-    margin-top: 0.5rem;
+
 }
 
 .infoTahunan2 {
@@ -156,7 +169,7 @@
 
 .pengeluaran1 {
     text-align: center;
-    font-size: 25px;
+    font-size: 23px;
 }
 
 
@@ -191,6 +204,7 @@
 
 .deskDampak {
     margin-top: 8rem;
+    font-size: 16px;
 }
 
 .gbrDampak {

@@ -6,19 +6,21 @@
 
 @section('content')
     <!-- BANNER -->
-    <div class="bg">
+    <div class="bg mt-5">
         <div class="container">
             <div class="row">
                 <div class="col-2"></div>
                 <div class="col cont banner text-light">
                     <h1><strong>Jejak Hijau Donasi Bagi Bumi</strong></h1>
-                    <p>Donasi yang Anda berikan bukan hanya angka, itu adalah langkah nyata dalam
+                    <p class="isiBanner">Donasi yang Anda berikan bukan hanya angka, itu adalah langkah nyata dalam
                         menciptakan dampak positif yang luas bagi lingkungan dan masyarakat.
                         Dengan dukungan Anda, kita tidak hanya menanam pohon, tetapi juga menanam harapan dan masa depan
                         yang lebih cerah.Inilah bagaimana kontribusi Anda membuat perubahan besar
                     </p>
-                    <button type="button" class="btn btn-success btnDonasi rounded-5"><strong>Donasi
-                            Sekarang</strong></button>
+                    <div class="row d-flex justify-content-center">
+                        <button type="button" class="btn btn-success btnDonasi1 rounded-5"><strong>Donasi
+                                Sekarang</strong></button>
+                    </div>
                 </div>
                 <div class="col-2"></div>
             </div>
@@ -47,12 +49,12 @@
         </div>
     </div>
 
-    
+
     <div class="container">
 
         <!-- JEJAK HIJAU -->
-        <h2 class="subJudul0"><strong>Jejak Hijau</strong></h2>
-        <div class="row">
+        <h3 class="subJudul0 my-2"><strong>Jejak Hijau</strong></h3>
+        <div class="row my-3">
             <div class="d-flex justify-content-between">
                 <div class="card text-center mb-3" style="width: 25rem;">
                     <div class="card-body">
@@ -115,10 +117,10 @@
 
 
         {{-- ARTIKEL TERBARU --}}
-        <h2 class="subJudul"><strong>Artikel Terbaru</strong></h2>
+        <h3 class="subJudul my-2"><strong>Artikel Terbaru</strong></h3>
         <div class="row">
             @for ($i = 1; $i <= 5; $i++)
-                <div class="col-2 cardArtikel d-flex justify-content-between">
+                <div class="col-2 cardArtikel d-flex justify-content-between my-3">
                     <div class="card ">
                         <img src="https://www.marketeers.com/_next/image/?url=https%3A%2F%2Fimagedelivery.net%2F2MtOYVTKaiU0CCt-BLmtWw%2Fe33fd511-2121-44fc-20e9-3fb547a5f600%2Fw%3D2560&w=1920&q=75"
                             class="card-img-top mx-auto" alt="...">
@@ -154,17 +156,17 @@
 
 
         {{-- TESTIMONI --}}
-        <h2 class="subJudul"><strong>Testimoni, Suara Bumi</strong></h2>
+        <h3 class="subJudul my-2"><strong>Testimoni, Suara Bumi</strong></h3>
 
         <div class="d-flex justify-content-between">
-            <button id="prevButton" class="btn btn-secondary customBtn">❮</button>
+            <button id="prevButton" class="btn1 btn-secondary customBtn">❮</button>
 
             <div id="testimonialsCarousel" class="carousel slide w-100" data-bs-ride="carousel">
                 <div class="carousel-inner">
 
                     {{-- TESTIMONI 1 --}}
                     <div class="carousel-item active">
-                        <div class="row justify-content-center">
+                        <div class="row justify-content-center my-3">
                             {{-- Konten baris 1 --}}
                             <div class="col-6">
                                 <div class="border border-4 testimony-card">
@@ -211,7 +213,7 @@
 
 
 
-                        <div class="row justify-content-center">
+                        <div class="row justify-content-center my-3">
 
                             {{-- Konten baris 1 --}}
                             <div class="col-6">
@@ -261,7 +263,7 @@
 
                     {{-- TESTIMONI 2 --}}
                     <div class="carousel-item">
-                        <div class="row justify-content-center">
+                        <div class="row justify-content-center my-3">
                             <div class="row justify-content-center">
 
                                 {{-- Konten baris 1 --}}
@@ -309,7 +311,7 @@
                             </div>
 
 
-                            <div class="row justify-content-center">
+                            <div class="row justify-content-center my-3">
 
                                 {{-- Konten baris 1 --}}
                                 <div class="col-6">
@@ -359,19 +361,14 @@
                 </div>
 
             </div>
-            <button id="nextButton" class="btn btn-secondary customBtn">❯</button>
+            <button id="nextButton" class="btn1 btn-secondary customBtn">❯</button>
         </div>
 
 
-        {{-- BUTTON --}}
 
-        <div class="row d-flex justify-content-center">
-            <button type="button" class="btn btn-success btnDonasi rounded-5"><strong>Tambahkan suara</strong></button>
-        </div>
 
     </div>
     {{-- TESTIMONI --}}
-
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

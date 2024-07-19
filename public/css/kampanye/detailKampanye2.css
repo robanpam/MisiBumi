@@ -8,6 +8,9 @@ body {
 }
 
 /* Detail KIRI */
+.desk{
+    font-size: 14px;
+}
 .gbrdetail {
     height: 300px;
     width: 500px;
@@ -59,9 +62,12 @@ body {
 
 /* Detail KANAN*/
 .dsk1 {
-    margin-left: -2rem;
+    margin-left: -1rem;
 }
 
+.dsk2{
+    margin-left: -2rem;
+}
 
 /* Detail TENGAH */
 .navTengah .nav-link.active {
@@ -125,7 +131,7 @@ body {
     font-weight: 600;
 }
 
-.nav-link {
+.nav-link .tes{
     width: 165px;
     background-color: #D9D9D9;
     border-color: #D9D9D9;
@@ -143,6 +149,9 @@ body {
     display: flex;
     align-items: center;
 }
+.desk2{
+    font-size: 16px;
+}
 
 
 
@@ -150,7 +159,7 @@ body {
 
 .donasi {
     width: 100%;
-    /* padding-left: 3rem */
+    margin-top: 2rem;
 }
 
 .donatur-card {
@@ -240,26 +249,9 @@ body {
     margin-top: 4px;
 }
 
-.btnLihatLainnya {
-    padding-top: 1rem;
 
-}
 
-.card-dsk3 {
-    margin-top: 1rem;
-    color: #114232;
-    font-weight: 500;
-    font-size: 14px;
-    text-align: center;
-}
 
-.card-dsk4 {
-    color: #114232;
-    font-weight: 550;
-    font-size: 19px;
-    height: 3rem;
-    text-align: center;
-}
 
 .btn-primary {
     width: auto;
@@ -275,18 +267,4 @@ body {
     border-color: #114232;
     color: #114232;
 
-}
-
-
-
-
-/* AKHIR */
-.subJudul2 {
-    padding-top: 1.5rem;
-    font-size: 20px;
-}
-
-.btn-outline-danger:hover {
-    background-color: rgb(233, 47, 47);
-    color: white;
 }

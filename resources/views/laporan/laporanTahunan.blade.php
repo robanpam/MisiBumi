@@ -13,7 +13,7 @@
                 <div class="col-1"></div>
                 <div class="col cont banner text-light">
                     <h1 class='Judul'><strong>Laporan Tahunan dan Keuangan Misi Bumi</strong></h1>
-                    <p>Dengan hati yang penuh dengan kepedulian dan tekad yang bulat, kami hadir untuk
+                    <p class="isiBanner">Dengan hati yang penuh dengan kepedulian dan tekad yang bulat, kami hadir untuk
                         mengajak Anda semua bergabung dalam kampanye Misi Bumi ini. Mari bersama kita jaga
                         kelestarian tumbuhan, sebagai sumber kehidupan yang tak ternilai, melalui aksi nyata
                         & donasi yang berdampak positif bagi lingkungan kita semua
@@ -27,10 +27,10 @@
 
 
     <div class="container">
-
-        <div class="row">
+        <h3 class="subJudul mt-4"><strong>Misi Bumi, Misi Kita Semua</strong></h3>
+        <div class="row mb-5">
             <div class="col-6 ">
-                <div class="d-flex justify-content-end mt-5">
+                <div class="d-flex justify-content-end mt-2">
                     <div class="penjelasan1">Pohon terkumpul</div>
                     <div class="angka1"><strong>45</strong></div>
                 </div>
@@ -47,8 +47,8 @@
 
             <div class="divider"></div>
 
-            <div class="col-6 ">
-                <div class="d-flex justify-content-start mt-5">
+            <div class="col-6">
+                <div class="d-flex justify-content-start mt-2">
                     <div class="angka2"><strong>5,89M</strong></div>
                     <div class="penjelasan2">Donasi terkumpul</div>
                 </div>
@@ -64,57 +64,43 @@
         </div>
 
 
-        <h2 class="subJudulLaporan"><strong>Laporan Tahunan</strong></h2>
+        <h3 class="subJudul my-2"><strong>Laporan Tahunan</strong></h3>
 
-        <div class="row">
-            <div class="d-flex justify-content-between">
-                @for ($i = 1; $i <= 3; $i++)
-                    <div class="card text-center mb-3 laporanTahunan" style="width: 25rem;">
-                        <div class="card-body">
-                            <h5 class="card-title infoTahunan1"><strong>2023</strong></h5>
-                            <p class="card-text infoTahunan2">Laporan tahunan dan keuangan</p>
-                            <div class="row">
-                                <div class="col btnLihatLainnya">
-                                    <div class="col-auto d-md-flex justify-content-md-end">
-                                        <button type="button" class="btn btn-outline-success">Lihat
-                                            laporan</button>
-                                    </div>
-                                </div>
+        <div class="row d-flex justify-content-between">
+            @for ($i = 1; $i <= 4; $i++)
+                <div class="card text-center laporanTahunan my-3" style="width: 20rem;">
+                    <div class="card-body">
+                        <h5 class="card-title infoTahunan1"><strong>2023</strong></h5>
+                        <div class="row">
+                            <div class="col-4 data">
+                                <p class="angka">817.7K</p>
+                                <p class="angka">1.57Jt</p>
+                                <p class="angka">837</p>
+                                <p class="angka">5,89M</p>
+                                <p class="angka">82K</p>
+                                <p class="angka">48</p>
+                            </div>
+                            <div class="col-8 penjelasan">
+                                <p class="penjelasan3">Pohon tertanam</p>
+                                <p class="penjelasan3">Emisi karbon terserap</p>
+                                <p class="penjelasan3">Kampanye alam</p>
+                                <p class="penjelasan3">Donasi terkumpul</p>
+                                <p class="penjelasan3">Sahabat Bumi</p>
+                                <p class="penjelasan3">Lokasi penghijauan</p>
                             </div>
                         </div>
-                    </div>
-                @endfor
-            </div>
 
-            <div class="d-flex justify-content-between">
-                @for ($i = 1; $i <= 3; $i++)
-                    <div class="card text-center mb-3 laporanTahunan" style="width: 25rem;">
-                        <div class="card-body">
-                            <h5 class="card-title infoTahunan1"><strong>2023</strong></h5>
-                            <p class="card-text infoTahunan2">Laporan tahunan dan keuangan</p>
-                            <div class="row">
-                                <div class="col btnLihatLainnya">
-                                    <div class="col-auto d-md-flex justify-content-md-end">
-                                        <button type="button" class="btn btn-outline-success">Lihat
-                                            laporan</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                @endfor
-            </div>
+                </div>
+            @endfor
+
+
         </div>
 
-        {{-- BUTTON --}}
-        <div class="row d-flex justify-content-center">
-            <button type="button" class="btn btn-success btnDonasi rounded-5"><strong>Laporan lainnya</strong></button>
-        </div>
-
-        <h2 class="subJudul"><strong>Laporan Keuangan</strong></h2>
+        <h3 class="subJudul my-2 mt-5"><strong>Laporan Keuangan</strong></h3>
 
         <div class="row">
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between my-3">
                 <div class="card text-center mb-3 pemasukanPengeluaran" style="width: 38rem;">
                     <div class="card-body">
                         <h5 class="card-title pengeluaran1">Pemasukan</h5>
@@ -131,10 +117,11 @@
             </div>
         </div>
 
-        <h2 class="subJudul"><strong>Dampak Donasi dalam Angka</strong></h2>
+        <h3 class="subJudul my-2 mt-5"><strong>Dampak Donasi dalam Angka</strong></h3>
+
     </div>
 
-    <div class="dampakDonasi">
+    <div class="dampakDonasi my-3">
         <div class="container dampak">
             <div class="row">
                 <div class="col-6 diagramBatang">

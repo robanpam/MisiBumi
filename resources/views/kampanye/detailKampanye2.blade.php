@@ -5,7 +5,7 @@
 @section('kampanye_aktif', 'nav-active')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-5">
         <!-- DETAIL ATAS -->
         <div class="row mt-3">
             {{-- KIRI --}}
@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="col-1"></div>
                     <div class="col-11 dsk-detail">
-                        <p>{{ $kampanye->user->name }}</p>
+                        <p class='desk'>{{ $kampanye->user->name }}</p>
                     </div>
                 </div>
 
@@ -78,27 +78,27 @@
                             <div class="row biodata-row mb-2">
                                 <div class="col-3"><strong>Jenis Tanaman</strong></div>
                                 <div class="col-1 dsk1">:</div>
-                                <div class="col-8 dsk1">{{ $kampanye->pohon_nama }}</div>
+                                <div class="col-8 dsk2">{{ $kampanye->pohon_nama }}</div>
                             </div>
                             <div class="row biodata-row mb-2">
                                 <div class="col-3"><strong>Lokasi</strong></div>
                                 <div class="col-1 dsk1">:</div>
-                                <div class="col-8 dsk1">{{ $kampanye->lokasi_kampanye }}</div>
+                                <div class="col-8 dsk2">{{ $kampanye->lokasi_kampanye }}</div>
                             </div>
                             <div class="row biodata-row mb-2">
                                 <div class="col-3"><strong>Batas Donasi</strong></div>
                                 <div class="col-1 dsk1">:</div>
-                                <div class="col-8 dsk1">{{ \Carbon\Carbon::parse($kampanye->batas_donasi)->translatedFormat('d F Y') }}</div>
+                                <div class="col-8 dsk2">{{ \Carbon\Carbon::parse($kampanye->batas_donasi)->translatedFormat('d F Y') }}</div>
                             </div>
                             <div class="row biodata-row mb-2">
                                 <div class="col-3"><strong>Harga Pohon</strong></div>
                                 <div class="col-1 dsk1">:</div>
-                                <div class="col-8 dsk1">{{ 'Rp' . number_format($kampanye->harga_pohon, 0, ',', '.') }}</div>
+                                <div class="col-8 dsk2">{{ 'Rp' . number_format($kampanye->harga_pohon, 0, ',', '.') }}</div>
                             </div>
                             <div class="row biodata-row mb-2">
                                 <div class="col-3"><strong>Minimal Pohon</strong></div>
                                 <div class="col-1 dsk1">:</div>
-                                <div class="col-8 dsk1">{{ $kampanye->jumlah_pohon }}</div>
+                                <div class="col-8 dsk2">{{ $kampanye->jumlah_pohon }}</div>
                             </div>
                         </div>
                     </div>
@@ -113,24 +113,24 @@
                     <div class="col-8">
                         <ul class="nav nav-pills navTengah" id="ex1" role="tablist">
                             <li class="nav-item " role="presentation">
-                                <a class="nav-link active text-center rounded-0" id="tab-tentang" data-bs-toggle="pill"
+                                <a class="tes nav-link active text-center rounded-0" id="tab-tentang" data-bs-toggle="pill"
                                     href="#pills-tentang" role="tab" aria-controls="pills-tentang"
                                     aria-selected="true">Tentang</a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link text-center rounded-0" id="tab-perkembangan" data-bs-toggle="pill"
+                                <a class="tes nav-link text-center rounded-0" id="tab-perkembangan" data-bs-toggle="pill"
                                     href="#pills-perkembangan" role="tab" aria-controls="pills-perkembangan"
                                     aria-selected="false">Perkembangan</a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link text-center rounded-0" id="tab-donasi" data-bs-toggle="pill"
+                                <a class="tes nav-link text-center rounded-0" id="tab-donasi" data-bs-toggle="pill"
                                     href="#pills-donasi" role="tab" aria-controls="pills-donasi"
                                     aria-selected="false">Donasi</a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-4">
-                        <div class="text-muted">Kampanye dibuat pada {{ \Carbon\Carbon::parse($kampanye->created_at)->translatedFormat('d F Y') }}</div>
+                        <div class="text-muted desk">Kampanye dibuat pada {{ \Carbon\Carbon::parse($kampanye->created_at)->translatedFormat('d F Y') }}</div>
                     </div>
                 </div>
                 <div class="bordered-section tab-content rounded-0">
@@ -138,7 +138,7 @@
                     <div class="tab-pane fade show active" id="pills-tentang" role="tabpanel"
                         aria-labelledby="tab-tentang">
                         <h4>Halo Sahabat,</h4>
-                        <p>{{ $kampanye->deskripsi }}</p>
+                        <p class="desk2">{{ $kampanye->deskripsi }}</p>
                     </div>
 
                     <!-- PERKEMBANGAN -->
@@ -171,10 +171,10 @@
         </div>
 
         {{-- KAMPANYE TERKAIT --}}
-        <h3 class="subJudul"><strong>Kampanye Terkait</strong></h3>
+        <h3 class="subJudul my-2"><strong>Kampanye Terkait</strong></h3>
         <div class="row">
             @for ($i = 1; $i < 4; $i++)
-                <div class="col-4">
+                <div class="col-4 my-3">
                     <!-- KONTEN -->
                     <div class="col">
                         <div class="card h-50">
