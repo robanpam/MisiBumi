@@ -33,6 +33,10 @@ Route::post('/profiladmin/ubahemail/{id}', [AdminController::class, 'updateEmail
 Route::get('/profiladmin/ubahnomortelpon/{id}', [AdminController::class, 'showChangeTelponForm'])->name('ubahnomortelpon');
 Route::post('/profiladmin/ubahnomortelpon/{id}', [AdminController::class, 'updateTelpon'])->name('updateTelpon');
 
+//ganti profile
+Route::get('/gantiprofile/{id}', [AdminController::class, 'showUpdateProfileForm'])->name('showUpdateProfileForm');
+Route::post('/gantiprofile/{id}', [AdminController::class, 'updateProfilePicture'])->name('updateProfilePicture');
+
 //kelola artikel
 Route::get('/kelolaartikel', [ArtikelController::class, 'kelolaartikel'])->name('kelolaartikel');
 

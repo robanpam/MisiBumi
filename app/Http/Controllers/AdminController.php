@@ -162,4 +162,41 @@ class AdminController extends Controller
 
         return redirect()->back()->with('success', 'Nomor telepon updated successfully.');
     }
+
+    //update profile
+    public function showUpdateProfileForm($id)
+    {
+        $user = User::where('jenis_user_id', '=', '2')
+            ->where('id', '=', $id)
+            ->first();
+
+        if (!$user) {
+            return redirect()->back()->with('error', 'User not found.');
+        }
+
+        return view('admin.gantiganti.gantiprofile', compact('user'));
+    }
+
+    public function updateProfilePicture(Request $request, $id)
+    {
+        $request->validate([
+            'profilePicture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $user = User::where('jenis_user_id', '=', '2')
+            ->where('id', '=', $id)
+            ->first();
+
+        if (!$user) {
+            return redirect()->back()->with('error', 'User not found.');
+        }
+
+        $imageName = time() . '.' . $request->profilePicture->extension();
+        $request->profilePicture->move(public_path('profile_pictures'), $imageName);
+
+        $user->profile_photo = $imageName;
+        $user->save();
+
+        return redirect()->route('profileadmin', ['id' => $user->id])->with('success', 'Profile picture updated successfully.');
+    }
 }

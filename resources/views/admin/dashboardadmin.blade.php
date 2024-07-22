@@ -66,9 +66,9 @@
                                 <span id="selectedMonth">October</span>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#" data-month="January">January</a>
-                                <a class="dropdown-item" href="#" data-month="February">February</a>
-                                <a class="dropdown-item" href="#" data-month="March">March</a>
+                                <a class="dropdown-item" href="#" data-month="January">2021</a>
+                                <a class="dropdown-item" href="#" data-month="February">2022</a>
+                                <a class="dropdown-item" href="#" data-month="March">2023</a>
                                 <a class="dropdown-item" href="#" data-month="April">April</a>
                                 <a class="dropdown-item" href="#" data-month="May">May</a>
                                 <a class="dropdown-item" href="#" data-month="June">June</a>
@@ -92,7 +92,7 @@
 @section('chart')
 <script>
     const dummyData = {
-        'January': [30, 45, 32, 70, 65, 80, 75, 90, 85, 95, 100, 110],
+        'January': [30, 45, 32, 70, 65, 80, 75, 90, 85, 95, 100, 110,120],
         'February': [20, 35, 25, 50, 45, 60, 55, 70, 65, 75, 80, 90],
         'March': [25, 40, 30, 60, 55, 70, 65, 80, 75, 85, 90, 100],
         'April': [35, 50, 42, 80, 75, 90, 85, 100, 95, 105, 110, 120],
@@ -110,7 +110,7 @@
     const donationChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ['5k', '10k', '15k', '20k', '25k', '30k', '35k', '40k', '45k', '50k', '55k', '60k'],
+            labels: ['5k', '10k', '15k', '20k', '25k', '30k', '35k', '40k', '45k', '50k', '55k', '60K','70K'],
             datasets: [{
                 label: 'Donations',
                 data: dummyData['October'],
