@@ -9,7 +9,7 @@
     <!-- BANNER -->
     <div class="bg">
         <div class="container">
-            <div class="row mt-5">
+            <div class="row">
                 <div class="col-1"></div>
                 <div class="col cont banner text-light">
                     <h1 class='Judul'><strong>Laporan Tahunan dan Keuangan Misi Bumi</strong></h1>
@@ -66,19 +66,22 @@
 
         <h3 class="subJudul my-2"><strong>Laporan Tahunan</strong></h3>
 
+
+
         <div class="row d-flex justify-content-between">
-            @for ($i = 1; $i <= 4; $i++)
+
+            @foreach ($dataPerTahun as $year => $data)
                 <div class="card text-center laporanTahunan my-3" style="width: 20rem;">
                     <div class="card-body">
-                        <h5 class="card-title infoTahunan1"><strong>2023</strong></h5>
+                        <h5 class="card-title infoTahunan1"><strong>{{ $data['tahun'] }}</strong></h5>
                         <div class="row">
                             <div class="col-4 data">
-                                <p class="angka">817.7K</p>
+                                <p class="angka">{{ $data['total_pohon'] }}</p>
                                 <p class="angka">1.57Jt</p>
-                                <p class="angka">837</p>
-                                <p class="angka">5,89M</p>
-                                <p class="angka">82K</p>
-                                <p class="angka">48</p>
+                                <p class="angka">{{ $data['total_kampanye'] }}</p>
+                                <p class="angka">{{ $data['total_donasi'] }}</p>
+                                <p class="angka">{{ $data['total_user'] }}</p>
+                                <p class="angka">{{ $data['total_lokasi'] }}</p>
                             </div>
                             <div class="col-8 penjelasan">
                                 <p class="penjelasan3">Pohon tertanam</p>
@@ -92,8 +95,7 @@
 
                     </div>
                 </div>
-            @endfor
-
+            @endforeach
 
         </div>
 
