@@ -30,15 +30,15 @@
                 <div class="border col-6 border-4 rounded-1 shadow infoBanner">
                     <div class="row mt-2">
                         <div class="col-4">
-                            <h2 class="infoBanner1"><strong>1,3K</strong></h2>
+                            <h2 class="infoBanner1"><strong>{{ $kampanye }}</strong></h2>
                             <p class="infoBanner2">Kampanye</p>
                         </div>
                         <div class="col-4">
-                            <h2 class="infoBanner1"><strong>321.3K</strong></h2>
+                            <h2 class="infoBanner1"><strong>{{ $pohon }}</strong></h2>
                             <p class="infoBanner2">Pohon tertanam </p>
                         </div>
                         <div class="col-4">
-                            <h2 class="infoBanner1"><strong>5.89M</strong></h2>
+                            <h2 class="infoBanner1"><strong>{{ $donasi }}</strong></h2>
                             <p class="infoBanner2">Donasi terkumpul</p>
                         </div>
 
@@ -123,14 +123,14 @@
                 <div class="col-2 cardArtikel d-flex justify-content-between my-3">
                     <a href="{{ route('detailArtikel', ['id' => $items->id]) }}">
                         <div class="card ">
-                            <img src="https://www.marketeers.com/_next/image/?url=https%3A%2F%2Fimagedelivery.net%2F2MtOYVTKaiU0CCt-BLmtWw%2Fe33fd511-2121-44fc-20e9-3fb547a5f600%2Fw%3D2560&w=1920&q=75"
+                            <img src="{{ $items->gambar_artikel }}"
                                 class="card-img-top mx-auto" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title fw-semibold mb-3">{{ $items->judul_artikel }}</h5>
                                 <div class="row">
                                     <div class="col-6 detailArtikel">
                                         <p class="artikelAtas">Karya</p>
-                                        <p class="artikelBawah">{{$admins1->first()->name}}</p>
+                                        <p class="artikelBawah">{{ $admins1->first()->name }}</p>
                                     </div>
                                     <div class="col-6">
                                         <p class="artikelAtas2">Tanggal Terbit</p>
@@ -163,211 +163,47 @@
         <div class="d-flex justify-content-between">
             <button id="prevButton" class="btn1 btn-secondary customBtn">❮</button>
 
+            {{-- @php
+                $testimonis = App\Models\Testimoni::all();
+            @endphp --}}
+
             <div id="testimonialsCarousel" class="carousel slide w-100" data-bs-ride="carousel">
                 <div class="carousel-inner">
-
-                    {{-- TESTIMONI 1 --}}
-                    <div class="carousel-item active">
-                        <div class="row justify-content-center my-3">
-                            {{-- Konten baris 1 --}}
-                            <div class="col-6">
-                                <div class="border border-4 testimony-card">
-                                    <div class="row">
-                                        <div class="col-1">
-                                            <div class="donatur-avatar">
-                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaxnn_VRGWO72bMlOqeH7UV2P4oCpu1OB1JQ&s"
-                                                    alt="">
-                                            </div>
-                                            <h5 class="namaTestimoni">Sarah</h5>
-                                        </div>
-                                        <div class="col-11">
-                                            <p class="testimoni">
-                                                Menyaksikan bagaimana pohon-pohon yang ditanam tumbuh dan
-                                                berkembang memberikan kepuasan tersendiri. Saya senang bisa
-                                                berkontribusi untuk masa depan yang lebih hiaju dan sehat.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="border border-4 testimony-card">
-                                    <div class="row">
-                                        <div class="col-1">
-                                            <div class="donatur-avatar">
-                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaxnn_VRGWO72bMlOqeH7UV2P4oCpu1OB1JQ&s"
-                                                    alt="">
-                                            </div>
-                                            <h5 class="namaTestimoni">Anonim</h5>
-                                        </div>
-                                        <div class="col-11">
-                                            <p class="testimoni">Saya merasa bangga menjadi bagian dari kampanye ini.
-                                                Dengan setiap pohon yang
-                                                ditanam, saya tahu bahwa kita membantu mencegah bencana alam dan
-                                                menyediakan udara yang
-                                                lebih bersih untuk semua orang</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-
-
-                        <div class="row justify-content-center my-3">
-
-                            {{-- Konten baris 1 --}}
-                            <div class="col-6">
-                                <div class="border border-4 testimony-card">
-                                    <div class="row">
-                                        <div class="col-1">
-                                            <div class="donatur-avatar">
-                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaxnn_VRGWO72bMlOqeH7UV2P4oCpu1OB1JQ&s"
-                                                    alt="">
-                                            </div>
-                                            <h5 class="namaTestimoni">Sarah</h5>
-                                        </div>
-                                        <div class="col-11">
-                                            <p class="testimoni">
-                                                Menyaksikan bagaimana pohon-pohon yang ditanam tumbuh dan
-                                                berkembang memberikan kepuasan tersendiri. Saya senang bisa
-                                                berkontribusi untuk masa depan yang lebih hiaju dan sehat.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="border border-4 testimony-card">
-                                    <div class="row">
-                                        <div class="col-1">
-                                            <div class="donatur-avatar">
-                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaxnn_VRGWO72bMlOqeH7UV2P4oCpu1OB1JQ&s"
-                                                    alt="">
-                                            </div>
-                                            <h5 class="namaTestimoni">Anonim</h5>
-                                        </div>
-                                        <div class="col-11">
-                                            <p class="testimoni">Saya merasa bangga menjadi bagian dari kampanye ini.
-                                                Dengan setiap pohon yang
-                                                ditanam, saya tahu bahwa kita membantu mencegah bencana alam dan
-                                                menyediakan udara yang
-                                                lebih bersih untuk semua orang</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                    {{-- TESTIMONI 2 --}}
-                    <div class="carousel-item">
-                        <div class="row justify-content-center my-3">
-                            <div class="row justify-content-center">
-
-                                {{-- Konten baris 1 --}}
-                                <div class="col-6">
-                                    <div class="border border-4 testimony-card">
-                                        <div class="row">
-                                            <div class="col-1">
-                                                <div class="donatur-avatar">
-                                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaxnn_VRGWO72bMlOqeH7UV2P4oCpu1OB1JQ&s"
-                                                        alt="">
-                                                </div>
-                                                <h5 class="namaTestimoni">Sarah</h5>
-                                            </div>
-                                            <div class="col-11">
-                                                <p class="testimoni">
-                                                    Menyaksikan bagaimana pohon-pohon yang ditanam tumbuh dan
-                                                    berkembang memberikan kepuasan tersendiri. Saya senang bisa
-                                                    berkontribusi untuk masa depan yang lebih hiaju dan sehat.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="border border-4 testimony-card">
-                                        <div class="row">
-                                            <div class="col-1">
-                                                <div class="donatur-avatar">
-                                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaxnn_VRGWO72bMlOqeH7UV2P4oCpu1OB1JQ&s"
-                                                        alt="">
-                                                </div>
-                                                <h5 class="namaTestimoni">Anonim</h5>
-                                            </div>
-                                            <div class="col-11">
-                                                <p class="testimoni">Saya merasa bangga menjadi bagian dari kampanye ini.
-                                                    Dengan setiap pohon yang
-                                                    ditanam, saya tahu bahwa kita membantu mencegah bencana alam dan
-                                                    menyediakan udara yang
-                                                    lebih bersih untuk semua orang</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
+    
+                    @php
+                        $chunks = $testimonis->chunk(2);
+                    @endphp
+    
+                    @foreach ($chunks as $chunkIndex => $chunk)
+                        <div class="carousel-item {{ $chunkIndex == 0 ? 'active' : '' }}">
                             <div class="row justify-content-center my-3">
-
-                                {{-- Konten baris 1 --}}
-                                <div class="col-6">
-                                    <div class="border border-4 testimony-card">
-                                        <div class="row">
-                                            <div class="col-1">
-                                                <div class="donatur-avatar">
-                                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaxnn_VRGWO72bMlOqeH7UV2P4oCpu1OB1JQ&s"
-                                                        alt="">
+                                @foreach ($chunk as $item)
+                                    <div class="col-6">
+                                        <div class="border border-4 testimony-card">
+                                            <div class="row">
+                                                <div class="col-1">
+                                                    <div class="donatur-avatar">
+                                                        <img src="{{ $item->gambar_testimoni }}" alt="Gambar Testimoni">
+                                                    </div>
+                                                    <h5 class="namaTestimoni">{{ $item->nama_testimoni }}</h5>
                                                 </div>
-                                                <h5 class="namaTestimoni">Sarah</h5>
-                                            </div>
-                                            <div class="col-11">
-                                                <p class="testimoni">
-                                                    Menyaksikan bagaimana pohon-pohon yang ditanam tumbuh dan
-                                                    berkembang memberikan kepuasan tersendiri. Saya senang bisa
-                                                    berkontribusi untuk masa depan yang lebih hiaju dan sehat.
-                                                </p>
+                                                <div class="col-11">
+                                                    <p class="testimoni">
+                                                        {{ $item->isi_testimoni }}
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="border border-4 testimony-card">
-                                        <div class="row">
-                                            <div class="col-1">
-                                                <div class="donatur-avatar">
-                                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaxnn_VRGWO72bMlOqeH7UV2P4oCpu1OB1JQ&s"
-                                                        alt="">
-                                                </div>
-                                                <h5 class="namaTestimoni">Anonim</h5>
-                                            </div>
-                                            <div class="col-11">
-                                                <p class="testimoni">Saya merasa bangga menjadi bagian dari kampanye ini.
-                                                    Dengan setiap pohon yang
-                                                    ditanam, saya tahu bahwa kita membantu mencegah bencana alam dan
-                                                    menyediakan udara yang
-                                                    lebih bersih untuk semua orang</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
+                                @endforeach
                             </div>
                         </div>
-                    </div>
+                    @endforeach
+    
                 </div>
-
             </div>
             <button id="nextButton" class="btn1 btn-secondary customBtn">❯</button>
         </div>
-
-
-
 
     </div>
     {{-- TESTIMONI --}}

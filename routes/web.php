@@ -79,7 +79,6 @@ Route::get('/dashboardadmin', function () {
     return view('admin.dashboardadmin');
 });
 
-
 // Donasi
 Route::get('/dampak', [DonasiController::class, 'mainDonasi'])->name('mainDonasi');
 
