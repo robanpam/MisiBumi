@@ -5,6 +5,10 @@
     background-color: gray;
 }
 
+.profile-m{
+    margin-top: 6rem;
+}
+
 /* .section{
     height: 60vh;
 } */
@@ -45,4 +49,8 @@
     width: 5vw;
     aspect-ratio: 2/1;
     background-color: gray;
+}
+
+.file-input {
+    display: none;
 }

@@ -20,7 +20,7 @@ p {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /* padding-top: 100px; */
+    /* padding-top: 60px; */
 }
 
 .color{
@@ -30,10 +30,12 @@ p {
 .outline-button {
     color: #114232;
     text-decoration: none;
-    display: inline-block;
+    /* display: inline-block; */
     cursor: pointer;
     border-radius: 20px;
     outline: 2px solid green;
+    aspect-ratio: 3/1;
+    height: 2rem;
 }
 
 .footer_bg{
@@ -67,4 +69,20 @@ p {
 
 .footer-font{
     font-size: 0.8rem;
+}
+
+.misibumi-logo{
+    width: 3rem;
+    aspect-ratio: 1/1;
+}
+
+.logo-text{
+    font-weight: 500;
+}
+
+.btn:hover {
+    background-color: #ADD9A8;
+    border-color: #114232;
+    color: #114232;
+
 }

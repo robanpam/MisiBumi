@@ -23,7 +23,7 @@
 @endsection('css')
 
 @section('content')
-    <div class="row">
+    <div class="row mt-5 pt-5">
         <div class="col-md-1">
 
         </div>

@@ -5,10 +5,12 @@
 @section('css', asset('css/profile/profile_layout.css'))
 
 @section('content')
-    <div class="container">
+    <div class="container profile-m">
+        @yield('flash-msg')
             <div class="row mb-5">
-                <div class="col-12 d-flex flex-column justify-content-center align-items-center">
-                    <div class="profile"></div>
+                <div class="col-12 d-flex flex-column justify-content-center align-items-center custom-file-upload-placeholder">
+                    <img src="{{ asset('storage/profile_pictures/' . auth()->user()->profile_photo) }}" class="profile" alt="">
+                    @yield('change-btn')
                     <h2>{{ auth()->user()->name }}</h2>
                 </div>
             </div>

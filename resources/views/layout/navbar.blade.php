@@ -1,6 +1,9 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary px-4 navbar-prop">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ route('beranda.show') }}">Navbar</a>
+        <a class="navbar-brand color logo-text" href="{{ route('beranda.show') }}">
+            <img src="{{ asset('asset/beranda/Misi Bumi Logo.png') }}" class="misibumi-logo" alt="">
+            Misi Bumi
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -14,7 +17,7 @@
                     <a class="nav-link color @yield('kampanye_aktif')" aria-current="page" href="{{route('mainKampanye')}}">Kampanye</a>
                 </li>
                 <li class="nav-item ps-lg-3">
-                    <a class="nav-link color @yield('dampak_aktif')" aria-current="page" href="">Dampak</a>
+                    <a class="nav-link color @yield('dampak_aktif')" aria-current="page" href="/dampak">Dampak</a>
                 </li>
                 <li class="nav-item ps-lg-3">
                     <a class="nav-link color @yield('pohon_aktif')" aria-current="page" href="">Pohon</a>
@@ -27,16 +30,18 @@
                     <a class="nav-link color @yield('history_aktif')" aria-current="page"
                         href="{{ route('profile.history') }}">
                         <div class="d-flex align-items-center">
-                            <div class="nav-profile"></div>
+                            <img src="{{ asset('storage/profile_pictures/' . auth()->user()->profile_photo) }}" class="nav-profile" alt="">
                             <div class="ms-2">
                                 {{ auth()->user()->name }}
                             </div>
                         </div>
                     </a>
                 @else
-                    <button class="outline-button btn px-4">
-                        Login
-                    </button>
+                    <a href="{{ route('session.init') }}">
+                        <button class="nav-item outline-button btn px-4 py-0 mt-1">
+                            Login
+                        </button>
+                    </a>
                 @endif
             </ul>
         </div>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Kampanye;
 use App\Models\Donasi;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -195,6 +196,35 @@ class ProfileController extends Controller
         // dd($user);
 
         return redirect()->back()->with('success', 'Profile berhasil diupdate');
+    }
+
+    public function foto(Request $request){
+        $request->validate([
+            'profile_picture' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $user = auth()->user();
+
+        // Handle the file upload
+        if ($request->hasFile('profile_picture')) {
+            // Get the file
+            $file = $request->file('profile_picture');
+
+            // Define the file name and path
+            $fileName = time() . '.' . $file->getClientOriginalExtension();
+            $filePath = 'profile_pictures/' . $fileName;
+            // dd($fileName);
+            // Store the file
+            Storage::disk('public')->put($filePath, file_get_contents($file));
+
+            // Save the file path to the user's profile
+            $user->profile_photo = $fileName;
+            $user->save();
+
+            return back()->with('success', 'Profile picture updated successfully.');
+        }
+
+        return back()->with('error', 'Failed to upload profile picture.');
     }
 
     public function logout(){

@@ -7,7 +7,7 @@
 @section('kalku_aktif', 'nav-active')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-5 pt-5">
         <div class="row my-3">
             <div class="col-12 d-flex justify-content-center flex-column align-items-center">
                 <!-- <h4 class="">Kalkulator Emisi</h4> -->

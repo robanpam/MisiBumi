@@ -12,7 +12,7 @@ class BerandaController extends Controller
 {
     public function show()
     {
-
+        $kampanyes = Kampanye::all();
         $total_donasi = Donasi::select(Donasi::raw('sum(nilai_donasi) as total_donasi'))
             ->get();
 
@@ -42,7 +42,7 @@ class BerandaController extends Controller
 
         // dd($total_kampanye);
 
-        return view('beranda', compact('pohon', 'donasi', 'kampanye'));
+        return view('beranda', compact('pohon', 'donasi', 'kampanye', 'kampanyes'));
     }
 
     public function landingPage()

@@ -36,12 +36,12 @@ class KampanyeFactory extends Factory
             'lokasi_kampanye' => fake()->country(),
             'pohon_id' => rand(1, 5),
             'status' => rand(0, 3),
-            'jumlah_pohon' => 250,
+            'jumlah_pohon' => 0,
             'batas_donasi' => now(),
             'deskripsi' => fake()->paragraph(7, true),
             'gambar_kampanye' => $randomFileName,
-            // 'total_pohon' => 250,
-            'total_donatur' => 0,
+            'total_pohon' => 250,
+            // 'total_donatur' => 0,
             // 'harga_pohon' => rand(20000, 30000)
         ];
     }

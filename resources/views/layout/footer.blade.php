@@ -1,10 +1,10 @@
 <!-- Footer -->
     <footer class="footer_bg text-dark mt-auto">
-        <div class="container text-md-left">
+        <div class="container text-md-left pb-5">
             <div class="row mt-5 pb-5">
                 <!-- Column 1 -->
                 <div class="col-md-3 mb-4">
-                    <h6 class="text-uppercase font-weight-bold">Img</h6>
+                    <img class="misibumi-logo" src="{{ asset('asset/beranda/Misi Bumi Logo.png') }}" alt="">
                     <p class="font-weight-bold footer-font">Misi Bumi merupakan platform pendanaan online untuk keberlanjutan bumi.</p>
                 </div>
                 <!-- Column 2 -->

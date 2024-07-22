@@ -105,6 +105,7 @@ Route::post('/passwordreset', [SessionController::class, 'passwordReset'])->name
 Route::get('/profile/history', [ProfileController::class, 'history'])->name('profile.history');
 Route::get('/profile/kampanye', [ProfileController::class, 'kampanye'])->name('profile.kampanye');
 Route::get('/profile/pengaturan', [ProfileController::class, 'pengaturan'])->name('profile.pengaturan');
+Route::post('/profile/updateFoto', [ProfileController::class, 'foto'])->name('profile.foto');
 Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 Route::get('/profile/logout', [ProfileController::class, 'logout'])->name('profile.logout');
 

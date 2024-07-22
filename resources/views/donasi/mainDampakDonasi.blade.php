@@ -2,7 +2,7 @@
 
 @section('css', asset('css/donasi/mainDampakDonasi.css'))
 
-
+@section('dampak_aktif', 'nav-active')
 
 @section('content')
     <!-- BANNER -->
