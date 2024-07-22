@@ -169,9 +169,15 @@ body {
     height: 3rem;
 }
 
-/* .btnLihatLainnya{
-    margin-top: 2rem;
-} */
+
+.cardArtikel a {
+    text-decoration: none;
+}
+
+.cardArtikel .card-body{
+    /* background-color: red; */
+    height: 10rem;
+}
 
 
 /* TESTIMONI */

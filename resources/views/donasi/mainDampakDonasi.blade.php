@@ -119,28 +119,30 @@
         {{-- ARTIKEL TERBARU --}}
         <h3 class="subJudul my-2"><strong>Artikel Terbaru</strong></h3>
         <div class="row">
-            @for ($i = 1; $i <= 5; $i++)
+            @foreach ($artikels as $items)
                 <div class="col-2 cardArtikel d-flex justify-content-between my-3">
-                    <div class="card ">
-                        <img src="https://www.marketeers.com/_next/image/?url=https%3A%2F%2Fimagedelivery.net%2F2MtOYVTKaiU0CCt-BLmtWw%2Fe33fd511-2121-44fc-20e9-3fb547a5f600%2Fw%3D2560&w=1920&q=75"
-                            class="card-img-top mx-auto" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title fw-semibold mb-3">500 Bibit Pohon untuk Desa yang Lebih Sejuk</h5>
-                            <div class="row">
-                                <div class="col-6 detailArtikel">
-                                    <p class="artikelAtas">Karya</p>
-                                    <p class="artikelBawah">Rahmat Kurniawan</p>
-                                </div>
-                                <div class="col-6">
-                                    <p class="artikelAtas2">Tanggal Terbit</p>
-                                    <p class="artikelBawah2">28 Februari 2024</p>
-                                </div>
+                    <a href="{{ route('detailArtikel', ['id' => $items->id]) }}">
+                        <div class="card ">
+                            <img src="https://www.marketeers.com/_next/image/?url=https%3A%2F%2Fimagedelivery.net%2F2MtOYVTKaiU0CCt-BLmtWw%2Fe33fd511-2121-44fc-20e9-3fb547a5f600%2Fw%3D2560&w=1920&q=75"
+                                class="card-img-top mx-auto" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title fw-semibold mb-3">{{ $items->judul_artikel }}</h5>
+                                <div class="row">
+                                    <div class="col-6 detailArtikel">
+                                        <p class="artikelAtas">Karya</p>
+                                        <p class="artikelBawah">{{$admins1->first()->name}}</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="artikelAtas2">Tanggal Terbit</p>
+                                        <p class="artikelBawah2">{{ $items->formatted_created_at }}</p>
+                                    </div>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
-            @endfor
+            @endforeach
         </div>
 
         <!-- BTN -->
