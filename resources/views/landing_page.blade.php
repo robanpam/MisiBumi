@@ -24,7 +24,7 @@
                     <a href="{{ route('mainKampanye') }}"><button class="btn custom-button p-2 mt-2">Gabung Misi</button></a>
                 </div>
                 <div class="col-md-6 col-12 d-flex flex-column justify-content-center align-items-center custom-right">
-                    <img src="{{asset('asset/pohon/bungur.png')}}" alt="Pohon Trembesi" class="img-fluid d-none d-md-block">
+                    <img src="{{asset('asset/pohon/trembesi.png')}}" alt="Pohon Trembesi" class="img-fluid d-none d-md-block">
                     <p class="d-none d-md-block">Pohon Trembesi</p>
                 </div>
             </div>
@@ -48,19 +48,19 @@
             <div class="row">
                 <div class="col-md-3 col-6 d-flex flex-column justify-content-center align-items-center stats">
                     <img src="{{asset('asset/landing/1.png')}}" class="mb-5" alt="">
-                    <h3>Buat<br>Kampanye</h3>
+                    <h4>Buat<br>Kampanye</h4>
                 </div>
                 <div class="col-md-3 col-6 d-flex flex-column justify-content-center align-items-center stats">
                     <img src="{{asset('asset/landing/2.png')}}" class="mb-5" alt="">
-                    <h3>Turut<br>Berkontribusi</h3>
+                    <h4>Turut<br>Berkontribusi</h4>
                 </div>
                 <div class="col-md-3 col-6 d-flex flex-column justify-content-center align-items-center stats">
                     <img src="{{asset('asset/landing/3.png')}}" class="mb-5" alt="">
-                    <h3>Menghitung<br>Emisi Karbon</h3>
+                    <h4>Menghitung<br>Emisi Karbon</h4>
                 </div>
                 <div class="col-md-3 col-6 d-flex flex-column justify-content-center align-items-center stats">
                     <img src="{{asset('asset/landing/4.png')}}" class="mb-5" alt="">
-                    <h3>Mengenal Jenis<br>Pohon Anti-Emisi</h3>
+                    <h4>Mengenal Jenis<br>Pohon Anti-Emisi</h4>
                 </div>
             </div>
         </div>
