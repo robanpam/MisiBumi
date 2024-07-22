@@ -3,7 +3,7 @@
 @section('title', 'User Profile')
 
 @section('content')
-<div class="container mt-4">
+<div class="container mt-10">
     <!-- Basic Info Section -->
     <div class="row">
         <div class="col-md-8 mb-4">
@@ -17,10 +17,10 @@
                             <strong>Foto Profil</strong>
                         </div>
                         <div class="col-2 ">
-                            <img src="{{ $item[0]->profile_photo }}" class="img-fluid rounded-circle" alt="Profile Image">
+                            <img src="{{ asset('profile_pictures/' . $item[0]->profile_photo) }}" class="img-fluid rounded-circle" alt="Profile Image">
                         </div>
                         <div class="col-6 text-end">
-                            <a href="profiladmin/gantiprofile/{id}"><img src="{{asset('material-symbols_pencil.png')}}" alt="" width="25"></a>
+                            <a href="{{ route('showUpdateProfileForm', ['id' => $item[0]->id]) }}"><img src="{{ asset('material-symbols_pencil.png') }}" alt="" width="25"></a>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -31,7 +31,7 @@
                             <h3>{{ $item[0]->name }}</h3>
                         </div>
                         <div class="col-2 text-end">
-                            <a href={{ Route('gantinama', ['id' => $item[0]]) }}><img src="{{ asset('material-symbols_pencil.png') }}" alt="" width="25"></a>
+                            <a href="{{ route('gantinama', ['id' => $item[0]->id]) }}"><img src="{{ asset('material-symbols_pencil.png') }}" alt="" width="25"></a>
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                             <p>...........</p>
                         </div>
                         <div class="col-2 text-end">
-                            <a href="{{ Route('ubahkatasandi', ['id' => $item[0]]) }}"><img src="{{asset('material-symbols_pencil.png')}}" alt="" width="25"></a>
+                            <a href="{{ route('ubahkatasandi', ['id' => $item[0]->id]) }}"><img src="{{ asset('material-symbols_pencil.png') }}" alt="" width="25"></a>
                         </div>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                             <p>{{ $item[0]->email }}</p>
                         </div>
                         <div class="col-2 text-end">
-                            <a href="{{ Route('ubahemail', ['id' => $item[0]]) }}"><img src="{{asset('material-symbols_pencil.png')}}" alt="" width="25"></a>
+                            <a href="{{ route('ubahemail', ['id' => $item[0]->id]) }}"><img src="{{ asset('material-symbols_pencil.png') }}" alt="" width="25"></a>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -82,7 +82,7 @@
                             <p>{{ $item[0]->nomor_telepon }}</p>
                         </div>
                         <div class="col-2 text-end">
-                            <a href="{{ Route('ubahnomortelpon', ['id' => $item[0]]) }}"><img src="{{asset('material-symbols_pencil.png')}}" alt="" width="25"></a>
+                            <a href="{{ route('ubahnomortelpon', ['id' => $item[0]->id]) }}"><img src="{{ asset('material-symbols_pencil.png') }}" alt="" width="25"></a>
                         </div>
                     </div>
                 </div>
@@ -108,6 +108,8 @@
     .text-end a {
         color: #6c757d;
     }
-
+    .mt-10{
+        margin-top: 10rem;
+    }
 </style>
 @endsection

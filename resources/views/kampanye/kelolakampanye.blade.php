@@ -26,10 +26,9 @@
     </div>
 
     <div class="table-responsive" style="border-radius: 10px; filter: drop-shadow(3px 3px 3px black)">
-        <table class="table text-center" style="border-radius: 10px">
+        <table class="table" style="border-radius: 10px">
             <thead class="table-light">
                 <tr>
-                    <th scope="col">ID</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Judul Kampanye</th>
                     <th scope="col">Lokasi</th>
@@ -40,7 +39,6 @@
             <tbody>
                 @foreach ($kampanyes as $kampanye)
                 <tr>
-                    <th scope="row">{{ $kampanye->id }}</th>
                     <td>{{ $kampanye->user_name }}</td>
                     <td>{{ $kampanye->nama_kampanye }}</td>
                     <td>{{ $kampanye->lokasi_kampanye }}</td>
@@ -72,13 +70,11 @@
       <div class="modal-body">
         <div id="requestKampanyeContent"></div>
       </div>
-
     </div>
   </div>
 </div>
 
 @endsection
-
 
 @section('more_files')
 <style>
@@ -98,83 +94,103 @@
         font-size: 1rem;
         padding: 0.5em 1em;
         border-radius: 0.25em;
+        width: 100px; /* Fixed width for all badges */
+        height: 30px; /* Fixed height for all badges */
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-    /* .badge.bg-success {
+    .badge.bg-success {
         background-color: #d4f7dc;
-        color: #0a9d58;
+
     }
     .badge.bg-primary {
         background-color: #e0e8ff;
-        color: #5b21b6;
+
     }
     .badge.bg-danger {
         background-color: #ffe1e1;
-        color: #d70000;
-    } */
-</style>
 
+    }
+    .badge.bg-warning {
+        background-color: #fff3cd;
+
+    }
+    .table thead th {
+        text-align: left;
+    }
+    .table tbody td {
+        text-align: left;
+        padding: 15px;
+    }
+    .modal-title {
+        margin: 0 auto;
+    }
+</style>
 @endsection
 
 @section('js')
-document.getElementById('viewRequestButton').addEventListener('click', function() {
-    fetch("{{ route('fetchPendingKampanyes') }}")
-        .then(response => response.json())
-        .then(data => {
-            let content = '<table class="table table-hover"><thead><tr><th>ID</th><th>Nama</th><th>Judul Kampanye</th><th>Lokasi</th><th>Pohon</th><th>Status</th><th>Info</th></tr></thead><tbody>';
-            data.forEach(kampanye => {
-                content += `<tr>
-                    <td>${kampanye.id}</td>
-                    <td>${kampanye.user_name}</td>
-                    <td>${kampanye.nama_kampanye}</td>
-                    <td>${kampanye.lokasi_kampanye}</td>
-                    <td>${kampanye.pohon_nama}</td>
-                    <td><span class="badge bg-warning">Pending</span></td>
-                    <td><a href="/detailkampanye/${kampanye.id}" class="btn btn-sm"><h4>i</h4></a></td>
-                </tr>`;
-            });
-            content += `
-            </tbody></table>
-            <div class="d-flex justify-content-end mt-4">
-                <form id="terimaSemuaForm" action="{{ route('terimaSemua') }}" method="POST" class="me-2">
-                    @csrf
-                    <button type="submit" class="btn btn-success me-5">Terima Semua</button>
-                </form>
-                <form id="tolakSemuaForm" action="{{ route('tolakSemua') }}" method="POST">
-                    @csrf
-                    <button type="submit" class="btn btn-danger me-4">Tolak Semua</button>
-                </form>
-            </div>`;
-            document.getElementById('requestKampanyeContent').innerHTML = content;
-            
-            document.getElementById('terimaSemuaForm').addEventListener('submit', function(event) {
-                event.preventDefault();
-                fetch(this.action, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    }
-                }).then(response => {
-                    if (response.ok) {
-                        window.location.href = '{{ route('kelolakampanye') }}';
-                    }
+<script>
+    document.getElementById('viewRequestButton').addEventListener('click', function() {
+        fetch("{{ route('fetchPendingKampanyes') }}")
+            .then(response => response.json())
+            .then(data => {
+                let content = '<table class="table table-hover"><thead><tr><th>ID</th><th>Nama</th><th>Judul Kampanye</th><th>Lokasi</th><th>Pohon</th><th>Status</th><th>Info</th></tr></thead><tbody>';
+                data.forEach(kampanye => {
+                    content += `<tr>
+                        <td>${kampanye.id}</td>
+                        <td>${kampanye.user_name}</td>
+                        <td>${kampanye.nama_kampanye}</td>
+                        <td>${kampanye.lokasi_kampanye}</td>
+                        <td>${kampanye.pohon_nama}</td>
+                        <td><span class="badge bg-warning">Pending</span></td>
+                        <td><a href="/detailkampanye/${kampanye.id}" class="btn btn-sm"><h4>i</h4></a></td>
+                    </tr>`;
                 });
-            });
+                content += `
+                </tbody></table>
+                <div class="d-flex justify-content-end mt-4">
+                    <form id="terimaSemuaForm" action="{{ route('terimaSemua') }}" method="POST" class="me-2">
+                        @csrf
+                        <button type="submit" class="btn btn-success me-5">Terima Semua</button>
+                    </form>
+                    <form id="tolakSemuaForm" action="{{ route('tolakSemua') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-danger me-4">Tolak Semua</button>
+                    </form>
+                </div>`;
+                document.getElementById('requestKampanyeContent').innerHTML = content;
 
-            document.getElementById('tolakSemuaForm').addEventListener('submit', function(event) {
-                event.preventDefault();
-                fetch(this.action, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    }
-                }).then(response => {
-                    if (response.ok) {
-                        window.location.href = '{{ route('kelolakampanye') }}';
-                    }
+                document.getElementById('terimaSemuaForm').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    fetch(this.action, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        }
+                    }).then(response => {
+                        if (response.ok) {
+                            window.location.href = '{{ route('kelolakampanye') }}';
+                        }
+                    });
+                });
+
+                document.getElementById('tolakSemuaForm').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    fetch(this.action, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        }
+                    }).then(response => {
+                        if (response.ok) {
+                            window.location.href = '{{ route('kelolakampanye') }}';
+                        }
+                    });
                 });
             });
-        });
-});
+    });
+</script>
 @endsection
