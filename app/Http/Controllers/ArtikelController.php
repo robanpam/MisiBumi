@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Artikel;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ArtikelController extends Controller
@@ -103,5 +104,15 @@ class ArtikelController extends Controller
         $artikel->delete();
 
         return redirect()->route('kelolaartikel')->with('success', 'Artikel deleted successfully.');
+    }
+
+    public function detailArtikel($id){
+        $artikels = Artikel::find($id);
+        $formattedDate = Carbon::parse($artikels->created_at)->format('j F Y');
+
+        $admins1 = User::where('jenis_user_id', 2)->get(); // Assuming jenis_user_id 2 is for admins
+
+        return view('artikel.detail_artikel', compact('artikels', 'formattedDate', 'admins1'));
+
     }
 }

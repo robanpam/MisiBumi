@@ -5,7 +5,7 @@
 @section('kampanye_aktif', 'nav-active')
 
 @section('content')
-    <div class="container mt-5">
+    <div class="container">
         <!-- DETAIL ATAS -->
         <div class="row mt-3">
             {{-- KIRI --}}

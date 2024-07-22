@@ -4,6 +4,7 @@ use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\KalkulatorController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\DonasiController;
 use App\Http\Controllers\KampanyeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SessionController;
@@ -78,11 +79,14 @@ Route::get('/dashboardadmin', function () {
     return view('admin.dashboardadmin');
 });
 
-// Dampak donasi
-Route::get('/dampak', function () {
-    return view('donasi.mainDampakDonasi');
-});
+// Donasi
+Route::get('/dampak', [DonasiController::class, 'mainDonasi'])->name('mainDonasi');
 
+// Artikel
+Route::get('/detailArtikel/{id}', [ArtikelController::class, 'detailArtikel'])->name('detailArtikel');
+
+
+// Laporan
 Route::get('/laporan', function () {
     return view('laporan.laporanTahunan');
 });

@@ -1,0 +1,39 @@
+.hasil_calc{
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.calc_type{
+    display:flex;
+    justify-content: space-between;
+}
+
+.calc_type p{
+    font-size: 1rem;
+}
+
+.calc_hasil_back{
+    outline: 2px solid #114232;
+    border-radius: 20px;
+}
+
+.calc_hasil_back a{
+    color: white;
+}
+
+.subscript {
+    font-size: 0.8em;
+    vertical-align: sub;
+}
+
+.btn-lanjut{
+padding: 0.5rem 2.2rem;
+color: #FFFFFF;
+background-color:#114232;
+outline: 2px solid #114232;
+border-radius:20px;
+}
+
+.kalku-img{
+width: 15rem;
+}

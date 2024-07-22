@@ -4,7 +4,7 @@
 @section('kampanye_aktif', 'nav-active')
 
 @section('content')
-    <div class="bg mt-5">
+    <div class="bg">
         <div class="container">
             <div class="row">
                 <div class="col-2"></div>
@@ -28,12 +28,7 @@
         <h3 class="subJudul my-2"><strong>Belum Selesai</strong></h3>
         <div class="row">
             @foreach ($kampanyes->where('status', 2)->take(6) as $kampanye)
-                {{-- @php
-                    // Hitung total donasi
-                    $total_donasi = $kampanye->donasis->sum('nilai_donasi'); // Jumlah total donasi
-                    // Hitung jumlah pohon terkumpul berdasarkan total donasi dan harga pohon
-                    $jumlah_pohon_terkumpul = floor($total_donasi / $kampanye->pohon_harga); // Jumlah pohon terkumpul
-                @endphp --}}
+                
                 <div class="col-4 my-3">
                     <div class="col">
                         <div class="card h-50">

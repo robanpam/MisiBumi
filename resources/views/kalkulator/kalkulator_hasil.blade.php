@@ -2,48 +2,37 @@
 
 @section('title', 'Hasil Kalkulasi')
 
+@section('css', asset('../css/kalkulator/kalkulator_hasil.css'))
+
 @section('kalku_aktif', 'nav-active')
 
 @section('css')
-    .hasil_calc{
-        border: 1px solid gray;
-        border-radius: 5px;
-    }
-
-    .calc_type{
-        display:flex;
-        justify-content: space-between;
-    }
-
-    .calc_hasil_back{
-        width: 100%;
-        outline: 2px solid #114232;
-        border-radius: 20px;
-    }
+   
 @endsection('css')
 
 @section('content')
     <div class="row mt-5 pt-5">
-        <div class="col-md-1">
-
-        </div>
-        <div class="col-md-3">
-            <h4 class="mb-4">Kalkulator Emisi</h4>
-            <h3>Jejak Karbonmu</h3>
+        <div class="col-12 d-flex justify-content-center flex-column align-items-center">
             <h5>Jumlah Karbon yang Dikeluarkan</h5>
+            <img class="kalku-img" src="{{ asset('asset/kalkulator/produk/' . $item->foto_produk) }}" alt="">
+            <h2 class="color_pal">{{ $item->nama_produk }}</h2>
             <div class="hasil_calc p-3">
-                <h2 class="color_pal">Nunggu Backend</h2>
                 <h6>Rincian</h6>
                 <div class="calc_type">
-                    <p>Tipe</p>
-                    <p>: Nunggu Backend</p>
+                    <p class="m-0 mb-1">{{ $jenis == 'Kendaraan Bermotor' ? 'Konsumsi Bahan Bakar' : 'Daya'}} : {{ $jarak }} {{ $jenis == 'Kendaraan Bermotor' ? 'liter/km' : 'kWh'}}</p>
                 </div>
                 <div class="calc_type">
-                    <p>Tipe</p>
-                    <p>: Nunggu Backend</p>
+                    <p class="m-0 mb-1">Penggunaan : {{ $frekuensi }} {{ $jenis == 'Kendaraan Bermotor' ? 'km' : 'jam/siklus'}}</p>
+                </div>
+                <div class="calc_type">
+                    <p class="m-0 mb-1">Emisi : {{ $emisi }} kg CO<span class="subscript">2</span></p>
                 </div>
             </div>
-            <button type="button" class="btn calc_hasil_back mt-3">Kembali</button>
+            <button type="button" class="btn btn-primary calc_hasil_back mt-3 py-3 px-4">
+                <a class="text-decoration-none" href="{{ route('kalkulator.list') }}">
+                    Kembali
+                </a>
+            </button>
         </div>
     </div>
 @endsection('content')

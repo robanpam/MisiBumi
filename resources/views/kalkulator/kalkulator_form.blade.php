@@ -26,7 +26,7 @@
                         <p class="error-message">{{ $message }}</p>
                     @enderror
                     <div>
-                        <label for="jarak" class="my-2">{{$jenis == 'Kendaraan Bermotor' ? 'Jarak Tempuh (km)' : "kWh per jam/siklus"}}</label>
+                        <label for="jarak" class="my-2">{{$jenis == 'Kendaraan Bermotor' ? 'Konsumsi Bahan Bakar (liter/km)' : "kWh per jam/siklus"}}</label>
                         <div class="d-block position-relative">
                             <input type="number" id="jarak" name="jarak" class="d-block calc-form p-3 form-control">
                             <!-- <span class="span_attribute">.km</span> -->
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                     <div>
-                        <label for="frekuensi" class="my-2">{{$jenis == 'Kendaraan Bermotor' ? 'Konsumsi Bahan Bakar (liter/km)' : 'Banyak Penggunaan (Jam/Siklus)'}}</label>
+                        <label for="frekuensi" class="my-2">{{$jenis == 'Kendaraan Bermotor' ? 'Jarak Tempuh (km)' : 'Banyak Penggunaan (Jam/Siklus)'}}</label>
                         <div class="d-block position-relative">
                             <input type="number" id="frekuensi" name="frekuensi" class="d-block calc-form p-3 form-control">
                             <!-- <span class="span_attribute">.km</span> -->

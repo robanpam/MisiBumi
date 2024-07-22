@@ -7,7 +7,7 @@
 @section('content')
 
     <!-- BANNER -->
-    <div class="bg mt-5">
+    <div class="bg">
         <div class="container">
             <div class="row mt-5">
                 <div class="col-1"></div>

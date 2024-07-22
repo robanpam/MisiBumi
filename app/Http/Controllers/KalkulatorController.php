@@ -28,11 +28,14 @@ class KalkulatorController extends Controller
         $request->validated();
 
         $item = Kalkulator::find($request->option);
+        $jenises = Emisi::all();
+        $jenis = $jenises->where('id', '=', 'item->emisi_id');
 
         $emisi = $item->faktor_emisi * $request->frekuensi * $request->jarak;
         $frekuensi = $request->frekuensi;
+        $jarak = $request->jarak;
         // dd($emisi);
 
-        return view('kalkulator.kalkulator_hasil', compact('item', 'emisi'));
+        return view('kalkulator.kalkulator_hasil', compact('item', 'emisi', 'jarak', 'frekuensi', 'jenis'));
     }
 }

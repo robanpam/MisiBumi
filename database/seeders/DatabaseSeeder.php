@@ -10,6 +10,7 @@ use App\Models\JenisUser;
 use App\Models\Emisi;
 use App\Models\MetodePembayaran;
 use App\Models\Kampanye;
+use App\Models\Testimoni;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -124,5 +125,6 @@ class DatabaseSeeder extends Seeder
         Kampanye::factory(20)->create();
         Donasi::factory(20)->create();
         Artikel::factory(20)->create();
+        Testimoni::factory(count:10)->create();
     }
 }
