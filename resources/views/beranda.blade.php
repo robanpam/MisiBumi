@@ -44,12 +44,12 @@
             </div>
             <div class="col-md-3 col-6 d-flex flex-column justify-content-center align-items-center stats">
                 <h1>{{$pohon}}</h1>
-                <p>Pohon Terkumpul</p>
+                <p>Pohon Ditanam</p>
                 <div class="green-line"></div>
             </div>
             <div class="col-md-3 col-6 d-flex flex-column justify-content-center align-items-center stats">
                 <h1>231,4 ton</h1>
-                <p>Emisi Terkumpul</p>
+                <p>Emisi Terserap</p>
                 <div class="green-line"></div>
             </div>
             <div class="col-md-3 col-6 d-flex flex-column justify-content-center align-items-center stats">
@@ -133,7 +133,7 @@
                     </div>
                     <div class="carousel-item">
                         <img src="asset/beranda/roadmap4.png" class="d-block w-100" alt="Image 3">
-                    </div>  
+                    </div>
                     <div class="carousel-item">
                         <img src="asset/beranda/roadmap3.png" class="d-block w-100" alt="Image 4">
                     </div>
@@ -165,7 +165,7 @@
         ]
     });
 
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', 
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}',
     {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'})
     .addTo(map);
 

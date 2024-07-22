@@ -46,16 +46,16 @@
     </div>
     <div class="row">
         <div class="col-md-3 col-6 d-flex flex-column justify-content-center align-items-center stats">
-            <h1>{{$donasi}}1000</h1>
+            <h1>{{$donasi}}</h1>
             <p>Donasi Terkumpul</p>
         </div>
         <div class="col-md-3 col-6 d-flex flex-column justify-content-center align-items-center stats">
             <h1>{{$pohon}}</h1>
-            <p>Pohon Terkumpul</p>
+            <p>Pohon Ditanam</p>
         </div>
         <div class="col-md-3 col-6 d-flex flex-column justify-content-center align-items-center stats">
             <h1>231,4 ton</h1>
-            <p>Emisi Terkumpul</p>
+            <p>Emisi Terserap</p>
         </div>
         <div class="col-md-3 col-6 d-flex flex-column justify-content-center align-items-center stats">
             <h1>{{ $kampanye }}</h1>
@@ -77,7 +77,7 @@
                     </div>
                     <div class="carousel-item">
                         <img src="asset/beranda/roadmap4.png" class="d-block w-100" alt="Image 3">
-                    </div>  
+                    </div>
                     <div class="carousel-item">
                         <img src="asset/beranda/roadmap3.png" class="d-block w-100" alt="Image 4">
                     </div>

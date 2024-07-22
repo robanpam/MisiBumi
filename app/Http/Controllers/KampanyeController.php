@@ -191,7 +191,7 @@ class KampanyeController extends Controller
             'nama_kampanye' => $request->judul,
             'lokasi_kampanye' => $lokasi,
             'pohon_id' => $request->jenisPohon,
-            'status' => 0,
+            'status' => 3,
             'jumlah_pohon' => $request->jumlah,
             'batas_donasi' => $request->batasDonasi,
             'deskripsi' => $request->deskripsi,

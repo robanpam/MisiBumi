@@ -10,9 +10,7 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('landing_page');
-});
+Route::get('/', [BerandaController::class, 'landingPage'])->name('beranda.landingPage');
 
 //profile admin
 Route::get('/profiladmin/{id}', [AdminController::class, 'admin'])->name('profileadmin');
@@ -111,7 +109,7 @@ Route::get('/profile/logout', [ProfileController::class, 'logout'])->name('profi
 
 //Beranda, Landing Page
 Route::get('/beranda', [BerandaController::class, 'show'])->name('beranda.show');
-Route::get('/landing', [BerandaController::class, 'landingPage'])->name('beranda.landingPage');
+// Route::get('/landing', [BerandaController::class, 'landingPage'])->name('beranda.landingPage');
 
 //User
 // Route::get('users/{id}', [UserController::class, 'index'])->name('user.index');

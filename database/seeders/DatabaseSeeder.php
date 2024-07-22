@@ -74,7 +74,7 @@ class DatabaseSeeder extends Seeder
             'foto_produk' => 'mobil.jpg',
             'emisi_id' => 1,
             'faktor_emisi' => 2.31,
-            'satuan' => 'km' 
+            'satuan' => 'km'
         ]);
 
         Kalkulator::create([
@@ -82,7 +82,7 @@ class DatabaseSeeder extends Seeder
             'foto_produk' => 'motor.png',
             'emisi_id' => 1,
             'faktor_emisi' => 2.31,
-            'satuan' => 'km' 
+            'satuan' => 'km'
         ]);
 
         Kalkulator::create([
