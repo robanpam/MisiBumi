@@ -8,7 +8,6 @@ use App\Models\Kalkulator;
 use App\Models\User;
 use App\Models\JenisUser;
 use App\Models\Emisi;
-use App\Models\Pohon;
 use App\Models\MetodePembayaran;
 use App\Models\Kampanye;
 use Illuminate\Support\Facades\DB;
@@ -29,6 +28,7 @@ class DatabaseSeeder extends Seeder
         JenisUser::factory()->create([
             'nama_jenis' => 'admin',
         ]);
+
         User::factory(10)->create();
 
         User::factory()->create([
@@ -58,7 +58,6 @@ class DatabaseSeeder extends Seeder
             'jenis_user_id' => 2
         ]);
 
-        // Emisi::factory(2)->create();
         Emisi::factory()->create([
             'nama' => 'Kendaraan Bermotor',
             'img' => 'mobil.jpg',
@@ -117,10 +116,12 @@ class DatabaseSeeder extends Seeder
             'satuan' => 'jam',
         ]);
 
-        Pohon::factory(5)->create();
+        $this->call([
+            PohonSeeder::class,
+        ]);
+
         MetodePembayaran::factory(3)->create();
         Kampanye::factory(20)->create();
-        // Kalkulator::factory(10)->create();
         Donasi::factory(20)->create();
         Artikel::factory(20)->create();
     }

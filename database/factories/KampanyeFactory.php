@@ -34,7 +34,7 @@ class KampanyeFactory extends Factory
             'user_id' => $randomUserId,
             'nama_kampanye' => fake()->sentence(3, true),
             'lokasi_kampanye' => fake()->country(),
-            'pohon_id' => rand(1, 5),
+            'pohon_id' => rand(1, 6),
             'status' => rand(0, 3),
             'jumlah_pohon' => 0,
             'batas_donasi' => now(),

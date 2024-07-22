@@ -2,7 +2,8 @@
     box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -10,7 +11,7 @@ body, html {
 
 .main-section {
     width: 100vw;
-    height: 90vh;
+    height: 80vh;
     background-color: rgba(138, 158, 0, 0.15);
     padding: 20px;
     box-sizing: border-box;
@@ -25,48 +26,76 @@ body, html {
 
 .main-section p {
     font-size: 1.25rem;
-    margin-top: 10px;
-    margin-right: 60px;
     text-align: justify;
 }
 
 .custom-button {
-    margin-top: 20px;
-    padding: 10px 20px;
     background-color: #114232;
     color: white;
     font-weight: 500;
-    border: none;
     border-radius: 20px;
     cursor: pointer;
     width: 200px;
 }
 
 .main-section img {
-    max-width: 70%;
+    max-width: 60%;
     height: auto;
 }
 
 .tree-gallery {
-    display: flex;
-    justify-content: center;
+    position: absolute;
+    top:38%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    z-index: 10;
+    width: 60%;
+    border-radius: 20px;
+    border: 1px solid rgba(237,240,217,1);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.container {
+    position: relative;
 }
 
 .tree-gallery img {
-    max-width: 15%;
-    height: auto;
+    max-width: 10%;
+    height: fit-content;
     cursor: pointer;
-    margin: 0 10px;
+    margin: 0 15px;
+    background-color: white;
+    border: none;
+    box-shadow: none;
 }
 
-.section{
+.section-feature {
+    height: 80vh;
+    width: 100vw;
+}
+
+.section-feature h1 {
+    color: #114232;
+}
+
+.section-feature h3 {
+    text-align: center;
+    color: #114232;
+}
+
+.section {
     height: 50vh;
     width: 100vw;
     background-color: #114232;
     color: white;
 }
 
-.section3{
+.section3 {
     height: calc(20vh + 40vw);
 }
 
