@@ -3,7 +3,7 @@
 @section('css', asset('css/kampanye/telahSelesaiKampanye.css'))
 
 @section('content')
-    <div class="container mt-5">
+    <div class="container">
         <h3 class="subJudul"><strong>Kampanye Telah Selesai</strong></h3>
         <div class="row">
             @foreach ($kampanyes as $kampanye)
