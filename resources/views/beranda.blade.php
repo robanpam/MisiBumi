@@ -16,16 +16,19 @@
 @section('css', asset('css/beranda.css'))
 
 @section('content')
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="..." class="d-block w-100" alt="...">
+    <div class="carousel-item img-caro active">
+      <img src="{{ asset('asset/beranda/1.png') }}" class="d-block w-100" alt="...">
     </div>
-    <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
+    <div class="carousel-item img-caro">
+      <img src="{{ asset('asset/beranda/2.jpg') }}" class="d-block w-100" alt="...">
     </div>
-    <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
+    <div class="carousel-item img-caro">
+      <img src="{{ asset('asset/beranda/5.jpg') }}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item img-caro">
+      <img src="{{ asset('asset/beranda/6.jpg') }}" class="d-block w-100" alt="...">
     </div>
   </div>
 </div>

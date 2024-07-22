@@ -8,7 +8,7 @@
 
 @section('content')
 <div>
-    <div class="container mt-5 pt-5">
+    <div class="container">
         <div class="row">
             <div class="col-12 d-flex justify-content-center flex-column align-items-center">
                 <h1>Kalkulator Emisi</h1>

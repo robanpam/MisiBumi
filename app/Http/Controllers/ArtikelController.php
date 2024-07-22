@@ -59,7 +59,7 @@ class ArtikelController extends Controller
             return redirect()->route('kelolaartikel')->with('error', 'Artikel not found.');
         }
 
-        return view('editartikel', compact('artikel', 'admins'));
+        return view('artikel.editartikel', compact('artikel', 'admins'));
     }
 
     public function update(Request $request, $id)

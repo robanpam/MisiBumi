@@ -8,38 +8,31 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
-    public function admin($id)
+    public function admin()
     {
-        $item = User::select('*')
-            ->where('jenis_user_id', '=', '2')
-            ->where('id', '=', $id)
-            ->get();
+        $item = auth()->user();
 
         // dd($item);
 
-        return view('admin.profiladmin', compact('item'));
+        return view('admin.profiladmin');
     }
 
 
     //update nama
-    public function gantinama($id)
+    public function gantinama()
     {
-        $user = User::where('jenis_user_id', '=', '2')
-            ->where('id', '=', $id)
-            ->first();
+        $user = auth()->user();
 
         if (!$user) {
             return redirect()->back()->with('error', 'User not found.');
         }
 
-        return view('admin.gantiganti.gantinama', compact('user'));
+        return view('admin.gantiganti.gantinama');
     }
 
-    public function updateNama(Request $request, $id)
+    public function updateNama(Request $request)
     {
-        $user = User::where('jenis_user_id', '=', '2')
-            ->where('id', '=', $id)
-            ->first();
+        $user = auth()->user();
 
         if (!$user) {
             return redirect()->back()->with('error', 'User not found.');
@@ -52,30 +45,24 @@ class AdminController extends Controller
     }
 
     //update password
-    public function showChangePasswordForm($id)
+    public function showChangePasswordForm()
     {
-        $user = User::where('jenis_user_id', '=', '2')
-            ->where('id', '=', $id)
-            ->first();
+        $user = auth()->user();
 
         if (!$user) {
             return redirect()->back()->with('error', 'User not found.');
         }
 
-        return view('admin.gantiganti.gantisandi', compact('user'));
+        return view('admin.gantiganti.gantisandi');
     }
 
-    public function updatePassword(Request $request, $id)
+    public function updatePassword(Request $request)
     {
-        $user = User::where('jenis_user_id', '=', '2')
-            ->where('id', '=', $id)
-            ->first();
+        $user = auth()->user();
 
         if (!$user) {
             return redirect()->back()->with('error', 'User not found.');
         }
-
-
 
         $user->password = $request->input('password');
         $user->save();
@@ -84,24 +71,19 @@ class AdminController extends Controller
     }
 
     //update email
-    public function showChangeEmailForm($id)
+    public function showChangeEmailForm()
     {
-        $user = User::where('jenis_user_id', '=', '2')
-            ->where('id', '=', $id)
-            ->first();
-
+        $user = auth()->user();
         if (!$user) {
             return redirect()->back()->with('error', 'User not found.');
         }
 
-        return view('admin.gantiganti.gantiemail', compact('user'));
+        return view('admin.gantiganti.gantiemail');
     }
 
-    public function updateEmail(Request $request, $id)
+    public function updateEmail(Request $request)
     {
-        $user = User::where('jenis_user_id', '=', '2')
-            ->where('id', '=', $id)
-            ->first();
+        $user = auth()->user();
 
         if (!$user) {
             return redirect()->back()->with('error', 'User not found.');
@@ -124,24 +106,20 @@ class AdminController extends Controller
     }
 
     //update telpon
-    public function showChangeTelponForm($id)
+    public function showChangeTelponForm()
     {
-        $user = User::where('jenis_user_id', '=', '2')
-            ->where('id', '=', $id)
-            ->first();
+        $user = auth()->user();
 
         if (!$user) {
             return redirect()->back()->with('error', 'User not found.');
         }
 
-        return view('admin.gantiganti.gantitelp', compact('user'));
+        return view('admin.gantiganti.gantitelp');
     }
 
-    public function updateTelpon(Request $request, $id)
+    public function updateTelpon(Request $request)
     {
-        $user = User::where('jenis_user_id', '=', '2')
-            ->where('id', '=', $id)
-            ->first();
+        $user = auth()->user();
 
         if (!$user) {
             return redirect()->back()->with('error', 'User not found.');
@@ -164,28 +142,24 @@ class AdminController extends Controller
     }
 
     //update profile
-    public function showUpdateProfileForm($id)
+    public function showUpdateProfileForm()
     {
-        $user = User::where('jenis_user_id', '=', '2')
-            ->where('id', '=', $id)
-            ->first();
+        $user = auth()->user();
 
         if (!$user) {
             return redirect()->back()->with('error', 'User not found.');
         }
 
-        return view('admin.gantiganti.gantiprofile', compact('user'));
+        return view('admin.gantiganti.gantiprofile');
     }
 
-    public function updateProfilePicture(Request $request, $id)
+    public function updateProfilePicture(Request $request, )
     {
         $request->validate([
             'profilePicture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $user = User::where('jenis_user_id', '=', '2')
-            ->where('id', '=', $id)
-            ->first();
+        $user = auth()->user();
 
         if (!$user) {
             return redirect()->back()->with('error', 'User not found.');
@@ -197,6 +171,6 @@ class AdminController extends Controller
         $user->profile_photo = $imageName;
         $user->save();
 
-        return redirect()->route('profileadmin', ['id' => $user->id])->with('success', 'Profile picture updated successfully.');
+        return redirect()->route('profileadmin')->with('success', 'Profile picture updated successfully.');
     }
 }

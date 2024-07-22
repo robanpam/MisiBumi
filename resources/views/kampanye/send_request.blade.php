@@ -11,7 +11,7 @@
     <div class="title d-flex align-items-center justify-content-center p-0">
         <h2>Pengajuan Kampanye #MisiBumi</h2>
     </div>
-    <div class="container mt-5">
+    <div class="container">
         @if (session('error'))
             <div class="alert alert-danger">
                 {{ session('error') }}

@@ -3,7 +3,7 @@
 @section('title', 'Ubah Kata Sandi')
 
 @section('content')
-<div class="container mt-5 d-flex justify-content-center align-items-center full-height prot">
+<div class="container d-flex justify-content-center align-items-center full-height prot">
     <div class="card boldborder" style="width: 100%; max-width: 80rem;">
         <div class="card-header">
             <h5>Ubah Kata Sandi</h5>
@@ -19,7 +19,7 @@
                     {{ session('success') }}
                 </div>
             @endif
-            <form action="{{ route('updatePassword', ['id' => $user->id]) }}" method="POST">
+            <form action="{{ route('updatePassword') }}" method="POST">
                 @csrf
                 <div class="mb-4">
                     <input type="password" class="form-control boldborder2" id="password" name="password" placeholder="Masukkan kata sandi baru" required>

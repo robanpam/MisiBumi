@@ -2,8 +2,10 @@
 
 @section('title', 'Request Kampanye')
 
+@section('kelolak_aktif', 'nav-active')
+
 @section('content')
-<div class="container mt-5 rounded-card">
+<div class="container rounded-card">
     <div class="card shadow bold-border ">
         <div class="card-header text-center">
             <h5>Request Kampanye</h5>

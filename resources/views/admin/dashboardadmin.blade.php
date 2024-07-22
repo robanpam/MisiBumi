@@ -2,8 +2,10 @@
 
 @section('title', 'Dashboard')
 
+@section('dashboard_aktif', 'nav-active')
+
 @section('content')
-<div class="container mt-4 redcolor">
+<div class="container mt-5 redcolor">
     <div class="row text-center  ">
         <div class="col-lg-3 col-md-6 col-sm-12 mb-4 bluecolor">
             <div class="card h-100">

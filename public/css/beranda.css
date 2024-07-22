@@ -138,3 +138,11 @@
     border-color: #114232;
     font-weight: 600;
 }
+
+.img-caro{
+    height: 35vw;
+}
+
+.carousel-item {
+    transition: transform 2s ease, opacity 2s ease; /* Custom animation */
+}

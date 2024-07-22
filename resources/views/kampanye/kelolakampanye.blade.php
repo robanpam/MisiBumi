@@ -2,6 +2,8 @@
 
 @section('title', 'Kelola Kampanye')
 
+@section('kelolak_aktif', 'nav-active')
+
 @section('content')
 <div class="container mt-4">
     <!-- Title Section -->

@@ -2,10 +2,10 @@
 
 @section('title', 'Detail Kampanye')
 
-
+@section('kelolak_aktif', 'nav-active')
 
 @section('content')
-    <div class="container mt-5 d-flex justify-content-center align-items-center full-height rounded-card">
+    <div class="container d-flex justify-content-center align-items-center full-height rounded-card">
         <div class="card shadow bold-border rounded-card" style="width: 100%; max-width: 600px;">
             <div class="mt-4  mb-4 text-center rounded-card2">
                 <h5>Detail Kampanye</h5>

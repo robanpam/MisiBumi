@@ -3,7 +3,7 @@
 @section('title', 'Detail Artikel')
 
 @section('content')
-    <div class="container mt-5"
+    <div class="container"
         style="font-family: 'Poppins', sans-serif; padding-top: 20px; padding-left: 20px; padding-right: 20px;">
         <h1 class="text-center">{{ $artikels->judul_artikel }}</h1>
         <p class="text-center"><strong>Oleh: {{ $admins1->first()->name }}</strong></p>

@@ -11,7 +11,7 @@
 @endsection('css')
 
 @section('content')
-    <div class="row mt-5 pt-5">
+    <div class="row">
         <div class="col-12 d-flex justify-content-center flex-column align-items-center">
             <h5>Jumlah Karbon yang Dikeluarkan</h5>
             <img class="kalku-img" src="{{ asset('asset/kalkulator/produk/' . $item->foto_produk) }}" alt="">

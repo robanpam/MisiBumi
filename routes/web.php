@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KalkulatorController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArtikelController;
@@ -14,27 +15,27 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [BerandaController::class, 'landingPage'])->name('beranda.landingPage');
 
 //profile admin
-Route::get('/profiladmin/{id}', [AdminController::class, 'admin'])->name('profileadmin');
+Route::get('/profiladmin', [AdminController::class, 'admin'])->name('profileadmin');
 
 //ganti nama
-Route::get('/profiladmin/gantinama/{id}', [AdminController::class, 'gantinama'])->name('gantinama');
-Route::post('/profiladmin/gantinama/{id}', [AdminController::class, 'updateNama'])->name('updateNama');
+Route::get('/profiladmin/gantinama', [AdminController::class, 'gantinama'])->name('gantinama');
+Route::post('/profiladmin/gantinama', [AdminController::class, 'updateNama'])->name('updateNama');
 
 //ganti password
-Route::get('/profiladmin/ubahkatasandi/{id}', [AdminController::class, 'showChangePasswordForm'])->name('ubahkatasandi');
-Route::post('/profiladmin/ubahkatasandi/{id}', [AdminController::class, 'updatePassword'])->name('updatePassword');
+Route::get('/profiladmin/ubahkatasandi', [AdminController::class, 'showChangePasswordForm'])->name('ubahkatasandi');
+Route::post('/profiladmin/ubahkatasandi', [AdminController::class, 'updatePassword'])->name('updatePassword');
 
 //ganti email
-Route::get('/profiladmin/ubahemail/{id}', [AdminController::class, 'showChangeEmailForm'])->name('ubahemail');
-Route::post('/profiladmin/ubahemail/{id}', [AdminController::class, 'updateEmail'])->name('updateEmail');
+Route::get('/profiladmin/ubahemail', [AdminController::class, 'showChangeEmailForm'])->name('ubahemail');
+Route::post('/profiladmin/ubahemail', [AdminController::class, 'updateEmail'])->name('updateEmail');
 
 //ganti telp
-Route::get('/profiladmin/ubahnomortelpon/{id}', [AdminController::class, 'showChangeTelponForm'])->name('ubahnomortelpon');
-Route::post('/profiladmin/ubahnomortelpon/{id}', [AdminController::class, 'updateTelpon'])->name('updateTelpon');
+Route::get('/profiladmin/ubahnomortelpon', [AdminController::class, 'showChangeTelponForm'])->name('ubahnomortelpon');
+Route::post('/profiladmin/ubahnomortelpon', [AdminController::class, 'updateTelpon'])->name('updateTelpon');
 
 //ganti profile
-Route::get('/gantiprofile/{id}', [AdminController::class, 'showUpdateProfileForm'])->name('showUpdateProfileForm');
-Route::post('/gantiprofile/{id}', [AdminController::class, 'updateProfilePicture'])->name('updateProfilePicture');
+Route::get('/gantiprofile', [AdminController::class, 'showUpdateProfileForm'])->name('showUpdateProfileForm');
+Route::post('/gantiprofile', [AdminController::class, 'updateProfilePicture'])->name('updateProfilePicture');
 
 //kelola artikel
 Route::get('/kelolaartikel', [ArtikelController::class, 'kelolaartikel'])->name('kelolaartikel');
@@ -55,29 +56,24 @@ Route::get('/kampanye', [KampanyeController::class, 'index'])->name('mainKampany
 Route::get('/blmSelesai', [KampanyeController::class, 'blmSelesai'])->name('kampanye.belum');
 Route::get('/udhSelesai', [KampanyeController::class, 'udhSelesai'])->name('kampanye.sudah');
 
+//Dashboard Admin
+Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard.show');
+
 //kelola kampanye
 Route::get('/kelolakampanye', [KampanyeController::class, 'kelola'])->name('kelolakampanye');
 
 //request kampanye
 Route::get('/accrequestkampanye', [KampanyeController::class, 'fetchPendingKampanyes'])->name('fetchPendingKampanyes');
 
-//detail request kampanye (admin)
+//Admin kelola kampanye
 Route::get('/detailkampanye/{id}', [KampanyeController::class, 'showDetailRequestKampanye'])->name('detailkampanye');
 Route::post('/terima/{id}', [KampanyeController::class, 'terima'])->name('terima');
 Route::post('/tolak/{id}', [KampanyeController::class, 'tolak'])->name('tolak');
 Route::post('/terima-semua', [KampanyeController::class, 'terimaSemua'])->name('terimaSemua');
 Route::post('/tolak-semua', [KampanyeController::class, 'tolakSemua'])->name('tolakSemua');
 
-//for user
+//User Kampanye
 Route::get('/detailkampanye2/{id}', [KampanyeController::class, 'showDetailKampanye'])->name('detailkampanye2');
-
-Route::get('/dashboardadmin', function () {
-    return view('admin.dashboardadmin');
-});
-
-Route::get('/dashboardadmin', function () {
-    return view('admin.dashboardadmin');
-});
 
 // Donasi
 Route::get('/dampak', [DonasiController::class, 'mainDonasi'])->name('mainDonasi');
