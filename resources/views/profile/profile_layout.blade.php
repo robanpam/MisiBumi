@@ -27,7 +27,7 @@
                 </div>
                 <div class="col-md-3 col-6 d-flex flex-column justify-content-center align-items-center stats">
                     <h1>{{ $pcount }}</h1>
-                    <p>Pohon Terkumpul</p>
+                    <p>Pohon Ditanam</p>
                     <div class="green-line"></div>
                 </div>
                 <div class="col-md-3 col-6 d-flex flex-column justify-content-center align-items-center stats">

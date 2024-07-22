@@ -31,7 +31,7 @@ class KalkulatorController extends Controller
 
         $emisi = $item->faktor_emisi * $request->frekuensi * $request->jarak;
         $frekuensi = $request->frekuensi;
-        dd($emisi);
+        // dd($emisi);
 
         return view('kalkulator.kalkulator_hasil', compact('item', 'emisi'));
     }
