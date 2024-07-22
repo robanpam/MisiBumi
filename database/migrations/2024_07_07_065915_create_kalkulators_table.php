@@ -14,7 +14,10 @@ return new class extends Migration
         Schema::create('kalkulators', function (Blueprint $table) {
             $table->id();
             $table->string('nama_produk');
+            $table->string('foto_produk');
             $table->foreignId('emisi_id')->constrained('emisis', 'id');
+            $table->decimal('faktor_emisi');
+            $table->string('satuan');
             $table->timestamps();
         });
     }

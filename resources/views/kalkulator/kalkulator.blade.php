@@ -31,8 +31,9 @@
             @foreach ($jenis as $j)
                 <div class="col-md-2 col-6">
                     <a class="text-black link-underline link-underline-opacity-0" href={{ route('kalkulator.index', ['jenis' => $j->nama]) }}>
-                            <div class="btn-calc me-2">
-                            <p> {{ $j->nama }} </p>
+                        <div class="btn-calc py-4 px-5">
+                            <img class="kalku-img" src="{{ asset('asset/kalkulator/emisi/' . $j->img) }}" alt="">
+                            <p class="m-0"> {{ $j->nama }} </p>
                         </div>
                     </a>
                 </div>

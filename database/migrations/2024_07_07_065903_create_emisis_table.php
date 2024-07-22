@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('emisis', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('satuan');
+            $table->string('img');
             $table->timestamps();
         });
     }

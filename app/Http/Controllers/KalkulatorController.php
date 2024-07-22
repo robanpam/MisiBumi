@@ -27,6 +27,12 @@ class KalkulatorController extends Controller
     public function result (KalkulatorRequest $request){
         $request->validated();
 
-        return view('kalkulator.kalkulator_hasil');
+        $item = Kalkulator::find($request->option);
+
+        $emisi = $item->faktor_emisi * $request->frekuensi * $request->jarak;
+        $frekuensi = $request->frekuensi;
+        dd($emisi);
+
+        return view('kalkulator.kalkulator_hasil', compact('item', 'emisi'));
     }
 }

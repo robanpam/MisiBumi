@@ -58,11 +58,69 @@ class DatabaseSeeder extends Seeder
             'jenis_user_id' => 2
         ]);
 
-        Emisi::factory(2)->create();
+        // Emisi::factory(2)->create();
+        Emisi::factory()->create([
+            'nama' => 'Kendaraan Bermotor',
+            'img' => 'mobil.jpg',
+        ]);
+
+        Emisi::factory()->create([
+            'nama' => 'Peralatan Listrik',
+            'img' => 'listrik.jpg',
+        ]);
+
+        Kalkulator::create([
+            'nama_produk' => 'Mobil',
+            'foto_produk' => 'mobil.jpg',
+            'emisi_id' => 1,
+            'faktor_emisi' => 2.31,
+            'satuan' => 'km' 
+        ]);
+
+        Kalkulator::create([
+            'nama_produk' => 'Motor',
+            'foto_produk' => 'motor.png',
+            'emisi_id' => 1,
+            'faktor_emisi' => 2.31,
+            'satuan' => 'km' 
+        ]);
+
+        Kalkulator::create([
+            'nama_produk' => 'Truk',
+            'foto_produk' => 'truk.png',
+            'emisi_id' => 1,
+            'faktor_emisi' => 2.68,
+            'satuan' => 'km',
+        ]);
+
+        Kalkulator::create([
+            'nama_produk' => 'Mesin Cuci',
+            'foto_produk' => 'mesincuci.jpg',
+            'emisi_id' => 2,
+            'faktor_emisi' => 0.5,
+            'satuan' => 'siklus'
+        ]);
+
+        Kalkulator::create([
+            'nama_produk' => 'Kulkas',
+            'foto_produk' => 'kulkas.jpeg',
+            'emisi_id' => 2,
+            'faktor_emisi' => 0.5,
+            'satuan' => 'siklus'
+        ]);
+
+        Kalkulator::create([
+            'nama_produk' => 'Air Conditioner',
+            'foto_produk' => 'ac.jpg',
+            'emisi_id' => 2,
+            'faktor_emisi' => 0.5,
+            'satuan' => 'jam',
+        ]);
+
         Pohon::factory(5)->create();
         MetodePembayaran::factory(3)->create();
         Kampanye::factory(20)->create();
-        Kalkulator::factory(10)->create();
+        // Kalkulator::factory(10)->create();
         Donasi::factory(20)->create();
         Artikel::factory(20)->create();
     }

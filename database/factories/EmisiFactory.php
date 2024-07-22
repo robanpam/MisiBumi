@@ -18,7 +18,6 @@ class EmisiFactory extends Factory
     {
         return [
             'nama' => fake()->word(),
-            'satuan' => fake()->word(),
         ];
     }
 }
