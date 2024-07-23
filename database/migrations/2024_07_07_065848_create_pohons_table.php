@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('gambar_pohon');
             $table->text('manfaat');
             $table->text('syarat_tumbuh');
-            $table->string('serapan_karbon');
+            $table->decimal('serapan_karbon');
             $table->integer('harga_pohon');
             $table->timestamps();
         });
