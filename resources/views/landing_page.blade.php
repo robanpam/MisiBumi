@@ -120,7 +120,7 @@
     <div class="container-map ms-4 mt-5">
         <div class="row section3 d-flex justify-content-center align-items-center">
             <div class="col-12 text-center">
-                <h1>Roadmap #MisiBumi</h1>
+                <h1 class="roadmap-title">Roadmap #MisiBumi</h1>
                 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel"
                     data-interval="500">
                     <div class="carousel-inner">

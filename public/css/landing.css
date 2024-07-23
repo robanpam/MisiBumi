@@ -45,14 +45,14 @@ html {
 
 .tree-gallery {
     position: absolute;
-    top:38%;
+    top: 38%;
     left: 55%;
     transform: translate(-50%, -50%);
     background-color: white;
     z-index: 10;
     width: 60%;
     border-radius: 20px;
-    border: 1px solid rgba(237,240,217,1);
+    border: 1px solid rgba(237, 240, 217, 1);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -101,4 +101,12 @@ html {
 
 .carousel-item {
     transition: opacity 0.5s ease-in-out;
+}
+
+.roadmap-title {
+    color: #114232;
+    border-radius: 20px;
+    padding: 10px 50px;
+    display: inline-block;
+    background-color: rgba(138, 158, 0, 0.15);
 }
