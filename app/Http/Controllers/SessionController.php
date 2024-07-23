@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Log;
 class SessionController extends Controller
 {
     public function init() {
-        return view('beranda.landingPage');
+        return view('sign.sign');
     }
 
     public function login(Request $request) {

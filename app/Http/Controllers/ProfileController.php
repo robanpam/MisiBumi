@@ -229,6 +229,6 @@ class ProfileController extends Controller
 
     public function logout(){
         auth()->logout();
-        return redirect()->route('session.init');
+        return redirect()->route('beranda.landingPage');
     }
 }

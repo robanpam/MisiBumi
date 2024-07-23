@@ -165,7 +165,7 @@ class KampanyeController extends Controller
             return redirect()->back()->with('error', 'Tolong lakukan login sebelum mengajukan campaign.');
         }
 
-        $request->validate([
+        $rules = [
             'judul' => 'required|string|max:255',
             'jalan' => 'required|string|max:255',
             'kel' => 'required',
@@ -177,7 +177,17 @@ class KampanyeController extends Controller
             'batasDonasi' => 'required|date',
             'deskripsi' => 'required',
             'gambar' => 'required|mimes:jpg,png,jpeg|max:2048',
-        ]);
+        ];
+
+        $messages = [
+            'required' => 'Field harus diisi',
+            'judul.max' => 'Judul tidak boleh melebihi 255 karakter',
+            'jalan.max' => 'Judul tidak boleh melebihi 255 karakter',
+            'gambar.mimes' => 'Extension gambar harus berupa jpg, png, atau jpeg',
+            'gambar.max' => 'Maksimal ukuran gambar adalah 2 MB',
+        ];
+
+        $request->validate($rules, $messages);
 
         $lokasi = $request->input('jalan') . ', Kel. ' . $request->input('kel') . ', Kec. ' . $request->input('kec') . ', ' . $request->input('kab_kota') . ', ' . $request->input('provinsi');
 
