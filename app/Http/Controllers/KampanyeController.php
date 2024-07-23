@@ -16,7 +16,6 @@ class KampanyeController extends Controller
             ->join('users', 'kampanyes.user_id', '=', 'users.id')
             ->select('kampanyes.*', 'pohons.nama as pohon_nama', 'users.name as user_name')
             ->get();
-
         return view('kampanye.mainKampanye', compact('kampanyes'));
     }
 

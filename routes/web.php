@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\DonasiController;
 use App\Http\Controllers\KampanyeController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
@@ -83,9 +84,8 @@ Route::get('/detailArtikel/{id}', [ArtikelController::class, 'detailArtikel'])->
 
 
 // Laporan
-Route::get('/laporan', function () {
-    return view('laporan.laporanTahunan');
-});
+Route::get('/laporan', [LaporanController::class, 'laporan'])->name('laporan');
+
 
 //Kalkulator
 Route::get('/kalkulator', [KalkulatorController::class, 'index'])->name('kalkulator.list');

@@ -28,7 +28,6 @@
         <h3 class="subJudul my-2"><strong>Belum Selesai</strong></h3>
         <div class="row">
             @foreach ($kampanyes->where('status', 2)->take(6) as $kampanye)
-                
                 <div class="col-4 my-3">
                     <div class="col">
                         <div class="card h-50">
