@@ -11,11 +11,59 @@ html {
 
 .header {
     width: 100vw;
-    height: 60vh;
-    background-image: url('public/asset/pohon/header.png');
-    background-size: cover;
-    background-position: center;
+    height: 65vh;
 }
+
+.content-section {
+    position: relative;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+}
+
+.background-circle {
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background: rgba(138, 158, 0, 0.15);
+    top: 44%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.image-container img {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+.tree-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* .tree-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+} */
+
+/* .tree-info {
+    max-width: 60%;
+} */
+
+/* .benefits-box {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+} */
 
 .tree-gallery {
     background-color: white;

@@ -9,7 +9,43 @@
 @section('content')
     <div class="container m-0 p-0">
         <div class="col-md-6 col-12">
-            <div class="header bg-image"></div>
+            <div class="header">
+                <img src="{{asset('asset/pohon/header.png')}}" alt="" class="img-fluid">
+            </div>
+        </div>
+        <div class="content-section m-5 p-5">
+            <div class="row">
+                <div class="col-md-6 tree-details">
+                    <h1>Beringin Pencekik</h1>
+                    <h4><i>Ficus annulata</i></h4>
+                    <p>Beringin pencekik merupakan...</p>
+                    <ul>
+                        <li>Ketinggian (mdpl): 600-800</li>
+                        <li>ph: 5-7</li>
+                        <li>Suhu (oC): 26-36</li>
+                        <li>Curah Hujan (mm/tahun): 1000-2000</li>
+                    </ul>
+                </div>
+                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                    <div class="image-container">
+                        <div class="background-circle"></div>
+                        <img src="{{ asset('asset/pohon/trembesi.png') }}" alt="Beringin Pencekik">
+                    </div>
+                </div>
+            </div>
+            {{-- <div class="row tree-details"> --}}
+                {{-- <div class="col-md-6 tree-info">
+                    <div class="benefits-box">
+                        <h5>Manfaat</h5>
+                        <ul>
+                            <li><strong>Ekologi:</strong> Peneduh, peny...
+                            <li><strong>Ekonomi:</strong> Batangnya b...
+                            <li><strong>Sosial:</strong> Daun dan aka...
+                        </ul>
+                        <p><strong>Serapan Karbon:</strong> 0.0409944034 kg CO2eq</p>
+                    </div>
+                </div> --}}
+            {{-- </div> --}}
         </div>
         <div class="row tree-gallery d-none d-md-block">
             <div class="col d-flex align-items-center justify-content-center">
@@ -20,31 +56,6 @@
                 <img src="{{ asset('asset/pohon/kiara_payung.png') }}" onclick="showPohon(5)" alt="Kiara Payung"
                     class="img-fluid">
                 <img src="{{ asset('asset/pohon/bungur.png') }}" onclick="showPohon(6)" alt="Bungur" class="img-fluid">
-            </div>
-        </div>
-        <div class="section d-flex flex-column justify-content-evenly">
-            <div class="row pt-4">
-                <div class="col-12 d-flex justify-content-center">
-                    <h1>Fitur #MisiBumi</h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3 col-6 d-flex flex-column justify-content-center align-items-center stats">
-                    <img src="{{ asset('asset/landing/1.png') }}" class="mb-5" alt="">
-                    <h4>Buat<br>Kampanye</h4>
-                </div>
-                <div class="col-md-3 col-6 d-flex flex-column justify-content-center align-items-center stats">
-                    <img src="{{ asset('asset/landing/2.png') }}" class="mb-5" alt="">
-                    <h4>Turut<br>Berkontribusi</h4>
-                </div>
-                <div class="col-md-3 col-6 d-flex flex-column justify-content-center align-items-center stats">
-                    <img src="{{ asset('asset/landing/3.png') }}" class="mb-5" alt="">
-                    <h4>Menghitung<br>Emisi Karbon</h4>
-                </div>
-                <div class="col-md-3 col-6 d-flex flex-column justify-content-center align-items-center stats">
-                    <img src="{{ asset('asset/landing/4.png') }}" class="mb-5" alt="">
-                    <h4>Mengenal Jenis<br>Pohon Anti-Emisi</h4>
-                </div>
             </div>
         </div>
     </div>
