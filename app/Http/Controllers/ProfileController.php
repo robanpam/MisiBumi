@@ -16,7 +16,7 @@ class ProfileController extends Controller
                 ->groupBy('users.id')
                 ->where('users.id' , '=', auth()->user()->id)
                 ->get();
-        
+
         // dd($kampanye_count);
         if($kampanye_count->isEmpty()){
             $kcount = 0;
@@ -101,7 +101,7 @@ class ProfileController extends Controller
         //                         ->where('kampanyes.status', '=', 3)
         //                         ->where('kampanyes.user_id', '=', auth()->user()->id)
         //                         ->get();
-        
+
         // $kampanye_rejected = Kampanye::select('*')
         //                         ->where('kampanyes.status', '=', 2)
         //                         ->where('kampanyes.user_id', '=', auth()->user()->id)
@@ -153,7 +153,7 @@ class ProfileController extends Controller
                             ->groupBy('users.id')
                             ->where('users.id', '=', auth()->user()->id)
                             ->get();
-        
+
         if($pohon_count->isEmpty()){
             $pcount = 0;
         } else{
@@ -168,27 +168,27 @@ class ProfileController extends Controller
     public function update(Request $request){
 
         $user = auth()->user();
-        
+
         $request->session()->flash('name', $request->name);
         $request->session()->flash('email', $request->email);
         $request->session()->flash('nomor_telepon', $request->nomor_telepon);
-        
+
         $rules = [
             'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $user->id,
             'nomor_telepon' => 'required|numeric',
         ];
-        
+
         $messages = [
             'email.required' => 'Isi field dengan email yang benar',
             'email.unique' => 'Isi field dengan email yang belum digunakan',
             'required' => 'Field harus diisi',
             'numeric' => 'Isi field dengan nomor telepon yang benar',
         ];
-        
+
         // $user->update($request->validate($rules, $messages));
         $request->validate($rules, $messages);
-        
+
         $user->name = $request->name;
         $user->email = $request->email;
         $user->nomor_telepon = $request->nomor_telepon;

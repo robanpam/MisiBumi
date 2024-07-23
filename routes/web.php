@@ -119,10 +119,5 @@ Route::get('/beranda', [BerandaController::class, 'show'])->name('beranda.show')
 // Route::get('users/{id}', [UserController::class, 'index'])->name('user.index');
 
 //Kampanye-Sukma
-// Route::group(['middleware' => ['auth']], function () {
-//     Route::get('/request/kampanye', [KampanyeController::class, 'sendRequest'])->name('request.kampanye');
-//     Route::post('/add/kampanye', [KampanyeController::class, 'addRequest'])->name('add.kampanye');
-// });
-
 Route::get('/request/kampanye', [KampanyeController::class, 'sendRequest'])->name('kampanye.request');
 Route::post('/add/kampanye', [KampanyeController::class, 'addRequest'])->name('kampanye.add');
