@@ -75,7 +75,6 @@ class BerandaController extends Controller
             $pohon = $total_pohon[0]->total_pohon;
         }
 
-        $jenisPohon = Pohon::all();
-        return view('landing_page', compact('jenisPohon', 'pohon', 'donasi', 'kampanye'));
+        return view('landing_page', compact('pohon', 'donasi', 'kampanye'));
     }
 }

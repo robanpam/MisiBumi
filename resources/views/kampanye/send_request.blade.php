@@ -31,7 +31,7 @@
                         aria-describedby="emailHelp" placeholder="Judul Kampanye">
                     {{-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> --}}
                 </div>
-                @error('option')
+                @error('judul')
                     <p class="error-message">{{ $message }}</p>
                 @enderror
             </div>
@@ -49,7 +49,19 @@
                     <input type="text" class="form-control custom-input" id="provinsi" name="provinsi"
                         aria-describedby="emailHelp" placeholder="Provinsi">
                 </div>
-                @error('option')
+                @error('jalan')
+                    <p class="error-message">{{ $message }}</p>
+                @enderror
+                @error('kel')
+                    <p class="error-message">{{ $message }}</p>
+                @enderror
+                @error('kec')
+                    <p class="error-message">{{ $message }}</p>
+                @enderror
+                @error('kab_kota')
+                    <p class="error-message">{{ $message }}</p>
+                @enderror
+                @error('provinsi')
                     <p class="error-message">{{ $message }}</p>
                 @enderror
             </div>
@@ -64,7 +76,7 @@
                                 {{ $p->nama }}</option>
                         @endforeach
                     </select>
-                    @error('option')
+                    @error('jenisPohon')
                         <p class="error-message">{{ $message }}</p>
                     @enderror
                 </div>
@@ -75,7 +87,7 @@
                     <input type="number" class="form-control custom-input" id="jumlah" name="jumlah"
                         aria-describedby="emailHelp" placeholder="Target Jumlah Pohon Ditanam">
                 </div>
-                @error('option')
+                @error('jumlah')
                     <p class="error-message">{{ $message }}</p>
                 @enderror
             </div>
@@ -85,7 +97,7 @@
                     <input type="date" class="form-control custom-input" id="batasDonasi" name="batasDonasi"
                         aria-describedby="emailHelp" placeholder="Tanggal-Bulan-Tahun (contoh: 27 Mei 2024)">
                 </div>
-                @error('option')
+                @error('batasDonasi')
                     <p class="error-message">{{ $message }}</p>
                 @enderror
             </div>
@@ -95,7 +107,7 @@
                     <textarea type="text" class="form-control custom-input" id="deskripsi" name="deskripsi" aria-describedby="emailHelp"
                         placeholder="Ceritakan Tentang Kampanye Ini" style="height: 200px;"></textarea>
                 </div>
-                @error('option')
+                @error('dekripsi')
                     <p class="error-message">{{ $message }}</p>
                 @enderror
             </div>
@@ -105,7 +117,7 @@
                     <input type="file" id="gambar" name="gambar" value="{{ old('gambar') }}"
                         class="form-control custom-control @error('gambar') is-invalid @enderror" required>
                 </div>
-                @error('option')
+                @error('gambar')
                     <p class="error-message">{{ $message }}</p>
                 @enderror
             </div>
