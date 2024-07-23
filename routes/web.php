@@ -8,6 +8,7 @@ use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\DonasiController;
 use App\Http\Controllers\KampanyeController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\PohonController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
@@ -113,11 +114,13 @@ Route::get('/profile/logout', [ProfileController::class, 'logout'])->name('profi
 
 //Beranda, Landing Page
 Route::get('/beranda', [BerandaController::class, 'show'])->name('beranda.show');
-// Route::get('/landing', [BerandaController::class, 'landingPage'])->name('beranda.landingPage');
 
 //User
 // Route::get('users/{id}', [UserController::class, 'index'])->name('user.index');
 
-//Kampanye-Sukma
+//Send Request Kampanye
 Route::get('/request/kampanye', [KampanyeController::class, 'sendRequest'])->name('kampanye.request');
 Route::post('/add/kampanye', [KampanyeController::class, 'addRequest'])->name('kampanye.add');
+
+//Pohon
+Route::get('/pohon', [PohonController::class, 'show'])->name('pohon.show');

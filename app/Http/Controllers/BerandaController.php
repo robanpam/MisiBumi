@@ -31,7 +31,8 @@ class BerandaController extends Controller
             $kampanye = $total_kampanye[0]->total_kampanye;
         }
 
-        $total_pohon = Kampanye::select(Kampanye::raw('sum(jumlah_pohon) as total_pohon'))
+        $total_pohon = Kampanye::where('status', 0)
+            ->select(Kampanye::raw('sum(jumlah_pohon) as total_pohon'))
             ->get();
 
         if ($total_pohon->isEmpty()) {
@@ -39,8 +40,6 @@ class BerandaController extends Controller
         } else {
             $pohon = $total_pohon[0]->total_pohon;
         }
-
-        // dd($total_kampanye);
 
         return view('beranda', compact('pohon', 'donasi', 'kampanye', 'kampanyes'));
     }
@@ -67,6 +66,10 @@ class BerandaController extends Controller
         }
 
         $total_pohon = Kampanye::select(Kampanye::raw('sum(jumlah_pohon) as total_pohon'))
+            ->get();
+
+        $total_pohon = Kampanye::where('status', 0)
+            ->select(Kampanye::raw('sum(jumlah_pohon) as total_pohon'))
             ->get();
 
         if ($total_pohon->isEmpty()) {

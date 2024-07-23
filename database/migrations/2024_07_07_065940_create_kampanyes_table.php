@@ -22,9 +22,6 @@ return new class extends Migration
             $table->date('batas_donasi');
             $table->text('deskripsi');
             $table->string('gambar_kampanye');
-            $table->integer('total_pohon');
-            // $table->integer('total_donatur');
-            // $table->integer('harga_pohon');
             $table->timestamps();
         });
     }
