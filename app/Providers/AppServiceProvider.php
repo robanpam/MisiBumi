@@ -25,7 +25,11 @@ class AppServiceProvider extends ServiceProvider
         Carbon::setLocale('id');
 
         Gate::define('admin-gate', function(User $user){
-            return $user->jenis_user_id == 2 || !auth()->check();
+            return $user->jenis_user_id == 2;
+        });
+
+        Gate::define('user-gate', function(User $user){
+            return $user->jenis_user_id == 1;
         });
     }
 }
