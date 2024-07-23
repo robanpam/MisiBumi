@@ -37,6 +37,8 @@ class SessionController extends Controller
 
             if ($user->jenis_user_id == 1) {
                 return redirect()->route('beranda.show');
+            } else if($user->jenis_user_id == 2){
+                return redirect()->route('dashboard.show');
             }
         }
 

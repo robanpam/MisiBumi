@@ -3,7 +3,7 @@
 @section('title', 'User Profile')
 
 @section('content')
-<div class="container">
+<div class="container mt-4">
     <!-- Basic Info Section -->
     <div class="row">
         <div class="col-md-8 mb-4">

@@ -5,7 +5,7 @@
 @section('kelolaa_aktif', 'nav-active')
 
 @section('content')
-<div class="container">
+<div class="container mt-4">
     <!-- Title Section -->
     <div class="row mb-4">
         <div class="col-12">
