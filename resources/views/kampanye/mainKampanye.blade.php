@@ -26,23 +26,27 @@
     <!-- CARD BELUM SELESAI -->
     <div class="container">
         <div class="row justify-content-center">
-            <a href="{{ route('kampanye.request') }}">
-                <div class="col-md-6 col-12 d-flex flex-column align-items-center justify-content-center">
+            <div class="col-md-6 col-12 d-flex flex-column align-items-center justify-content-center">
+                <a href="{{ route('kampanye.request') }}">
                     <button class="btn custom-button p-2 mt-5">Ajukan Kampanye</button>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
         <h3 class="subJudul my-2"><strong>Belum Selesai</strong></h3>
         <div class="row">
             @foreach ($kampanyes->where('status', 2)->take(6) as $kampanye)
                 @php
-                    $pohon_terkumpul = intval($kampanye->donasis->sum('nilai_donasi') / ($kampanye->harga_pohon > 0 ? $kampanye->harga_pohon : 1));
+                    $pohon_terkumpul = intval(
+                        $kampanye->donasis->sum('nilai_donasi') /
+                            ($kampanye->harga_pohon > 0 ? $kampanye->harga_pohon : 1),
+                    );
                     $persentase_terkumpul = min(100, ($pohon_terkumpul / $kampanye->jumlah_pohon) * 100);
                 @endphp
                 <div class="col-4 my-3">
                     <div class="col">
                         <div class="card h-50">
-                            <img src="{{ asset('asset/kampanye/' . $kampanye->gambar_kampanye) }}" class="card-img-top" alt="...">
+                            <img src="{{ asset('asset/kampanye/' . $kampanye->gambar_kampanye) }}" class="card-img-top"
+                                alt="...">
                             <div class="card-body">
                                 <h5 class="card-title d-flex justify-content-center">{{ $kampanye->nama_kampanye }}</h5>
                                 <div class="row">
@@ -57,7 +61,9 @@
                                     </div>
                                 </div>
                                 <div class="progress mt-3 rounded-0">
-                                    <div class="progress-bar" role="progressbar" style="width: {{ $persentase_terkumpul }}%" aria-valuenow="{{ $persentase_terkumpul }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar" style="width: {{ $persentase_terkumpul }}%"
+                                        aria-valuenow="{{ $persentase_terkumpul }}" aria-valuemin="0" aria-valuemax="100">
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
@@ -74,7 +80,8 @@
                                     </div>
                                 </div>
                                 <div class="d-grid gap-2 mt-3">
-                                    <a href="{{ route('detailkampanye2', ['id' => $kampanye->id]) }}" class="btn btn-primary rounded-5">
+                                    <a href="{{ route('detailkampanye2', ['id' => $kampanye->id]) }}"
+                                        class="btn btn-primary rounded-5">
                                         <div class="text-btn">Lihat Kampanye</div>
                                     </a>
                                 </div>
@@ -105,9 +112,11 @@
                     <div class="col-4 my-3">
                         <div class="col">
                             <div class="card h-50">
-                                <img src="{{ asset('asset/kampanye/' . $kampanye->gambar_kampanye) }}" class="card-img-top" alt="...">
+                                <img src="{{ asset('asset/kampanye/' . $kampanye->gambar_kampanye) }}" class="card-img-top"
+                                    alt="...">
                                 <div class="card-body">
-                                    <h5 class="card-title d-flex justify-content-center">{{ $kampanye->nama_kampanye }}</h5>
+                                    <h5 class="card-title d-flex justify-content-center">{{ $kampanye->nama_kampanye }}
+                                    </h5>
                                     <div class="row">
                                         <div class="col-7 card-dsk3">Campaigner</div>
                                         <div class="col-5 card-dsk3">Pohon Ditanam</div>
@@ -117,7 +126,8 @@
                                         <div class="col-5 card-dsk4">{{ $kampanye->jumlah_pohon }}</div>
                                     </div>
                                     <div class="d-grid gap-2 mt-2">
-                                        <a href="{{ route('detailkampanye2', ['id' => $kampanye->id]) }}" class="btn btn-primary rounded-5">
+                                        <a href="{{ route('detailkampanye2', ['id' => $kampanye->id]) }}"
+                                            class="btn btn-primary rounded-5">
                                             <div class="text-btn">Pantau Kampanye</div>
                                         </a>
                                     </div>
