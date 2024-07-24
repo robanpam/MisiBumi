@@ -107,8 +107,7 @@
     <div class="container">
         <h3 class="subJudul my-2"><strong>Telah Selesai</strong></h3>
         <div class="row">
-            @foreach ($kampanyes as $kampanye)
-                @if ($kampanye->status == 0)
+            @foreach ($kampanyes->where('status', 0)->take(6) as $kampanye)
                     <div class="col-4 my-3">
                         <div class="col">
                             <div class="card h-50">
@@ -135,7 +134,6 @@
                             </div>
                         </div>
                     </div>
-                @endif
             @endforeach
         </div>
 
