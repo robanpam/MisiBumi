@@ -144,5 +144,5 @@
 }
 
 .carousel-item {
-    transition: transform 2s ease, opacity 2s ease; /* Custom animation */
+    transition: transform 1s ease, opacity 1s ease; /* Custom animation */
 }

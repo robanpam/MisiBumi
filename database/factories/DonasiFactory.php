@@ -22,6 +22,8 @@ class DonasiFactory extends Factory
             'nilai_donasi' => fake()->randomElement([25000, 50000, 75000, 100000]),
             'metode_pembayaran_id' => rand(1, 3),
             'status' => 2,
+            'created_at' => fake()->dateTimeBetween('2021-01-01', '2024-12-31'),
+            'updated_at' => now(),
         ];
     }
 }

@@ -87,7 +87,6 @@ Route::get('/detailArtikel/{id}', [ArtikelController::class, 'detailArtikel'])->
 // Laporan
 Route::get('/laporan', [LaporanController::class, 'laporan'])->name('laporan');
 
-
 //Kalkulator
 Route::get('/kalkulator', [KalkulatorController::class, 'index'])->name('kalkulator.list');
 Route::get('/kalkulator/{jenis}/', [KalkulatorController::class, 'items'])->name('kalkulator.index');

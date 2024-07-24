@@ -122,8 +122,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         MetodePembayaran::factory(3)->create();
-        Kampanye::factory(20)->create();
-        Donasi::factory(20)->create();
+        Kampanye::factory(100)->create();
+        Donasi::factory(2000)->create();
         Artikel::factory(20)->create();
         Testimoni::factory(count:10)->create();
     }
