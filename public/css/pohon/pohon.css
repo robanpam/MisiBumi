@@ -43,9 +43,20 @@ html {
 }
 
 .tree-details {
-    display: flex;
     flex-direction: column;
-    justify-content: center;
+    text-align: center;
+    color: #114232;
+}
+
+.tree-details p {
+    font-size: medium;
+    text-align: justify;
+    color: black;
+}
+
+.tree-details ul {
+    text-align: justify;
+    color: black;
 }
 
 /* .tree-details {
@@ -77,26 +88,12 @@ html {
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
-.tree-gallery img {
-    max-width: 10%;
+.tree-nav {
+    width: 75%;
     height: fit-content;
     cursor: pointer;
     margin: 0 15px;
     background-color: white;
     border: none;
     box-shadow: none;
-}
-
-.section {
-    height: 80vh;
-    width: 100vw;
-}
-
-.section h1 {
-    color: #114232;
-}
-
-.section h4 {
-    text-align: center;
-    color: #114232;
 }

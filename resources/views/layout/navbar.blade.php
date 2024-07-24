@@ -38,7 +38,7 @@
                         <a class="nav-link color @yield('dampak_aktif')" aria-current="page" href="{{route('mainDonasi')}}">Dampak</a>
                     </li>
                     <li class="nav-item ps-lg-3">
-                        <a class="nav-link color @yield('pohon_aktif')" aria-current="page" href="{{route('pohon.show')}}">Pohon</a>
+                        <a class="nav-link color @yield('pohon_aktif')" aria-current="page" href="{{route('pohon.show', 6)}}">Pohon</a>
                     </li>
                     <li class="nav-item ps-lg-3 pe-3">
                         <a class="nav-link color @yield('kalku_aktif')" aria-current="page"

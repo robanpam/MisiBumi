@@ -10,31 +10,31 @@
     <div class="container m-0 p-0">
         <div class="col-md-6 col-12">
             <div class="header">
-                <img src="{{asset('asset/pohon/header.png')}}" alt="" class="img-fluid">
+                <img src="{{ asset('asset/pohon/header.png') }}" alt="" class="img-fluid">
             </div>
         </div>
         <div class="content-section m-5 p-5">
-            <div class="row">
-                <div class="col-md-6 tree-details">
-                    <h1>Beringin Pencekik</h1>
-                    <h4><i>Ficus annulata</i></h4>
-                    <p>Beringin pencekik merupakan...</p>
+            <div class="row ms-5 my-3">
+                <div class="col-md-6 tree-details d-flex justify-content-center my-5">
+                    <h1>{{$pohon->nama}}</h1>
+                    <h4><i>{{$pohon->nama_latin}}</i></h4><br>
+                    <p>{{$pohon->deskripsi}}</p>
+                    <p>Syarat Tumbuh:</p>
                     <ul>
-                        <li>Ketinggian (mdpl): 600-800</li>
-                        <li>ph: 5-7</li>
-                        <li>Suhu (oC): 26-36</li>
-                        <li>Curah Hujan (mm/tahun): 1000-2000</li>
+                        @foreach(explode("\n", $pohon->syarat_tumbuh) as $s)
+                            <li>{{ $s }}</li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="col-md-6 d-flex align-items-center justify-content-center">
                     <div class="image-container">
                         <div class="background-circle"></div>
-                        <img src="{{ asset('asset/pohon/trembesi.png') }}" alt="Beringin Pencekik">
+                        <img src="{{ asset('asset/pohon/'. $pohon->gambar_pohon) }}">
                     </div>
                 </div>
             </div>
             {{-- <div class="row tree-details"> --}}
-                {{-- <div class="col-md-6 tree-info">
+            {{-- <div class="col-md-6 tree-info">
                     <div class="benefits-box">
                         <h5>Manfaat</h5>
                         <ul>
@@ -47,43 +47,20 @@
                 </div> --}}
             {{-- </div> --}}
         </div>
-        <div class="row tree-gallery d-none d-md-block">
-            <div class="col d-flex align-items-center justify-content-center">
-                <img src="{{ asset('asset/pohon/trembesi.png') }}" onclick="showPohon(1)" alt="Trembesi" class="img-fluid">
-                <img src="{{ asset('asset/pohon/cassia.png') }}" onclick="showPohon(2)" alt="Cassia" class="img-fluid">
-                <img src="{{ asset('asset/pohon/kenanga.png') }}" onclick="showPohon(3)" alt="Kenanga" class="img-fluid">
-                <img src="{{ asset('asset/pohon/beringin.png') }}" onclick="showPohon(4)" alt="Beringin" class="img-fluid">
-                <img src="{{ asset('asset/pohon/kiara_payung.png') }}" onclick="showPohon(5)" alt="Kiara Payung"
-                    class="img-fluid">
-                <img src="{{ asset('asset/pohon/bungur.png') }}" onclick="showPohon(6)" alt="Bungur" class="img-fluid">
+        <div class="d-flex justify-content-center my-5">
+            <div class="row tree-gallery ms-5">
+                <div class="col-12 d-flex align-items-center justify-content-center">
+                    <a href="{{route('pohon.show', 2)}}"><img src="{{ asset('asset/pohon/trembesi.png') }}" alt="Trembesi" class="img-fluid tree-nav"></a>
+                    <a href="{{route('pohon.show', 3)}}"><img src="{{ asset('asset/pohon/cassia.png') }}" alt="Cassia" class="img-fluid tree-nav"></a>
+                    <a href="{{route('pohon.show', 4)}}"><img src="{{ asset('asset/pohon/kenanga.png') }}" alt="Kenanga" class="img-fluid tree-nav"></a>
+                    <a href="{{route('pohon.show', 1)}}"><img src="{{ asset('asset/pohon/beringin.png') }}" alt="Beringin" class="img-fluid tree-nav"></a>
+                    <a href="{{route('pohon.show', 5)}}"><img src="{{ asset('asset/pohon/kiara_payung.png') }}" alt="Kiara Payung" class="img-fluid tree-nav"></a>
+                    <a href="{{route('pohon.show', 6)}}"><img src="{{ asset('asset/pohon/bungur.png') }}" alt="Bungur" class="img-fluid tree-nav" tree-nav></a>
+                </div>
             </div>
         </div>
     </div>
 @endsection
 
 @section('js')
-    document.addEventListener('DOMContentLoaded', function() {
-    console.log("landing.js loaded");
-
-    window.showPohon = function(id) {
-    document.querySelectorAll('.custom-right').forEach(item => {
-    item.classList.add('d-none');
-    });
-
-    const element = document.querySelector(`.custom-right[data-id="${id}"]`);
-    if (element) {
-    element.classList.remove('d-none');
-    }
-    };
-
-    const firstPohonId = 1;
-    showPohon(firstPohonId);
-
-    document.getElementById('tree-gallery').addEventListener('click', function(event) {
-    if (event.target.tagName === 'IMG') {
-    const id = event.target.getAttribute('data-id');
-    showPohon(id);
-    }
-    });
-    });
 @endsection

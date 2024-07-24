@@ -123,4 +123,4 @@ Route::get('/request/kampanye', [KampanyeController::class, 'sendRequest'])->nam
 Route::post('/add/kampanye', [KampanyeController::class, 'addRequest'])->name('kampanye.add');
 
 //Pohon
-Route::get('/pohon', [PohonController::class, 'show'])->name('pohon.show');
+Route::get('/pohon/{id}', [PohonController::class, 'show'])->name('pohon.show');
