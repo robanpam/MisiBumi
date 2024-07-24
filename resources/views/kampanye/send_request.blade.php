@@ -38,15 +38,15 @@
             <div class="mb-5 row">
                 <label for="lokasi" class="col-sm-2 col-form-label custom-label">Lokasi</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control custom-input mb-2" id="jalan" name="jalan"
+                    <input name="jalan" type="text" class="form-control custom-input mb-2" id="jalan" 
                         aria-describedby="emailHelp" placeholder="Nama Jalan">
-                    <input type="text" class="form-control custom-input mb-2" id="kel" name="kel"
+                    <input name="kel" type="text" class="form-control custom-input mb-2" id="kel"
                         aria-describedby="emailHelp" placeholder="Kelurahan">
-                    <input type="text" class="form-control custom-input mb-2" id="kec" name="kec"
+                    <input name="kec" type="text" class="form-control custom-input mb-2" id="kec"
                         aria-describedby="emailHelp" placeholder="Kecamatan">
-                    <input type="text" class="form-control custom-input mb-2" id="kab_kota" name="kab_kota"
+                    <input name="kab_kota" type="text" class="form-control custom-input mb-2" id="kab_kota"
                         aria-describedby="emailHelp" placeholder="Kabupaten/Kota">
-                    <input type="text" class="form-control custom-input" id="provinsi" name="provinsi"
+                    <input name="provinsi" type="text" class="form-control custom-input" id="provinsi"
                         aria-describedby="emailHelp" placeholder="Provinsi">
                 </div>
                 @error('jalan')
@@ -68,7 +68,7 @@
             <div class="mb-5 row">
                 <label for="jenisPohon" class="col-sm-2 col-form-label custom-label">Jenis Pohon</label>
                 <div class="col-sm-4">
-                    <select id="jenisPohon" name="jenisPohon"
+                    <select name="jenisPohon" id="jenisPohon"
                         class="form-control custom-control @error('pohon') is-invalid @enderror" required>
                         <option value="" selected>Pilih Pohon</option>
                         @foreach ($dataPohon as $p)
@@ -84,7 +84,7 @@
             <div class="mb-5 row">
                 <label for="jumlahPohon" class="col-sm-2 col-form-label font-weight-bold custom-label">Jumlah Pohon</label>
                 <div class="col-sm-4">
-                    <input type="number" class="form-control custom-input" id="jumlah" name="jumlah"
+                    <input name="jumlah" type="number" class="form-control custom-input" id="jumlah"
                         aria-describedby="emailHelp" placeholder="Target Jumlah Pohon Ditanam">
                 </div>
                 @error('jumlah')
@@ -94,7 +94,7 @@
             <div class="mb-5 row">
                 <label for="batasDonasi" class="col-sm-2 col-form-label font-weight-bold custom-label">Batas Donasi</label>
                 <div class="col-sm-10">
-                    <input type="date" class="form-control custom-input" id="batasDonasi" name="batasDonasi"
+                    <input name="batasDonasi" type="date" class="form-control custom-input" id="batasDonasi"
                         aria-describedby="emailHelp" placeholder="Tanggal-Bulan-Tahun (contoh: 27 Mei 2024)">
                 </div>
                 @error('batasDonasi')
@@ -104,7 +104,7 @@
             <div class="mb-5 row">
                 <label for="deskripsi" class="col-sm-2 col-form-label font-weight-bold custom-label">Deskripsi</label>
                 <div class="col-sm-10">
-                    <textarea type="text" class="form-control custom-input" id="deskripsi" name="deskripsi" aria-describedby="emailHelp"
+                    <textarea name="deskripsi" type="text" class="form-control custom-input" id="deskripsi" aria-describedby="emailHelp"
                         placeholder="Ceritakan Tentang Kampanye Ini" style="height: 200px;"></textarea>
                 </div>
                 @error('dekripsi')
@@ -114,7 +114,7 @@
             <div class="mb-5 row">
                 <label for="gambar" class="col-sm-2 col-form-label font-weight-bold custom-label">Gambar</label>
                 <div class="col-sm-10">
-                    <input type="file" id="gambar" name="gambar" value="{{ old('gambar') }}"
+                    <input name="gambar" type="file" id="gambar" value="{{ old('gambar') }}"
                         class="form-control custom-control @error('gambar') is-invalid @enderror" required>
                 </div>
                 @error('gambar')
