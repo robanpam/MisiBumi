@@ -54,13 +54,14 @@
                                     </div>
                                 </div>
                                 <div class="progress mt-3 rounded-0">
-                                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25"
+                                    <div class="progress-bar" role="progressbar" style="{{ min(100, (intdiv($kampanye->donasis->sum('nilai_donasi'), $kampanye->harga_pohon) / $kampanye->jumlah_pohon) * 100) }} %" 
+                                        aria-valuenow="{{ min(100, (intdiv($kampanye->donasis->sum('nilai_donasi'), $kampanye->harga_pohon) / $kampanye->jumlah_pohon) * 100) }}"
                                         aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="d-flex justify-content-start">
-                                            <div class="bwh1">{{ $kampanye->jumlah_pohon }}</div>
+                                            <div class="bwh1">{{ intdiv($kampanye->donasis->sum('nilai_donasi'), $kampanye->harga_pohon) }}</div>
                                             <div class="bwh2">Pohon terkumpul</div>
                                         </div>
                                     </div>
@@ -114,7 +115,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-7 card-dsk4">{{ $kampanye->user_name }}</div>
-                                        <div class="col-5 card-dsk4">{{ $kampanye->total_pohon }}</div>
+                                        <div class="col-5 card-dsk4">{{ $kampanye->jumlah_pohon }}</div>
                                     </div>
                                     <div class="d-grid gap-2 mt-2">
                                         <a href="{{ route('detailkampanye2', ['id' => $kampanye->id]) }}"
