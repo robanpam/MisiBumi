@@ -26,11 +26,11 @@
     <!-- CARD BELUM SELESAI -->
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-6 col-12 d-flex flex-column align-items-center justify-content-center">
-                <a href="{{ route('kampanye.request') }}">
+            <a href="{{ route('kampanye.request') }}">
+                <div class="col-md-6 col-12 d-flex flex-column align-items-center justify-content-center">
                     <button class="btn custom-button p-2 mt-5">Ajukan Kampanye</button>
-                </a>
-            </div>
+                </div>
+            </a>
         </div>
         <h3 class="subJudul my-2"><strong>Belum Selesai</strong></h3>
         <div class="row">
