@@ -7,21 +7,19 @@
 @section('pohon_aktif', 'nav-active')
 
 @section('content')
-    <div class="container m-0 p-0">
-        <div class="col-md-6 col-12">
-            <div class="header">
-                <img src="{{ asset('asset/pohon/header.png') }}" alt="" class="img-fluid">
-            </div>
-        </div>
-        <div class="content-section m-5 p-5">
-            <div class="row ms-5 my-3">
-                <div class="col-md-6 tree-details d-flex justify-content-center my-5">
-                    <h1>{{$pohon->nama}}</h1>
-                    <h4><i>{{$pohon->nama_latin}}</i></h4><br>
-                    <p>{{$pohon->deskripsi}}</p>
+    <div class="header w-100">
+        <img src="{{ asset('asset/pohon/header.png') }}" alt="" class="img-fluid w-100">
+    </div>
+    <div class="container mx-auto p-3">
+        <div class="content-section m-5">
+            <div class="row my-3">
+                <div class="col-md-6 tree-details mx-auto my-5">
+                    <h1>{{ $pohon->nama }}</h1>
+                    <h4><i>{{ $pohon->nama_latin }}</i></h4><br>
+                    <p>{{ $pohon->deskripsi }}</p>
                     <p>Syarat Tumbuh:</p>
                     <ul>
-                        @foreach(explode("\n", $pohon->syarat_tumbuh) as $s)
+                        @foreach (explode("\n", $pohon->syarat_tumbuh) as $s)
                             <li>{{ $s }}</li>
                         @endforeach
                     </ul>
@@ -29,7 +27,7 @@
                 <div class="col-md-6 d-flex align-items-center justify-content-center">
                     <div class="image-container">
                         <div class="background-circle"></div>
-                        <img src="{{ asset('asset/pohon/'. $pohon->gambar_pohon) }}">
+                        <img src="{{ asset('asset/pohon/' . $pohon->gambar_pohon) }}">
                     </div>
                 </div>
             </div>
@@ -47,15 +45,77 @@
                 </div> --}}
             {{-- </div> --}}
         </div>
-        <div class="d-flex justify-content-center my-5">
-            <div class="row tree-gallery ms-5">
+        <div class="d-flex justify-content-center">
+            <div class="row tree-gallery mx-auto">
                 <div class="col-12 d-flex align-items-center justify-content-center">
-                    <a href="{{route('pohon.show', 2)}}"><img src="{{ asset('asset/pohon/trembesi.png') }}" alt="Trembesi" class="img-fluid tree-nav"></a>
-                    <a href="{{route('pohon.show', 3)}}"><img src="{{ asset('asset/pohon/cassia.png') }}" alt="Cassia" class="img-fluid tree-nav"></a>
-                    <a href="{{route('pohon.show', 4)}}"><img src="{{ asset('asset/pohon/kenanga.png') }}" alt="Kenanga" class="img-fluid tree-nav"></a>
-                    <a href="{{route('pohon.show', 1)}}"><img src="{{ asset('asset/pohon/beringin.png') }}" alt="Beringin" class="img-fluid tree-nav"></a>
-                    <a href="{{route('pohon.show', 5)}}"><img src="{{ asset('asset/pohon/kiara_payung.png') }}" alt="Kiara Payung" class="img-fluid tree-nav"></a>
-                    <a href="{{route('pohon.show', 6)}}"><img src="{{ asset('asset/pohon/bungur.png') }}" alt="Bungur" class="img-fluid tree-nav" tree-nav></a>
+                    <a href="{{ route('pohon.show', 2) }}"><img src="{{ asset('asset/pohon/trembesi.png') }}" alt="Trembesi"
+                            class="img-fluid tree-nav"></a>
+                    <a href="{{ route('pohon.show', 3) }}"><img src="{{ asset('asset/pohon/cassia.png') }}" alt="Cassia"
+                            class="img-fluid tree-nav"></a>
+                    <a href="{{ route('pohon.show', 4) }}"><img src="{{ asset('asset/pohon/kenanga.png') }}"
+                            alt="Kenanga" class="img-fluid tree-nav"></a>
+                    <a href="{{ route('pohon.show', 1) }}"><img src="{{ asset('asset/pohon/beringin.png') }}"
+                            alt="Beringin" class="img-fluid tree-nav"></a>
+                    <a href="{{ route('pohon.show', 5) }}"><img src="{{ asset('asset/pohon/kiara_payung.png') }}"
+                            alt="Kiara Payung" class="img-fluid tree-nav"></a>
+                    <a href="{{ route('pohon.show', 6) }}"><img src="{{ asset('asset/pohon/bungur.png') }}" alt="Bungur"
+                            class="img-fluid tree-nav" tree-nav></a>
+                </div>
+            </div>
+        </div>
+        <div class="row my-5 mx-auto">
+            <div class="col-12 d-flex flex-column align-items-center justify-content-center">
+                <h1>Daftar Kampanye</h1>
+                <div class="row">
+                    @foreach ($kampanyes->where('pohon_id', $pohon->id)->take(3) as $kampanye)
+                        <div class="col-4 my-3">
+                            <div class="col">
+                                <div class="card h-50">
+                                    <img src="{{ asset('asset/kampanye/' . $kampanye->gambar_kampanye) }}"
+                                        class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title d-flex justify-content-center">{{ $kampanye->nama_kampanye }}
+                                        </h5>
+                                        <div class="row">
+                                            <div class="col-md-5 card-dsk">Campaigner :</div>
+                                            <div class="col-md-7 ms-auto d-flex justify-content-end card-dsk">
+                                                {{ $kampanye->user_name }}</div>
+                                        </div>
+                                        <div class="row card-dsk1">
+                                            <div class="col-md-5">Batas Donasi :</div>
+                                            <div class="col-md-7 ms-auto d-flex justify-content-end">
+                                                {{ \Carbon\Carbon::parse($kampanye->batas_donasi)->translatedFormat('d F Y') }}
+                                            </div>
+                                        </div>
+                                        <div class="progress mt-3 rounded-0">
+                                            <div class="progress-bar" role="progressbar" style="width: 25%"
+                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="d-flex justify-content-start">
+                                                    <div class="bwh1">{{ $kampanye->jumlah_pohon }}</div>
+                                                    <div class="bwh2">Pohon terkumpul</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="d-flex justify-content-end">
+                                                    <div class="bwh1">{{ $kampanye->donasis->count() }}</div>
+                                                    <div class="bwh2">Donatur</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-grid gap-2 mt-3">
+                                            <a href="{{ route('detailkampanye2', ['id' => $kampanye->id]) }}"
+                                                class="btn btn-primary rounded-5">
+                                                <div class="text-btn">Lihat Kampanye</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
