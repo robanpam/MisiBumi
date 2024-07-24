@@ -38,7 +38,7 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="d-flex justify-content-start">
-                                    <p class="bwh1">{{ $kampanye->jumlah_pohon }}</p>
+                                    <p class="bwh1">{{ intdiv($kampanye->donasis->sum('nilai_donasi'), $kampanye->harga_pohon) }}</p>
                                     <p class="bwh2">Pohon terkumpul</p>
                                 </div>
                             </div>
@@ -198,7 +198,7 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="d-flex justify-content-start">
-                                            <div class="bwh1">{{ intdiv($kampanye->sum('nilai_donasi'), $kampanye->harga_pohon) }}</div>
+                                            <div class="bwh1">{{ intdiv($kampanye->donasis->sum('nilai_donasi'), $kampanye->harga_pohon) }}</div>
                                             <div class="bwh2">Pohon terkumpul</div>
                                         </div>
                                     </div>
