@@ -35,6 +35,10 @@
         <h3 class="subJudul my-2"><strong>Belum Selesai</strong></h3>
         <div class="row">
             @foreach ($kampanyes->where('status', 2)->take(6) as $kampanye)
+                @php
+                    $pohon_terkumpul = intdiv($kampanye->sum('nilai_donasi'), $kampanye->harga_pohon);
+                    $persentase_terkumpul = min(100, ($pohon_terkumpul / $kampanye->jumlah_pohon) * 100);
+                @endphp
                 <div class="col-4 my-3">
                     <div class="col">
                         <div class="card h-50">
@@ -54,13 +58,13 @@
                                     </div>
                                 </div>
                                 <div class="progress mt-3 rounded-0">
-                                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25"
+                                    <div class="progress-bar" role="progressbar" style="width: {{ $persentase_terkumpul }}%" aria-valuenow="{{ $persentase_terkumpul }}"
                                         aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="d-flex justify-content-start">
-                                            <div class="bwh1">{{ intdiv($kampanye->donasis->sum('nilai_donasi'), $kampanye->harga_pohon) }}</div>
+                                            <div class="bwh1">{{ $pohon_terkumpul }}</div>
                                             <div class="bwh2">Pohon terkumpul</div>
                                         </div>
                                     </div>
