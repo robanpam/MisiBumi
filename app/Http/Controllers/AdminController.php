@@ -2,12 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Donasi;
+use App\Models\Kampanye;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
+    public function show()
+    {
+        // Total Users with jenis_users_id 1
+        $totalUsers = User::where('jenis_user_id', 1)->count();
+
+        // Total Kampanye with status 0 or 1
+        $totalKampanye = Kampanye::whereIn('status', [0, 1])->count();
+
+        // Total Donasi (sum of nilai_donasi)
+        $totalDonasi = Donasi::sum('nilai_donasi');
+
+        // Total Pending Kampanye with status 3
+        $totalPending = Kampanye::where('status', 3)->count();
+
+        return view('admin.dashboardadmin', compact('totalUsers', 'totalKampanye', 'totalDonasi', 'totalPending'));
+    }
+
     public function admin()
     {
         $item = auth()->user();
@@ -153,7 +172,7 @@ class AdminController extends Controller
         return view('admin.gantiganti.gantiprofile');
     }
 
-    public function updateProfilePicture(Request $request, )
+    public function updateProfilePicture(Request $request,)
     {
         $request->validate([
             'profilePicture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',

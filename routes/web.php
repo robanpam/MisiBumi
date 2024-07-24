@@ -59,7 +59,7 @@ Route::get('/blmSelesai', [KampanyeController::class, 'blmSelesai'])->name('kamp
 Route::get('/udhSelesai', [KampanyeController::class, 'udhSelesai'])->name('kampanye.sudah');
 
 //Dashboard Admin
-Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard.show');
+Route::get('/dashboard', [AdminController::class, 'show'])->name('dashboard.show');
 
 //kelola kampanye
 Route::get('/kelolakampanye', [KampanyeController::class, 'kelola'])->name('kelolakampanye');

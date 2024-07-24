@@ -5,17 +5,16 @@
 @section('dashboard_aktif', 'nav-active')
 
 @section('content')
-<div class="container mt-5 redcolor">
-    <div class="row text-center  ">
-        <div class="col-lg-3 col-md-6 col-sm-12 mb-4 bluecolor">
+<div class="container mt-5">
+    <div class="row text-center">
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
             <div class="card h-100">
                 <div class="card-body">
                     <h5 class="card-title">Total User</h5>
                     <div class="d-flex align-items-center justify-content-center">
-                        <span class="display-6">{{ number_format(40000) }}</span>
+                        <span class="display-6">{{ number_format($totalUsers) }}</span>
                         <i class="bi bi-person-circle" style="font-size: 1.5rem; margin-left: 10px; color: #7C4DFF;"></i>
                     </div>
-                    <p class="text-success mt-3"><i class="bi bi-arrow-up"></i> {{ 27000 }}% Up from yesterday</p>
                 </div>
             </div>
         </div>
@@ -24,10 +23,9 @@
                 <div class="card-body">
                     <h5 class="card-title">Total Kampanye</h5>
                     <div class="d-flex align-items-center justify-content-center">
-                        <span class="display-6">{{ number_format(7000) }}</span>
+                        <span class="display-6">{{ number_format($totalKampanye) }}</span>
                         <i class="bi bi-box-seam" style="font-size: 1.5rem; margin-left: 10px; color: #FFD700;"></i>
                     </div>
-                    <p class="text-success mt-3"><i class="bi bi-arrow-up"></i> {{ 60 }}% Up from past week</p>
                 </div>
             </div>
         </div>
@@ -36,10 +34,9 @@
                 <div class="card-body">
                     <h5 class="card-title">Total Donasi</h5>
                     <div class="d-flex align-items-center justify-content-center">
-                        <span class="display-6 smaller-text">Rp{{ number_format(14000000) }}</span>
+                        <span class="display-6 smaller-text">Rp{{ number_format($totalDonasi) }}</span>
                         <i class="bi bi-graph-up" style="font-size: 1.5rem; margin-left: 10px; color: #00C851;"></i>
                     </div>
-                    <p class="text-danger mt-3"><i class="bi bi-arrow-down"></i> {{ 15423 }}% Down from yesterday</p>
                 </div>
             </div>
         </div>
@@ -48,10 +45,9 @@
                 <div class="card-body">
                     <h5 class="card-title">Total Pending</h5>
                     <div class="d-flex align-items-center justify-content-center">
-                        <span class="display-6">{{ number_format(56000) }}</span>
+                        <span class="display-6">{{ number_format($totalPending) }}</span>
                         <i class="bi bi-clock-history" style="font-size: 1.5rem; margin-left: 10px; color: #FF8800;"></i>
                     </div>
-                    <p class="text-success mt-3"><i class="bi bi-arrow-up"></i> {{ 145000 }}% Up from yesterday</p>
                 </div>
             </div>
         </div>
@@ -160,14 +156,6 @@
     }
     .display-6 {
         font-size: 2.5rem;
-    }
-    /* .redcolor{
-        color: red;
-        background-color: red;
-    }
-    .bluecolor{
-        color: blue;
-        background-color: blue; */
     }
 </style>
 @endsection
