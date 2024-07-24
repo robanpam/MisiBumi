@@ -123,3 +123,6 @@ Route::post('/add/kampanye', [KampanyeController::class, 'addRequest'])->name('k
 
 //Pohon
 Route::get('/pohon/{id}', [PohonController::class, 'show'])->name('pohon.show');
+
+
+Route::get('/artikel', [ArtikelController::class, 'mainArtikel'])->name('mainArtikel');

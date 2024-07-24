@@ -115,4 +115,10 @@ class ArtikelController extends Controller
         return view('artikel.detail_artikel', compact('artikels', 'formattedDate', 'admins1'));
 
     }
+
+    public function mainArtikel(){
+        $admins1 = User::where('jenis_user_id', 2)->get();
+        $artikels = Artikel::all();
+        return view('artikel.mainArtikel', compact('artikels', 'admins1'));
+    }
 }

@@ -123,8 +123,7 @@
                 <div class="col-2 cardArtikel d-flex justify-content-between my-3">
                     <a href="{{ route('detailArtikel', ['id' => $items->id]) }}">
                         <div class="card ">
-                            <img src="{{ $items->gambar_artikel }}"
-                                class="card-img-top mx-auto" alt="...">
+                            <img src="{{ $items->gambar_artikel }}" class="card-img-top mx-auto" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title fw-semibold mb-3">{{ $items->judul_artikel }}</h5>
                                 <div class="row">
@@ -148,11 +147,16 @@
         <!-- BTN -->
         <div class="container">
             <div class="row">
+
                 <div class="col btnLihatLainnya">
-                    <div class="col-auto d-md-flex justify-content-md-end">
-                        <button type="button" class="btn btn-outline-success">Lihat lainnya</button>
-                    </div>
+                    <a href="/artikel" class="no-underline">
+                        <div class="col-auto d-md-flex justify-content-md-end">
+                            <button type="button" class="btn btn-outline-success">Lihat lainnya</button>
+                        </div>
+                    </a>
                 </div>
+
+
             </div>
         </div>
 
@@ -169,11 +173,11 @@
 
             <div id="testimonialsCarousel" class="carousel slide w-100" data-bs-ride="carousel">
                 <div class="carousel-inner">
-    
+
                     @php
                         $chunks = $testimonis->chunk(2);
                     @endphp
-    
+
                     @foreach ($chunks as $chunkIndex => $chunk)
                         <div class="carousel-item {{ $chunkIndex == 0 ? 'active' : '' }}">
                             <div class="row justify-content-center my-3">
@@ -199,7 +203,7 @@
                             </div>
                         </div>
                     @endforeach
-    
+
                 </div>
             </div>
             <button id="nextButton" class="btn1 btn-secondary customBtn">❯</button>
