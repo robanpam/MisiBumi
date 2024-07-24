@@ -14,7 +14,7 @@ class KampanyeController extends Controller
         $kampanyes = Kampanye::whereIn('kampanyes.status', [0, 1, 2]) // Specify table name
             ->join('pohons', 'kampanyes.pohon_id', '=', 'pohons.id')
             ->join('users', 'kampanyes.user_id', '=', 'users.id')
-            ->select('kampanyes.*', 'pohons.nama as pohon_nama', 'users.name as user_name')
+            ->select('kampanyes.*', 'pohons.nama as pohon_nama', 'users.name as user_name', 'pohons.harga_pohon as harga_pohon')
             ->get();
         return view('kampanye.mainKampanye', compact('kampanyes'));
     }
