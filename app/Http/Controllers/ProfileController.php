@@ -10,89 +10,91 @@ use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
-    public function history(){
-        $kampanye_count = User::join('kampanyes', 'users.id' , '=' , 'kampanyes.user_id')
-                ->select(Kampanye::raw('count(kampanyes.id) as kampanye_count'))
-                ->groupBy('users.id')
-                ->where('users.id' , '=', auth()->user()->id)
-                ->get();
+    public function history()
+    {
+        $kampanye_count = User::join('kampanyes', 'users.id', '=', 'kampanyes.user_id')
+            ->select(Kampanye::raw('count(kampanyes.id) as kampanye_count'))
+            ->groupBy('users.id')
+            ->where('users.id', '=', auth()->user()->id)
+            ->get();
 
         // dd($kampanye_count);
-        if($kampanye_count->isEmpty()){
+        if ($kampanye_count->isEmpty()) {
             $kcount = 0;
-        } else{
+        } else {
             $kcount = $kampanye_count[0]->kampanye_count;
         }
 
         $donasi_count = User::join('donasis', 'users.id', '=', 'donasis.user_id')
-                            ->select(Donasi::raw('sum(nilai_donasi) as sum_donasi'))
-                            ->groupBy('users.id')
-                            ->where('users.id', '=', auth()->user()->id)
-                            ->get();
+            ->select(Donasi::raw('sum(nilai_donasi) as sum_donasi'))
+            ->groupBy('users.id')
+            ->where('users.id', '=', auth()->user()->id)
+            ->get();
 
-        if($donasi_count->isEmpty()){
+        if ($donasi_count->isEmpty()) {
             $dcount = 0;
-        } else{
+        } else {
             $dcount = $donasi_count[0]->sum_donasi;
         }
 
         $pohon_count = User::join('kampanyes', 'users.id', '=', 'kampanyes.user_id')
-                            ->select(Kampanye::raw('sum(jumlah_pohon) as jumlah_pohon'))
-                            ->groupBy('users.id')
-                            ->where('users.id', '=', auth()->user()->id)
-                            ->get();
+            ->select(Kampanye::raw('sum(jumlah_pohon) as jumlah_pohon'))
+            ->groupBy('users.id')
+            ->where('users.id', '=', auth()->user()->id)
+            ->get();
 
-                            if($pohon_count->isEmpty()){
-                                $pcount = 0;
-                            } else{
-                                $pcount = $pohon_count[0]->jumlah_pohon;
-                            }
+        if ($pohon_count->isEmpty()) {
+            $pcount = 0;
+        } else {
+            $pcount = $pohon_count[0]->jumlah_pohon;
+        }
         // dd($pohon_count);
         $donasis = Kampanye::join('donasis', 'kampanyes.id', '=', 'donasis.kampanye_id')
-                            ->join('users', 'donasis.user_id', '=', 'users.id')
-                            ->join('metode_pembayarans', 'donasis.metode_pembayaran_id', '=', 'metode_pembayarans.id')
-                            ->where('users.id', '=', auth()->user()->id)
-                            ->select(['nama_kampanye', 'donasis.created_at', 'nilai_donasi', 'nama_metode'])
-                            ->get();
+            ->join('users', 'donasis.user_id', '=', 'users.id')
+            ->join('metode_pembayarans', 'donasis.metode_pembayaran_id', '=', 'metode_pembayarans.id')
+            ->where('users.id', '=', auth()->user()->id)
+            ->select(['nama_kampanye', 'donasis.created_at', 'nilai_donasi', 'nama_metode'])
+            ->get();
         // dd($donasis);
         return view('profile.profile_history', compact('kcount', 'dcount', 'pcount', 'donasis'));
     }
 
-    public function kampanye(){
-        $kampanye_count = User::join('kampanyes', 'users.id' , '=' , 'kampanyes.user_id')
-        ->select(Kampanye::raw('count(kampanyes.id) as kampanye_count'))
-        ->groupBy('users.id')
-        ->where('users.id' , '=', auth()->user()->id)
-        ->get();
+    public function kampanye()
+    {
+        $kampanye_count = User::join('kampanyes', 'users.id', '=', 'kampanyes.user_id')
+            ->select(Kampanye::raw('count(kampanyes.id) as kampanye_count'))
+            ->groupBy('users.id')
+            ->where('users.id', '=', auth()->user()->id)
+            ->get();
 
         // dd($kampanye_count);
-        if($kampanye_count->isEmpty()){
+        if ($kampanye_count->isEmpty()) {
             $kcount = 0;
-        } else{
+        } else {
             $kcount = $kampanye_count[0]->kampanye_count;
         }
 
         $donasi_count = User::join('donasis', 'users.id', '=', 'donasis.user_id')
-                            ->select(Donasi::raw('sum(nilai_donasi) as sum_donasi'))
-                            ->groupBy('users.id')
-                            ->where('users.id', '=', auth()->user()->id)
-                            ->get();
+            ->select(Donasi::raw('sum(nilai_donasi) as sum_donasi'))
+            ->groupBy('users.id')
+            ->where('users.id', '=', auth()->user()->id)
+            ->get();
 
-        if($donasi_count->isEmpty()){
+        if ($donasi_count->isEmpty()) {
             $dcount = 0;
-        } else{
+        } else {
             $dcount = $donasi_count[0]->sum_donasi;
         }
 
         $pohon_count = User::join('kampanyes', 'users.id', '=', 'kampanyes.user_id')
-                            ->select(Kampanye::raw('sum(jumlah_pohon) as jumlah_pohon'))
-                            ->groupBy('users.id')
-                            ->where('users.id', '=', auth()->user()->id)
-                            ->get();
+            ->select(Kampanye::raw('sum(jumlah_pohon) as jumlah_pohon'))
+            ->groupBy('users.id')
+            ->where('users.id', '=', auth()->user()->id)
+            ->get();
 
-       if($pohon_count->isEmpty()){
+        if ($pohon_count->isEmpty()) {
             $pcount = 0;
-        } else{
+        } else {
             $pcount = $pohon_count[0]->jumlah_pohon;
         }
         // dd($pohon_count);
@@ -122,41 +124,42 @@ class ProfileController extends Controller
         return view('profile.profile_kampanye', compact('kcount', 'dcount', 'pcount', 'kampanyes'));
     }
 
-    public function pengaturan(){
-        $kampanye_count = User::join('kampanyes', 'users.id' , '=' , 'kampanyes.user_id')
-        ->select(Kampanye::raw('count(kampanyes.id) as kampanye_count'))
-        ->groupBy('users.id')
-        ->where('users.id' , '=', auth()->user()->id)
-        ->get();
+    public function pengaturan()
+    {
+        $kampanye_count = User::join('kampanyes', 'users.id', '=', 'kampanyes.user_id')
+            ->select(Kampanye::raw('count(kampanyes.id) as kampanye_count'))
+            ->groupBy('users.id')
+            ->where('users.id', '=', auth()->user()->id)
+            ->get();
 
         // dd($kampanye_count);
-        if($kampanye_count->isEmpty()){
+        if ($kampanye_count->isEmpty()) {
             $kcount = 0;
-        } else{
+        } else {
             $kcount = $kampanye_count[0]->kampanye_count;
         }
 
         $donasi_count = User::join('donasis', 'users.id', '=', 'donasis.user_id')
-                            ->select(Donasi::raw('sum(nilai_donasi) as sum_donasi'))
-                            ->groupBy('users.id')
-                            ->where('users.id', '=', auth()->user()->id)
-                            ->get();
+            ->select(Donasi::raw('sum(nilai_donasi) as sum_donasi'))
+            ->groupBy('users.id')
+            ->where('users.id', '=', auth()->user()->id)
+            ->get();
 
-        if($donasi_count->isEmpty()){
+        if ($donasi_count->isEmpty()) {
             $dcount = 0;
-        } else{
+        } else {
             $dcount = $donasi_count[0]->sum_donasi;
         }
 
         $pohon_count = User::join('kampanyes', 'users.id', '=', 'kampanyes.user_id')
-                            ->select(Kampanye::raw('sum(jumlah_pohon) as jumlah_pohon'))
-                            ->groupBy('users.id')
-                            ->where('users.id', '=', auth()->user()->id)
-                            ->get();
+            ->select(Kampanye::raw('sum(jumlah_pohon) as jumlah_pohon'))
+            ->groupBy('users.id')
+            ->where('users.id', '=', auth()->user()->id)
+            ->get();
 
-        if($pohon_count->isEmpty()){
+        if ($pohon_count->isEmpty()) {
             $pcount = 0;
-        } else{
+        } else {
             $pcount = $pohon_count[0]->jumlah_pohon;
         }
 
@@ -165,7 +168,8 @@ class ProfileController extends Controller
         return view('profile.profile_pengaturan', compact('kcount', 'dcount', 'pcount'));
     }
 
-    public function update(Request $request){
+    public function update(Request $request)
+    {
 
         $user = auth()->user();
 
@@ -198,7 +202,8 @@ class ProfileController extends Controller
         return redirect()->back()->with('success', 'Profile berhasil diupdate');
     }
 
-    public function foto(Request $request){
+    public function foto(Request $request)
+    {
         $request->validate([
             'profile_picture' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
@@ -227,7 +232,8 @@ class ProfileController extends Controller
         return back()->with('error', 'Failed to upload profile picture.');
     }
 
-    public function logout(){
+    public function logout()
+    {
         auth()->logout();
         return redirect()->route('beranda.landingPage');
     }
