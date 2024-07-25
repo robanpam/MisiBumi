@@ -77,6 +77,9 @@ body {
     font-size: 15px;
     width: 300px;
 }
+.shadow-light {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Adjust the values to your preference */
+}
 
 .btnDonasi1:hover{
     background-color: #91c28c;

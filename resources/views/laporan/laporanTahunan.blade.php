@@ -7,7 +7,7 @@
 @section('content')
 
     <!-- BANNER -->
-    <div class="bg">
+    <div class="bg" style="background-image: url('{{ asset('asset/utama/laporanTahunan.jpg') }}');">
         <div class="container">
             <div class="row">
                 <div class="col-1"></div>
@@ -74,7 +74,7 @@
                 <div class="card text-center laporanTahunan my-3" style="width: 20.5rem;">
                     <div class="card-body">
                         <h5 class="card-title infoTahunan1"><strong>{{ $data['tahun'] }}</strong></h5>
-                        <div class="row">
+                        <div class="row lihat">
                             <div class="col-4 data">
                                 <p class="angka">{{ $data['total_pohon'] }}</p>
                                 <p class="angka">{{ $data['total_emisi'] }}</p>
@@ -135,7 +135,7 @@
                     </p>
                 </div>
                 <div class="col-3">
-                    <img src="https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2022/11/28/1893984629.jpg"
+                    <img src="{{ asset('asset/utama/laporanT.png') }}"
                         class="rounded mx-auto d-block gbrDampak" alt="...">
                 </div>
             </div>

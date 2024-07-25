@@ -21,7 +21,7 @@ class KampanyeFactory extends Factory
         $files = File::files(public_path('asset/kampanye'));
 
         $fileName = [];
-        foreach($files as $file) {
+        foreach ($files as $file) {
             $fileNames[] = $file->getFilename();
         }
 
@@ -42,7 +42,7 @@ class KampanyeFactory extends Factory
             'jumlah_pohon' => 500,
             'batas_donasi' => now(),
             'deskripsi' => fake()->paragraph(7, true),
-            'gambar_kampanye' => $randomFileName,
+            'gambar_kampanye' => '/asset/kampanye/' . rand(1, 5) . '.jpg',
             'created_at' => $createdAt,
             'updated_at' => $updatedAt,
         ];

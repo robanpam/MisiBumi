@@ -9,7 +9,7 @@ body, html {
 /* BANNER */
 .bg {
     position: relative;
-    background-image: url('https://mommiesdaily.com/wp-content/uploads/2016/12/ajak-anak-menanam-pohon.jpg');
+    /* background-image: url('https://mommiesdaily.com/wp-content/uploads/2016/12/ajak-anak-menanam-pohon.jpg'); */
     background-size: cover;
     background-position: center;
     top: 0;
@@ -19,6 +19,7 @@ body, html {
     height: 50vh;
     opacity: 0.8;
 }
+
 
 .bg::before {
     content: '';
@@ -249,3 +250,6 @@ body, html {
 .judulDampak4 {
     text-align: left;
 }
+
+
+

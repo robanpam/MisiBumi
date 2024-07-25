@@ -9,7 +9,7 @@ body {
 /* BANNER */
 .bg {
     position: relative;
-    background-image: url('https://mommiesdaily.com/wp-content/uploads/2016/12/ajak-anak-menanam-pohon.jpg');
+    /* background-image: url('https://mommiesdaily.com/wp-content/uploads/2016/12/ajak-anak-menanam-pohon.jpg'); */
     background-size: cover;
     background-position: center;
     top: 0;
@@ -27,7 +27,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.70);
+    background-color: rgba(0, 0, 0, 0.50);
     z-index: 0;
 }
 
@@ -44,6 +44,17 @@ body {
 .isiBanner{
     margin-top: 2rem;
     font-size: 16px;
+}
+
+.btnDonasi1{
+    background-color: #01281b;
+    border-color: #01281b;
+    font-size: 15px;
+    width: 300px;
+}
+
+.shadow-light {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Adjust the values to your preference */
 }
 
 
