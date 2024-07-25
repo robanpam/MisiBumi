@@ -126,3 +126,10 @@ Route::get('/pohon/{id}', [PohonController::class, 'show'])->name('pohon.show');
 
 
 Route::get('/artikel', [ArtikelController::class, 'mainArtikel'])->name('mainArtikel');
+
+
+// Leaderboard
+Route::get('/leaderboard', function () {
+    return view('leaderboard');
+});
+

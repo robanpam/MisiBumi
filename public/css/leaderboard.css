@@ -1,0 +1,102 @@
+.subJudul {
+    text-align: center;
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.leader-card{
+    /* background-color: aquamarine; */
+    height: 6rem;
+    border-color: black;
+    border-radius: 10px;
+}
+
+/* NAMA */
+.donatur-avatar {
+    width: 80px;
+    height: 80px;
+    /* background-color: #dee2e6; */
+    border-radius: 50%;
+}
+
+.donatur-avatar img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-top: 0.5rem;
+}
+
+
+.img-top{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.img-top1{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.top1{
+    /* background-color: azure; */
+    margin-top: 5rem;
+}
+
+
+.wreath .circle {
+    border: 10px solid #6AB04A;
+    border-radius: 50%;
+    height: 220px;
+    width: 220px;
+    position: relative;
+    margin-bottom: 10px;
+    margin-left: 15%;
+}
+
+.wreath .circle1{
+    border: 10px solid #6AB04A;
+    border-radius: 50%;
+    height: 270px;
+    width: 270px;
+    position: relative;
+    margin-bottom: 10px;
+    margin-left: 20%;
+}
+
+.wreath .circle::before {
+    /* background-color: aqua; */
+    content: '';
+    background: url('/path/to/leaf.png') no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+}
+.medal {
+    /* position: absolute; */
+    /* top: 10px;
+    right: 10px; */
+    /* background-color: #FFF; */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+}
+
+.nameTop{
+    margin-left: 40%;
+}
+.treeTop{
+    margin-left: 40%;
+}
+

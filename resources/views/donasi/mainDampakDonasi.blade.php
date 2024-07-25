@@ -167,10 +167,6 @@
         <div class="d-flex justify-content-between">
             <button id="prevButton" class="btn1 btn-secondary customBtn">❮</button>
 
-            {{-- @php
-                $testimonis = App\Models\Testimoni::all();
-            @endphp --}}
-
             <div id="testimonialsCarousel" class="carousel slide w-100" data-bs-ride="carousel">
                 <div class="carousel-inner">
 
