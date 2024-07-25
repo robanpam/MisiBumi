@@ -22,7 +22,7 @@ class BerandaController extends Controller
             $donasi = $total_donasi[0]->total_donasi;
         }
 
-        // $donasi = formatNumber($donasi);
+        $donasi = formatNumber($donasi);
 
         $total_kampanye = Kampanye::select(Kampanye::raw('count(id) as total_kampanye'))
             ->get();
@@ -33,7 +33,7 @@ class BerandaController extends Controller
             $kampanye = $total_kampanye[0]->total_kampanye;
         }
 
-        // $kampanye = formatNumber($kampanye);
+        $kampanye = formatNumber($kampanye);
 
         $total_pohon = Kampanye::where('status', 0)
             ->select(Kampanye::raw('sum(jumlah_pohon) as total_pohon'))
@@ -45,7 +45,7 @@ class BerandaController extends Controller
             $pohon = $total_pohon[0]->total_pohon;
         }
 
-        // $pohon = formatNumber($pohon);
+        $pohon = formatNumber($pohon);
 
         return view('beranda', compact('pohon', 'donasi', 'kampanye', 'kampanyes'));
     }
@@ -62,7 +62,7 @@ class BerandaController extends Controller
             $donasi = $total_donasi[0]->total_donasi;
         }
 
-        // $donasi = formatNumber($donasi);
+        $donasi = formatNumber($donasi);
 
         $total_kampanye = Kampanye::select(Kampanye::raw('count(id) as total_kampanye'))
             ->get();
@@ -73,7 +73,7 @@ class BerandaController extends Controller
             $kampanye = $total_kampanye[0]->total_kampanye;
         }
 
-        // $kampanye = formatNumber($kampanye);
+        $kampanye = formatNumber($kampanye);
 
         $total_pohon = Kampanye::select(Kampanye::raw('sum(jumlah_pohon) as total_pohon'))
             ->get();
@@ -88,7 +88,7 @@ class BerandaController extends Controller
             $pohon = $total_pohon[0]->total_pohon;
         }
 
-        // $pohon = formatNumber($pohon);
+        $pohon = formatNumber($pohon);
 
         return view('landing_page', compact('pohon', 'donasi', 'kampanye'));
     }
