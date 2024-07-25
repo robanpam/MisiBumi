@@ -130,13 +130,14 @@
 }
 
 /* BUTTON */
-.btn-primary {
+.btn-primary1 {
     width: auto;
     border-radius: 20px;
     font-size: 15px;
     background-color: #114232;
     border-color: #114232;
     font-weight: 600;
+    color: white;
 }
 
 .img-caro{
@@ -145,4 +146,19 @@
 
 .carousel-item {
     transition: transform 1s ease, opacity 1s ease; /* Custom animation */
+}
+
+.laporan{
+    align-items: center;
+    width: 20rem;
+    border-radius: 20px;
+    font-size: 15px;
+    background-color: white;
+    border-color: #114232;
+    font-weight: 600;
+    color: #114232;
+}
+.laporanTahunan{
+    background-color: antiquewhite;
+    align-items: center;
 }

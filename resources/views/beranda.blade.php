@@ -61,6 +61,16 @@
                 <div class="green-line"></div>
             </div>
         </div>
+        <div class="row">
+            <div class="d-flex justify-content-center mt-3">
+                <div class="d-grid gap-2">
+                    <a href="{{ route('laporan')}}"
+                        class="btn btn-primary rounded-5 laporan">
+                        <div class="text-btn">Lihat Laporan</div>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="row section2">
         <div class="col-12 d-flex flex-column align-items-center justify-content-center">
@@ -111,7 +121,7 @@
                                 </div>
                                 <div class="d-grid gap-2 mt-3">
                                     <a href="{{ route('detailkampanye2', ['id' => $kampanye->id]) }}"
-                                        class="btn btn-primary rounded-5">
+                                        class="btn btn-primary1 rounded-5">
                                         <div class="text-btn">Lihat Kampanye</div>
                                     </a>
                                 </div>
