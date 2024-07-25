@@ -167,3 +167,13 @@ html {
     border-color: #114232;
     font-weight: 600;
 }
+
+.campaign-title {
+    color: #114232;
+    text-align: left;
+}
+
+.line {
+    width: 100vw;
+    height: 4vw;
+}

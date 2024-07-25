@@ -63,9 +63,10 @@
                 </div>
             </div>
         </div>
-        <div class="row my-5 mx-auto">
-            <div class="col-12 d-flex flex-column align-items-center justify-content-center">
-                <h1>Daftar Kampanye</h1>
+        <div class="line"></div>
+        <div class="row my-5 mx-auto m-0 p-0">
+            <div class="col-12 d-flex flex-column justify-content-center">
+                <h1 class="campaign-title">Daftar Kampanye</h1>
                 <div class="row">
                     @foreach ($kampanyes->where('pohon_id', $pohon->id)->take(3) as $kampanye)
                         <div class="col-4 my-3">
