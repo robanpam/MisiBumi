@@ -16,8 +16,9 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users', 'id');
             $table->foreignId('kampanye_id')->constrained('kampanyes', 'id');
             $table->integer('nilai_donasi');
-            $table->foreignId('metode_pembayaran_id')->constrained('metode_pembayarans', 'id');
-            $table->string('status')->nullable();
+            $table->string('metode_pembayaran_id')->nullable();
+            $table->tinyInteger('status')->nullable();
+            $table->string('snap_token')->nullable();
             $table->timestamps();
         });
     }

@@ -61,7 +61,11 @@
                     <div class="col-11">
                         <div class="d-flex justify-content-between">
                             <button type="button" class="btn btn-outline-success btnShare" id="btnShare" data-link="{{ route('detailkampanye2', ['id' => $kampanye->id]) }}">Share</button>
-                            <button type="button" class="btn btn-success btnDonasi"><strong>Donasi</strong></button>
+                            <form method="POST" action="{{ route('donasi.pilihNominal') }}" enctype="multipart/form-data">
+                                @csrf
+                                <input type="hidden" value="{{ $kampanye->id }}" id='kampanye_id' name="kampanye_id">
+                            <button type="submit" class="btn btn-success btnDonasi"><strong>Donasi</strong></button>
+                            </form>
                         </div>
                         <div class="alert alert-success mt-3 d-none" id="shareAlert" role="alert">
                             Link berhasil dicopy!

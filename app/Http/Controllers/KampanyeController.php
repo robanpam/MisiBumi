@@ -15,9 +15,9 @@ class KampanyeController extends Controller
             ->join('pohons', 'kampanyes.pohon_id', '=', 'pohons.id')
             ->join('users', 'kampanyes.user_id', '=', 'users.id')
             ->leftJoin('donasis', 'kampanyes.id', '=', 'donasis.kampanye_id')
-            ->select('kampanyes.*', 
-            'pohons.nama as pohon_nama', 
-            'users.name as user_name', 
+            ->select('kampanyes.*',
+            'pohons.nama as pohon_nama',
+            'users.name as user_name',
             'donasis.nilai_donasi as nilai_donasi',
             'pohons.harga_pohon as harga_pohon')
             ->get();

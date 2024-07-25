@@ -124,12 +124,15 @@ Route::post('/add/kampanye', [KampanyeController::class, 'addRequest'])->name('k
 //Pohon
 Route::get('/pohon/{id}', [PohonController::class, 'show'])->name('pohon.show');
 
-
+//Artikel
 Route::get('/artikel', [ArtikelController::class, 'mainArtikel'])->name('mainArtikel');
-
 
 // Leaderboard
 Route::get('/leaderboard', function () {
     return view('leaderboard');
 });
 
+//Donasi
+Route::post('/donasi', [DonasiController::class, 'pilihNominal'])->name('donasi.pilihNominal');
+Route::post('/store', [DonasiController::class, 'store'])->name('donasi.store');
+Route::get('/detail/{donasi}', [DonasiController::class, 'show'])->name('donasi.show_detail');

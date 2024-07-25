@@ -63,4 +63,124 @@ class DonasiController extends Controller
         // Kirim data artikel ke view
         return view('donasi.mainDampakDonasi', compact('artikels', 'admins1', 'kampanye', 'pohon', 'donasi', 'testimonis'));
     }
+
+    public function pilihNominal(Request $request){
+        // dd($request);
+        $kampanye_id = $request->kampanye_id;
+        return view('donasi.pilih_nominal', compact('kampanye_id'));
+    }
+
+    public function store(Request $request)
+    {
+        // $validatedData = $request->validate([
+        //     'ticket_id' => 'required',
+        //     'buyer_name' => 'required',
+        //     'email' => 'required|email',
+        //     'ticket_date' => 'required|date|after_or_equal:' . Carbon::today()->toDateString(),
+        //     'phone' => 'required',
+        //     'quantity' => 'required|integer',
+        // ]);
+
+        // $ticket = Ticket::findOrFail($validatedData['ticket_id']);
+        // $price = $ticket->price;
+
+        // $validatedData['user_id'] = auth()->user()->id;
+
+        // $transaction = Transaction::create(
+        //     $validatedData
+        // );
+
+        // $gross_amount = $price * $transaction['quantity'];
+
+        // dd($request);
+
+        $donasi = Donasi::create([
+            'user_id' => $request->user_id,
+            'kampanye_id' => $request->kampanye_id,
+            'nilai_donasi' => $request->nilai_donasi,
+        ]);
+
+        $user = User::find($request->user_id);
+
+        \Midtrans\Config::$serverKey = 'SB-Mid-server-v1ZFnN5XaCq6P3mDt5soEde6';
+        \Midtrans\Config::$isProduction = false;
+        \Midtrans\Config::$isSanitized = true;
+        \Midtrans\Config::$is3ds = true;
+
+        $params = [
+            'transaction_details' => [
+                'order_id' => $donasi->id,
+                'gross_amount' => $request->nilai_donasi,
+            ],
+            'customer_details' => [
+                'first_name' => $user->name,
+                'email' => $user->email,
+                'phone' => $user->nomor_telepon
+            ],
+        ];
+
+
+        try {
+            $snapToken = \Midtrans\Snap::getSnapToken($params);
+            $donasi->snap_token = $snapToken;
+            $donasi->save();
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Failed to process payment: ' . $e->getMessage()], 500);
+        }
+
+        return redirect()->route('donasi.show_detail', ['donasi' => $donasi->id]);
+        // return redirect()->route('donasi.show_detail', $donasi->id);
+    }
+
+    public function show(Donasi $donasi)
+    {
+        $detail = Donasi::join('kampanyes', 'donasis.kampanye_id', '=', 'kampanyes.id')
+            ->where('donasis.id', $donasi->id)
+            ->first();
+
+        return view(
+            'donasi.detail_donasi',
+            [
+                // "donasi" => $donasi,
+                "detail" => $detail
+            ]
+        );
+    }
+
+    public function callback(Request $request)
+    {
+        // Check if the status code is '200'
+        if ($request->status_code == '200') {
+            // Find the transaction by order_id
+            $donasi = Donasi::find($request->order_id);
+
+            $mp = 0;
+            if($request->payment_type == 'qris'){
+                $mp = 1;
+            }
+
+            $donasi->metode_pembayaran_id = $mp;
+
+
+            // // Debugging: Check if transaction is null
+            // if ($donasi === null) {
+            //     \Log::error('Donasi not found: ' . $request->order_id);
+            //     return response()->json(['error' => 'Donasi not found'], 404);
+            // }
+
+            // Update the transaction status
+            $donasi->status = '1';
+            $donasi->save();
+        }
+        //     // Debugging: Log the transaction update
+        //     \Log::info('Donasi updated: ' . $donasi->id . ' to status: 1/Paid');
+
+        //     return response()->json(['success' => 'Donasi updated successfully' . $request->issuer], 200);
+        // } else {
+        //     // Debugging: Log invalid status code
+        //     \Log::error('Invalid status code: ' . $request->status_code . ' for order_id: ' . $request->order_id);
+        //     return response()->json(['error' => 'Invalid status code'], 400);
+        // }
+
+    }
 }
