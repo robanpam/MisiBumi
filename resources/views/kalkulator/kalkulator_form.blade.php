@@ -45,15 +45,6 @@
                             @enderror
                         </div>
                     </div>
-                    <!-- @if ($jenis == 'kendaraan')
-                        <div>
-                            <label for="jarak" class="my-2">Frekuensi</label>
-                            <div class="d-block position-relative">
-                                <input type="text" id="jarak" class="d-block calc-form p-3">
-                                <span class="span_attribute">.km</span>
-                            </div>
-                        </div>
-                    @endif -->
                     <div class="d-flex justify-content-center">
                         <button type="submit" class="btn btn-lanjut mt-3">Lanjut</button>
                     </div>

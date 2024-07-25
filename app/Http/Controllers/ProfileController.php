@@ -48,6 +48,11 @@ class ProfileController extends Controller
         } else {
             $pcount = $pohon_count[0]->jumlah_pohon;
         }
+
+        $dcount = formatNumber($dcount);
+        $pcount = formatNumber($pcount);
+        $kcount = formatNumber($kcount);
+
         // dd($pohon_count);
         $donasis = Kampanye::join('donasis', 'kampanyes.id', '=', 'donasis.kampanye_id')
             ->join('users', 'donasis.user_id', '=', 'users.id')
@@ -120,6 +125,9 @@ class ProfileController extends Controller
         //                         ->get();
 
         $kampanyes = Kampanye::select('*')->where('kampanyes.user_id', '=', auth()->user()->id)->get();
+        $dcount = formatNumber($dcount);
+        $pcount = formatNumber($pcount);
+        $kcount = formatNumber($kcount);
 
         return view('profile.profile_kampanye', compact('kcount', 'dcount', 'pcount', 'kampanyes'));
     }
@@ -163,6 +171,9 @@ class ProfileController extends Controller
             $pcount = $pohon_count[0]->jumlah_pohon;
         }
 
+        $dcount = formatNumber($dcount);
+        $pcount = formatNumber($pcount);
+        $kcount = formatNumber($kcount);
         // dd($pohon_count);
 
         return view('profile.profile_pengaturan', compact('kcount', 'dcount', 'pcount'));

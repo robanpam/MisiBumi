@@ -18,8 +18,9 @@
                         yang lebih cerah.Inilah bagaimana kontribusi Anda membuat perubahan besar
                     </p>
                     <div class="row d-flex justify-content-center">
-                        <button type="button" class="btn btn-success btnDonasi1 rounded-5"><strong>Donasi
-                                Sekarang</strong></button>
+                        <a href="#">
+                            <button type="button" class="btn btn-success btnDonasi1 rounded-5 mt-1 shadow-light"><strong>Donasi Sekarang</strong></button>
+                        </a>
                     </div>
                 </div>
                 <div class="col-2"></div>

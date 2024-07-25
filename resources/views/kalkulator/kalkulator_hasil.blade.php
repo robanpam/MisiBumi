@@ -19,10 +19,10 @@
             <div class="hasil_calc p-3">
                 <h6>Rincian</h6>
                 <div class="calc_type">
-                    <p class="m-0 mb-1">{{ $jenis == 'Kendaraan Bermotor' ? 'Konsumsi Bahan Bakar' : 'Daya'}} : {{ $jarak }} {{ $jenis == 'Kendaraan Bermotor' ? 'liter/km' : 'kWh'}}</p>
+                    <p class="m-0 mb-1">{{ $namaJenis == 'Kendaraan Bermotor' ? 'Konsumsi Bahan Bakar' : 'Daya'}} : {{ $jarak }} {{ $namaJenis == 'Kendaraan Bermotor' ? 'liter/km' : 'kWh'}}</p>
                 </div>
                 <div class="calc_type">
-                    <p class="m-0 mb-1">Penggunaan : {{ $frekuensi }} {{ $jenis == 'Kendaraan Bermotor' ? 'km' : 'jam/siklus'}}</p>
+                    <p class="m-0 mb-1">Penggunaan : {{ $frekuensi }} {{ $namaJenis == 'Kendaraan Bermotor' ? 'km' : 'jam/siklus'}}</p>
                 </div>
                 <div class="calc_type">
                     <p class="m-0 mb-1">Emisi : {{ $emisi }} kg CO<span class="subscript">2</span></p>

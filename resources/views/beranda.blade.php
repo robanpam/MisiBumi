@@ -86,7 +86,7 @@
                 <div class="col-4 my-3">
                     <div class="col">
                         <div class="card h-50">
-                            <img src="{{ asset('asset/kampanye/' . $kampanye->gambar_kampanye) }}" class="card-img-top"
+                            <img src="{{ $kampanye->gambar_kampanye }}" class="card-img-top"
                                 alt="...">
                             <div class="card-body">
                                 <h5 class="card-title d-flex justify-content-center">{{ $kampanye->nama_kampanye }}</h5>
