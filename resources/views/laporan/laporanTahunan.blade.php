@@ -71,13 +71,13 @@
         <div class="row d-flex justify-content-between">
 
             @foreach ($dataPerTahun as $year => $data)
-                <div class="card text-center laporanTahunan my-3" style="width: 20rem;">
+                <div class="card text-center laporanTahunan my-3" style="width: 20.5rem;">
                     <div class="card-body">
                         <h5 class="card-title infoTahunan1"><strong>{{ $data['tahun'] }}</strong></h5>
                         <div class="row">
                             <div class="col-4 data">
                                 <p class="angka">{{ $data['total_pohon'] }}</p>
-                                <p class="angka">1.57Jt</p>
+                                <p class="angka">{{ $data['total_emisi'] }}</p>
                                 <p class="angka">{{ $data['total_kampanye'] }}</p>
                                 <p class="angka">{{ $data['total_donasi'] }}</p>
                                 <p class="angka">{{ $data['total_user'] }}</p>

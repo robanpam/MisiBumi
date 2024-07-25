@@ -28,7 +28,11 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
-        }
+        },
+        "files": [
+            "app/Http/Helpers/NumberFormatter.php",
+            "app/Http/Helpers/EmissionFormatter.php"
+        ]
     },
     "scripts": {
         "post-autoload-dump": [

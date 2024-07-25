@@ -18,6 +18,7 @@ class KalkulatorController extends Controller
         // dd($jenis);
         $items = Kalkulator::join('emisis', 'emisis.id', '=', 'kalkulators.emisi_id')
                         ->where('emisis.nama', '=', $jenis)
+                        ->select(['kalkulators.id as id', 'nama_produk', 'foto_produk', 'emisi_id', 'faktor_emisi', 'satuan'])
                         ->get();
 
         // dd($items);
@@ -27,15 +28,14 @@ class KalkulatorController extends Controller
     public function result (KalkulatorRequest $request){
         $request->validated();
 
-        $item = Kalkulator::find($request->option);
-        $jenises = Emisi::all();
-        $jenis = $jenises->where('id', '=', 'item->emisi_id');
-
+        $option = $request->input('option');
+        $item = Kalkulator::where('id', '=', $option)->first();
+        $jenis = Emisi::where('id', '=', $item->emisi_id)->first();
         $emisi = $item->faktor_emisi * $request->frekuensi * $request->jarak;
         $frekuensi = $request->frekuensi;
         $jarak = $request->jarak;
-        // dd($emisi);
+        $namaJenis = $jenis->nama;
 
-        return view('kalkulator.kalkulator_hasil', compact('item', 'emisi', 'jarak', 'frekuensi', 'jenis'));
+        return view('kalkulator.kalkulator_hasil', compact('item', 'emisi', 'jarak', 'frekuensi', 'namaJenis'));
     }
 }

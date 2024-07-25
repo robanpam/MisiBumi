@@ -30,16 +30,21 @@ class KampanyeFactory extends Factory
         $userCount = User::count();
         $randomUserId = $userCount > 0 ? rand(1, $userCount) : 1;
 
+        $createdAt = fake()->dateTimeBetween('2021-01-01', '2024-12-31');
+        $updatedAt = fake()->dateTimeBetween($createdAt, '2024-12-31');
+
         return [
             'user_id' => $randomUserId,
             'nama_kampanye' => fake()->sentence(3, true),
             'lokasi_kampanye' => fake()->country(),
             'pohon_id' => rand(1, 6),
-            'status' => rand(0, 3),
+            'status' => 0,
             'jumlah_pohon' => 500,
             'batas_donasi' => now(),
             'deskripsi' => fake()->paragraph(7, true),
             'gambar_kampanye' => $randomFileName,
+            'created_at' => $createdAt,
+            'updated_at' => $updatedAt,
         ];
     }
 }
