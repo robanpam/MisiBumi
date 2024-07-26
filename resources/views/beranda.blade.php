@@ -51,7 +51,7 @@
                 <div class="green-line"></div>
             </div>
             <div class="col-md-3 col-6 d-flex flex-column justify-content-center align-items-center stats">
-                <h1>231,4 ton</h1>
+                <h1>{{ $emisi }}</h1>
                 <p>Emisi Terserap</p>
                 <div class="green-line"></div>
             </div>

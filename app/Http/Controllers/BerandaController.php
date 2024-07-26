@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Donasi;
 use App\Models\Kampanye;
+use Illuminate\Support\Facades\DB;
 use App\Models\Pohon;
 
 class BerandaController extends Controller
@@ -47,7 +48,23 @@ class BerandaController extends Controller
 
         $pohon = formatNumber($pohon);
 
-        return view('beranda', compact('pohon', 'donasi', 'kampanye', 'kampanyes'));
+        $emisi = Kampanye::join('pohons', 'pohons.id', '=', 'kampanyes.pohon_id')
+                ->select('kampanyes.status' , DB::raw('sum(jumlah_pohon * serapan_karbon * DATEDIFF(CURDATE() , kampanyes.updated_at)) as Serapan'))
+                ->where('kampanyes.status', '=', 0)
+                ->groupBy('kampanyes.status')
+                ->get();
+
+        // dd($emisi->serapan);
+
+        if ($emisi->isEmpty()){
+            $emisi = 0;
+        } else{
+            $emisi = formatEmission($emisi[0]->Serapan);
+        }
+
+
+
+        return view('beranda', compact('pohon', 'donasi', 'kampanye','emisi', 'kampanyes'));
     }
 
     public function landingPage()

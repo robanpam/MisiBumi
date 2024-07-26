@@ -7,12 +7,17 @@ use App\Models\Kampanye;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
     public function show()
     {
         // Total Users with jenis_users_id 1
+
+        $startYear = 2021;
+        $endYear = 2024;
+
         $totalUsers = User::where('jenis_user_id', 1)->count();
 
         // Total Kampanye with status 0 or 1
@@ -24,7 +29,19 @@ class AdminController extends Controller
         // Total Pending Kampanye with status 3
         $totalPending = Kampanye::where('status', 3)->count();
 
-        return view('admin.dashboardadmin', compact('totalUsers', 'totalKampanye', 'totalDonasi', 'totalPending'));
+        $donasiTahunan = [];
+
+        foreach(range($startYear, $endYear) as $year){
+            $donasiTahunan[$year] = Donasi::select(DB::raw('YEAR(created_at) as tahun'),DB::raw('MONTH(created_at) as bulan'), DB::raw('sum(nilai_donasi) as total_donasi'))
+                            ->whereYear('created_at', '=', $year)
+                            ->groupBy('tahun', 'bulan')
+                            ->get();
+        }
+
+        
+        // dd($donasiTahunan);
+
+        return view('admin.dashboardadmin', compact('totalUsers', 'totalKampanye', 'totalDonasi', 'totalPending', 'donasiTahunan', 'startYear', 'endYear'));
     }
 
     public function admin()
