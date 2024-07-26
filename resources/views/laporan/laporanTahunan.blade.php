@@ -2,7 +2,7 @@
 
 @section('css', asset('css/laporan/laporanTahunan.css'))
 
-
+@section('beranda_aktif', 'nav-active')
 
 @section('content')
 

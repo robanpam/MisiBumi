@@ -13,12 +13,6 @@
                 Misi Bumi
             </a>
             @endcan
-            @can('admin-gate')
-            <a class="navbar-brand color logo-text" href="{{ route('dashboard.show') }}">
-                <img src="{{ asset('asset/beranda/Misi Bumi Logo.png') }}" class="misibumi-logo" alt="">
-                Misi Bumi
-            </a>
-            @endcan
         @endauth
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -98,26 +92,6 @@
                         </a>
                     @endif
                     @endcan
-                    @can('admin-gate')
-                    <li class="nav-item">
-                        <a class="nav-link color @yield('dashboard_aktif')" aria-current="page" href="{{route('dashboard.show')}}">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link color @yield('kelolak_aktif') ps-lg-3" aria-current="page" href="{{route('kelolakampanye')}}">Kampanye</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link color @yield('kelolaa_aktif') ps-lg-3" aria-current="page" href="{{route('kelolaartikel')}}">Artikel</a>
-                    </li>
-                    <a class="nav-link color @yield('history_aktif') ps-lg-3" aria-current="page"
-                    href="{{ route('profileadmin') }}">
-                    <div class="d-flex align-items-center">
-                        <img src="{{ asset('storage/profile_pictures/' . auth()->user()->profile_photo) }}" class="nav-profile" alt="">
-                        <div class="ms-2">
-                            {{ auth()->user()->name }}
-                        </div>
-                    </div>
-                </a>
-                @endcan
                 @endauth
             </ul>
         </div>

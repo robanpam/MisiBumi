@@ -146,6 +146,10 @@
 
 .carousel-item {
     transition: transform 1s ease, opacity 1s ease; /* Custom animation */
+    /* border: 5px solid #000; */
+    /* box-shadow: 0 4px 8px rgba(0,0,0,0.5); Example shadow */
+    /* border-radius: 10px;*/
+    filter: brightness(0.5);
 }
 
 .laporan{
@@ -161,4 +165,18 @@
 .laporanTahunan{
     background-color: antiquewhite;
     align-items: center;
+}
+
+.caro-contain{
+    position: relative;
+}
+
+.centered-title{
+    position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 8rem;
+        /* font-weight: bold; */
+        text-align: center;
 }

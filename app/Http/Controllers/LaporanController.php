@@ -58,7 +58,7 @@ class LaporanController extends Controller
 
         $emisiPerTahun = Kampanye::join('pohons', 'pohons.id', '=', 'kampanyes.pohon_id')
             ->select(DB::raw('YEAR(kampanyes.updated_at) as tahun'), 
-            DB::raw('SUM(jumlah_pohon * serapan_karbon * DATEDIFF(LAST_DAY(CONCAT(YEAR(kampanyes.updated_at), "-12-01")), kampanyes.updated_at)) as serapan_karbon'),
+            DB::raw('SUM(jumlah_pohon * serapan_karbon * ABS(DATEDIFF(CONCAT(YEAR(kampanyes.updated_at), "-12-01"), kampanyes.updated_at))) as serapan_karbon'),
             DB::raw('SUM(jumlah_pohon * serapan_karbon * 365) as prev_year'),
             )
             ->where('kampanyes.status', '=', 0)
@@ -71,11 +71,11 @@ class LaporanController extends Controller
         $totalEmissions = collect($emisiPerTahun)->map(function($item) use ($emisiPerTahun) {
             $prevYear = $emisiPerTahun->firstWhere('tahun', $item->tahun - 1);
             $item->total_emisi = $item->serapan_karbon;
-            
             if ($prevYear) {
                 $item->total_emisi += $prevYear->prev_year;
             }
             
+            // dd($prevYear);
             return $item;
         });
 

@@ -1,6 +1,8 @@
-@extends('layout.master')
+@extends('layout.admin')
 
 @section('title', 'User Profile')
+
+@section('profile_aktif', 'active')
 
 @section('content')
 <div class="container mt-4">

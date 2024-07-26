@@ -1,8 +1,8 @@
-@extends('layout.master')
+@extends('layout.admin')
 
 @section('title', 'Detail Kampanye')
 
-@section('kelolak_aktif', 'nav-active')
+@section('kelolak_aktif', 'active')
 
 @section('content')
     <div class="container d-flex justify-content-center align-items-center full-height rounded-card">

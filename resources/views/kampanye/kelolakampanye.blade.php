@@ -1,22 +1,19 @@
-@extends('layout.master')
+@extends('layout.admin')
 
 @section('title', 'Kelola Kampanye')
 
-@section('kelolak_aktif', 'nav-active')
+@section('kelolak_aktif', 'active')
 
 @section('content')
 <div class="container mt-4">
-    <!-- Title Section -->
     <div class="row mb-4">
         <div class="col-12">
             <h1>Kelola Kampanye</h1>
         </div>
     </div>
 
-    <!-- Filter and View Request Section -->
     <div class="row mb-4">
         <div class="col-12 d-flex justify-content-between align-items-center">
-            <!-- View Request Button -->
             <div class="col-10"></div>
             <div>
                 <button class="btn btn-light d-flex align-items-center" style="box-shadow: 3px 3px black" data-bs-toggle="modal" data-bs-target="#requestModal" id="viewRequestButton">
@@ -61,7 +58,6 @@
     </div>
 </div>
 
-<!-- Modal -->
 <div class="modal fade" id="requestModal" tabindex="-1" aria-labelledby="requestModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -132,7 +128,6 @@
 @endsection
 
 @section('js')
-<script>
     document.getElementById('viewRequestButton').addEventListener('click', function() {
         fetch("{{ route('fetchPendingKampanyes') }}")
             .then(response => response.json())
@@ -194,5 +189,4 @@
                 });
             });
     });
-</script>
 @endsection

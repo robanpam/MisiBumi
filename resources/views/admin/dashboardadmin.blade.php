@@ -1,8 +1,8 @@
-@extends('layout.master')
+@extends('layout.admin')
 
 @section('title', 'Dashboard')
 
-@section('dashboard_aktif', 'nav-active')
+@section('dashboard_aktif', 'active')
 
 @section('content')
 <div class="container mt-5">

@@ -1,8 +1,8 @@
-@extends('layout.master')
+@extends('layout.admin')
 
 @section('title', 'Kelola artikel')
 
-@section('kelolaa_aktif', 'nav-active')
+@section('kelolaa_aktif', 'active')
 
 @section('content')
 <div class="container mt-4">

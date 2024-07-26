@@ -1,8 +1,8 @@
-@extends('layout.master')
+@extends('layout.admin')
 
 @section('title', 'Request Kampanye')
 
-@section('kelolak_aktif', 'nav-active')
+@section('kelolak_aktif', 'active')
 
 @section('content')
 <div class="container rounded-card">

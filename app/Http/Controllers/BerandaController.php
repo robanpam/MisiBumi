@@ -49,12 +49,16 @@ class BerandaController extends Controller
         $pohon = formatNumber($pohon);
 
         $emisi = Kampanye::join('pohons', 'pohons.id', '=', 'kampanyes.pohon_id')
-                ->select('kampanyes.status' , DB::raw('sum(jumlah_pohon * serapan_karbon * DATEDIFF(CURDATE() , kampanyes.updated_at)) as Serapan'))
+                ->select('kampanyes.status' , DB::raw('sum(jumlah_pohon * serapan_karbon * ABS(DATEDIFF(kampanyes.updated_at, CURDATE()))) as Serapan'))
                 ->where('kampanyes.status', '=', 0)
                 ->groupBy('kampanyes.status')
                 ->get();
+        
+        // $cekdiff = Kampanye::select(DB::raw('DATEDIFF(updated_at, CURDATE()) as sum'))
+        //     ->where('kampanyes.status', 0)
+        //     ->get();
 
-        // dd($emisi->serapan);
+        // dd($cekdiff[2]->sum);
 
         if ($emisi->isEmpty()){
             $emisi = 0;
