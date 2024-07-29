@@ -35,6 +35,9 @@
     width: 40rem;
     height: 10rem;
     background-color: gray;
+    background-image: url('../asset/beranda/bca.jpg');
+    background-position: center;
+    background-size: cover;
 }
 
 .carousel-item {
@@ -44,8 +47,8 @@
 #map {
     /* position: relative; */
     /* width: 100%; */
-    height: calc(10vh + 25vw);
-    aspect-ratio: 4/2;
+    height: calc(10vh + 35vw);
+    aspect-ratio: 2/1;
     /* background: url('/asset/beranda/indonesia_map.png') no-repeat center center;
     background-size: cover; */
 }
@@ -141,11 +144,11 @@
 }
 
 .img-caro{
-    height: 45vw;
+    height: 43vw;
 }
 
 .carousel-item {
-    transition: transform 1s ease, opacity 1s ease; /* Custom animation */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Custom animation */
     /* border: 5px solid #000; */
     /* box-shadow: 0 4px 8px rgba(0,0,0,0.5); Example shadow */
     /* border-radius: 10px;*/

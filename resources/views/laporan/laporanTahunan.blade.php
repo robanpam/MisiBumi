@@ -32,15 +32,15 @@
             <div class="col-6 ">
                 <div class="d-flex justify-content-end mt-2">
                     <div class="penjelasan1">Pohon terkumpul</div>
-                    <div class="angka1"><strong>45</strong></div>
+                    <div class="angka1"><strong>{{ $dataAll['pohon'] }}</strong></div>
                 </div>
                 <div class="d-flex justify-content-end mt-2">
                     <div class="penjelasan1">Emisi karbon terserap</div>
-                    <div class="angka1"><strong>1.57M</strong></div>
+                    <div class="angka1"><strong>{{ $dataAll['emisi'] }}</strong></div>
                 </div>
                 <div class="d-flex justify-content-end mt-2">
                     <div class="penjelasan1">Kampanye alam</div>
-                    <div class="angka1"><strong>837</strong></div>
+                    <div class="angka1"><strong>{{ $dataAll['kampanye'] }}</strong></div>
                 </div>
 
             </div>
@@ -49,15 +49,15 @@
 
             <div class="col-6">
                 <div class="d-flex justify-content-start mt-2">
-                    <div class="angka2"><strong>5,89M</strong></div>
+                    <div class="angka2"><strong>{{ $dataAll['donasi'] }}</strong></div>
                     <div class="penjelasan2">Donasi terkumpul</div>
                 </div>
                 <div class="d-flex justify-content-start mt-2">
-                    <div class="angka2"><strong>82K</strong></div>
+                    <div class="angka2"><strong>{{ $dataAll['user']}}</strong></div>
                     <div class="penjelasan2">Sahabat bumi</div>
                 </div>
                 <div class="d-flex justify-content-start mt-2">
-                    <div class="angka2"><strong>48</strong></div>
+                    <div class="angka2"><strong>{{ $dataAll['kampanye'] }}</strong></div>
                     <div class="penjelasan2">Lokasi penghijauan</div>
                 </div>
             </div>

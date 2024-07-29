@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Donasi;
 use App\Models\Kampanye;
+use App\Models\Pohon;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -96,6 +97,27 @@ class LaporanController extends Controller
             $i--;
         }
 
-        return view('laporan.laporanTahunan', compact('dataPerTahun'));
+        $pohon = Pohon::select(DB::raw('count(id) as pohon'))->get();
+        $emisi = Kampanye::join('pohons', 'kampanyes.pohon_id', '=', 'pohons.id')
+                        ->select(DB::raw('sum(kampanyes.jumlah_pohon * serapan_karbon * ABS(DATEDIFF(CURDATE(), kampanyes.updated_at))) as emisi'))
+                        ->where('kampanyes.status', '=', 0)
+                        ->get();
+        $kampanye = Kampanye::select(DB::raw('count(id) as kampanye'))->get();
+        $donasi = Donasi::select(DB::raw('sum(nilai_donasi) as donasi'))->get();
+        $user = User::select(DB::raw('count(id) as user'))
+                        ->where('jenis_user_id', '=', 1)
+                        ->get();
+
+        // dd($emisi);
+
+        $dataAll = [
+            'pohon' => formatNumber($pohon[0]->pohon),
+            'emisi' => formatEmission($emisi[0]->emisi),
+            'kampanye' => formatNumber($kampanye[0]->kampanye),
+            'donasi' => formatNumber($donasi[0]->donasi),
+            'user' => formatNumber($user[0]->user),
+        ];
+
+        return view('laporan.laporanTahunan', compact('dataPerTahun', 'dataAll'));
     }
 }

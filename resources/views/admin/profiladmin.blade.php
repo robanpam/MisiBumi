@@ -91,11 +91,6 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12 text-end">
-            <a href="{{ route('profile.logout') }}" class="btn btn-danger btn-sm"><p class="text-white m-0">LOGOUT</p></a>
-        </div>
-    </div>
     <!-- Other Info Section -->
 </div>
 @endsection

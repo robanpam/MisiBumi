@@ -5,7 +5,7 @@
                     <i class="lni lni-grid-alt"></i>
                 </button>
                 <div class="sidebar-logo">
-                    <a href="#">CodzSword</a>
+                    <a href="#">MisiBumi</a>
                 </div>
             </div>
             <ul class="sidebar-nav">
@@ -17,7 +17,7 @@
                 </li>
                 <li class="sidebar-item @yield('profile_aktif')">
                     <a href="{{ route('profileadmin') }}" class="sidebar-link">
-                        <img src="{{ asset('storage/profile_pictures/' . auth()->user()->profile_photo) }}" class="nav-profile" alt="">
+                        <img src="{{ asset('profile_pictures/' . auth()->user()->profile_photo) }}" class="nav-profile" alt="">
                         <span>Profile</span>
                     </a>
                 </li>
