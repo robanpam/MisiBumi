@@ -108,7 +108,7 @@
                                 <input name="password_confirmation" type="password" id="registerPasswordConfirmation" class="form-control" style="width: 330px; height: 36px; font-size: 12px;" placeholder="Ketik ulang password" />
                             </div>
                             @if ($errors->has('password_confirmation') && session('form') == 'register')
-                                <p class="error-message ms-3">{{ $errors->first('repassword') }}</p>
+                                <p class="error-message ms-3">{{ $errors->first('password_confirmation') }}</p>
                             @endif
                             <!-- Submit button -->
                             <div class="col-md d-flex justify-content-center">

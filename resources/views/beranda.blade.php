@@ -84,10 +84,17 @@
             <h1>Jalani Misi Pertamamu</h1>
             <div class="row">
             @foreach ($kampanyes->where('status', 2)->take(6) as $kampanye)
+                @php
+                    $pohon_terkumpul = intval(
+                        $kampanye->donasis->sum('nilai_donasi') /
+                            ($kampanye->harga_pohon > 0 ? $kampanye->harga_pohon : 1),
+                    );
+                    $persentase_terkumpul = min(100, ($pohon_terkumpul / $kampanye->jumlah_pohon) * 100);
+                @endphp
                 <div class="col-4 my-3">
                     <div class="col">
                         <div class="card h-50">
-                            <img src="{{ $kampanye->gambar_kampanye }}" class="card-img-top"
+                            <img src="{{ $kampanye->gambar_kampanye}}" class="card-img-top"
                                 alt="...">
                             <div class="card-body">
                                 <h5 class="card-title d-flex justify-content-center">{{ $kampanye->nama_kampanye }}</h5>
@@ -103,13 +110,14 @@
                                     </div>
                                 </div>
                                 <div class="progress mt-3 rounded-0">
-                                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25"
-                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar" style="width: {{ $persentase_terkumpul }}%"
+                                        aria-valuenow="{{ $persentase_terkumpul }}" aria-valuemin="0" aria-valuemax="100">
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="d-flex justify-content-start">
-                                            <div class="bwh1">{{ $kampanye->jumlah_pohon }}</div>
+                                            <div class="bwh1">{{ $pohon_terkumpul }}</div>
                                             <div class="bwh2">Pohon terkumpul</div>
                                         </div>
                                     </div>
@@ -122,7 +130,7 @@
                                 </div>
                                 <div class="d-grid gap-2 mt-3">
                                     <a href="{{ route('detailkampanye2', ['id' => $kampanye->id]) }}"
-                                        class="btn btn-primary1 rounded-5">
+                                        class="btn btn-primary rounded-5">
                                         <div class="text-btn">Lihat Kampanye</div>
                                     </a>
                                 </div>
@@ -134,7 +142,7 @@
         </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row mt-5">
         <div class="col-4">
             
         </div>

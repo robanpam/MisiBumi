@@ -57,6 +57,7 @@ class SessionController extends Controller
             'nama' => 'required',
             'email' => 'required|email|unique:users',
             'phone' => 'required|numeric',
+            'password_confirmation' => 'required',
             'password' => 'required|min:8|confirmed',
         ];
 
@@ -65,8 +66,8 @@ class SessionController extends Controller
             'unique' => 'Isi field dengan email yang belum digunakan',
             'required' => 'Field harus diisi',
             'password.min' => 'Password minimal 8 karakter',
-            'password.confirmed' => 'Ketikkan ulang password anda',
             'numeric' => 'Isi field dengan nomor telepon yang benar',
+            'password_confirmation.required' => 'Konfirmasi password harus diisi',
         ];
 
         $request->validate($rules, $messages);

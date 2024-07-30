@@ -183,3 +183,15 @@
         /* font-weight: bold; */
         text-align: center;
 }
+
+.img-container img:not([src]) {
+    display: none;
+  }
+  
+  .img-container img[src=""] {
+    display: none;
+  }
+  
+  .img-container img:empty {
+    display: none;
+  }

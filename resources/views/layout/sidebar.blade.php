@@ -17,7 +17,7 @@
                 </li>
                 <li class="sidebar-item @yield('profile_aktif')">
                     <a href="{{ route('profileadmin') }}" class="sidebar-link">
-                        <img src="{{ asset('profile_pictures/' . auth()->user()->profile_photo) }}" class="nav-profile" alt="">
+                        <img src="{{ asset('profile_pictures/' . auth()->user()->profile_photo) }}" class="nav-profile ms-n5" alt="">
                         <span>Profile</span>
                     </a>
                 </li>
