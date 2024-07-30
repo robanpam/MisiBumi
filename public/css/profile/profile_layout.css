@@ -54,3 +54,15 @@
 .file-input {
     display: none;
 }
+
+.img-container img:not([src]) {
+    display: none;
+  }
+  
+  .img-container img[src=""] {
+    display: none;
+  }
+  
+  .img-container img:empty {
+    display: none;
+  }
