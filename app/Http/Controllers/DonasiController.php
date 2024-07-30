@@ -129,7 +129,6 @@ class DonasiController extends Controller
         }
 
         return redirect()->route('donasi.show_detail', ['donasi' => $donasi->id]);
-        // return redirect()->route('donasi.show_detail', $donasi->id);
     }
 
     public function show(Donasi $donasi)
@@ -141,7 +140,6 @@ class DonasiController extends Controller
         return view(
             'donasi.detail_donasi',
             [
-                // "donasi" => $donasi,
                 "detail" => $detail
             ]
         );
@@ -149,9 +147,7 @@ class DonasiController extends Controller
 
     public function callback(Request $request)
     {
-        // Check if the status code is '200'
         if ($request->status_code == '200') {
-            // Find the transaction by order_id
             $donasi = Donasi::find($request->order_id);
 
             $mp = 0;
@@ -160,27 +156,8 @@ class DonasiController extends Controller
             }
 
             $donasi->metode_pembayaran_id = $mp;
-
-
-            // // Debugging: Check if transaction is null
-            // if ($donasi === null) {
-            //     \Log::error('Donasi not found: ' . $request->order_id);
-            //     return response()->json(['error' => 'Donasi not found'], 404);
-            // }
-
-            // Update the transaction status
             $donasi->status = '1';
             $donasi->save();
         }
-        //     // Debugging: Log the transaction update
-        //     \Log::info('Donasi updated: ' . $donasi->id . ' to status: 1/Paid');
-
-        //     return response()->json(['success' => 'Donasi updated successfully' . $request->issuer], 200);
-        // } else {
-        //     // Debugging: Log invalid status code
-        //     \Log::error('Invalid status code: ' . $request->status_code . ' for order_id: ' . $request->order_id);
-        //     return response()->json(['error' => 'Invalid status code'], 400);
-        // }
-
     }
 }
