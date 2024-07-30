@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Artikel;
 use App\Models\Donasi;
 use App\Models\Kampanye;
+use App\Models\Pohon;
 use App\Models\Testimoni;
 use App\Models\User;
 use Carbon\Carbon;
@@ -65,9 +66,9 @@ class DonasiController extends Controller
     }
 
     public function pilihNominal(Request $request){
-        // dd($request);
-        $kampanye_id = $request->kampanye_id;
-        return view('donasi.pilih_nominal', compact('kampanye_id'));
+        $kampanye = Kampanye::find($request->kampanye_id);
+        $pohon = Pohon::find($kampanye->pohon_id);
+        return view('donasi.pilih_nominal', compact('kampanye', 'pohon'));
     }
 
     public function store(Request $request)
@@ -97,7 +98,7 @@ class DonasiController extends Controller
         $donasi = Donasi::create([
             'user_id' => $request->user_id,
             'kampanye_id' => $request->kampanye_id,
-            'nilai_donasi' => $request->nilai_donasi,
+            'nilai_donasi' => $request->nominal_donasi,
         ]);
 
         $user = User::find($request->user_id);
@@ -110,7 +111,7 @@ class DonasiController extends Controller
         $params = [
             'transaction_details' => [
                 'order_id' => $donasi->id,
-                'gross_amount' => $request->nilai_donasi,
+                'gross_amount' => $request->nominal_donasi,
             ],
             'customer_details' => [
                 'first_name' => $user->name,

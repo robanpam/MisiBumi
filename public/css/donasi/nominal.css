@@ -1,0 +1,83 @@
+.donation-container {
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.donation-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.donation-info p {
+    font-size: small;
+}
+
+.donation-amount {
+    margin: 15px 0;
+}
+
+.donation-amounts .row {
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.donation-amount button {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.custom-donation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.custom-donation input {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.custom-donation button {
+    flex-shrink: 0;
+}
+
+.small-text {
+    font-size: 0.8em;
+    color: red;
+}
+
+.btnDonasi {
+    background-color: #114232;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.custom-donation input[type="number"]::-webkit-outer-spin-button,
+.custom-donation input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.custom-donation input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.donation-amounts .btn {
+    color: green;
+    border-color: green;
+}
+
+.donation-amounts .btn:hover,
+.donation-amounts .btn:focus,
+.donation-amounts .btn:active {
+    color: white;
+    background-color: green;
+    border-color: green;
+}
+
+.selected {
+    background-color: green !important;
+    color: white !important;
+}

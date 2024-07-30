@@ -4,12 +4,12 @@
 
 @section('content')
     <div class="d-flex justify-content-center">
-        <div class="card">
+        <div class="card my-5">
             <div class="card-body text-center d-flex flex-column justify-content-center align-items-center">
-                Anda akan melakukan pembelian produk <strong>{{ $detail->nama_kampanye }}</strong> dengan harga
+                Anda akan donasi pada kampanye <strong>{{ $detail->nama_kampanye }}</strong> senilai
                 <strong>Rp{{ $detail->nilai_donasi }}</strong>
                 <button type="button" class="btn btn-primary mt-3" id="pay-button">
-                    Bayar Sekarang
+                    Bayar
                 </button>
             </div>
         </div>

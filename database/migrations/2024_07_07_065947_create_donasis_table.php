@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('donasis', function (Blueprint $table) {
-            $table->id();
+            // $table->id();
+            $table->string('id')->primary();
             $table->foreignId('user_id')->constrained('users', 'id');
             $table->foreignId('kampanye_id')->constrained('kampanyes', 'id');
             $table->integer('nilai_donasi');
