@@ -24,9 +24,6 @@
                 <div class="mb-4">
                     <input type="email" class="form-control boldborder2" id="gantiEmail" name="Email" placeholder="Masukkan Email baru" required value="{{ auth()->user()->email }}">
                 </div>
-                <div class="mb-4">
-                    <input type="password" class="form-control boldborder2" id="password_confirmation" name="password_confirmation" placeholder="Masukkan Kata sandi saat ini" required>
-                </div>
                 <div class="d-flex justify-content-end">
                     <button type="submit" class="btn btn-success">Simpan</button>
                     <button type="button" class="btn btn-danger" onclick="window.history.back();">Tolak</button>

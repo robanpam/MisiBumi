@@ -24,9 +24,6 @@
                 <div class="mb-4">
                     <input type="password" class="form-control boldborder2" id="password" name="password" placeholder="Masukkan kata sandi baru" required>
                 </div>
-                <div class="mb-4">
-                    <input type="password" class="form-control boldborder2" id="password_confirmation" name="password_confirmation" placeholder="Ketik ulang Kata Sandi baru" required>
-                </div>
                 <div class="d-flex justify-content-end">
                     <button type="submit" class="btn btn-success">Simpan</button>
                     <button type="button" class="btn btn-danger" onclick="window.history.back();">Tolak</button>
