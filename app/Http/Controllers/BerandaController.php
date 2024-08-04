@@ -113,4 +113,14 @@ class BerandaController extends Controller
 
         return view('landing_page', compact('pohon', 'donasi', 'kampanye'));
     }
+
+    public function leaderboard(){
+        $leader = Donasi::join('users', 'donasis.user_id', '=', 'users.id')
+                    ->select('users.name', DB::raw('sum(donasis.nilai_donasi) as donasi'))
+                    ->groupBy('users.name')
+                    ->orderBy('donasi', 'desc')
+                    ->get();
+        
+        return view('leaderboard', compact('leader'));
+    }
 }

@@ -17,7 +17,7 @@
                             <img src="https://i.pinimg.com/564x/94/1c/3c/941c3c1f4bfb0e0db554e1a24e181e8a.jpg" alt="Gold Medal" class="img-top">
                         </div>
                     </div>
-                    <h3 class="nameTop">Sukuma</h3>
+                    <h3 class="nameTop">{{ $leader[0]->name }}</h3>
                     <p class="treeTop">37K pohon</p>
                 </div>
                 <div class="col-3 wreath">

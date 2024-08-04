@@ -6,9 +6,9 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class admin
+class user
 {
-    /**p
+    /**
      * Handle an incoming request.
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
@@ -16,11 +16,11 @@ class admin
     public function handle(Request $request, Closure $next): Response
     {
         if(auth()->check()){
-            if(auth()->user()->jenis_user_id == 2){
+            if(auth()->user()->jenis_user_id == 1){
                 return $next($request);
             }
         }
 
-        abort(401);
+        return redirect()->route('session.init');
     }
 }

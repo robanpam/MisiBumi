@@ -18,7 +18,7 @@ class DonasiFactory extends Factory
     {
         return [
             'user_id' => rand(1, 13),
-            'kampanye_id' => rand(1, 20),
+            'kampanye_id' => rand(1, 100),
             'nilai_donasi' => fake()->randomElement([25000, 50000, 75000, 100000]),
             'metode_pembayaran_id' => rand(1, 3),
             'status' => 2,
