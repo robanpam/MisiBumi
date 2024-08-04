@@ -44,7 +44,7 @@ class KampanyeController extends Controller
                 'pohons.harga_pohon as harga_pohon'
             )
             ->inRandomOrder() // Randomize order
-            ->paginate(10); // Limit to 6 results per page
+            ->paginate(12); // Limit to 12 results per page
 
 
         return view('kampanye.blmSelesaiKampanye', compact('kampanyes'));
@@ -64,7 +64,7 @@ class KampanyeController extends Controller
                 'pohons.harga_pohon as harga_pohon'
             )
             ->inRandomOrder() // Randomize order
-            ->paginate(10); // Limit to 6 results per page
+            ->paginate(12); // Limit to 12 results per page
 
         return view('kampanye.telahSelesaiKampanye', compact('kampanyes'));
     }

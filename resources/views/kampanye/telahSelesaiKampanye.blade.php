@@ -6,7 +6,7 @@
     <div class="container">
         <h3 class="subJudul"><strong>Kampanye Telah Selesai</strong></h3>
         <div class="row">
-        @foreach ($kampanyes as $kampanye)
+        @foreach ($kampanyes ->take(12) as $kampanye)
                 @php
                     $pohon_terkumpul = intval(
                         $kampanye->donasis->sum('nilai_donasi') /

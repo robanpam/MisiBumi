@@ -77,3 +77,20 @@
 
 }
 
+
+.pagination .page-link {
+    color: black;
+    background-color: #fff; /* Warna latar belakang */
+    border-color: #ADD9A8; /* Warna border */
+}
+
+.pagination .page-link:hover {
+    color: black;
+    background-color: #ADD9A8;
+}
+
+.pagination .active .page-link {
+    color: #fff;
+    background-color: #114232; /* Warna latar belakang untuk item aktif */
+    border-color: #114232;
+}
