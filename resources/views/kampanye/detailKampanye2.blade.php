@@ -185,7 +185,7 @@
             </div>
         </div>
 
-        {{-- KAMPANYE TERKAIT --}}
+        <!-- {{-- KAMPANYE TERKAIT --}}
         <h3 class="subJudul my-2"><strong>Kampanye Terkait</strong></h3>
         <div class="row">
             @foreach ($kampanye->take(3) as $kampanye)
@@ -249,6 +249,6 @@
                     </div>
                 </div>
             @endforeach
-        </div>
+        </div> -->
     </div>
 @endsection
