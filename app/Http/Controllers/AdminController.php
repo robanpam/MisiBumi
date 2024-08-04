@@ -77,7 +77,7 @@ class AdminController extends Controller
         $user->name = $request->input('gantiUname');
         $user->save();
 
-        return redirect()->back()->with('success', 'Nama updated successfully.');
+        return redirect()->route('profileadmin')->with('success', 'Nama updated successfully.');
     }
 
     //update password
@@ -103,7 +103,7 @@ class AdminController extends Controller
         $user->password = $request->input('password');
         $user->save();
 
-        return redirect()->back()->with('success', 'Password updated successfully.');
+        return redirect()->route('profileadmin')->with('success', 'Password updated successfully.');
     }
 
     //update email
@@ -138,7 +138,7 @@ class AdminController extends Controller
         $user->email = $request->input('Email');
         $user->save();
 
-        return redirect()->back()->with('success', 'Email updated successfully.');
+        return redirect()->route('profileadmin')->with('success', 'Email updated successfully.');
     }
 
     //update telpon
@@ -174,7 +174,7 @@ class AdminController extends Controller
         $user->nomor_telepon = $request->input('telpnum');
         $user->save();
 
-        return redirect()->back()->with('success', 'Nomor telepon updated successfully.');
+        return redirect()->route('profileadmin')->with('success', 'Nomor telepon updated successfully.');
     }
 
     //update profile

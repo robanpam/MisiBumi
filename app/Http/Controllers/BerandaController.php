@@ -13,8 +13,8 @@ class BerandaController extends Controller
 {
     public function show()
     {
-        $kampanyes = Kampanye::all();
         $total_donasi = Donasi::select(Donasi::raw('sum(nilai_donasi) as total_donasi'))
+            ->where('status', '=', '1')
             ->get();
 
         if ($total_donasi->isEmpty()) {
@@ -65,8 +65,9 @@ class BerandaController extends Controller
         } else{
             $emisi = formatEmission($emisi[0]->Serapan);
         }
-
-
+        
+        $kampanyes = Kampanye::all();
+        // $kampanyes = Kampanye::join('donasis', 'kampanyes.id', '=', 'donasi')
 
         return view('beranda', compact('pohon', 'donasi', 'kampanye','emisi', 'kampanyes'));
     }
