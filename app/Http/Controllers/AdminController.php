@@ -77,7 +77,7 @@ class AdminController extends Controller
         $user->name = $request->input('gantiUname');
         $user->save();
 
-        return redirect()->back()->with('success', 'Nama updated successfully.');
+        return redirect()->route('profileadmin')->with('success', 'Nama updated successfully.');
     }
 
     //update password
