@@ -59,7 +59,7 @@ class ProfileController extends Controller
             ->join('metode_pembayarans', 'donasis.metode_pembayaran_id', '=', 'metode_pembayarans.id')
             ->where('users.id', '=', auth()->user()->id)
             ->select(['nama_kampanye', 'donasis.created_at', 'nilai_donasi', 'nama_metode'])
-            ->get();
+            ->paginate(10);
         // dd($donasis);
         return view('profile.profile_history', compact('kcount', 'dcount', 'pcount', 'donasis'));
     }
@@ -124,7 +124,7 @@ class ProfileController extends Controller
         //                         ->where('kampanyes.user_id', '=', auth()->user()->id)
         //                         ->get();
 
-        $kampanyes = Kampanye::select('*')->where('kampanyes.user_id', '=', auth()->user()->id)->get();
+        $kampanyes = Kampanye::select('*')->where('kampanyes.user_id', '=', auth()->user()->id)->paginate(10);
         $dcount = formatNumber($dcount);
         $pcount = formatNumber($pcount);
         $kcount = formatNumber($kcount);

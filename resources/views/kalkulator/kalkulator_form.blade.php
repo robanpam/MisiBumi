@@ -7,7 +7,7 @@
 @section('kalku_aktif', 'nav-active')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-1">
         <div class="row my-3">
             <div class="col-12 d-flex justify-content-center flex-column align-items-center">
                 <!-- <h4 class="">Kalkulator Emisi</h4> -->
@@ -17,9 +17,13 @@
                     @csrf
                     <label for="option" class="mb-2">Jenis {{$jenis}}</label>
                     <select id="option" class="form-select calc-form form-control" name="option">
-                        <option value="" selected>Pilih {{$jenis}}</option>
+                        <option value="" {{ old('option') === null ? 'selected' : '' }}>Pilih {{$jenis}}</option>
                         @foreach ($items as $item)
-                            <option value={{ $item->id }} data-image="{{ $item->foto_produk }}">{{ $item->nama_produk }}</option>
+                            <option value="{{ $item->id }}" 
+                                    {{ old('option') == $item->id ? 'selected' : '' }} 
+                                    data-image="{{ $item->foto_produk }}">
+                                {{ $item->nama_produk }}
+                            </option>
                         @endforeach
                     </select>
                     @error('option')

@@ -65,11 +65,32 @@
                     <div class="col-11">
                         <div class="d-flex justify-content-between">
                             <button type="button" class="btn btn-outline-success btnShare" id="btnShare" data-link="{{ route('detailkampanye2', ['id' => $kampanye->id]) }}">Share</button>
-                            <form method="POST" action="{{ route('donasi.pilihNominal') }}" enctype="multipart/form-data">
-                                @csrf
-                                <input type="hidden" value="{{ $kampanye->id }}" id='kampanye_id' name="kampanye_id">
-                            <button type="submit" class="btn btn-success btnDonasi"><strong>Donasi</strong></button>
-                            </form>
+                            <div id="sharePopup" class="share-popup">
+                                <div class="share-popup-content">
+                                <h2 class="share-header">Share</h2>
+                                    <div class="share-buttons">
+                                    <a href="#" class="share-button" id="shareFacebook">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#" class="share-button" id="shareTwitter">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="#" class="share-button" id="shareReddit">
+                                        <i class="fab fa-reddit-alien"></i>
+                                    </a>
+                                    <a href="#" class="share-button" id="shareLink">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                    </div>
+                                </div>
+                            </div>
+                            @if ($kampanye->status != 0)
+                                <form method="POST" action="{{ route('donasi.pilihNominal') }}" enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" value="{{ $kampanye->id }}" id='kampanye_id' name="kampanye_id">
+                                <button type="submit" class="btn btn-success btnDonasi"><strong>Donasi</strong></button>
+                                </form>
+                            @endif
                         </div>
                         <div class="alert alert-success mt-3 d-none" id="shareAlert" role="alert">
                             Link berhasil dicopy!
@@ -157,10 +178,26 @@
                     </div>
 
                     <!-- PERKEMBANGAN -->
-                    <div class="tab-pane fade" id="pills-perkembangan" role="tabpanel"
+                    <div class="tab-pane fade chart1" id="pills-perkembangan" role="tabpanel"
                         aria-labelledby="tab-perkembangan">
-                        <img src="https://static.vecteezy.com/system/resources/previews/011/943/648/non_2x/system-software-update-and-upgrade-concept-loading-process-in-laptop-screen-illustration-vector.jpg"
-                            class="card-img-top" alt="...">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="card-title">Donation Details</h5>
+                                        <div class="dropdown">
+                                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span id="selectedYear">{{ $startYear }}</span>
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                @foreach(range($startYear, $endYear) as $year)
+                                                    <a class="dropdown-item" href="#" data-year="{{ $year }}">{{ $year }}</a>
+                                                @endforeach
+                                            </div>
+                                         </div>                                    
+                                    </div>
+                            <canvas id="donationChart" width="400" height="200"></canvas>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- DONASI -->
@@ -185,16 +222,14 @@
             </div>
         </div>
 
-        <!-- {{-- KAMPANYE TERKAIT --}}
+        <!-- {{-- KAMPANYE TERKAIT --}} !-> -->
         <h3 class="subJudul my-2"><strong>Kampanye Terkait</strong></h3>
         <div class="row">
             @foreach ($kampanye->take(3) as $kampanye)
                 <div class="col-4 my-3">
-                    <!-- KONTEN -->
                     <div class="col">
                         <div class="card h-50">
                             <img src="{{ $kampanye->gambar_kampanye }}" class="card-img-top" alt="...">
-                            <!-- Deskripsi -->
                             <div class="card-body">
                                 <h5 class="card-title d-flex justify-content-center">{{ $kampanye->nama_kampanye }}</h5>
                                 <div class="row">
@@ -249,6 +284,90 @@
                     </div>
                 </div>
             @endforeach
-        </div> -->
+        </div>
     </div>
+@endsection
+
+@section('chart')
+<script>
+    const donasiTahunan = @json($donasiTahunan);
+
+    console.log(donasiTahunan);
+
+    const formattedData = {};
+    Object.keys(donasiTahunan).forEach(year => {
+        formattedData[year] = new Array(12).fill(0);
+        donasiTahunan[year].forEach(item => {
+            formattedData[year][item.bulan - 1] = item.total_donasi;
+        });
+    });
+
+    const ctx = document.getElementById('donationChart').getContext('2d');
+    const donationChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            datasets: [{
+                label: 'Donations',
+                data: formattedData['{{ $startYear }}'] || [],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 2,
+                fill: true,
+                tension: 0.1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 5000000
+                }
+            },
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return tooltipItem.formattedValue;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    document.querySelectorAll('.dropdown-item').forEach(item => {
+        item.addEventListener('click', function() {
+            const selectedYear = this.getAttribute('data-year');
+            document.getElementById('selectedYear').innerText = selectedYear;
+            donationChart.data.datasets[0].data = formattedData[selectedYear] || [];
+            donationChart.update();
+        });
+    });
+
+    document.getElementById('btnShare').onclick = function() {
+  document.getElementById('sharePopup').style.display = 'flex';
+};
+
+document.getElementById('sharePopup').onclick = function(e) {
+  if (e.target === this) {
+    this.style.display = 'none';
+  }
+};
+
+// Define the URLs for sharing
+var shareUrl = window.location.href; // You can replace this with a specific URL
+var facebookUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl);
+var twitterUrl = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(shareUrl);
+var redditUrl = 'https://www.reddit.com/submit?url=' + encodeURIComponent(shareUrl);
+
+document.getElementById('shareFacebook').href = facebookUrl;
+document.getElementById('shareTwitter').href = twitterUrl;
+document.getElementById('shareReddit').href = redditUrl;
+document.getElementById('shareLink').onclick = function() {
+  navigator.clipboard.writeText(shareUrl).then(function() {
+    alert('Link copied to clipboard');
+  });
+};
+</script>
 @endsection

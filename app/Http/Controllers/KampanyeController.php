@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kampanye;
 use App\Models\Pohon;
+use App\Models\Donasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
@@ -136,8 +137,20 @@ class KampanyeController extends Controller
             ->where('kampanyes.id', $id)
             ->groupBy('kampanyes.id', 'pohons.id', 'users.id')
             ->firstOrFail();
+        
+        $startYear = $kampanye->created_at->format('Y');
+        $endYear = 2024;
+        $donasiTahunan = [];
 
-        return view('kampanye.detailkampanye2', compact('kampanye'));
+        foreach(range($startYear, $endYear) as $year){
+            $donasiTahunan[$year] = Donasi::select(DB::raw('YEAR(created_at) as tahun'),DB::raw('MONTH(created_at) as bulan'), DB::raw('sum(nilai_donasi) as total_donasi'))
+            ->whereYear('created_at', '=', $year)
+            ->where('donasis.kampanye_id', '=', $kampanye->id)
+            ->groupBy('tahun', 'bulan')
+            ->get();
+        }
+
+        return view('kampanye.detailkampanye2', compact('kampanye','donasiTahunan', 'startYear', 'endYear'));
     }
 
     public function terima($id)

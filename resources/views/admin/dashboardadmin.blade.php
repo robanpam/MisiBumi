@@ -7,6 +7,7 @@
 @section('content')
 <div class="container mt-5">
     <div class="row text-center">
+        
         <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
             <div class="card h-100">
                 <div class="card-body">
@@ -54,26 +55,26 @@
     </div>
     <!-- Chart Section -->
     <div class="row mt-5">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h5 class="card-title">Donation Details</h5>
-                    <div class="dropdown">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span id="selectedYear">{{ $startYear }}</span>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            @foreach(range($startYear, $endYear) as $year)
-                                <a class="dropdown-item" href="#" data-year="{{ $year }}">{{ $year }}</a>
-                            @endforeach
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="card-title">Donation Details</h5>
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span id="selectedYear">{{ $startYear }}</span>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                @foreach(range($startYear, $endYear) as $year)
+                                    <a class="dropdown-item" href="#" data-year="{{ $year }}">{{ $year }}</a>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
+                    <canvas id="donationChart" width="400" height="200"></canvas>
                 </div>
-                <canvas id="donationChart" width="400" height="200"></canvas>
             </div>
         </div>
-    </div>
 </div>
 @endsection
 

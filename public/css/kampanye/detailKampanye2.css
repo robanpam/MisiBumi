@@ -268,3 +268,68 @@ body {
     color: #114232;
 
 }
+
+.chart1{
+    width: 100%;
+}
+
+.share-popup {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .share-popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Increased width */
+  }
+  
+  .share-header {
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .share-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+  }
+  
+  .share-button {
+    font-size: 30px;
+    transition: color 0.3s;
+  }
+  
+  /* Brand Colors for Icons */
+  #shareFacebook i {
+    color: #1877f2; /* Facebook Blue */
+  }
+  
+  #shareTwitter i {
+    color: #1da1f2; /* Twitter Blue */
+  }
+  
+  #shareReddit i {
+    color: #ff4500; /* Reddit Orange */
+  }
+  
+  #shareLink i {
+    color: #007bff; /* Link Blue */
+  }
+  
+  .share-button:hover {
+    filter: brightness(0.8); /* Darken color on hover */
+  }
+  

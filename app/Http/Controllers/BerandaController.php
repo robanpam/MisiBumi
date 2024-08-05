@@ -53,12 +53,6 @@ class BerandaController extends Controller
                 ->where('kampanyes.status', '=', 0)
                 ->groupBy('kampanyes.status')
                 ->get();
-        
-        // $cekdiff = Kampanye::select(DB::raw('DATEDIFF(updated_at, CURDATE()) as sum'))
-        //     ->where('kampanyes.status', 0)
-        //     ->get();
-
-        // dd($cekdiff[2]->sum);
 
         if ($emisi->isEmpty()){
             $emisi = 0;
@@ -110,9 +104,21 @@ class BerandaController extends Controller
             $pohon = $total_pohon[0]->total_pohon;
         }
 
+        $emisi = Kampanye::join('pohons', 'pohons.id', '=', 'kampanyes.pohon_id')
+                ->select('kampanyes.status' , DB::raw('sum(jumlah_pohon * serapan_karbon * ABS(DATEDIFF(kampanyes.updated_at, CURDATE()))) as Serapan'))
+                ->where('kampanyes.status', '=', 0)
+                ->groupBy('kampanyes.status')
+                ->get();
+
+        if ($emisi->isEmpty()){
+            $emisi = 0;
+        } else{
+            $emisi = formatEmission($emisi[0]->Serapan);
+        }
+
         $pohon = formatNumber($pohon);
 
-        return view('landing_page', compact('pohon', 'donasi', 'kampanye'));
+        return view('landing_page', compact('pohon', 'donasi', 'kampanye', 'emisi'));
     }
 
     public function leaderboard(){
