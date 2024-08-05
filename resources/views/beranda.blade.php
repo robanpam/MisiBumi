@@ -83,7 +83,7 @@
         <div class="col-12 d-flex flex-column align-items-center justify-content-center">
             <h1>Jalani Misi Pertamamu</h1>
             <div class="row">
-            @foreach ($kampanyes->where('status', 2)->take(6) as $kampanye)
+            @foreach ($kampanyes->where('status', 1)->take(6) as $kampanye)
                 @php
                     $pohon_terkumpul = intval(
                         $kampanye->donasis->sum('nilai_donasi') /

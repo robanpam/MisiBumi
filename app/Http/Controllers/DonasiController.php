@@ -10,6 +10,7 @@ use App\Models\Testimoni;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DonasiController extends Controller
 {
@@ -162,6 +163,21 @@ class DonasiController extends Controller
             $donasi->metode_pembayaran_id = $mp;
             $donasi->status = '1';
             $donasi->save();
+            
+            $kampanye = Kampanye::select('*')->where('kampanyes.id', '=', $donasi->kampanye_id)->first();
+
+            $totalDonasi = Kampanye::join('donasis', 'donasis.kampanye_id', '=', 'kampanye.id')
+                        ->select(DB::raw('sum(nilai_donasi) as total_donasi'))
+                        ->where('kampanyes.id', '=', $donasi->kampanye_id)
+                        ->groupBy('kampanyes.id')
+                        ->first();
+            
+            $hargaPohon = Pohon::select('*')->where('pohon.id', '=', $kampanye->pohon_id)->first();
+
+            if($totalDonasi->total_donasi / $hargaPohon->harga_pohon >= $kampanye->jumlah_pohon){
+                $kampanye->status = 0;
+                $kampanye->save();
+            }
         }
     }
 }

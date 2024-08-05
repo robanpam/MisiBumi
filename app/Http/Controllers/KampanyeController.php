@@ -18,17 +18,40 @@ class KampanyeController extends Controller
             ->join('users', 'kampanyes.user_id', '=', 'users.id')
             ->leftJoin('donasis', 'kampanyes.id', '=', 'donasis.kampanye_id')
             ->select(
-                'kampanyes.*',
+                'kampanyes.id',
+                'kampanyes.user_id',
+                'kampanyes.pohon_id',
+                'kampanyes.status',
+                'kampanyes.jumlah_pohon',
+                'kampanyes.nama_kampanye',
+                'kampanyes.gambar_kampanye',
+                'kampanyes.lokasi_kampanye',
+                'kampanyes.deskripsi',
+                'kampanyes.created_at',
+                'kampanyes.updated_at',
                 'pohons.nama as pohon_nama',
                 'users.name as user_name',
                 'pohons.harga_pohon as harga_pohon',
-                'donasis.nilai_donasi',
-                'donasis.metode_pembayaran_id',
                 DB::raw('ROUND(IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) as pohon_terkumpul'),
                 DB::raw('ROUND(LEAST(100, (IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) / kampanyes.jumlah_pohon * 100)) as persentase_terkumpul')
             )
+            ->groupBy(
+                'kampanyes.id',
+                'kampanyes.user_id',
+                'kampanyes.pohon_id',
+                'kampanyes.status',
+                'kampanyes.jumlah_pohon',
+                'kampanyes.nama_kampanye',
+                'kampanyes.gambar_kampanye',
+                'kampanyes.lokasi_kampanye',
+                'kampanyes.deskripsi',
+                'kampanyes.created_at',
+                'kampanyes.updated_at',
+                'pohons.nama',
+                'users.name',
+                'pohons.harga_pohon'
+            )
             ->inRandomOrder()
-            ->groupBy('kampanyes.id', 'pohons.id', 'users.id', 'donasis.nilai_donasi', 'donasis.metode_pembayaran_id', 'pohons.harga_pohon')
             ->get();
 
         return view('kampanye.mainKampanye', compact('kampanyes'));
@@ -36,22 +59,45 @@ class KampanyeController extends Controller
 
     public function blmSelesai()
     {
-        $kampanyes = Kampanye::where('kampanyes.status', 2)
+        $kampanyes = Kampanye::where('kampanyes.status', 1)
             ->join('pohons', 'kampanyes.pohon_id', '=', 'pohons.id')
             ->join('users', 'kampanyes.user_id', '=', 'users.id')
             ->leftJoin('donasis', 'kampanyes.id', '=', 'donasis.kampanye_id')
             ->select(
-                'kampanyes.*',
+                'kampanyes.id',
+                'kampanyes.user_id',
+                'kampanyes.pohon_id',
+                'kampanyes.status',
+                'kampanyes.jumlah_pohon',
+                'kampanyes.nama_kampanye',
+                'kampanyes.gambar_kampanye',
+                'kampanyes.lokasi_kampanye',
+                'kampanyes.deskripsi',
+                'kampanyes.created_at',
+                'kampanyes.updated_at',
                 'pohons.nama as pohon_nama',
                 'users.name as user_name',
                 'pohons.harga_pohon as harga_pohon',
-                'donasis.nilai_donasi',
-                'donasis.metode_pembayaran_id',
                 DB::raw('ROUND(IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) as pohon_terkumpul'),
                 DB::raw('ROUND(LEAST(100, (IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) / kampanyes.jumlah_pohon * 100)) as persentase_terkumpul')
             )
+            ->groupBy(
+                'kampanyes.id',
+                'kampanyes.user_id',
+                'kampanyes.pohon_id',
+                'kampanyes.status',
+                'kampanyes.jumlah_pohon',
+                'kampanyes.nama_kampanye',
+                'kampanyes.gambar_kampanye',
+                'kampanyes.lokasi_kampanye',
+                'kampanyes.deskripsi',
+                'kampanyes.created_at',
+                'kampanyes.updated_at',
+                'pohons.nama',
+                'users.name',
+                'pohons.harga_pohon'
+            )
             ->inRandomOrder()
-            ->groupBy('kampanyes.id', 'pohons.id', 'users.id', 'donasis.nilai_donasi', 'donasis.metode_pembayaran_id', 'pohons.harga_pohon')
             ->paginate(12);
 
         return view('kampanye.blmSelesaiKampanye', compact('kampanyes'));
@@ -130,18 +176,41 @@ class KampanyeController extends Controller
             ->join('users', 'kampanyes.user_id', '=', 'users.id')
             ->leftJoin('donasis', 'kampanyes.id', '=', 'donasis.kampanye_id')
             ->select(
-                'kampanyes.*',
+                'kampanyes.id',
+                'kampanyes.user_id',
+                'kampanyes.pohon_id',
+                'kampanyes.status',
+                'kampanyes.jumlah_pohon',
+                'kampanyes.nama_kampanye',
+                'kampanyes.gambar_kampanye',
+                'kampanyes.lokasi_kampanye',
+                'kampanyes.deskripsi',
+                'kampanyes.created_at',
+                'kampanyes.updated_at',
                 'pohons.nama as pohon_nama',
                 'users.name as user_name',
-                'donasis.nilai_donasi',
-                'donasis.metode_pembayaran_id',
                 'pohons.harga_pohon as harga_pohon',
                 DB::raw('ROUND(IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) as pohon_terkumpul'),
                 DB::raw('ROUND(LEAST(100, (IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) / kampanyes.jumlah_pohon * 100)) as persentase_terkumpul')
             )
+            ->groupBy(
+                'kampanyes.id',
+                'kampanyes.user_id',
+                'kampanyes.pohon_id',
+                'kampanyes.status',
+                'kampanyes.jumlah_pohon',
+                'kampanyes.nama_kampanye',
+                'kampanyes.gambar_kampanye',
+                'kampanyes.lokasi_kampanye',
+                'kampanyes.deskripsi',
+                'kampanyes.created_at',
+                'kampanyes.updated_at',
+                'pohons.nama',
+                'users.name',
+                'pohons.harga_pohon'
+            )
             ->with(['user', 'donasis.user'])
             ->where('kampanyes.id', $id)
-            ->groupBy('kampanyes.id', 'pohons.id', 'users.id', 'donasis.nilai_donasi', 'donasis.metode_pembayaran_id', 'pohons.harga_pohon')
             ->firstOrFail();
 
         $startYear = $kampanye->created_at->format('Y');
@@ -245,10 +314,8 @@ class KampanyeController extends Controller
             'batas_donasi' => $request->batasDonasi,
             'deskripsi' => $request->deskripsi,
             'gambar_kampanye' => $namaGambar,
-            'total_donatur' => 0
         ]);
 
         return redirect()->route('kampanye.request')->with('success', 'Kampanye kamu berhasil diajukan!');
     }
 }
-?>

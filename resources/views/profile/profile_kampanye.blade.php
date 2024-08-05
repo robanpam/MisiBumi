@@ -18,9 +18,9 @@
                     <td>{{ \Carbon\Carbon::parse($kampanye->batas_donasi)->format('d-m-Y') }}</td>
                     @if ($kampanye->status == 3)
                         <td><span class="badge bg-warning">Pending</span></td>
-                    @elseif ($kampanye->status == 2)
-                        <td><span class="badge bg-primary">Processing</span></td>
                     @elseif ($kampanye->status == 1)
+                        <td><span class="badge bg-primary">Processing</span></td>
+                    @elseif ($kampanye->status == 2)
                         <td><span class="badge bg-danger">Rejected</span></td>
                     @elseif ($kampanye->status == 0)
                         <td><span class="badge bg-success">Completed</span> </td>
@@ -30,5 +30,6 @@
             </tr>
             @endforelse
         </table>
+        {{ $kampanyes->links('pagination::bootstrap-5') }}
     </div>
 @endsection('ins')   

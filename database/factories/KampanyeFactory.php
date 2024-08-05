@@ -38,7 +38,7 @@ class KampanyeFactory extends Factory
             'nama_kampanye' => fake()->sentence(3, true),
             'lokasi_kampanye' => fake()->country(),
             'pohon_id' => rand(1, 6),
-            'status' => rand(0,3),
+            'status' => 3,
             'jumlah_pohon' => 500,
             'batas_donasi' => now(),
             'deskripsi' => fake()->paragraph(7, true),

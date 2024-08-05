@@ -25,6 +25,7 @@
                     </tr>
                 @endforelse
             </table>
+            {{ $donasis->links('pagination::bootstrap-5') }}
         </div>
     </div>
 @endsection('ins')

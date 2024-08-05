@@ -121,9 +121,41 @@ class DatabaseSeeder extends Seeder
             PohonSeeder::class,
         ]);
 
-        MetodePembayaran::factory(3)->create();
-        Kampanye::factory(100)->create();
-        Donasi::factory(10)->create();
+        MetodePembayaran::factory()->create([
+            'nama_metode' => 'qris'
+        ]);
+        MetodePembayaran::factory()->create([
+            'nama_metode' => 'gopay'
+        ]);
+        MetodePembayaran::factory()->create([
+            'nama_metode' => 'ovo'
+        ]);
+
+        Kampanye::factory(3)->create([
+            'status' => 0,
+            'pohon_id' => 5,
+        ]);
+
+        Kampanye::factory(3)->create([
+            'status' => 1,
+        ]);
+
+        Donasi::factory(1)->create([
+            'kampanye_id' => 1,
+            'nilai_donasi' => 15000000,
+        ]);
+
+        Donasi::factory(1)->create([
+            'kampanye_id' => 2,
+            'nilai_donasi' => 15000000,
+        ]);
+
+        Donasi::factory(1)->create([
+            'kampanye_id' => 3,
+            'nilai_donasi' => 15000000,
+        ]);
+
+        // Donasi::factory(10)->create();
         Artikel::factory(20)->create();
         Testimoni::factory(count:10)->create();
     }
