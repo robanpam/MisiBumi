@@ -1,0 +1,75 @@
+.subJudul {
+    text-align: center;
+    padding-top: 2rem;
+}
+
+h3{
+    font-weight: 550;
+}
+
+.atas{
+    background-color: #90a58db1;
+}
+
+.input-group{
+    /* background-color: rebeccapurple; */
+    width: 50rem;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center; /* Menyelaraskan item di tengah */
+    /* width: 100%; */
+}
+
+#searchInput {
+    width: 50%; /* Lebar input */
+    margin: 0 auto; /* Menempatkan di tengah */
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ADD9A8; /* Border hijau */
+    font-size: 16px; /* Ukuran font */
+    margin-right: 10px;
+}
+
+.btn-custom{
+    background-color: #114232;
+    border-color: #ADD9A8;
+    font-size: 15px;
+    color: #ADD9A8;
+    width: 100px;
+    font-weight: 550;
+}
+.btn:hover {
+    background-color: #ADD9A8;
+    border-color: #114232;
+    color: #114232;
+}
+
+.accordion-button {
+    /* background-color: #ADD9A8; Warna hijau untuk tombol */
+    color: #114232; /* Warna teks */
+    border: 1px solid #ADD9A8; /* Border hijau */
+}
+
+.accordion-button:focus {
+    box-shadow: none; /* Menghilangkan bayangan fokus */
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #ADD9A8; /* Warna hijau lebih gelap saat aktif */
+}
+
+.accordion-body {
+    background-color: #e8f5e9; /* Background body hijau muda */
+    color: #155724; /* Warna teks */
+}
+
+.accordion-header {
+    border: none; /* Menghilangkan border default */
+}
+
+.accordion-item {
+    border: none; /* Menghilangkan border default */
+    border-bottom: 1px solid #ADD9A8; /* Garis pemisah hijau */
+}

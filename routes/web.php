@@ -141,3 +141,13 @@ Route::middleware(['admin'])->group(function(){
     //delete artikel
     Route::delete('/deleteartikel/{id}', [ArtikelController::class, 'destroy'])->name('deleteartikel');
 });
+
+Route::get(
+    '/about',
+    function () {return view('/layout/aboutus');}
+);
+
+Route::get(
+    '/faq',
+    function () {return view('/layout/faq');}
+);
