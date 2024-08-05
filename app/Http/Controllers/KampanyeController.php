@@ -6,6 +6,7 @@ use App\Models\Kampanye;
 use App\Models\Pohon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class KampanyeController extends Controller
 {
@@ -19,16 +20,15 @@ class KampanyeController extends Controller
                 'kampanyes.*',
                 'pohons.nama as pohon_nama',
                 'users.name as user_name',
-                'donasis.nilai_donasi as nilai_donasi',
-                'pohons.harga_pohon as harga_pohon'
+                'pohons.harga_pohon as harga_pohon',
+                DB::raw('ROUND(IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) as pohon_terkumpul'),
+                DB::raw('ROUND(LEAST(100, (IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) / kampanyes.jumlah_pohon * 100)) as persentase_terkumpul')
             )
-            ->inRandomOrder() // Randomize order
+            ->groupBy('kampanyes.id', 'pohons.id', 'users.id')
             ->get();
 
         return view('kampanye.mainKampanye', compact('kampanyes'));
     }
-
-
 
     public function blmSelesai()
     {
@@ -40,12 +40,12 @@ class KampanyeController extends Controller
                 'kampanyes.*',
                 'pohons.nama as pohon_nama',
                 'users.name as user_name',
-                'donasis.nilai_donasi as nilai_donasi',
-                'pohons.harga_pohon as harga_pohon'
+                'pohons.harga_pohon as harga_pohon',
+                DB::raw('ROUND(IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) as pohon_terkumpul'),
+                DB::raw('ROUND(LEAST(100, (IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) / kampanyes.jumlah_pohon * 100)) as persentase_terkumpul')
             )
-            ->inRandomOrder() // Randomize order
+            ->groupBy('kampanyes.id', 'pohons.id', 'users.id')
             ->paginate(12); // Limit to 12 results per page
-
 
         return view('kampanye.blmSelesaiKampanye', compact('kampanyes'));
     }
@@ -60,16 +60,17 @@ class KampanyeController extends Controller
                 'kampanyes.*',
                 'pohons.nama as pohon_nama',
                 'users.name as user_name',
-                'donasis.nilai_donasi',
-                'pohons.harga_pohon as harga_pohon'
+                'pohons.harga_pohon as harga_pohon',
+                DB::raw('ROUND(IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) as pohon_terkumpul'),
+                DB::raw('ROUND(LEAST(100, (IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) / kampanyes.jumlah_pohon * 100)) as persentase_terkumpul')
             )
-            ->inRandomOrder() // Randomize order
+            ->groupBy('kampanyes.id', 'pohons.id', 'users.id')
             ->paginate(12); // Limit to 12 results per page
 
         return view('kampanye.telahSelesaiKampanye', compact('kampanyes'));
     }
 
-    // kelola kampanye
+    // Kelola kampanye
     public function kelola()
     {
         $kampanyes = Kampanye::whereIn('kampanyes.status', [0, 1, 2]) // Specify table name
@@ -81,7 +82,7 @@ class KampanyeController extends Controller
         return view('kampanye.kelolakampanye', compact('kampanyes'));
     }
 
-    //request kampanye
+    // Request kampanye
     public function fetchPendingKampanyes()
     {
         $pendingKampanyes = Kampanye::where('kampanyes.status', 3) // Specify table name
@@ -93,7 +94,7 @@ class KampanyeController extends Controller
         return response()->json($pendingKampanyes);
     }
 
-    // detail request kampanye (admin)
+    // Detail request kampanye (admin)
     public function showDetailRequestKampanye($id)
     {
         $kampanye = Kampanye::join('pohons', 'kampanyes.pohon_id', '=', 'pohons.id')
@@ -112,7 +113,7 @@ class KampanyeController extends Controller
         return view('kampanye.detailkampanye', compact('kampanye'));
     }
 
-    // detail kampanye (user)
+    // Detail kampanye (user)
     public function showDetailKampanye($id)
     {
         $kampanye = Kampanye::join('pohons', 'kampanyes.pohon_id', '=', 'pohons.id')
@@ -124,10 +125,11 @@ class KampanyeController extends Controller
                 'users.name as user_name',
                 'donasis.nilai_donasi',
                 'donasis.metode_pembayaran_id',
-                'pohons.harga_pohon as harga_pohon'
+                'pohons.harga_pohon as harga_pohon',
+                DB::raw('ROUND(IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) as pohon_terkumpul'),
+                DB::raw('ROUND(LEAST(100, (IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) / kampanyes.jumlah_pohon * 100)) as persentase_terkumpul')
             )
-            ->with(['user', 'donasis.user'])
-            ->where('kampanyes.id', $id)
+            ->groupBy('kampanyes.id', 'pohons.id', 'users.id')
             ->firstOrFail();
 
         return view('kampanye.detailkampanye2', compact('kampanye'));
@@ -175,7 +177,6 @@ class KampanyeController extends Controller
 
     public function addRequest(Request $request)
     {
-
         $rules = [
             'judul' => 'required|string|max:255',
             'jalan' => 'required|string|max:255',
@@ -226,3 +227,4 @@ class KampanyeController extends Controller
         return redirect()->route('kampanye.request')->with('success', 'Kampanye kamu berhasil diajukan!');
     }
 }
+?>
