@@ -13,7 +13,7 @@ class KampanyeController extends Controller
 {
     public function index()
     {
-        $kampanyes = Kampanye::whereIn('kampanyes.status', [0, 1, 2]) // Specify table name
+        $kampanyes = Kampanye::whereIn('kampanyes.status', [0, 1, 2])
             ->join('pohons', 'kampanyes.pohon_id', '=', 'pohons.id')
             ->join('users', 'kampanyes.user_id', '=', 'users.id')
             ->leftJoin('donasis', 'kampanyes.id', '=', 'donasis.kampanye_id')
@@ -22,11 +22,13 @@ class KampanyeController extends Controller
                 'pohons.nama as pohon_nama',
                 'users.name as user_name',
                 'pohons.harga_pohon as harga_pohon',
+                'donasis.nilai_donasi',
+                'donasis.metode_pembayaran_id',
                 DB::raw('ROUND(IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) as pohon_terkumpul'),
                 DB::raw('ROUND(LEAST(100, (IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) / kampanyes.jumlah_pohon * 100)) as persentase_terkumpul')
             )
-            ->inRandomOrder() // Randomize order
-            ->groupBy('kampanyes.id', 'pohons.id', 'users.id')
+            ->inRandomOrder()
+            ->groupBy('kampanyes.id', 'pohons.id', 'users.id', 'donasis.nilai_donasi', 'donasis.metode_pembayaran_id', 'pohons.harga_pohon')
             ->get();
 
         return view('kampanye.mainKampanye', compact('kampanyes'));
@@ -34,7 +36,7 @@ class KampanyeController extends Controller
 
     public function blmSelesai()
     {
-        $kampanyes = Kampanye::where('kampanyes.status', 2) // Specify table name
+        $kampanyes = Kampanye::where('kampanyes.status', 2)
             ->join('pohons', 'kampanyes.pohon_id', '=', 'pohons.id')
             ->join('users', 'kampanyes.user_id', '=', 'users.id')
             ->leftJoin('donasis', 'kampanyes.id', '=', 'donasis.kampanye_id')
@@ -43,19 +45,21 @@ class KampanyeController extends Controller
                 'pohons.nama as pohon_nama',
                 'users.name as user_name',
                 'pohons.harga_pohon as harga_pohon',
+                'donasis.nilai_donasi',
+                'donasis.metode_pembayaran_id',
                 DB::raw('ROUND(IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) as pohon_terkumpul'),
                 DB::raw('ROUND(LEAST(100, (IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) / kampanyes.jumlah_pohon * 100)) as persentase_terkumpul')
             )
-            ->inRandomOrder() // Randomize order
-            ->groupBy('kampanyes.id', 'pohons.id', 'users.id')
-            ->paginate(12); // Limit to 12 results per page
+            ->inRandomOrder()
+            ->groupBy('kampanyes.id', 'pohons.id', 'users.id', 'donasis.nilai_donasi', 'donasis.metode_pembayaran_id', 'pohons.harga_pohon')
+            ->paginate(12);
 
         return view('kampanye.blmSelesaiKampanye', compact('kampanyes'));
     }
 
     public function udhSelesai()
     {
-        $kampanyes = Kampanye::where('kampanyes.status', 0) // Specify table name
+        $kampanyes = Kampanye::where('kampanyes.status', 0)
             ->join('pohons', 'kampanyes.pohon_id', '=', 'pohons.id')
             ->join('users', 'kampanyes.user_id', '=', 'users.id')
             ->leftJoin('donasis', 'kampanyes.id', '=', 'donasis.kampanye_id')
@@ -64,12 +68,14 @@ class KampanyeController extends Controller
                 'pohons.nama as pohon_nama',
                 'users.name as user_name',
                 'pohons.harga_pohon as harga_pohon',
+                'donasis.nilai_donasi',
+                'donasis.metode_pembayaran_id',
                 DB::raw('ROUND(IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) as pohon_terkumpul'),
                 DB::raw('ROUND(LEAST(100, (IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) / kampanyes.jumlah_pohon * 100)) as persentase_terkumpul')
             )
-            ->inRandomOrder() // Randomize order
-            ->groupBy('kampanyes.id', 'pohons.id', 'users.id')
-            ->paginate(12); // Limit to 12 results per page
+            ->inRandomOrder()
+            ->groupBy('kampanyes.id', 'pohons.id', 'users.id', 'donasis.nilai_donasi', 'donasis.metode_pembayaran_id', 'pohons.harga_pohon')
+            ->paginate(12);
 
         return view('kampanye.telahSelesaiKampanye', compact('kampanyes'));
     }
@@ -77,7 +83,7 @@ class KampanyeController extends Controller
     // Kelola kampanye
     public function kelola()
     {
-        $kampanyes = Kampanye::whereIn('kampanyes.status', [0, 1, 2]) // Specify table name
+        $kampanyes = Kampanye::whereIn('kampanyes.status', [0, 1, 2])
             ->join('pohons', 'kampanyes.pohon_id', '=', 'pohons.id')
             ->join('users', 'kampanyes.user_id', '=', 'users.id')
             ->select('kampanyes.*', 'pohons.nama as pohon_nama', 'users.name as user_name')
@@ -89,7 +95,7 @@ class KampanyeController extends Controller
     // Request kampanye
     public function fetchPendingKampanyes()
     {
-        $pendingKampanyes = Kampanye::where('kampanyes.status', 3) // Specify table name
+        $pendingKampanyes = Kampanye::where('kampanyes.status', 3)
             ->join('pohons', 'kampanyes.pohon_id', '=', 'pohons.id')
             ->join('users', 'kampanyes.user_id', '=', 'users.id')
             ->select('kampanyes.*', 'pohons.nama as pohon_nama', 'users.name as user_name')
@@ -135,29 +141,29 @@ class KampanyeController extends Controller
             )
             ->with(['user', 'donasis.user'])
             ->where('kampanyes.id', $id)
-            ->groupBy('kampanyes.id', 'pohons.id', 'users.id')
+            ->groupBy('kampanyes.id', 'pohons.id', 'users.id', 'donasis.nilai_donasi', 'donasis.metode_pembayaran_id', 'pohons.harga_pohon')
             ->firstOrFail();
-        
+
         $startYear = $kampanye->created_at->format('Y');
         $endYear = 2024;
         $donasiTahunan = [];
 
-        foreach(range($startYear, $endYear) as $year){
-            $donasiTahunan[$year] = Donasi::select(DB::raw('YEAR(created_at) as tahun'),DB::raw('MONTH(created_at) as bulan'), DB::raw('sum(nilai_donasi) as total_donasi'))
-            ->whereYear('created_at', '=', $year)
-            ->where('donasis.kampanye_id', '=', $kampanye->id)
-            ->groupBy('tahun', 'bulan')
-            ->get();
+        foreach (range($startYear, $endYear) as $year) {
+            $donasiTahunan[$year] = Donasi::select(DB::raw('YEAR(created_at) as tahun'), DB::raw('MONTH(created_at) as bulan'), DB::raw('sum(nilai_donasi) as total_donasi'))
+                ->whereYear('created_at', '=', $year)
+                ->where('donasis.kampanye_id', '=', $kampanye->id)
+                ->groupBy('tahun', 'bulan')
+                ->get();
         }
 
-        return view('kampanye.detailkampanye2', compact('kampanye','donasiTahunan', 'startYear', 'endYear'));
+        return view('kampanye.detailkampanye2', compact('kampanye', 'donasiTahunan', 'startYear', 'endYear'));
     }
 
     public function terima($id)
     {
         $kampanye = Kampanye::find($id);
         if ($kampanye) {
-            $kampanye->status = 1; // Change status to 'process'
+            $kampanye->status = 1;
             $kampanye->save();
         }
         return redirect()->route('kelolakampanye')->with('success', 'Kampanye diterima.');
@@ -167,7 +173,7 @@ class KampanyeController extends Controller
     {
         $kampanye = Kampanye::find($id);
         if ($kampanye) {
-            $kampanye->status = 2; // Change status to 'reject'
+            $kampanye->status = 2;
             $kampanye->save();
         }
         return redirect()->route('kelolakampanye')->with('success', 'Kampanye ditolak.');
@@ -175,15 +181,15 @@ class KampanyeController extends Controller
 
     public function terimaSemua()
     {
-        Kampanye::where('kampanyes.status', 3) // Specify table name
-            ->update(['status' => 1]); // Change status to 'process'
+        Kampanye::where('kampanyes.status', 3)
+            ->update(['status' => 1]);
         return redirect()->route('kelolakampanye')->with('success', 'Semua kampanye diterima.');
     }
 
     public function tolakSemua()
     {
-        Kampanye::where('kampanyes.status', 3) // Specify table name
-            ->update(['status' => 2]); // Change status to 'reject'
+        Kampanye::where('kampanyes.status', 3)
+            ->update(['status' => 2]);
         return redirect()->route('kelolakampanye')->with('success', 'Semua kampanye ditolak.');
     }
 

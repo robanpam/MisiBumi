@@ -26,16 +26,9 @@
                 <div class="row">
                     <div class="col-1"></div>
                     <div class="col-11">
-                        @php
-                            $pohon_terkumpul = intval(
-                                $kampanye->donasis->sum('nilai_donasi') /
-                                    ($kampanye->harga_pohon > 0 ? $kampanye->harga_pohon : 1),
-                            );
-                            $persentase_terkumpul = min(100, ($pohon_terkumpul / $kampanye->jumlah_pohon) * 100);
-                        @endphp
                         <div class="progress mt-3 rounded-0">
-                            <div class="progress-bar" role="progressbar" style="width: {{ $persentase_terkumpul }}%;"
-                                aria-valuenow="{{ $persentase_terkumpul }}" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar" style="width: {{ $kampanye->persentase_terkumpul }}%;"
+                                aria-valuenow="{{ $kampanye->persentase_terkumpul }}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                 </div>
@@ -46,7 +39,7 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="d-flex justify-content-start">
-                                    <p class="bwh1">{{ $pohon_terkumpul }}</p>
+                                    <p class="bwh1">{{ $kampanye->pohon_terkumpul }}</p>
                                     <p class="bwh2">Pohon terkumpul</p>
                                 </div>
                             </div>
@@ -243,26 +236,16 @@
                                         {{ \Carbon\Carbon::parse($kampanye->batas_donasi)->translatedFormat('d F Y') }}
                                     </div>
                                 </div>
-                                @php
-                                    $pohon_terkumpul = intval(
-                                        $kampanye->donasis->sum('nilai_donasi') /
-                                            ($kampanye->harga_pohon > 0 ? $kampanye->harga_pohon : 1),
-                                    );
-                                    $persentase_terkumpul = min(
-                                        100,
-                                        ($pohon_terkumpul / $kampanye->jumlah_pohon) * 100,
-                                    );
-                                @endphp
                                 <div class="progress mt-3 rounded-0">
                                     <div class="progress-bar" role="progressbar"
-                                        style="width: {{ $persentase_terkumpul }}%;"
-                                        aria-valuenow="{{ $persentase_terkumpul }}" aria-valuemin="0"
+                                        style="width: {{ $kampanye->persentase_terkumpul }}%;"
+                                        aria-valuenow="{{ $kampanye->persentase_terkumpul }}" aria-valuemin="0"
                                         aria-valuemax="100"></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="d-flex justify-content-start">
-                                            <div class="bwh1">{{ $pohon_terkumpul }}</div>
+                                            <div class="bwh1">{{ $kampanye->pohon_terkumpul }}</div>
                                             <div class="bwh2">Pohon terkumpul</div>
                                         </div>
                                     </div>
