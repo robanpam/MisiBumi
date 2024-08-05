@@ -24,6 +24,7 @@ class KampanyeController extends Controller
                 DB::raw('ROUND(IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) as pohon_terkumpul'),
                 DB::raw('ROUND(LEAST(100, (IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) / kampanyes.jumlah_pohon * 100)) as persentase_terkumpul')
             )
+            ->inRandomOrder() // Randomize order
             ->groupBy('kampanyes.id', 'pohons.id', 'users.id')
             ->get();
 
@@ -44,6 +45,7 @@ class KampanyeController extends Controller
                 DB::raw('ROUND(IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) as pohon_terkumpul'),
                 DB::raw('ROUND(LEAST(100, (IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) / kampanyes.jumlah_pohon * 100)) as persentase_terkumpul')
             )
+            ->inRandomOrder() // Randomize order
             ->groupBy('kampanyes.id', 'pohons.id', 'users.id')
             ->paginate(12); // Limit to 12 results per page
 
@@ -64,6 +66,7 @@ class KampanyeController extends Controller
                 DB::raw('ROUND(IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) as pohon_terkumpul'),
                 DB::raw('ROUND(LEAST(100, (IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) / kampanyes.jumlah_pohon * 100)) as persentase_terkumpul')
             )
+            ->inRandomOrder() // Randomize order
             ->groupBy('kampanyes.id', 'pohons.id', 'users.id')
             ->paginate(12); // Limit to 12 results per page
 
@@ -129,6 +132,8 @@ class KampanyeController extends Controller
                 DB::raw('ROUND(IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) as pohon_terkumpul'),
                 DB::raw('ROUND(LEAST(100, (IFNULL(SUM(donasis.nilai_donasi), 0) / IF(pohons.harga_pohon > 0, pohons.harga_pohon, 1)) / kampanyes.jumlah_pohon * 100)) as persentase_terkumpul')
             )
+            ->with(['user', 'donasis.user'])
+            ->where('kampanyes.id', $id)
             ->groupBy('kampanyes.id', 'pohons.id', 'users.id')
             ->firstOrFail();
 
