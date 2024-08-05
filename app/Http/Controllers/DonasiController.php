@@ -36,6 +36,8 @@ class DonasiController extends Controller
             $pohon = $total_pohon[0]->total_pohon;
         }
 
+        $pohon = formatNumber($pohon);
+
         // Donasi terkumpul
         $total_donasi = Donasi::select(Donasi::raw('sum(nilai_donasi) as total_donasi'))
             ->get();
@@ -46,6 +48,7 @@ class DonasiController extends Controller
             $donasi = $total_donasi[0]->total_donasi;
         }
 
+        $donasi = formatNumber($donasi);
 
         // Ambil data artikel
         $artikels = Artikel::inRandomOrder()->take(5)->get();

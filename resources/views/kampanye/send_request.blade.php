@@ -27,43 +27,43 @@
             <div class="mb-5 row">
                 <label for="judul" class="col-sm-2 col-form-label font-weight-bold custom-label">Judul Kampanye</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control custom-input" id="judul" name="judul"
+                    <input type="text" class="form-control custom-input" id="judul" name="judul" value="{{ old('judul') }}"
                         aria-describedby="emailHelp" placeholder="Judul Kampanye">
                     {{-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> --}}
+                    @error('judul')
+                        <p class="error-message">{{ $message }}</p>
+                    @enderror
                 </div>
-                @error('judul')
-                    <p class="error-message">{{ $message }}</p>
-                @enderror
             </div>
             <div class="mb-5 row">
                 <label for="lokasi" class="col-sm-2 col-form-label custom-label">Lokasi</label>
                 <div class="col-sm-10">
-                    <input name="jalan" type="text" class="form-control custom-input mb-2" id="jalan" 
+                    <input name="jalan" type="text" class="form-control custom-input mb-2" id="jalan" value="{{ old('jalan') }}"
                         aria-describedby="emailHelp" placeholder="Nama Jalan">
-                    <input name="kel" type="text" class="form-control custom-input mb-2" id="kel"
+                        @error('jalan')
+                            <p class="error-message">{{ $message }}</p>
+                        @enderror
+                    <input name="kel" type="text" class="form-control custom-input mb-2" id="kel" value="{{ old('kel') }}"
                         aria-describedby="emailHelp" placeholder="Kelurahan">
-                    <input name="kec" type="text" class="form-control custom-input mb-2" id="kec"
+                        @error('kel')
+                            <p class="error-message">{{ $message }}</p>
+                        @enderror
+                    <input name="kec" type="text" class="form-control custom-input mb-2" id="kec" value="{{ old('kec') }}"
                         aria-describedby="emailHelp" placeholder="Kecamatan">
-                    <input name="kab_kota" type="text" class="form-control custom-input mb-2" id="kab_kota"
+                        @error('kec')
+                            <p class="error-message">{{ $message }}</p>
+                        @enderror
+                    <input name="kab_kota" type="text" class="form-control custom-input mb-2" id="kab_kota" value="{{ old('kab_kota') }}"
                         aria-describedby="emailHelp" placeholder="Kabupaten/Kota">
-                    <input name="provinsi" type="text" class="form-control custom-input" id="provinsi"
+                        @error('kab_kota')
+                            <p class="error-message">{{ $message }}</p>
+                        @enderror
+                    <input name="provinsi" type="text" class="form-control custom-input" id="provinsi" value="{{ old('provinsi') }}"
                         aria-describedby="emailHelp" placeholder="Provinsi">
+                        @error('provinsi')
+                            <p class="error-message">{{ $message }}</p>
+                        @enderror
                 </div>
-                @error('jalan')
-                    <p class="error-message">{{ $message }}</p>
-                @enderror
-                @error('kel')
-                    <p class="error-message">{{ $message }}</p>
-                @enderror
-                @error('kec')
-                    <p class="error-message">{{ $message }}</p>
-                @enderror
-                @error('kab_kota')
-                    <p class="error-message">{{ $message }}</p>
-                @enderror
-                @error('provinsi')
-                    <p class="error-message">{{ $message }}</p>
-                @enderror
             </div>
             <div class="mb-5 row">
                 <label for="jenisPohon" class="col-sm-2 col-form-label custom-label">Jenis Pohon</label>
@@ -82,44 +82,44 @@
                 </div>
             </div>
             <div class="mb-5 row">
-                <label for="jumlahPohon" class="col-sm-2 col-form-label font-weight-bold custom-label">Jumlah Pohon</label>
+                <label for="jumlah" class="col-sm-2 col-form-label font-weight-bold custom-label">Jumlah Pohon</label>
                 <div class="col-sm-4">
-                    <input name="jumlah" type="number" class="form-control custom-input" id="jumlah"
+                    <input name="jumlah" type="number" class="form-control custom-input" id="jumlah" value="{{ old('jumlah') }}"
                         aria-describedby="emailHelp" placeholder="Target Jumlah Pohon Ditanam">
+                        @error('jumlah')
+                            <p class="error-message">{{ $message }}</p>
+                        @enderror
                 </div>
-                @error('jumlah')
-                    <p class="error-message">{{ $message }}</p>
-                @enderror
             </div>
             <div class="mb-5 row">
                 <label for="batasDonasi" class="col-sm-2 col-form-label font-weight-bold custom-label">Batas Donasi</label>
                 <div class="col-sm-10">
-                    <input name="batasDonasi" type="date" class="form-control custom-input" id="batasDonasi"
+                    <input name="batasDonasi" type="date" class="form-control custom-input" id="batasDonasi" value="{{ old('batasDonasi') }}"
                         aria-describedby="emailHelp" placeholder="Tanggal-Bulan-Tahun (contoh: 27 Mei 2024)">
+                        @error('batasDonasi')
+                            <p class="error-message">{{ $message }}</p>
+                        @enderror
                 </div>
-                @error('batasDonasi')
-                    <p class="error-message">{{ $message }}</p>
-                @enderror
             </div>
             <div class="mb-5 row">
                 <label for="deskripsi" class="col-sm-2 col-form-label font-weight-bold custom-label">Deskripsi</label>
                 <div class="col-sm-10">
-                    <textarea name="deskripsi" type="text" class="form-control custom-input" id="deskripsi" aria-describedby="emailHelp"
+                    <textarea name="deskripsi" type="text" class="form-control custom-input" id="deskripsi" aria-describedby="emailHelp" value="{{ old('deskripsi') }}"
                         placeholder="Ceritakan Tentang Kampanye Ini" style="height: 200px;"></textarea>
+                        @error('dekripsi')
+                            <p class="error-message">{{ $message }}</p>
+                        @enderror
                 </div>
-                @error('dekripsi')
-                    <p class="error-message">{{ $message }}</p>
-                @enderror
             </div>
             <div class="mb-5 row">
                 <label for="gambar" class="col-sm-2 col-form-label font-weight-bold custom-label">Gambar</label>
                 <div class="col-sm-10">
                     <input name="gambar" type="file" id="gambar" value="{{ old('gambar') }}"
                         class="form-control custom-control @error('gambar') is-invalid @enderror" required>
+                        @error('gambar')
+                            <p class="error-message">{{ $message }}</p>
+                        @enderror
                 </div>
-                @error('gambar')
-                    <p class="error-message">{{ $message }}</p>
-                @enderror
             </div>
             <div class="mb-5 row">
                 <div class="col-sm-10 offset-sm-1 d-flex justify-content-center">

@@ -63,6 +63,10 @@ Route::get('/artikel', [ArtikelController::class, 'mainArtikel'])->name('mainArt
 
 // Leaderboard
 Route::get('/leaderboard', [BerandaController::class, 'leaderboard'])->name('leaderboard');
+Route::get('/profile/logout', [ProfileController::class, 'logout'])->name('profile.logout');
+
+//Post Kampanye
+Route::post('/add/kampanye', [KampanyeController::class, 'addRequest'])->name('kampanye.add');
 
 Route::middleware(['user'])->group(function(){
     //Donasi
@@ -70,8 +74,6 @@ Route::middleware(['user'])->group(function(){
     Route::post('/store', [DonasiController::class, 'store'])->name('donasi.store');
     Route::get('/detail/{donasi}', [DonasiController::class, 'show'])->name('donasi.show_detail');
 
-    //Post Kampanye
-    Route::post('/add/kampanye', [KampanyeController::class, 'addRequest'])->name('kampanye.add');
 
     //Profile
     Route::get('/profile/history', [ProfileController::class, 'history'])->name('profile.history');
@@ -79,7 +81,6 @@ Route::middleware(['user'])->group(function(){
     Route::get('/profile/pengaturan', [ProfileController::class, 'pengaturan'])->name('profile.pengaturan');
     Route::post('/profile/updateFoto', [ProfileController::class, 'foto'])->name('profile.foto');
     Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
-    Route::get('/profile/logout', [ProfileController::class, 'logout'])->name('profile.logout');
 });
 
 Route::middleware(['admin'])->group(function(){

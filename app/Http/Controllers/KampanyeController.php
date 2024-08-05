@@ -175,9 +175,6 @@ class KampanyeController extends Controller
 
     public function addRequest(Request $request)
     {
-        if (!auth()->check()) {
-            return redirect()->back()->with('error', 'Tolong lakukan login sebelum mengajukan campaign.');
-        }
 
         $rules = [
             'judul' => 'required|string|max:255',
@@ -202,6 +199,10 @@ class KampanyeController extends Controller
         ];
 
         $request->validate($rules, $messages);
+
+        if (!auth()->check()) {
+            return redirect()->back()->with('error', 'Tolong lakukan login sebelum mengajukan campaign.');
+        }
 
         $lokasi = $request->input('jalan') . ', Kel. ' . $request->input('kel') . ', Kec. ' . $request->input('kec') . ', ' . $request->input('kab_kota') . ', ' . $request->input('provinsi');
 
