@@ -43,6 +43,10 @@ Route::get('/sign-register', [SessionController::class, 'init'])->name('session.
 Route::post('/login', [SessionController::class, 'login'])->name('session.login');
 Route::post('/regis', [SessionController::class, 'register'])->name('session.register');
 
+// footer
+Route::get('/snk', function () {return view('/layout/snk');});
+Route::get('/privasidata', function () {return view('/layout/privasidata');});
+
 //Password Reset
 Route::get('/passwordreset', [SessionController::class, 'showPasswordResetRequestForm'])->name('password.request');
 Route::post('/passwordresetlink', [SessionController::class, 'sendPasswordResetLink'])->name('password.email');
