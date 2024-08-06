@@ -24,5 +24,14 @@
         "LOG_CHANNEL": "stderr",
         "SESSION_DRIVER": "cookie"
     },
-    "outputDirectory":"public"
+    "outputDirectory":"public",
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        },
+        "files": [
+            "app/Http/Helpers/NumberFormatter.php",
+            "app/Http/Helpers/EmissionFormatter.php"
+        ]
+    }
 }
