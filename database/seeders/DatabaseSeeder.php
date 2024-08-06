@@ -131,28 +131,56 @@ class DatabaseSeeder extends Seeder
             'nama_metode' => 'ovo'
         ]);
 
-        Kampanye::factory(3)->create([
+        Kampanye::factory()->create([
             'status' => 0,
             'pohon_id' => 5,
+            'updated_at' => '2021-07-11'
+        ]);
+
+        Kampanye::factory()->create([
+            'status' => 0,
+            'pohon_id' => 5,
+            'updated_at' => '2022-07-11'
+        ]);
+
+        Kampanye::factory()->create([
+            'status' => 0,
+            'pohon_id' => 5,
+            'updated_at' => '2023-07-11'
+        ]);
+
+        Kampanye::factory()->create([
+            'status' => 0,
+            'pohon_id' => 5,
+            'updated_at' => '2024-03-11'
         ]);
 
         Kampanye::factory(3)->create([
             'status' => 1,
         ]);
 
-        Donasi::factory(1)->create([
+        Donasi::factory(3)->create([
             'kampanye_id' => 1,
-            'nilai_donasi' => 15000000,
+            'nilai_donasi' => 3000000,
+            'created_at' => '2024-05-22'
         ]);
 
-        Donasi::factory(1)->create([
+        Donasi::factory(3)->create([
             'kampanye_id' => 2,
-            'nilai_donasi' => 15000000,
+            'nilai_donasi' => 3000000,
+            'created_at' => '2024-05-22'
         ]);
 
-        Donasi::factory(1)->create([
+        Donasi::factory(3)->create([
             'kampanye_id' => 3,
-            'nilai_donasi' => 15000000,
+            'nilai_donasi' => 3000000,
+            'created_at' => '2024-05-22'
+        ]);
+
+        Donasi::factory(3)->create([
+            'kampanye_id' => 4,
+            'nilai_donasi' => 3000000,
+            'created_at' => '2024-05-22'
         ]);
 
         // Donasi::factory(10)->create();

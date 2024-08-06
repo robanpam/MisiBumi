@@ -11,14 +11,16 @@
                 <div class="col-md-3 mb-4 ps-md-5">
                     <h6 class="font-weight-bold">Tentang Misi Bumi</h6>
                     <ul class="list-unstyled">
-                        <li class="my-2"><a href="/about" class="text-dark link-underline link-underline-opacity-0 footer-font">Tentang Kami</a></li>
+                            <a href="/about">
+                            <li class="my-2"><a href="/about" class="text-dark link-underline link-underline-opacity-0 footer-font">Tentang Kami</a></li>
+                        </a>
                     </ul>
                 </div>
                 <!-- Column 3 -->
                 <div class="col-md-3 mb-4">
                     <h6 class="font-weight-bold">Informasi Perusahaan</h6>
                     <ul class="list-unstyled">
-                        <li class="my-2"><a href="#" class="text-dark link-underline link-underline-opacity-0 footer-font">FAQ</a></li>
+                        <li class="my-2"><a href="faq" class="text-dark link-underline link-underline-opacity-0 footer-font">FAQ</a></li>
                         <li class="my-2"><a href="#" class="text-dark link-underline link-underline-opacity-0 footer-font">Syarat dan Kebijakan</a></li>
                         <li class="my-2"><a href="#" class="text-dark link-underline link-underline-opacity-0 footer-font">Kebijakan Privasi</a></li>
                     </ul>

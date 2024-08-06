@@ -133,6 +133,8 @@ class KampanyeController extends Controller
             ->join('pohons', 'kampanyes.pohon_id', '=', 'pohons.id')
             ->join('users', 'kampanyes.user_id', '=', 'users.id')
             ->select('kampanyes.*', 'pohons.nama as pohon_nama', 'users.name as user_name')
+            ->orderBy('status', 'desc')
+            ->orderBy('created_at', 'desc')
             ->get();
 
         return view('kampanye.kelolakampanye', compact('kampanyes'));

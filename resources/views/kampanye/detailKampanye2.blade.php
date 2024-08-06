@@ -304,7 +304,7 @@
             scales: {
                 y: {
                     beginAtZero: true,
-                    max: 5000000
+                    max: 15000000
                 }
             },
             plugins: {
