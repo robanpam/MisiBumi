@@ -159,6 +159,10 @@ class DatabaseSeeder extends Seeder
             'status' => 1,
         ]);
 
+        Kampanye::factory(10)->create([
+            'status' => 1,
+        ]);
+
         Donasi::factory(3)->create([
             'kampanye_id' => 1,
             'nilai_donasi' => 3000000,
