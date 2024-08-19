@@ -183,14 +183,66 @@ class DatabaseSeeder extends Seeder
             'created_at' => '2024-05-22'
         ]);
 
-        Testimoni::factory()->create([
-            'gambar_testimoni'=>'/asset/testimoni/'.rand(1,8).'.jpeg',
-            'nama_testimoni'=>fake()->name(),
-            'isi_testimoni'=>fake()->paragraph(1, true)
-        ]);
+        $testimonies =
+            [
+                [
+                    'gambar_testimoni' => '/asset/testimoni/1.jpeg',
+                    'nama_testimoni' => 'John Doe',
+                    'isi_testimoni' => 'This app exceeded my expectations. It’s incredibly user-friendly!',
+                ],
+                [
+                    'gambar_testimoni' => '/asset/testimoni/2.jpeg',
+                    'nama_testimoni' => 'Jane Smith',
+                    'isi_testimoni' => 'A game-changer for my daily routine. I can’t imagine going without it now!',
+                ],
+                [
+                    'gambar_testimoni' => '/asset/testimoni/3.jpeg',
+                    'nama_testimoni' => 'Michael Brown',
+                    'isi_testimoni' => 'Fantastic design and functionality. Highly recommended!',
+                ],
+                [
+                    'gambar_testimoni' => '/asset/testimoni/4.jpeg',
+                    'nama_testimoni' => 'Emily Davis',
+                    'isi_testimoni' => 'This app has simplified my tasks significantly. Love it!',
+                ],
+                [
+                    'gambar_testimoni' => '/asset/testimoni/5.jpeg',
+                    'nama_testimoni' => 'David Wilson',
+                    'isi_testimoni' => 'An essential tool that delivers as promised. Very impressed!',
+                ],
+                [
+                    'gambar_testimoni' => '/asset/testimoni/6.jpeg',
+                    'nama_testimoni' => 'Olivia Martinez',
+                    'isi_testimoni' => 'User-friendly and efficient. It’s become an everyday necessity for me.',
+                ],
+                [
+                    'gambar_testimoni' => '/asset/testimoni/7.jpeg',
+                    'nama_testimoni' => 'James Johnson',
+                    'isi_testimoni' => 'The best app I’ve used in a long time. It just works!',
+                ],
+                [
+                    'gambar_testimoni' => '/asset/testimoni/8.jpeg',
+                    'nama_testimoni' => 'Sophia Lee',
+                    'isi_testimoni' => 'I’m amazed at how much this app has improved my productivity. A must-have!',
+                ],
+                [
+                    'gambar_testimoni' => '/asset/testimoni/1.jpeg',
+                    'nama_testimoni' => 'Daniel Taylor',
+                    'isi_testimoni' => 'Simple, effective, and reliable. Exactly what I needed.',
+                ],
+                [
+                    'gambar_testimoni' => '/asset/testimoni/2.jpeg',
+                    'nama_testimoni' => 'Grace Harris',
+                    'isi_testimoni' => 'This app has made my life so much easier. Highly recommend giving it a try!',
+                ],
+            ];
+
+        foreach ($testimonies as $testimony) {
+            Testimoni::factory()->create($testimony);
+        }
 
         // Donasi::factory(10)->create();
         Artikel::factory(20)->create();
-        Testimoni::factory(count:10)->create();
+        Testimoni::factory(count: 10)->create();
     }
 }
