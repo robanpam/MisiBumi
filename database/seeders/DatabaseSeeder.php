@@ -183,6 +183,12 @@ class DatabaseSeeder extends Seeder
             'created_at' => '2024-05-22'
         ]);
 
+        Testimoni::factory()->create([
+            'gambar_testimoni'=>'/asset/testimoni/'.rand(1,8).'.jpeg',
+            'nama_testimoni'=>fake()->name(),
+            'isi_testimoni'=>fake()->paragraph(1, true)
+        ]);
+
         // Donasi::factory(10)->create();
         Artikel::factory(20)->create();
         Testimoni::factory(count:10)->create();
