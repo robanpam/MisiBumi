@@ -22,7 +22,7 @@
                                 <div class="col-8">
                                     <div class="row atas">
                                         <p class="judul">{{ $items->judul_artikel }}</p>
-                                        <p class="dsk">{{ $items->isi_artikel }}</p>
+                                        <p class="dsk">{{ Str::words($items->isi_artikel, 20) }}</p>
                                     </div>
                                     <div class="row bwh">
                                         <p class="tgl">{{ \Carbon\Carbon::parse($items->created_at)->format('d F Y') }}

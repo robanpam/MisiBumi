@@ -183,6 +183,11 @@ class DatabaseSeeder extends Seeder
             'created_at' => '2024-05-22'
         ]);
 
+        // Artikel::factory()->create([
+        //     'judul_artikel' => fake()->sentence(3, true),
+        //     'isi_artikel' => fake()->paragraph(7, true),
+        // ]);
+
         $testimonies =
             [
                 [
@@ -241,8 +246,51 @@ class DatabaseSeeder extends Seeder
             Testimoni::factory()->create($testimony);
         }
 
+        Artikel::factory()->count(20)->create()->each(function ($artikel) {
+            $artikel->judul_artikel = fake()->unique()->randomElement([
+                'Mendorong Aksi Iklim Melalui Pengurangan Emisi Karbon',
+                'Peran Masyarakat dalam Mendukung Penghijauan Global',
+                'Pentingnya Edukasi tentang Perubahan Iklim untuk Generasi Muda',
+                'Mengurangi Jejak Karbon: Langkah Kecil yang Berdampak Besar',
+                'Kampanye Ramah Lingkungan: Melindungi Planet untuk Masa Depan',
+                'Inisiatif Lokal dalam Mengatasi Dampak Perubahan Iklim',
+                'Teknologi Hijau: Solusi Masa Depan untuk Lingkungan',
+                'Bersama Menjaga Keanekaragaman Hayati di Tengah Perubahan Iklim',
+                'Membangun Ketahanan Masyarakat terhadap Bencana Iklim',
+                'Inovasi Energi Terbarukan untuk Aksi Iklim Berkelanjutan',
+                'Aksi Global: Kolaborasi Antar Negara untuk Perubahan Iklim',
+                'Menjaga Lautan: Upaya Konservasi untuk Masa Depan',
+                'Peran Perempuan dalam Memimpin Aksi Iklim',
+                'Mengoptimalkan Transportasi Berkelanjutan untuk Kurangi Emisi',
+                'Pertanian Berkelanjutan sebagai Solusi Perubahan Iklim',
+                'Mengintegrasikan Aksi Iklim dalam Kebijakan Nasional',
+                'Kesadaran Publik tentang Penggunaan Energi Ramah Lingkungan',
+                'Pengelolaan Limbah yang Efektif untuk Lingkungan Sehat',
+                'Pentingnya Perlindungan Hutan Tropis bagi Aksi Iklim',
+                'Menggalang Komitmen Pemuda untuk Aksi Iklim Berkelanjutan',
+            ]);
+
+            $artikel->isi_artikel = implode("\n\n", [
+                'Perubahan iklim adalah salah satu tantangan terbesar yang dihadapi oleh umat manusia saat ini. Dampaknya dirasakan di seluruh dunia, dari peningkatan suhu global hingga pergeseran pola cuaca yang ekstrem. Untuk itu, diperlukan langkah-langkah konkret dalam mengurangi emisi karbon yang menjadi penyebab utama perubahan iklim ini. Salah satu langkah yang bisa diambil adalah dengan mengadopsi teknologi hijau dan beralih ke sumber energi terbarukan.',
+
+                'Mendorong penghijauan global merupakan salah satu inisiatif penting dalam mengatasi perubahan iklim. Penghijauan tidak hanya membantu dalam menyerap karbon dioksida dari atmosfer, tetapi juga berperan dalam menjaga keanekaragaman hayati. Upaya ini bisa dilakukan dengan menanam pohon di lingkungan sekitar dan mendukung program restorasi hutan. Penghijauan juga berkontribusi dalam mencegah erosi tanah dan menjaga keseimbangan ekosistem.',
+
+                'Pentingnya edukasi tentang perubahan iklim tidak bisa diremehkan. Generasi muda perlu dibekali dengan pengetahuan yang cukup agar mereka bisa berperan aktif dalam menjaga lingkungan. Edukasi ini dapat dilakukan melalui kurikulum sekolah, kampanye publik, maupun melalui media sosial. Dengan edukasi yang baik, masyarakat akan lebih sadar akan pentingnya tindakan yang berkelanjutan untuk mengurangi dampak perubahan iklim.',
+
+                'Penggunaan teknologi hijau juga menjadi solusi yang menjanjikan dalam menghadapi tantangan iklim. Teknologi ini mencakup berbagai inovasi yang bertujuan untuk mengurangi emisi gas rumah kaca, meningkatkan efisiensi energi, dan memanfaatkan sumber daya alam secara lebih berkelanjutan. Contohnya adalah penggunaan panel surya untuk menghasilkan listrik, kendaraan listrik untuk transportasi yang lebih bersih, dan sistem daur ulang air yang canggih.',
+
+                'Tindakan individu, meskipun tampaknya kecil, juga memiliki dampak besar dalam mengurangi jejak karbon. Mengurangi penggunaan plastik sekali pakai, menghemat energi di rumah, serta memilih transportasi yang ramah lingkungan adalah beberapa langkah sederhana yang bisa dilakukan setiap orang. Kesadaran dan tindakan kolektif dari masyarakat global akan menjadi kekuatan yang besar dalam mendorong perubahan positif bagi planet ini.',
+
+                'Akhirnya, kolaborasi antar negara dan sektor swasta sangat diperlukan untuk memastikan bahwa aksi iklim yang diambil bersifat global dan terkoordinasi. Tanpa kerjasama yang baik, upaya dalam mengatasi perubahan iklim tidak akan efektif. Oleh karena itu, penting bagi setiap negara untuk berkomitmen dalam perjanjian internasional seperti Kesepakatan Paris dan untuk secara aktif berpartisipasi dalam upaya mitigasi dan adaptasi perubahan iklim.',
+            ]);
+
+            $artikel->save();
+        });
+
         // Donasi::factory(10)->create();
-        Artikel::factory(20)->create();
-        Testimoni::factory(count: 10)->create();
+        // Artikel::factory(20)->create();
+        // Testimoni::factory(count:10)->create();
+        // Artikel::factory(20)->create();
+        // Testimoni::factory(count: 10)->create();
     }
 }

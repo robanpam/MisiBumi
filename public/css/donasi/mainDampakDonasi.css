@@ -105,7 +105,7 @@ body {
 }
 
 .cardArtikel {
-    height: 20rem;
+    height: 23rem;
     width: 16.4rem;
     /* background-color: green; */
 }
@@ -179,7 +179,7 @@ body {
 
 .cardArtikel .card-body{
     /* background-color: red; */
-    height: 10rem;
+    height: 13rem;
 }
 
 
